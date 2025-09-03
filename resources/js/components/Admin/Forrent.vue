@@ -156,7 +156,7 @@
                       class="badge"
                       :class="{
                         'badge-custom-for-rent': property.status === 'For Rent',
-                        'badge-custom-sold': property.status === 'Sold',
+                        'badge-custom-sold': property.status === 'Occupied',
                         'badge-custom-pending': property.status === 'Pending',
                         'badge-custom-available':
                           property.status === 'Available',

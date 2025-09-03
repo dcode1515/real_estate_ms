@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Tenant;
 use App\Models\Property;
 use Carbon\Carbon;
+use App\Models\Tenancy;
 
 
 class AdminController extends Controller
@@ -360,6 +361,129 @@ class AdminController extends Controller
                 'error' => 'An error occurred: ' . $e->getMessage()
             ], 500);
         }
+    }
+    public function create_tenancy(){
+        return view('admin.create_tenancy');
+    }
+
+     public function getAvailableProperties(Request $request)
+    {
+            $properties  = Property::where('status', 'Available')
+            ->where('status_type', 'For Rent')
+            ->get(['id', 'property_no', 'property_name', 'monthly_rate']);
+        return response()->json($properties);
+    }
+     public function getAvailableTenant(Request $request)
+    {
+            $properties  = Tenant::where('status', 'Active')
+            ->get(['id', 'tenant_name', 'contact_number','tenant_no']);
+        return response()->json($properties);
+    }
+
+    public function store_tenancy_lease(Request $request)
+    {
+        
+        // Check if the tenant already has a rented property
+        $existingTenancy = Tenancy::where('tenant_id', $request->tenant)
+            ->where('status', 'Rented')
+            ->first();
+
+            
+        if ($existingTenancy) {
+            // If tenancy already exists, return custom error response
+            return response()->json(['exist' => 'This tenant is already renting the selected property.'], 422);
+        }
+
+        $tenancy  = new Tenancy();
+        $text = "TRANSACTI0N-";
+        $now = Carbon::now()->format('Y');
+        $transaction_no = Tenancy::IDGenerator(new Tenancy,'transaction_no', 4,$text.$now);
+        $tenancy->transaction_no = $transaction_no;
+        $tenancy->date_created = Carbon::now();
+        $tenancy->property_id = $request->propertyAvailed;
+        $tenancy->tenant_id = $request->tenant;
+        $tenancy->lease_start_date = $request->leaseStartDate;
+        $tenancy->lease_end_date = $request->leaseEndDate;
+        $tenancy->monthly_rent_amount = $request->monthlyRent;
+        $tenancy->lease_duration = $request->leaseDuration;
+        $tenancy->total_amount = $request->totalAmount;
+        $tenancy->tenancy_terms = $request->tenancyTerms;
+   
+        $tenancy->status = "Rented";
+        $fileFields = ['upload_lease_document'];
+        $uploadPath = public_path('TenancyLeases/' . $transaction_no);
+
+        if (!file_exists($uploadPath)) {
+            mkdir($uploadPath, 0755, true);
+        }
+
+        foreach ($fileFields as $field) {
+            if ($request->hasFile($field) && $request->file($field)->isValid()) {
+                $file = $request->file($field);
+                $ext = $file->getClientOriginalExtension();
+                $rootName = strtoupper(str_replace(' ', '_', $tenancy->tenant->tenant_name));
+                $fileName = now()->year . '-' . $rootName . '.' . $transaction_no . '.' . $field . '.' . $ext;
+                $file->move($uploadPath, $fileName);
+                $tenancy->$field = $fileName;
+            }
+        }
+
+        $tenancy->save();
+          $property = Property::find($request->propertyAvailed); // Find the property by ID
+        if ($property) {
+            $property->status = 'Occupied'; // Update the property status
+            $property->save(); // Save the updated property
+        }
+
+        return response()->json(['message' => $tenancy]);
+    }
+
+    public function show_tenancy(){
+        return view('admin.show_tenancy');
+    }
+
+     public function getDataTenancy(Request $request)
+    {
+
+        try {
+            $search = $request->query('search');
+            $perPage = $request->query('per_page', 10); // Default to 10 if per_page is not provided
+     
+            $properties = Tenancy::with(['tenant','property'])
+                ->when($search, function ($query, $search) {
+                    return $query
+                        ->where('transaction_no', 'like', '%' . $search . '%')
+                         ->orWhere('date_created', 'like', '%' . $search . '%')
+                        ->orWhere('lease_start_date', 'like', '%' . $search . '%')
+                        ->orWhere('lease_end_date', 'like', '%' . $search . '%')
+                        ->orWhere('monthly_rent_amount', 'like', '%' . $search . '%')
+                         ->orWhereHas('tenant', function ($q) use ($search) {
+                            $q->where('tenant_name', 'like', '%' . $search . '%');
+                        })
+                          ->orWhereHas('property', function ($q) use ($search) {
+                            $q->where('property_name', 'like', '%' . $search . '%');
+                        });
+                       
+
+                })
+               
+                ->where('status', 'Rented')
+                ->paginate($perPage);
+
+            return response()->json([
+                'success' => true,
+                'data' => $properties
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'error' => 'An error occurred: ' . $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function payment(){
+        return view('admin.payment');
     }
      
 

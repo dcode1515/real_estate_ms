@@ -23,6 +23,11 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('Login', require('./components/Auth/Login.vue').default);
 Vue.component('Tenants', require('./components/Admin/Tenants.vue').default);
 Vue.component('Forrent', require('./components/Admin/Forrent.vue').default);
+Vue.component('Createtanancy', require('./components/Admin/Createtanancy.vue').default);
+Vue.component('Showtenancy', require('./components/Admin/Showtenancy.vue').default);
+Vue.component('Payment', require('./components/Admin/Payment.vue').default);
+
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

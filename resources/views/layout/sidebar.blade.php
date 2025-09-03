@@ -96,20 +96,32 @@
                     <div class="collapse menu-dropdown" id="recruitmentDropdown">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="" class="nav-link">Draft Position</a>
+                                <a href="{{route('create.tenancy')}}" class="nav-link">Create Tenancy</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">Published Position</a>
+                                <a href="{{route('show.tenancy')}}" class="nav-link">Show Tenancy</a>
                             </li>
                         </ul>
                     </div>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="">
-                        <i class="ri-user-3-line"></i> <span data-key="t-authentication">Payment</span>
-                    </a>
+                                <li class="nav-item">
+                <a class="nav-link menu-link" href="#transactionDropdown" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="transactionDropdown">
+                  <i class="ri-exchange-dollar-line"></i>
+                    <span data-key="t-authentication">Transaction</span>
+                </a>
+                <div class="collapse menu-dropdown" id="transactionDropdown">
+                    <ul class="nav nav-sm flex-column">
+                    <li class="nav-item">
+                        <a href="{{ route('payment.index') }}" class="nav-link">Payment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">Ledger</a>
+                    </li>
+                    </ul>
+                </div>
                 </li>
+
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="">

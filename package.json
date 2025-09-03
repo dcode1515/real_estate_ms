@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "sweetalert2": "^11.22.5",
-        "toastr": "^2.1.4"
+        "toastr": "^2.1.4",
+        "vue-select": "^3.20.4"
     }
 }
