@@ -335,14 +335,14 @@ CREATE TABLE IF NOT EXISTS `property` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table lapms.property: ~8 rows (approximately)
+-- Dumping data for table lapms.property: ~7 rows (approximately)
 REPLACE INTO `property` (`id`, `property_no`, `date_created`, `property_name`, `description_of_property`, `property_type`, `province`, `municipality`, `barangay`, `zip_code`, `street`, `bedrooms`, `sq_meter`, `car_park`, `type`, `toilet`, `bathroom`, `monthly_rate`, `status_type`, `furnishing`, `image`, `rentedidle`, `status`, `created_at`, `updated_at`, `deleted_at`, `image2`, `image3`) VALUES
 	(1, 'PN-20240000', '2025-09-02', 'WOODRIDGE INCORPORATION', 'Woodridge is also home to several upscale townhouses called Woodridge Park Homes. Each residence is clustered into one of three design themes: North Forest Park Homes, Narra Park', 'Condo', 'COTABATO CITY', 'DAVAO CITY', 'TIBUNGCO', '8000', 'BLK 43 LOT 6 STREET', '2', '3', '2', 'For Sale', '4', '2', '4000', 'For Rent', 'Furnished', '2024-WOODRIDGE_INCORPORATION.PN-20240000-1.png', 'Available', 'Occupied', '2024-08-05 01:11:24', '2025-09-02 22:26:51', NULL, '2024-WOODRIDGE_INCORPORATION.PN-20240000-2.png', '2024-WOODRIDGE_INCORPORATION.PN-20240000-3.png'),
 	(2, 'PN-20240001', '2025-09-02', 'PROPERTY NAME', 'Woodridge is also home to several upscale townhouses called Woodridge Park Homes. Each residence is clustered into one of three design themes: North Forest Park Homes, Narra Park', 'Real State', 'COTABATO CITY', 'dsa', 'dsadsa', '8000', 'BLK 43 LOT 6 STREET', '12', '32', '12', 'For Rent', '32', '32', '10000', 'For Rent', 'Furnished', '2024-PROPERTY_NAME.PN-20240001-1.jpg', 'Available', 'Occupied', '2024-08-05 01:15:49', '2025-09-02 23:36:27', NULL, '2024-PROPERTY_NAME.PN-20240001-2.jpg', '2024-PROPERTY_NAME.PN-20240001-3.jpg'),
 	(3, 'PN-20240002', '2025-09-02', 'DASDSA', 'SADSADAS', 'Real State', 'cxzcxzcxz', 'zxcxzcxz', 'czxcxz', '8000', 'cxzcxzcxz', '12', '1321', '312', 'For Rent', '1321', '321', '50000', 'For Rent', 'Unfurnished', '2024-DASDSA.PN-20240002-1.jpg', 'Available', 'Occupied', '2024-08-05 01:16:18', '2025-09-02 22:28:24', NULL, '2024-DASDSA.PN-20240002-2.jpg', '2024-DASDSA.PN-20240002-3.jpg'),
 	(4, '2025240003', '2025-09-02', 'DANRICK PROPERTY', 'LOCATED AT DAVAO CITY', 'Apartment', 'DAVAO DEL SUR', 'DAVAO CITY', NULL, '8000', 'SANTAN STEET DAVAO CITY', '3', '3', '12', NULL, '3', '4', '2600', 'For Rent', 'Furnished', '2025-DANRICK_PROPERTY.2025240003.image.png', NULL, 'Available', '2025-09-01 23:13:18', '2025-09-02 21:46:55', NULL, NULL, NULL),
 	(5, 'PN-20250004', '2025-09-02', 'DANRICK PROPERTY', 'DASDS', 'Apartment', 'COTABATO CITY', 'DAVAO CITY', NULL, '8000', 'BLK 43 LOT 6 STREET', '31', '1231', '13', NULL, '31', '31', '1800', 'For Rent', 'Semi-Furnished', '2025-DANRICK_PROPERTY.PN-20250004.image.png', NULL, 'Available', '2025-09-01 23:16:19', '2025-09-02 21:35:23', NULL, NULL, NULL),
-	(6, 'PN-20250005', '2025-09-02', 'bandiokla PROPERTY', 'sadsa', 'Apartment', 'COTABATO CITY', 'DAVAO CITY', NULL, '8000', 'BLK 43 LOT 6 STREET', '12', '32', '2', NULL, '213', '3213', '32131', 'For Rent', 'Semi-Furnished', '2025-BANDIOKLA_PROPERTY.PN-20250005.image.png', NULL, 'Available', '2025-09-01 23:19:48', '2025-09-01 23:19:48', NULL, NULL, NULL),
+	(6, 'PN-20250005', '2025-09-02', 'bandiokla PROPERTY', 'sadsa', 'Apartment', 'COTABATO CITY', 'DAVAO CITY', NULL, '8000', 'BLK 43 LOT 6 STREET', '12', '32', '2', NULL, '213', '3213', '32131', 'For Rent', 'Semi-Furnished', '2025-BANDIOKLA_PROPERTY.PN-20250005.image.png', NULL, 'Occupied', '2025-09-01 23:19:48', '2025-09-03 20:46:35', NULL, NULL, NULL),
 	(7, 'PN-20250006', '2025-09-02', 'test1232dasda', 'test1232dasda', 'House', 'COTABATO CITY', 'DAVAO CITY', NULL, '8000', 'BLK 43 LOT 6 STREET', '2', '12', '12', NULL, '3', '4', '131', 'For Rent', 'Furnished', '2025-TEST1232DASDA.PN-20250006.image.jpg', NULL, 'Available', '2025-09-02 00:12:53', '2025-09-02 00:12:53', NULL, NULL, NULL),
 	(8, 'PN-20250007', '2025-09-02', 'diszaya corporation construction', 'dsa', 'Apartment', 'COTABATO CITY', 'DAVAO CITY', NULL, '8000', 'BLK 43 LOT 6 STREET', '2', '3', '4', NULL, '5', '2', '12321', 'For Rent', 'Furnished', '2025-DISZAYA_CORPORATION_CONSTRUCTION.PN-20250007.image.png', NULL, 'Available', '2025-09-02 00:19:56', '2025-09-02 21:54:26', NULL, NULL, NULL);
 
@@ -384,12 +384,13 @@ CREATE TABLE IF NOT EXISTS `tenancy_leases` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table lapms.tenancy_leases: ~2 rows (approximately)
 REPLACE INTO `tenancy_leases` (`id`, `transaction_no`, `date_created`, `property_id`, `tenant_id`, `lease_start_date`, `lease_end_date`, `monthly_rent_amount`, `lease_duration`, `total_amount`, `upload_lease_document`, `tenancy_terms`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
 	(1, 'TRANSACTI0N-20250000', '2025-09-03', 1, 1, '2025-09-03', '2026-01-03', 100, '0 year(s) 3 month(s)', 93693, '2025-DIZAYA.TRANSACTI0N-20250000.upload_lease_document.pdf', 'dsadsada', 'Rented', '2025-09-02 22:26:51', '2025-09-02 22:26:51', NULL),
-	(2, 'TRANSACTI0N-20250001', '2025-09-03', 3, 4, '2025-09-03', '2025-12-25', 31231, '0 year(s) 3 month(s)', 93693, '2025-DASD.TRANSACTI0N-20250001.upload_lease_document.pdf', 'dasda', 'Rented', '2025-09-02 22:28:24', '2025-09-02 22:28:24', NULL);
+	(2, 'TRANSACTI0N-20250001', '2025-09-03', 3, 4, '2025-09-03', '2025-12-25', 31231, '0 year(s) 3 month(s)', 93693, '2025-DASD.TRANSACTI0N-20250001.upload_lease_document.pdf', 'dasda', 'Rented', '2025-09-02 22:28:24', '2025-09-02 22:28:24', NULL),
+	(3, 'TRANSACTI0N-20250002', '2025-09-04', 6, 8, '2025-09-04', '2026-09-04', 3500, '1 year(s) 0 month(s)', 42000, '2025-CHRISTINE_MAE_CALUNSOD.TRANSACTI0N-20250002.upload_lease_document.pdf', '1 MONTH PAY', 'Rented', '2025-09-03 20:46:35', '2025-09-03 20:46:35', NULL);
 
 -- Dumping structure for table lapms.tenant
 CREATE TABLE IF NOT EXISTS `tenant` (
@@ -411,17 +412,18 @@ CREATE TABLE IF NOT EXISTS `tenant` (
   `deleted_at` timestamp NULL DEFAULT NULL,
   `tenant_no` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table lapms.tenant: ~6 rows (approximately)
+-- Dumping data for table lapms.tenant: ~8 rows (approximately)
 REPLACE INTO `tenant` (`id`, `property_id`, `date_created`, `tenant_name`, `address`, `contact_number`, `rate`, `period`, `duedate`, `contracts`, `id1`, `id2`, `status`, `created_at`, `updated_at`, `deleted_at`, `tenant_no`) VALUES
-	(1, NULL, '2025-09-02', 'DIZAYA', 'MANILA', '091134567', '12', '123', '2025-09-02', '2025-DIZAYA.20250000.contracts.pdf', '2025-DIZAYA.20250000.id1.png', '2025-DIZAYA.20250000.id2.jpg', 'Active', '2025-09-01 20:34:37', '2025-09-01 21:24:45', NULL, '20250000'),
+	(1, NULL, '2025-09-02', 'DANRICK C. TEKIKO', 'MANILA', '091134567', '12', '123', '2025-10-04', '2025-DIZAYA.20250000.contracts.pdf', '2025-DIZAYA.20250000.id1.png', '2025-DIZAYA.20250000.id2.jpg', 'Active', '2025-09-01 20:34:37', '2025-09-04 00:20:54', NULL, '20250000'),
 	(2, NULL, '2025-09-02', 'WOIWIN CONTRACTORS', 'dasda', '09199533529', '321321', 'adasda', '2025-09-02', '2025-DSAD.20250001.contracts.pdf', '2025-DSAD.20250001.id1.png', '2025-DSAD.20250001.id2.png', 'Active', '2025-09-01 20:35:25', '2025-09-01 21:30:12', NULL, '20250001'),
 	(3, NULL, '2025-09-02', 'dasd', 'dasdas', '09199533529', '32131', '12', '2025-09-02', '2025-DASD.20250002.contracts.pdf', '2025-DASD.20250002.id1.png', '2025-DASD.20250002.id2.png', 'Active', '2025-09-01 20:36:12', '2025-09-01 20:36:12', NULL, '20250002'),
-	(4, NULL, '2025-09-02', 'dasd', 'DASDAS', '09199533529', '1321', '321321', '2025-09-02', '2025-DASD.20250003.contracts.pdf', '2025-DASD.20250003.id1.png', '2025-DASD.20250003.id2.jpg', 'Active', '2025-09-01 20:37:52', '2025-09-01 20:37:52', NULL, '20250003'),
+	(4, NULL, '2025-09-02', 'dasd', 'DASDAS', '09199533529', '1321', '321321', '2025-10-04', '2025-DASD.20250003.contracts.pdf', '2025-DASD.20250003.id1.png', '2025-DASD.20250003.id2.jpg', 'Active', '2025-09-01 20:37:52', '2025-09-03 21:45:58', NULL, '20250003'),
 	(5, NULL, '2025-09-02', 'dsadsa', 'dsadad', '09199533529', '31231', '123', '2025-09-02', '2025-DSADSA.20250004.contracts.pdf', '2025-DSADSA.20250004.id1.png', '2025-DSADSA.20250004.id2.jpg', 'Active', '2025-09-01 20:38:43', '2025-09-01 20:38:43', NULL, '20250004'),
 	(6, NULL, '2025-09-02', 'dsdsa', 'dasda', '09199533529', '12', '3', '2025-09-02', '2025-DSDSA.20250005.contracts.pdf', '2025-DSDSA.20250005.id1.png', '2025-DSDSA.20250005.id2.jpg', 'Active', '2025-09-01 20:40:49', '2025-09-01 20:40:49', NULL, '20250005'),
-	(7, 2, '2025-09-03', 'das', 'dsadsa', '09199533529', '312', '2', '2025-09-03', '2025-DAS.20250006.contracts.pdf', '2025-DAS.20250006.id1.png', '2025-DAS.20250006.id2.jpg', 'Rented', '2025-09-02 23:36:27', '2025-09-02 23:36:27', NULL, '20250006');
+	(7, 2, '2025-09-03', 'das', 'dsadsa', '09199533529', '312', '2', '2025-09-03', '2025-DAS.20250006.contracts.pdf', '2025-DAS.20250006.id1.png', '2025-DAS.20250006.id2.jpg', 'Rented', '2025-09-02 23:36:27', '2025-09-02 23:36:27', NULL, '20250006'),
+	(8, NULL, '2025-09-04', 'CHRISTINE MAE CALUNSOD', 'MATI DAVAO ORIENTAK', '09199533529', '1000', '2', '2025-10-04', '2025-CHRISTINE_MAE_CALUNSOD.20250007.contracts.pdf', '2025-CHRISTINE_MAE_CALUNSOD.20250007.id1.png', '2025-CHRISTINE_MAE_CALUNSOD.20250007.id2.png', 'Active', '2025-09-03 20:45:30', '2025-09-04 00:25:27', NULL, '20250007');
 
 -- Dumping structure for table lapms.tenant_payment
 CREATE TABLE IF NOT EXISTS `tenant_payment` (
@@ -430,24 +432,23 @@ CREATE TABLE IF NOT EXISTS `tenant_payment` (
   `property_id` int DEFAULT NULL,
   `user_id` int DEFAULT NULL,
   `invoice` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `transaction_no` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `mode_of_payment` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `acctno` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `amount` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `paymentproof` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `proof_of_payment` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `date_paid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `status` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table lapms.tenant_payment: ~4 rows (approximately)
-REPLACE INTO `tenant_payment` (`id`, `tenant_id`, `property_id`, `user_id`, `invoice`, `mode_of_payment`, `acctno`, `amount`, `paymentproof`, `date_paid`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(1, 1, 1, 1, 'INV20240000', 'Cash', NULL, '500', '2024-CASH.INV20240000.jpg', '2024-07-28', 'Paid', '2024-07-27 20:33:29', '2024-07-27 20:33:29', NULL),
-	(2, 1, 1, 1, 'INV20240001', 'G-Cash', '091995533529', '5600', '2024-G-CASH.INV20240001.pdf', '2024-08-29', 'Paid', '2024-07-27 20:34:00', '2024-07-27 20:34:00', NULL),
-	(3, 1, 1, 1, 'INV20240002', 'G-Cash', '0919953356', '5000', '2024-G-CASH.INV20240002.pdf', '2024-09-28', 'Paid', '2024-07-27 20:36:47', '2024-07-27 20:36:47', NULL),
-	(4, 1, 1, 1, 'INV20250003', 'G-Cash', '312321', '31231', '2025-G-CASH.INV20250003.png', '2025-09-02', 'Paid', '2025-09-01 17:27:13', '2025-09-01 17:27:13', NULL);
+-- Dumping data for table lapms.tenant_payment: ~2 rows (approximately)
+REPLACE INTO `tenant_payment` (`id`, `tenant_id`, `property_id`, `user_id`, `invoice`, `transaction_no`, `mode_of_payment`, `acctno`, `amount`, `proof_of_payment`, `date_paid`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+	(1, 8, 6, 1, 'INV20250000', '2025-0001', 'Cash', 'undefined', '3500', 'INV20250000/2025-INV20250000.png', '2025-09-04', 'Paid', '2025-09-04 00:23:19', '2025-09-04 00:23:19', NULL),
+	(2, 8, 6, 1, 'INV20250001', '2025-0002', 'G-Cash', '09199533529', '3500', 'INV202500012025-INV20250001.png', '2025-09-04', 'Paid', '2025-09-04 00:25:27', '2025-09-04 00:25:27', NULL);
 
 -- Dumping structure for table lapms.users
 CREATE TABLE IF NOT EXISTS `users` (

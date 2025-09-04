@@ -39,6 +39,10 @@ Route::post('/api/store/tenancy', [App\Http\Controllers\AdminController::class, 
 Route::get('/show/tenancy', [App\Http\Controllers\AdminController::class, 'show_tenancy'])->name('show.tenancy');
 Route::get('/api/get/data/tenancy', [App\Http\Controllers\AdminController::class, 'getDataTenancy']);
 Route::get('/payment', [App\Http\Controllers\AdminController::class, 'payment'])->name('payment.index');
+Route::get('/get-tenancies', [App\Http\Controllers\AdminController::class, 'getAllTenancyData']);
+Route::get('/get-tenancy/{tenantId}', [App\Http\Controllers\AdminController::class, 'getTenancyByTenant']);
+Route::post('/api/store/payment', [App\Http\Controllers\AdminController::class, 'store_tenant_payment']);
+Route::get('/api/get/data/payment', [App\Http\Controllers\AdminController::class, 'getDataPayment']);
 
 
 

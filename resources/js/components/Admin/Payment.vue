@@ -24,7 +24,7 @@
             <i class="fas fa-coins icon"></i>
             <span class="income-label">Today Income</span>
             <h4 class="fw-bold mt-2" style="color: white">
-              ₱{{ formatAmount(todayIncome) }}
+              ₱{{ formatAmount(today_income) }}
             </h4>
           </div>
         </div>
@@ -36,7 +36,7 @@
             <i class="fas fa-calendar-alt icon"></i>
             <span class="income-label">Monthly Income</span>
             <h4 class="fw-bold mt-2" style="color: white">
-              ₱{{ formatAmount(monthlyIncome) }}
+              ₱{{ formatAmount(monthly_income) }}
             </h4>
           </div>
         </div>
@@ -48,7 +48,7 @@
             <i class="fas fa-calendar icon"></i>
             <span class="income-label">Yearly Income</span>
             <h4 class="fw-bold mt-2" style="color: white">
-              ₱{{ formatAmount(yearlyIncome) }}
+              ₱{{ formatAmount(yearly_income) }}
             </h4>
           </div>
         </div>
@@ -60,14 +60,18 @@
             <i class="fas fa-wallet icon"></i>
             <span class="income-label">Overall Income</span>
             <h4 class="fw-bold mt-2" style="color: white">
-              ₱{{ formatAmount(overallIncome) }}
+              ₱{{ formatAmount(total_income) }}
             </h4>
           </div>
         </div>
       </div>
       <div class="row mb-3">
         <div class="col-md-2">
-          <select class="form-control">
+          <select
+            class="form-control"
+            v-model="perPage"
+            @change="getDataPayment"
+          >
             <option value="5">5 per page</option>
             <option value="10">10 per page</option>
             <option value="25">25 per page</option>
@@ -78,6 +82,8 @@
 
         <div class="col-md-8">
           <input
+            v-model="searchQuery"
+            @input="getDataPayment"
             type="text"
             class="form-control"
             style="position: left"
@@ -85,11 +91,7 @@
           />
         </div>
         <div class="col-md-2 d-flex justify-content-end align-items-center">
-          <a
-            v-bind:href="'/real_estate_ms/create/tenancy'"
-            class="btn btn-success"
-            type="button"
-          >
+          <a @click="openModal('add')" class="btn btn-success" type="button">
             <i class="fas fa-plus"></i> Create Payment
           </a>
         </div>
@@ -113,7 +115,6 @@
                 <th style="background-color: #198754; color: white">
                   Account Number
                 </th>
-                <th style="background-color: #198754; color: white">Total</th>
 
                 <th style="background-color: #198754; color: white">
                   Date Paid
@@ -127,7 +128,7 @@
                   Tenant Information
                 </th>
                 <th
-                  colspan="4"
+                  colspan="3"
                   class="blue"
                   style="background-color: #198754; color: white"
                 >
@@ -145,8 +146,7 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                <th></th>
-                
+
                 <!-- <th>Next In Rank</th> -->
                 <th>Name</th>
 
@@ -155,24 +155,43 @@
                 <th>Property No</th>
                 <th>Property Name</th>
                 <th>Property Type</th>
-                <th>Square Meter</th>
+
                 <th></th>
               </tr>
             </thead>
             <tbody>
               <!-- Add empty rows to match the design -->
-              <tr>
-                <td class="text-center"></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+              <tr v-for="(payment, index) in payments.data" :key="payment.id">
+                <td class="text-center">
+                  {{
+                    (payments.current_page - 1) * payments.per_page + index + 1
+                  }}
+                </td>
+                <td>{{ payment.transaction_no }}</td>
+                <td>
+                  <a
+                    :href="`/real_estate_ms/public/PaymentTenant/${
+                      payment.invoice
+                    }/${
+                      payment.proof_of_payment
+                    }`"
+                    target="_blank"
+                  >
+                    {{ payment.invoice }}
+                  </a>
+                </td>
+
+                <td>{{ payment.mode_of_payment }}</td>
+                <td>{{ payment.amount }}</td>
+                <td>{{ payment.acctno }}</td>
+
+                <td>{{ payment.date_paid }}</td>
+                <td>{{ payment.tenant.tenant_name }}</td>
+                <td>{{ payment.tenant.contact_number }}</td>
+                <td>{{ payment.property.property_no }}</td>
+                <td>{{ payment.property.property_name }}</td>
+                <td>{{ payment.property.property_type }}</td>
+
                 <td class="text-center">
                   <a>
                     <i
@@ -185,29 +204,698 @@
               <!-- Repeat for more rows as needed -->
             </tbody>
           </table>
+          <nav v-if="payments.total > 0" aria-label="Page navigation">
+            <ul class="pagination justify-content-center mt-3">
+              <!-- Previous Button -->
+              <li
+                class="page-item"
+                :class="{ disabled: payments.current_page === 1 }"
+              >
+                <a
+                  class="page-link"
+                  href="#"
+                  @click.prevent="changePage(payments.current_page - 1)"
+                  >Previous</a
+                >
+              </li>
+
+              <!-- Page Numbers -->
+              <li
+                class="page-item"
+                v-for="page in totalPages"
+                :key="page"
+                :class="{ active: page === payments.current_page }"
+              >
+                <a class="page-link" href="#" @click.prevent="changePage(page)">
+                  {{ page }}
+                </a>
+              </li>
+
+              <!-- Next Button -->
+              <li
+                class="page-item"
+                :class="{
+                  disabled: payments.current_page === totalPages,
+                }"
+              >
+                <a
+                  class="page-link"
+                  href="#"
+                  @click.prevent="changePage(payments.current_page + 1)"
+                  >Next</a
+                >
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     </div>
+    <div
+      class="modal fade"
+      id="modalProperty"
+      tabindex="-1"
+      aria-labelledby="modalProperty"
+      aria-hidden="true"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+    >
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg rounded-4">
+          <!-- Header -->
+          <div
+            class="modal-header text-white py-3"
+            style="background: linear-gradient(90deg, #198754, #198754)"
+          >
+            <h4
+              class="modal-title d-flex align-items-center"
+              style="color: white"
+            >
+              <i class="fa fa-file-alt me-2"></i>{{ modalTitle }}
+            </h4>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
 
+          <!-- Body -->
+          <div class="modal-body" style="max-height: 70vh; overflow-y: auto">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card border-0 shadow-sm mb-4">
+                  <div class="card-header bg-info text-white">
+                    <i class="fas fa-user me-2"></i> Tenant & Lease Information
+                  </div>
+
+                  <div class="card-body">
+                    <!-- 🔍 Tenant Dropdown -->
+                    <div class="form-floating mb-3">
+                      <select
+                        class="form-select"
+                        v-model="selectedTenantId"
+                        @change="populateFields"
+                        required
+                      >
+                        <option disabled value="">Select Tenant</option>
+                        <option
+                          v-for="tenancy in tenancies"
+                          :key="tenancy.tenant_id"
+                          :value="tenancy.tenant_id"
+                        >
+                          {{ tenancy.tenant_name }}
+                        </option>
+                      </select>
+                      <label
+                        ><i class="fas fa-search me-1"></i> Search Tenant
+                        <span class="text-danger">*</span></label
+                      >
+                    </div>
+
+                    <!-- 🏠 Property Name -->
+                    <div class="form-floating mb-3">
+                      <input
+                        class="form-control"
+                        v-model="formData.property_name"
+                        placeholder="Property Name"
+                        disabled
+                      />
+
+                      <label for="property_name">
+                        <i class="fas fa-building me-1"></i> Property Name
+                        <span class="text-danger">*</span>
+                      </label>
+                    </div>
+
+                    <!-- 📅 Lease Dates & 💵 Amount -->
+                    <div class="row">
+                      <!-- Lease Start -->
+                      <div class="col-md-6">
+                        <div class="form-floating mb-3">
+                          <input
+                            type="date"
+                            class="form-control"
+                            id="lease_start_date"
+                            v-model="formData.lease_start_date"
+                            disabled
+                          />
+                          <label for="lease_start_date">
+                            <i class="fas fa-calendar-day me-1"></i> Lease Start
+                            Date
+                          </label>
+                        </div>
+                      </div>
+
+                      <!-- Lease End -->
+                      <div class="col-md-6">
+                        <div class="form-floating mb-3">
+                          <input
+                            type="date"
+                            class="form-control"
+                            id="lease_end_date"
+                            v-model="formData.lease_end_date"
+                            disabled
+                          />
+                          <label for="lease_end_date">
+                            <i class="fas fa-calendar-check me-1"></i> Lease End
+                            Date
+                          </label>
+                        </div>
+                      </div>
+
+                      <!-- Monthly Rate -->
+                      <div class="col-md-6">
+                        <div class="form-floating mb-3">
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="monthly_rate"
+                            v-model="formData.monthly_rent_amount"
+                            disabled
+                          />
+                          <label for="monthly_rate">
+                            <i class="fas fa-money-bill-wave me-1"></i> Monthly
+                            Rate
+                          </label>
+                        </div>
+                      </div>
+
+                      <!-- Lease Duration (calculated) -->
+                      <div class="col-md-6">
+                        <div class="form-floating mb-3">
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="lease_duration"
+                            v-model="formData.lease_duration"
+                            disabled
+                          />
+                          <label for="lease_duration">
+                            <i class="fas fa-clock me-1"></i> Lease Duration
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-content pt-3" id="propertyTabsContent">
+              <div
+                class="tab-pane fade show active"
+                id="location"
+                role="tabpanel"
+                aria-labelledby="location-tab"
+              >
+                <!-- 💳 Payment Section -->
+                <div class="card border-0 shadow-sm mb-4">
+                  <div class="card-header bg-primary text-white">
+                    <i class="fas fa-wallet me-2"></i> Payment Details
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                      <!-- Mode of Payment -->
+                      <div class="col-md-12">
+                        <label for="mode_of_payment" class="form-label">
+                          <i class="fas fa-credit-card me-1"></i> Mode of
+                          Payment <span class="text-danger">*</span>
+                        </label>
+                        <select
+                          class="form-select"
+                          id="mode_of_payment"
+                          v-model="formData.mode_of_payment"
+                          required
+                        >
+                          <option value="" disabled>Select Mode</option>
+                          <option value="G-Cash">G-Cash</option>
+
+                          <option value="Bank Deposit">Bank Deposit</option>
+                          <option value="Cash">Cash</option>
+                        </select>
+                      </div>
+
+                      <!-- GCash Number -->
+                      <div
+                        class="col-md-12"
+                        v-if="formData.mode_of_payment === 'G-Cash'"
+                      >
+                        <label for="gcash_number" class="form-label mt-3">
+                          <i class="fab fa-google-pay me-1"></i> GCash Number
+                          <span class="text-danger">*</span>
+                        </label>
+                        <div class="input-group">
+                          <span class="input-group-text"
+                            ><i class="fab fa-google-wallet"></i
+                          ></span>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="gcash_number"
+                            v-model="formData.acctno"
+                            placeholder="09xxxxxxxxx"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <!-- Bank Account Number -->
+                      <div
+                        class="col-md-12"
+                        v-if="formData.mode_of_payment === 'Bank Deposit'"
+                      >
+                        <label
+                          for="bank_account_number"
+                          class="form-label mt-3"
+                        >
+                          <i class="fas fa-building-columns me-1"></i> Bank
+                          Account Number <span class="text-danger">*</span>
+                        </label>
+                        <div class="input-group">
+                          <span class="input-group-text"
+                            ><i class="fas fa-bank"></i
+                          ></span>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="bank_account_number"
+                            v-model="formData.acctno"
+                            placeholder="Enter bank account number"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <!-- Amount -->
+                      <div class="col-md-4 mt-3">
+                        <label for="amount" class="form-label">
+                          <i class="fas fa-money-bill-wave me-1"></i> Amount
+                          <span class="text-danger">*</span>
+                        </label>
+                        <div class="input-group">
+                          <span class="input-group-text"
+                            ><i class="fas fa-peso-sign"></i
+                          ></span>
+                          <input
+                            type="number"
+                            step="0.01"
+                            class="form-control"
+                            id="amount"
+                            v-model="formData.amount"
+                            placeholder="0.00"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <!-- Date Paid -->
+                      <div class="col-md-4 mt-3">
+                        <label for="date_paid" class="form-label">
+                          <i class="fas fa-calendar-check me-1"></i> Date Paid
+                          <span class="text-danger">*</span>
+                        </label>
+                        <input
+                          type="date"
+                          class="form-control"
+                          id="date_paid"
+                          v-model="formData.date_paid"
+                          required
+                        />
+                      </div>
+
+                      <!-- Proof of Payment -->
+                      <div class="col-md-4 mt-3">
+                        <label for="proof_of_payment" class="form-label">
+                          <i class="fas fa-file-upload me-1"></i> Proof of
+                          Payment <span class="text-danger">*</span>
+                        </label>
+                        <input
+                          type="file"
+                          class="form-control"
+                          id="image"
+                          accept="image/*"
+                          @change="handleFileUpload($event, 'proof_of_payment')"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div
+            class="modal-footer bg-light border-0 py-3 px-4 d-flex justify-content-end"
+          >
+            <button
+              type="button"
+              class="btn btn-success px-4 py-2 shadow-sm"
+              :disabled="isSubmitting"
+              @click="submitPayment"
+            >
+              <!-- Spinner icon while submitting -->
+              <span v-if="isSubmitting">
+                <i class="fas fa-spinner fa-spin me-2"></i> Saving...
+              </span>
+
+              <!-- Add or Edit icon and label -->
+              <span v-else>
+                <i class="fas fa-save me-2"></i>
+                {{ modalMode === "add" ? "Add Property" : "Save Changes" }}
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Your existing tabs -->
   </div>
 </template>
 
 <script>
+import Swal from "sweetalert2";
 export default {
   data() {
     return {
-      todayIncome: 9300,
-      monthlyIncome: 75000,
-      yearlyIncome: 912000,
-      overallIncome: 3500000,
+      searchQuery: "",
+      perPage: 10,
+      payments: {
+        data: [],
+        current_page: 1,
+        last_page: 1,
+        per_page: 10,
+        total: 0,
+      },
+      selectedTenantId: "",
+      tenancies: [],
+      isSubmitting: false,
+      modalTitle: "",
+      modalMode: "add",
+
+      formData: {
+        id: "",
+        property_id: "",
+        mode_of_payment: "",
+        acctno: "",
+        amount: "",
+        date_paid: "",
+        proof_of_payment: "Cash",
+        tenant_name: "",
+        property_name: "",
+
+        lease_start_date: "",
+        lease_end_date: "",
+        monthly_rent_amount: "",
+        lease_duration: "",
+      },
     };
   },
   methods: {
+    async getDataPayment() {
+      try {
+        const response = await axios.get(
+          "/real_estate_ms/api/get/data/payment",
+          {
+            params: {
+              page: this.payments.current_page,
+              per_page: this.perPage,
+              search: this.searchQuery,
+            },
+          }
+        );
+
+        this.payments = response.data.data;
+        this.payments = response.data.data;
+
+        // Set totals
+        const totals = response.data.totals;
+        this.total_income = totals.total_income;
+        this.today_income = totals.today_income;
+        this.monthly_income = totals.monthly_income;
+        this.yearly_income = totals.yearly_income;
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    },
+    changePage(page) {
+      if (page >= 1 && page <= this.totalPages) {
+        this.payments.current_page = page;
+        this.getDataPayment();
+      }
+    },
+
+    async submitPayment() {
+      try {
+        // Frontend Validation
+        if (!this.selectedTenantId) {
+          Swal.fire("Validation Error", "Please select a Tenant.", "error");
+          return;
+        }
+
+        if (!this.formData.mode_of_payment) {
+          Swal.fire(
+            "Validation Error",
+            "Please select the mode of payment.",
+            "error"
+          );
+          return;
+        }
+
+        // Validate `acctno` based on `mode_of_payment`
+        if (
+          this.formData.mode_of_payment === "G-Cash" ||
+          this.formData.mode_of_payment === "Bank Deposit"
+        ) {
+          if (!this.formData.acctno) {
+            // Specific validation message based on payment mode
+            const errorMessage =
+              this.formData.mode_of_payment === "G-Cash"
+                ? "Please provide your G-Cash account number."
+                : "Please provide your Bank account number.";
+
+            Swal.fire("Validation Error", errorMessage, "error");
+            return;
+          }
+        }
+
+        // If mode_of_payment is "Cash", acctno is not required
+        // "E-Payment" or other modes do not require acctno
+        if (this.formData.mode_of_payment !== "Cash" && !this.formData.acctno) {
+          Swal.fire(
+            "Validation Error",
+            "Please provide account number.",
+            "error"
+          );
+          return;
+        }
+
+        // If mode_of_payment is "Cash", acctno is not required
+        if (this.formData.mode_of_payment !== "Cash" && !this.formData.acctno) {
+          Swal.fire(
+            "Validation Error",
+            "Please provide account number.",
+            "error"
+          );
+          return;
+        }
+
+        if (!this.formData.amount || this.formData.amount <= 0) {
+          Swal.fire(
+            "Validation Error",
+            "Please enter a valid payment amount.",
+            "error"
+          );
+          return;
+        }
+        if (!this.formData.date_paid) {
+          Swal.fire(
+            "Validation Error",
+            "Please select the date paid.",
+            "error"
+          );
+          return;
+        }
+
+        // Step 1: Confirm Submission
+        const confirmation = await Swal.fire({
+          title: "Are you sure?",
+          text: "You are about to submit the payment. Do you want to proceed?",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Yes, Submit",
+          cancelButtonText: "Cancel",
+        });
+
+        if (!confirmation.isConfirmed) {
+          return;
+        }
+
+        // Step 2: Create FormData and Submit
+        this.isSubmitting = true;
+
+        const formData = new FormData();
+        formData.append("mode_of_payment", this.formData.mode_of_payment);
+        formData.append("selectedTenantId", this.selectedTenantId);
+        formData.append("property_id", this.formData.property_id);
+        formData.append("acctno", this.formData.acctno);
+        formData.append("amount", this.formData.amount);
+        formData.append("date_paid", this.formData.date_paid);
+
+        // Optional fields
+        if (this.formData.proof_of_payment) {
+          formData.append("proof_of_payment", this.formData.proof_of_payment);
+        }
+
+        // Step 3: Send the request
+        let response = await axios.post(
+          "/real_estate_ms/api/store/payment",
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+
+        // Success Handling
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Payment has been successfully submitted.",
+          confirmButtonText: "OK",
+        }).then(() => {
+          window.location.href = "/real_estate_ms/payment";
+        });
+      } catch (error) {
+        console.error(error);
+
+        // Handle validation or other errors
+        if (error.response && error.response.status === 422) {
+          const data = error.response.data;
+
+          if (data.errors) {
+            let errorMessages = '<ul style="text-align: left;">';
+            for (const key in data.errors) {
+              if (data.errors.hasOwnProperty(key)) {
+                errorMessages += `<li>${data.errors[key][0]}</li>`;
+              }
+            }
+            errorMessages += "</ul>";
+
+            Swal.fire({
+              icon: "error",
+              title: "Validation Error",
+              html: errorMessages,
+            });
+          }
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Submission Failed",
+            text: "Something went wrong while submitting the form.",
+          });
+        }
+      } finally {
+        this.isSubmitting = false;
+      }
+    },
+
+    async loadTenancies() {
+      try {
+        const response = await fetch("/real_estate_ms/get-tenancies");
+        this.tenancies = await response.json();
+      } catch (err) {
+        console.error("Failed to load tenancies:", err);
+      }
+    },
+    populateFields() {
+      const tenancy = this.tenancies.find(
+        (t) => t.tenant_id === this.selectedTenantId
+      );
+
+      if (tenancy) {
+        this.formData.property_id = tenancy.property_id; // ✅ Use ID
+        this.formData.property_name = tenancy.property_name;
+        this.formData.lease_start_date = tenancy.lease_start_date;
+        this.formData.lease_end_date = tenancy.lease_end_date;
+        this.formData.monthly_rent_amount = tenancy.monthly_rent_amount;
+        this.formData.lease_duration = tenancy.lease_duration;
+      }
+    },
+
+    handleFileUpload(event, field) {
+      this.formData[field] = event.target.files[0];
+    },
+    openModal(mode, property) {
+      this.formData = {
+        id: "",
+        date_created: "",
+        property_name: "",
+        province: "",
+        municipality: "",
+        barangay: "",
+        street: "",
+        zip_code: "",
+        description_of_property: "",
+        bedrooms: "",
+        sq_meter: "",
+        car_park: "",
+        toilet: "",
+        bathroom: "",
+        monthly_rate: "",
+        furnishing: "",
+        image: null,
+      };
+
+      this.modalMode = mode;
+      this.modalTitle =
+        mode === "add"
+          ? "Create Payment"
+          : mode === "edit"
+          ? "Edit Payment"
+          : "View Payment";
+
+      if (mode === "edit" || mode === "view") {
+        this.formData.id = property.id;
+        this.formData.date_created = property.date_created;
+        this.formData.property_name = property.property_name;
+        this.formData.province = property.province;
+        this.formData.municipality = property.municipality;
+        this.formData.barangay = property.barangay;
+        this.formData.street = property.street;
+        this.formData.zip_code = property.zip_code;
+        this.formData.description_of_property =
+          property.description_of_property;
+        this.formData.bedrooms = property.bedrooms;
+        this.formData.sq_meter = property.sq_meter;
+        this.formData.car_park = property.car_park;
+        this.formData.toilet = property.toilet;
+        this.formData.bathroom = property.bathroom;
+        this.formData.monthly_rate = property.monthly_rate;
+        this.formData.furnishing = property.furnishing;
+        this.formData.property_type = property.property_type;
+        this.formData.image = property.image;
+      }
+
+      $("#modalProperty").modal("show");
+    },
     formatAmount(value) {
       if (!value) return "0";
       return new Intl.NumberFormat("en-US").format(value);
     },
+  },
+  computed: {
+    totalPages() {
+      return Math.ceil(this.payments.total / this.payments.per_page);
+    },
+  },
+
+  mounted() {
+    this.getDataPayment();
+    this.loadTenancies();
   },
 };
 </script>

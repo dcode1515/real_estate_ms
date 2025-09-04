@@ -7,6 +7,8 @@ use App\Models\Tenant;
 use App\Models\Property;
 use Carbon\Carbon;
 use App\Models\Tenancy;
+use App\Models\PaymentTenant;
+use Auth;
 
 
 class AdminController extends Controller
@@ -485,6 +487,166 @@ class AdminController extends Controller
     public function payment(){
         return view('admin.payment');
     }
-     
+        public function getAllTenancyData()
+        {
+            $tenancies = Tenancy::with(['tenant', 'property'])
+                ->latest()
+                ->get()
+                ->map(function ($tenancy) {
+                    return [
+                        'tenant_id' => $tenancy->tenant_id,
+                        'tenant_name' => $tenancy->tenant->tenant_name ?? 'Unknown Tenant',
+                         'property_id' => $tenancy->property_id, // ✅ Add this
+                        'property_name' => $tenancy->property->property_name ?? 'Unknown Property',
+                        'lease_start_date' => $tenancy->lease_start_date ?? 'Unknown ',
+                        'lease_end_date' => $tenancy->lease_end_date ?? 'Unknown ',
+                        'monthly_rent_amount' => $tenancy->monthly_rent_amount ?? 'Unknown ',
+                           'lease_duration' => $tenancy->lease_duration ?? 'Unknown ',
+                    ];
+                });
+
+            return response()->json($tenancies);
+        }
+
+      public function store_tenant_payment(Request $request)
+{
+    // Validate request
+    $validated = $request->validate([
+        'proof_of_payment' => 'required|file|mimes:png,jpeg,jpg',
+    ]);
+
+    // Generate the unique invoice number
+    $invoice = Carbon::now()->format('Y');
+    $text = "INV";
+    $invoice_no = PaymentTenant::IDGenerator(new PaymentTenant, 'invoice', 4, $text . $invoice);
+
+    // Generate a unique transaction number
+    $transaction_no = $this->generateUniqueTransactionNo();
+
+    // Create a new payment record
+    $payment = new PaymentTenant;
+    $payment->invoice = $invoice_no;
+    $payment->transaction_no = $transaction_no; // Set transaction number
+    $payment->tenant_id = $request->selectedTenantId;
+    $payment->property_id = $request->property_id;
+    $payment->mode_of_payment = $request->mode_of_payment;
+    $payment->acctno = $request->acctno;
+    $payment->amount = $request->amount;
+    $payment->date_paid = $request->date_paid;
+    $payment->user_id = Auth::user()->id;
+    $payment->status = "Paid";
+
+    // Handle proof of payment file upload
+    
+        if($request->hasFile('proof_of_payment')){
+			$now = Carbon::now();
+			$ext = $request->file('proof_of_payment')->extension();
+			$rootName = str_replace(' ', '_',strtoupper($request->mode_of_payment));
+			$track = str_replace(' ', '_', $invoice_no);
+			$fileName = $now->year. '-'. $rootName.'.'. $track.'.' .$ext;
+			$request->proof_of_payment->move(public_path('tenant/'.$payment->tenant->tenant_name), $fileName);
+            $payment->proof_of_payment = $fileName;
+        }
+    // Save the payment record to the database
+    if ($payment->save()) {
+        // Update the tenant's due date based on the payment date
+        $tenant = Tenant::find($request->selectedTenantId);
+        if ($tenant) {
+            $datePaid = Carbon::parse($request->date_paid);
+            $tenant->duedate = $datePaid->addMonth(1);
+            $tenant->save();
+        }
+
+        return response()->json(['status' => 'Tenant Payment Successfully Saved'], 200);
+    } else {
+        return response()->json(['error' => 'Something went Wrong. Please Try Again'], 202);
+    }
+}
+
+
+    private function generateUniqueTransactionNo()
+{
+    // You can base this on the current year and a unique ID to ensure no duplicates.
+    $year = Carbon::now()->year;
+    $latestTransaction = PaymentTenant::whereYear('created_at', $year)
+                                      ->orderBy('created_at', 'desc')
+                                      ->first();
+    
+    // Generate a new transaction number based on the current year and increment
+    if ($latestTransaction) {
+        // Increment the last transaction number by 1
+        $lastTransactionNo = (int)substr($latestTransaction->transaction_no, -4); // Assuming the transaction_no ends with a 4-digit number
+        $newTransactionNo = str_pad($lastTransactionNo + 1, 4, '0', STR_PAD_LEFT);
+    } else {
+        // If no transactions exist for this year, start with 0001
+        $newTransactionNo = '0001';
+    }
+
+    return $year . '-' . $newTransactionNo;
+}
+
+public function getDataPayment(Request $request)
+{
+    try {
+        $search = $request->query('search');
+        $perPage = $request->query('per_page', 10); // Default to 10
+
+        $payments = PaymentTenant::with(['tenant', 'property'])
+            ->when($search, function ($query, $search) {
+                return $query
+                    ->where('transaction_no', 'like', '%' . $search . '%')
+                    ->orWhere('invoice', 'like', '%' . $search . '%')
+                    ->orWhere('mode_of_payment', 'like', '%' . $search . '%')
+                    ->orWhere('acctno', 'like', '%' . $search . '%')
+                    ->orWhere('amount', 'like', '%' . $search . '%')
+                    ->orWhereHas('tenant', function ($q) use ($search) {
+                        $q->where('tenant_name', 'like', '%' . $search . '%');
+                    })
+                    ->orWhereHas('property', function ($q) use ($search) {
+                        $q->where('property_name', 'like', '%' . $search . '%');
+                    });
+            })
+            ->where('status', 'Paid')
+            ->orderBy('created_at', 'desc')
+            ->paginate($perPage);
+
+        // Income Calculations
+        $totalIncome = PaymentTenant::where('status', 'Paid')->sum('amount');
+
+        $today = Carbon::today();
+        $todayIncome = PaymentTenant::where('status', 'Paid')
+            ->whereDate('date_paid', $today)
+            ->sum('amount');
+
+        $monthStart = Carbon::now()->startOfMonth();
+        $monthlyIncome = PaymentTenant::where('status', 'Paid')
+            ->whereBetween('date_paid', [$monthStart, now()])
+            ->sum('amount');
+
+        $yearStart = Carbon::now()->startOfYear();
+        $yearlyIncome = PaymentTenant::where('status', 'Paid')
+            ->whereBetween('date_paid', [$yearStart, now()])
+            ->sum('amount');
+
+        return response()->json([
+            'success' => true,
+            'data' => $payments,
+            'totals' => [
+                'total_income' => $totalIncome,
+                'today_income' => $todayIncome,
+                'monthly_income' => $monthlyIncome,
+                'yearly_income' => $yearlyIncome,
+            ]
+        ]);
+    } catch (\Exception $e) {
+        return response()->json([
+            'success' => false,
+            'error' => 'An error occurred: ' . $e->getMessage()
+        ], 500);
+    }
+
+}
+
+                
 
 }

@@ -6723,6 +6723,394 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6919,20 +7307,343 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      todayIncome: 9300,
-      monthlyIncome: 75000,
-      yearlyIncome: 912000,
-      overallIncome: 3500000
+      searchQuery: "",
+      perPage: 10,
+      payments: {
+        data: [],
+        current_page: 1,
+        last_page: 1,
+        per_page: 10,
+        total: 0
+      },
+      selectedTenantId: "",
+      tenancies: [],
+      isSubmitting: false,
+      modalTitle: "",
+      modalMode: "add",
+      formData: {
+        id: "",
+        property_id: "",
+        mode_of_payment: "",
+        acctno: "",
+        amount: "",
+        date_paid: "",
+        proof_of_payment: "Cash",
+        tenant_name: "",
+        property_name: "",
+        lease_start_date: "",
+        lease_end_date: "",
+        monthly_rent_amount: "",
+        lease_duration: ""
+      }
     };
   },
   methods: {
+    getDataPayment: function getDataPayment() {
+      var _this = this;
+      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+        var response, totals, _t;
+        return _regenerator().w(function (_context) {
+          while (1) switch (_context.p = _context.n) {
+            case 0:
+              _context.p = 0;
+              _context.n = 1;
+              return axios.get("/real_estate_ms/api/get/data/payment", {
+                params: {
+                  page: _this.payments.current_page,
+                  per_page: _this.perPage,
+                  search: _this.searchQuery
+                }
+              });
+            case 1:
+              response = _context.v;
+              _this.payments = response.data.data;
+              _this.payments = response.data.data;
+
+              // Set totals
+              totals = response.data.totals;
+              _this.total_income = totals.total_income;
+              _this.today_income = totals.today_income;
+              _this.monthly_income = totals.monthly_income;
+              _this.yearly_income = totals.yearly_income;
+              _context.n = 3;
+              break;
+            case 2:
+              _context.p = 2;
+              _t = _context.v;
+              console.error("Error fetching data:", _t);
+            case 3:
+              return _context.a(2);
+          }
+        }, _callee, null, [[0, 2]]);
+      }))();
+    },
+    changePage: function changePage(page) {
+      if (page >= 1 && page <= this.totalPages) {
+        this.payments.current_page = page;
+        this.getDataPayment();
+      }
+    },
+    submitPayment: function submitPayment() {
+      var _this2 = this;
+      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+        var errorMessage, confirmation, formData, response, data, errorMessages, key, _t2;
+        return _regenerator().w(function (_context2) {
+          while (1) switch (_context2.p = _context2.n) {
+            case 0:
+              _context2.p = 0;
+              if (_this2.selectedTenantId) {
+                _context2.n = 1;
+                break;
+              }
+              sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire("Validation Error", "Please select a Tenant.", "error");
+              return _context2.a(2);
+            case 1:
+              if (_this2.formData.mode_of_payment) {
+                _context2.n = 2;
+                break;
+              }
+              sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire("Validation Error", "Please select the mode of payment.", "error");
+              return _context2.a(2);
+            case 2:
+              if (!(_this2.formData.mode_of_payment === "G-Cash" || _this2.formData.mode_of_payment === "Bank Deposit")) {
+                _context2.n = 3;
+                break;
+              }
+              if (_this2.formData.acctno) {
+                _context2.n = 3;
+                break;
+              }
+              // Specific validation message based on payment mode
+              errorMessage = _this2.formData.mode_of_payment === "G-Cash" ? "Please provide your G-Cash account number." : "Please provide your Bank account number.";
+              sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire("Validation Error", errorMessage, "error");
+              return _context2.a(2);
+            case 3:
+              if (!(_this2.formData.mode_of_payment !== "Cash" && !_this2.formData.acctno)) {
+                _context2.n = 4;
+                break;
+              }
+              sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire("Validation Error", "Please provide account number.", "error");
+              return _context2.a(2);
+            case 4:
+              if (!(_this2.formData.mode_of_payment !== "Cash" && !_this2.formData.acctno)) {
+                _context2.n = 5;
+                break;
+              }
+              sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire("Validation Error", "Please provide account number.", "error");
+              return _context2.a(2);
+            case 5:
+              if (!(!_this2.formData.amount || _this2.formData.amount <= 0)) {
+                _context2.n = 6;
+                break;
+              }
+              sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire("Validation Error", "Please enter a valid payment amount.", "error");
+              return _context2.a(2);
+            case 6:
+              if (_this2.formData.date_paid) {
+                _context2.n = 7;
+                break;
+              }
+              sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire("Validation Error", "Please select the date paid.", "error");
+              return _context2.a(2);
+            case 7:
+              _context2.n = 8;
+              return sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+                title: "Are you sure?",
+                text: "You are about to submit the payment. Do you want to proceed?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes, Submit",
+                cancelButtonText: "Cancel"
+              });
+            case 8:
+              confirmation = _context2.v;
+              if (confirmation.isConfirmed) {
+                _context2.n = 9;
+                break;
+              }
+              return _context2.a(2);
+            case 9:
+              // Step 2: Create FormData and Submit
+              _this2.isSubmitting = true;
+              formData = new FormData();
+              formData.append("mode_of_payment", _this2.formData.mode_of_payment);
+              formData.append("selectedTenantId", _this2.selectedTenantId);
+              formData.append("property_id", _this2.formData.property_id);
+              formData.append("acctno", _this2.formData.acctno);
+              formData.append("amount", _this2.formData.amount);
+              formData.append("date_paid", _this2.formData.date_paid);
+
+              // Optional fields
+              if (_this2.formData.proof_of_payment) {
+                formData.append("proof_of_payment", _this2.formData.proof_of_payment);
+              }
+
+              // Step 3: Send the request
+              _context2.n = 10;
+              return axios.post("/real_estate_ms/api/store/payment", formData, {
+                headers: {
+                  "Content-Type": "multipart/form-data"
+                }
+              });
+            case 10:
+              response = _context2.v;
+              // Success Handling
+              sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+                icon: "success",
+                title: "Success",
+                text: "Payment has been successfully submitted.",
+                confirmButtonText: "OK"
+              }).then(function () {
+                window.location.href = "/real_estate_ms/payment";
+              });
+              _context2.n = 12;
+              break;
+            case 11:
+              _context2.p = 11;
+              _t2 = _context2.v;
+              console.error(_t2);
+
+              // Handle validation or other errors
+              if (_t2.response && _t2.response.status === 422) {
+                data = _t2.response.data;
+                if (data.errors) {
+                  errorMessages = '<ul style="text-align: left;">';
+                  for (key in data.errors) {
+                    if (data.errors.hasOwnProperty(key)) {
+                      errorMessages += "<li>".concat(data.errors[key][0], "</li>");
+                    }
+                  }
+                  errorMessages += "</ul>";
+                  sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+                    icon: "error",
+                    title: "Validation Error",
+                    html: errorMessages
+                  });
+                }
+              } else {
+                sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+                  icon: "error",
+                  title: "Submission Failed",
+                  text: "Something went wrong while submitting the form."
+                });
+              }
+            case 12:
+              _context2.p = 12;
+              _this2.isSubmitting = false;
+              return _context2.f(12);
+            case 13:
+              return _context2.a(2);
+          }
+        }, _callee2, null, [[0, 11, 12, 13]]);
+      }))();
+    },
+    loadTenancies: function loadTenancies() {
+      var _this3 = this;
+      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
+        var response, _t3;
+        return _regenerator().w(function (_context3) {
+          while (1) switch (_context3.p = _context3.n) {
+            case 0:
+              _context3.p = 0;
+              _context3.n = 1;
+              return fetch("/real_estate_ms/get-tenancies");
+            case 1:
+              response = _context3.v;
+              _context3.n = 2;
+              return response.json();
+            case 2:
+              _this3.tenancies = _context3.v;
+              _context3.n = 4;
+              break;
+            case 3:
+              _context3.p = 3;
+              _t3 = _context3.v;
+              console.error("Failed to load tenancies:", _t3);
+            case 4:
+              return _context3.a(2);
+          }
+        }, _callee3, null, [[0, 3]]);
+      }))();
+    },
+    populateFields: function populateFields() {
+      var _this4 = this;
+      var tenancy = this.tenancies.find(function (t) {
+        return t.tenant_id === _this4.selectedTenantId;
+      });
+      if (tenancy) {
+        this.formData.property_id = tenancy.property_id; // ✅ Use ID
+        this.formData.property_name = tenancy.property_name;
+        this.formData.lease_start_date = tenancy.lease_start_date;
+        this.formData.lease_end_date = tenancy.lease_end_date;
+        this.formData.monthly_rent_amount = tenancy.monthly_rent_amount;
+        this.formData.lease_duration = tenancy.lease_duration;
+      }
+    },
+    handleFileUpload: function handleFileUpload(event, field) {
+      this.formData[field] = event.target.files[0];
+    },
+    openModal: function openModal(mode, property) {
+      this.formData = {
+        id: "",
+        date_created: "",
+        property_name: "",
+        province: "",
+        municipality: "",
+        barangay: "",
+        street: "",
+        zip_code: "",
+        description_of_property: "",
+        bedrooms: "",
+        sq_meter: "",
+        car_park: "",
+        toilet: "",
+        bathroom: "",
+        monthly_rate: "",
+        furnishing: "",
+        image: null
+      };
+      this.modalMode = mode;
+      this.modalTitle = mode === "add" ? "Create Payment" : mode === "edit" ? "Edit Payment" : "View Payment";
+      if (mode === "edit" || mode === "view") {
+        this.formData.id = property.id;
+        this.formData.date_created = property.date_created;
+        this.formData.property_name = property.property_name;
+        this.formData.province = property.province;
+        this.formData.municipality = property.municipality;
+        this.formData.barangay = property.barangay;
+        this.formData.street = property.street;
+        this.formData.zip_code = property.zip_code;
+        this.formData.description_of_property = property.description_of_property;
+        this.formData.bedrooms = property.bedrooms;
+        this.formData.sq_meter = property.sq_meter;
+        this.formData.car_park = property.car_park;
+        this.formData.toilet = property.toilet;
+        this.formData.bathroom = property.bathroom;
+        this.formData.monthly_rate = property.monthly_rate;
+        this.formData.furnishing = property.furnishing;
+        this.formData.property_type = property.property_type;
+        this.formData.image = property.image;
+      }
+      $("#modalProperty").modal("show");
+    },
     formatAmount: function formatAmount(value) {
       if (!value) return "0";
       return new Intl.NumberFormat("en-US").format(value);
     }
+  },
+  computed: {
+    totalPages: function totalPages() {
+      return Math.ceil(this.payments.total / this.payments.per_page);
+    }
+  },
+  mounted: function mounted() {
+    this.getDataPayment();
+    this.loadTenancies();
   }
 });
 
@@ -49313,7 +50024,7 @@ var render = function () {
                 [
                   _vm._v(
                     "\n            ₱" +
-                      _vm._s(_vm.formatAmount(_vm.todayIncome)) +
+                      _vm._s(_vm.formatAmount(_vm.today_income)) +
                       "\n          "
                   ),
                 ]
@@ -49344,7 +50055,7 @@ var render = function () {
                 [
                   _vm._v(
                     "\n            ₱" +
-                      _vm._s(_vm.formatAmount(_vm.monthlyIncome)) +
+                      _vm._s(_vm.formatAmount(_vm.monthly_income)) +
                       "\n          "
                   ),
                 ]
@@ -49375,7 +50086,7 @@ var render = function () {
                 [
                   _vm._v(
                     "\n            ₱" +
-                      _vm._s(_vm.formatAmount(_vm.yearlyIncome)) +
+                      _vm._s(_vm.formatAmount(_vm.yearly_income)) +
                       "\n          "
                   ),
                 ]
@@ -49406,7 +50117,7 @@ var render = function () {
                 [
                   _vm._v(
                     "\n            ₱" +
-                      _vm._s(_vm.formatAmount(_vm.overallIncome)) +
+                      _vm._s(_vm.formatAmount(_vm.total_income)) +
                       "\n          "
                   ),
                 ]
@@ -49417,9 +50128,81 @@ var render = function () {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row mb-3" }, [
-        _vm._m(1),
+        _c("div", { staticClass: "col-md-2" }, [
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.perPage,
+                  expression: "perPage",
+                },
+              ],
+              staticClass: "form-control",
+              on: {
+                change: [
+                  function ($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function (o) {
+                        return o.selected
+                      })
+                      .map(function (o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.perPage = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  },
+                  _vm.getDataPayment,
+                ],
+              },
+            },
+            [
+              _c("option", { attrs: { value: "5" } }, [_vm._v("5 per page")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "10" } }, [_vm._v("10 per page")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "25" } }, [_vm._v("25 per page")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "50" } }, [_vm._v("50 per page")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "100" } }, [
+                _vm._v("100 per page"),
+              ]),
+            ]
+          ),
+        ]),
         _vm._v(" "),
-        _vm._m(2),
+        _c("div", { staticClass: "col-md-8" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.searchQuery,
+                expression: "searchQuery",
+              },
+            ],
+            staticClass: "form-control",
+            staticStyle: { position: "left" },
+            attrs: { type: "text", placeholder: "Search Properties..." },
+            domProps: { value: _vm.searchQuery },
+            on: {
+              input: [
+                function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.searchQuery = $event.target.value
+                },
+                _vm.getDataPayment,
+              ],
+            },
+          }),
+        ]),
         _vm._v(" "),
         _c(
           "div",
@@ -49432,9 +50215,11 @@ var render = function () {
               "a",
               {
                 staticClass: "btn btn-success",
-                attrs: {
-                  href: "/real_estate_ms/create/tenancy",
-                  type: "button",
+                attrs: { type: "button" },
+                on: {
+                  click: function ($event) {
+                    return _vm.openModal("add")
+                  },
                 },
               },
               [
@@ -49445,9 +50230,932 @@ var render = function () {
           ]
         ),
         _vm._v(" "),
-        _vm._m(3),
+        _c("div", { staticClass: "table-responsive" }, [
+          _c("br"),
+          _vm._v(" "),
+          _c("table", [
+            _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.payments.data, function (payment, index) {
+                return _c("tr", { key: payment.id }, [
+                  _c("td", { staticClass: "text-center" }, [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(
+                          (_vm.payments.current_page - 1) *
+                            _vm.payments.per_page +
+                            index +
+                            1
+                        ) +
+                        "\n              "
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(payment.transaction_no))]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _c(
+                      "a",
+                      {
+                        attrs: {
+                          href:
+                            "/real_estate_ms/public/PaymentTenant/" +
+                            payment.invoice +
+                            "/" +
+                            payment.proof_of_payment,
+                          target: "_blank",
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                  " +
+                            _vm._s(payment.invoice) +
+                            "\n                "
+                        ),
+                      ]
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(payment.mode_of_payment))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(payment.amount))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(payment.acctno))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(payment.date_paid))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(payment.tenant.tenant_name))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(payment.tenant.contact_number))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(payment.property.property_no))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(payment.property.property_name))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(payment.property.property_type))]),
+                  _vm._v(" "),
+                  _vm._m(2, true),
+                ])
+              }),
+              0
+            ),
+          ]),
+          _vm._v(" "),
+          _vm.payments.total > 0
+            ? _c("nav", { attrs: { "aria-label": "Page navigation" } }, [
+                _c(
+                  "ul",
+                  { staticClass: "pagination justify-content-center mt-3" },
+                  [
+                    _c(
+                      "li",
+                      {
+                        staticClass: "page-item",
+                        class: { disabled: _vm.payments.current_page === 1 },
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "page-link",
+                            attrs: { href: "#" },
+                            on: {
+                              click: function ($event) {
+                                $event.preventDefault()
+                                return _vm.changePage(
+                                  _vm.payments.current_page - 1
+                                )
+                              },
+                            },
+                          },
+                          [_vm._v("Previous")]
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm._l(_vm.totalPages, function (page) {
+                      return _c(
+                        "li",
+                        {
+                          key: page,
+                          staticClass: "page-item",
+                          class: { active: page === _vm.payments.current_page },
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "page-link",
+                              attrs: { href: "#" },
+                              on: {
+                                click: function ($event) {
+                                  $event.preventDefault()
+                                  return _vm.changePage(page)
+                                },
+                              },
+                            },
+                            [
+                              _vm._v(
+                                "\n                " +
+                                  _vm._s(page) +
+                                  "\n              "
+                              ),
+                            ]
+                          ),
+                        ]
+                      )
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticClass: "page-item",
+                        class: {
+                          disabled:
+                            _vm.payments.current_page === _vm.totalPages,
+                        },
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "page-link",
+                            attrs: { href: "#" },
+                            on: {
+                              click: function ($event) {
+                                $event.preventDefault()
+                                return _vm.changePage(
+                                  _vm.payments.current_page + 1
+                                )
+                              },
+                            },
+                          },
+                          [_vm._v("Next")]
+                        ),
+                      ]
+                    ),
+                  ],
+                  2
+                ),
+              ])
+            : _vm._e(),
+        ]),
       ]),
     ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "modalProperty",
+          tabindex: "-1",
+          "aria-labelledby": "modalProperty",
+          "aria-hidden": "true",
+          "data-bs-backdrop": "static",
+          "data-bs-keyboard": "false",
+        },
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog modal-xl modal-dialog-centered" },
+          [
+            _c(
+              "div",
+              { staticClass: "modal-content border-0 shadow-lg rounded-4" },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "modal-header text-white py-3",
+                    staticStyle: {
+                      background: "linear-gradient(90deg, #198754, #198754)",
+                    },
+                  },
+                  [
+                    _c(
+                      "h4",
+                      {
+                        staticClass: "modal-title d-flex align-items-center",
+                        staticStyle: { color: "white" },
+                      },
+                      [
+                        _c("i", { staticClass: "fa fa-file-alt me-2" }),
+                        _vm._v(_vm._s(_vm.modalTitle) + "\n          "),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("button", {
+                      staticClass: "btn-close btn-close-white",
+                      attrs: {
+                        type: "button",
+                        "data-bs-dismiss": "modal",
+                        "aria-label": "Close",
+                      },
+                    }),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "modal-body",
+                    staticStyle: { "max-height": "70vh", "overflow-y": "auto" },
+                  },
+                  [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-md-12" }, [
+                        _c(
+                          "div",
+                          { staticClass: "card border-0 shadow-sm mb-4" },
+                          [
+                            _vm._m(3),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "card-body" }, [
+                              _c("div", { staticClass: "form-floating mb-3" }, [
+                                _c(
+                                  "select",
+                                  {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.selectedTenantId,
+                                        expression: "selectedTenantId",
+                                      },
+                                    ],
+                                    staticClass: "form-select",
+                                    attrs: { required: "" },
+                                    on: {
+                                      change: [
+                                        function ($event) {
+                                          var $$selectedVal =
+                                            Array.prototype.filter
+                                              .call(
+                                                $event.target.options,
+                                                function (o) {
+                                                  return o.selected
+                                                }
+                                              )
+                                              .map(function (o) {
+                                                var val =
+                                                  "_value" in o
+                                                    ? o._value
+                                                    : o.value
+                                                return val
+                                              })
+                                          _vm.selectedTenantId = $event.target
+                                            .multiple
+                                            ? $$selectedVal
+                                            : $$selectedVal[0]
+                                        },
+                                        _vm.populateFields,
+                                      ],
+                                    },
+                                  },
+                                  [
+                                    _c(
+                                      "option",
+                                      { attrs: { disabled: "", value: "" } },
+                                      [_vm._v("Select Tenant")]
+                                    ),
+                                    _vm._v(" "),
+                                    _vm._l(_vm.tenancies, function (tenancy) {
+                                      return _c(
+                                        "option",
+                                        {
+                                          key: tenancy.tenant_id,
+                                          domProps: {
+                                            value: tenancy.tenant_id,
+                                          },
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(tenancy.tenant_name) +
+                                              "\n                      "
+                                          ),
+                                        ]
+                                      )
+                                    }),
+                                  ],
+                                  2
+                                ),
+                                _vm._v(" "),
+                                _vm._m(4),
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "form-floating mb-3" }, [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.formData.property_name,
+                                      expression: "formData.property_name",
+                                    },
+                                  ],
+                                  staticClass: "form-control",
+                                  attrs: {
+                                    placeholder: "Property Name",
+                                    disabled: "",
+                                  },
+                                  domProps: {
+                                    value: _vm.formData.property_name,
+                                  },
+                                  on: {
+                                    input: function ($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.formData,
+                                        "property_name",
+                                        $event.target.value
+                                      )
+                                    },
+                                  },
+                                }),
+                                _vm._v(" "),
+                                _vm._m(5),
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "row" }, [
+                                _c("div", { staticClass: "col-md-6" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "form-floating mb-3" },
+                                    [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value:
+                                              _vm.formData.lease_start_date,
+                                            expression:
+                                              "formData.lease_start_date",
+                                          },
+                                        ],
+                                        staticClass: "form-control",
+                                        attrs: {
+                                          type: "date",
+                                          id: "lease_start_date",
+                                          disabled: "",
+                                        },
+                                        domProps: {
+                                          value: _vm.formData.lease_start_date,
+                                        },
+                                        on: {
+                                          input: function ($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.formData,
+                                              "lease_start_date",
+                                              $event.target.value
+                                            )
+                                          },
+                                        },
+                                      }),
+                                      _vm._v(" "),
+                                      _vm._m(6),
+                                    ]
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-md-6" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "form-floating mb-3" },
+                                    [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.formData.lease_end_date,
+                                            expression:
+                                              "formData.lease_end_date",
+                                          },
+                                        ],
+                                        staticClass: "form-control",
+                                        attrs: {
+                                          type: "date",
+                                          id: "lease_end_date",
+                                          disabled: "",
+                                        },
+                                        domProps: {
+                                          value: _vm.formData.lease_end_date,
+                                        },
+                                        on: {
+                                          input: function ($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.formData,
+                                              "lease_end_date",
+                                              $event.target.value
+                                            )
+                                          },
+                                        },
+                                      }),
+                                      _vm._v(" "),
+                                      _vm._m(7),
+                                    ]
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-md-6" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "form-floating mb-3" },
+                                    [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value:
+                                              _vm.formData.monthly_rent_amount,
+                                            expression:
+                                              "formData.monthly_rent_amount",
+                                          },
+                                        ],
+                                        staticClass: "form-control",
+                                        attrs: {
+                                          type: "text",
+                                          id: "monthly_rate",
+                                          disabled: "",
+                                        },
+                                        domProps: {
+                                          value:
+                                            _vm.formData.monthly_rent_amount,
+                                        },
+                                        on: {
+                                          input: function ($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.formData,
+                                              "monthly_rent_amount",
+                                              $event.target.value
+                                            )
+                                          },
+                                        },
+                                      }),
+                                      _vm._v(" "),
+                                      _vm._m(8),
+                                    ]
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-md-6" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "form-floating mb-3" },
+                                    [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.formData.lease_duration,
+                                            expression:
+                                              "formData.lease_duration",
+                                          },
+                                        ],
+                                        staticClass: "form-control",
+                                        attrs: {
+                                          type: "text",
+                                          id: "lease_duration",
+                                          disabled: "",
+                                        },
+                                        domProps: {
+                                          value: _vm.formData.lease_duration,
+                                        },
+                                        on: {
+                                          input: function ($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.formData,
+                                              "lease_duration",
+                                              $event.target.value
+                                            )
+                                          },
+                                        },
+                                      }),
+                                      _vm._v(" "),
+                                      _vm._m(9),
+                                    ]
+                                  ),
+                                ]),
+                              ]),
+                            ]),
+                          ]
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "tab-content pt-3",
+                        attrs: { id: "propertyTabsContent" },
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "tab-pane fade show active",
+                            attrs: {
+                              id: "location",
+                              role: "tabpanel",
+                              "aria-labelledby": "location-tab",
+                            },
+                          },
+                          [
+                            _c(
+                              "div",
+                              { staticClass: "card border-0 shadow-sm mb-4" },
+                              [
+                                _vm._m(10),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "card-body" }, [
+                                  _c("div", { staticClass: "row" }, [
+                                    _c("div", { staticClass: "col-md-12" }, [
+                                      _vm._m(11),
+                                      _vm._v(" "),
+                                      _c(
+                                        "select",
+                                        {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value:
+                                                _vm.formData.mode_of_payment,
+                                              expression:
+                                                "formData.mode_of_payment",
+                                            },
+                                          ],
+                                          staticClass: "form-select",
+                                          attrs: {
+                                            id: "mode_of_payment",
+                                            required: "",
+                                          },
+                                          on: {
+                                            change: function ($event) {
+                                              var $$selectedVal =
+                                                Array.prototype.filter
+                                                  .call(
+                                                    $event.target.options,
+                                                    function (o) {
+                                                      return o.selected
+                                                    }
+                                                  )
+                                                  .map(function (o) {
+                                                    var val =
+                                                      "_value" in o
+                                                        ? o._value
+                                                        : o.value
+                                                    return val
+                                                  })
+                                              _vm.$set(
+                                                _vm.formData,
+                                                "mode_of_payment",
+                                                $event.target.multiple
+                                                  ? $$selectedVal
+                                                  : $$selectedVal[0]
+                                              )
+                                            },
+                                          },
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: {
+                                                value: "",
+                                                disabled: "",
+                                              },
+                                            },
+                                            [_vm._v("Select Mode")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "G-Cash" } },
+                                            [_vm._v("G-Cash")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "Bank Deposit" },
+                                            },
+                                            [_vm._v("Bank Deposit")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "Cash" } },
+                                            [_vm._v("Cash")]
+                                          ),
+                                        ]
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _vm.formData.mode_of_payment === "G-Cash"
+                                      ? _c(
+                                          "div",
+                                          { staticClass: "col-md-12" },
+                                          [
+                                            _vm._m(12),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              { staticClass: "input-group" },
+                                              [
+                                                _vm._m(13),
+                                                _vm._v(" "),
+                                                _c("input", {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.formData.acctno,
+                                                      expression:
+                                                        "formData.acctno",
+                                                    },
+                                                  ],
+                                                  staticClass: "form-control",
+                                                  attrs: {
+                                                    type: "text",
+                                                    id: "gcash_number",
+                                                    placeholder: "09xxxxxxxxx",
+                                                    required: "",
+                                                  },
+                                                  domProps: {
+                                                    value: _vm.formData.acctno,
+                                                  },
+                                                  on: {
+                                                    input: function ($event) {
+                                                      if (
+                                                        $event.target.composing
+                                                      ) {
+                                                        return
+                                                      }
+                                                      _vm.$set(
+                                                        _vm.formData,
+                                                        "acctno",
+                                                        $event.target.value
+                                                      )
+                                                    },
+                                                  },
+                                                }),
+                                              ]
+                                            ),
+                                          ]
+                                        )
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _vm.formData.mode_of_payment ===
+                                    "Bank Deposit"
+                                      ? _c(
+                                          "div",
+                                          { staticClass: "col-md-12" },
+                                          [
+                                            _vm._m(14),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              { staticClass: "input-group" },
+                                              [
+                                                _vm._m(15),
+                                                _vm._v(" "),
+                                                _c("input", {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.formData.acctno,
+                                                      expression:
+                                                        "formData.acctno",
+                                                    },
+                                                  ],
+                                                  staticClass: "form-control",
+                                                  attrs: {
+                                                    type: "text",
+                                                    id: "bank_account_number",
+                                                    placeholder:
+                                                      "Enter bank account number",
+                                                    required: "",
+                                                  },
+                                                  domProps: {
+                                                    value: _vm.formData.acctno,
+                                                  },
+                                                  on: {
+                                                    input: function ($event) {
+                                                      if (
+                                                        $event.target.composing
+                                                      ) {
+                                                        return
+                                                      }
+                                                      _vm.$set(
+                                                        _vm.formData,
+                                                        "acctno",
+                                                        $event.target.value
+                                                      )
+                                                    },
+                                                  },
+                                                }),
+                                              ]
+                                            ),
+                                          ]
+                                        )
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "col-md-4 mt-3" },
+                                      [
+                                        _vm._m(16),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "input-group" },
+                                          [
+                                            _vm._m(17),
+                                            _vm._v(" "),
+                                            _c("input", {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value: _vm.formData.amount,
+                                                  expression: "formData.amount",
+                                                },
+                                              ],
+                                              staticClass: "form-control",
+                                              attrs: {
+                                                type: "number",
+                                                step: "0.01",
+                                                id: "amount",
+                                                placeholder: "0.00",
+                                                required: "",
+                                              },
+                                              domProps: {
+                                                value: _vm.formData.amount,
+                                              },
+                                              on: {
+                                                input: function ($event) {
+                                                  if ($event.target.composing) {
+                                                    return
+                                                  }
+                                                  _vm.$set(
+                                                    _vm.formData,
+                                                    "amount",
+                                                    $event.target.value
+                                                  )
+                                                },
+                                              },
+                                            }),
+                                          ]
+                                        ),
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "col-md-4 mt-3" },
+                                      [
+                                        _vm._m(18),
+                                        _vm._v(" "),
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.formData.date_paid,
+                                              expression: "formData.date_paid",
+                                            },
+                                          ],
+                                          staticClass: "form-control",
+                                          attrs: {
+                                            type: "date",
+                                            id: "date_paid",
+                                            required: "",
+                                          },
+                                          domProps: {
+                                            value: _vm.formData.date_paid,
+                                          },
+                                          on: {
+                                            input: function ($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.formData,
+                                                "date_paid",
+                                                $event.target.value
+                                              )
+                                            },
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "col-md-4 mt-3" },
+                                      [
+                                        _vm._m(19),
+                                        _vm._v(" "),
+                                        _c("input", {
+                                          staticClass: "form-control",
+                                          attrs: {
+                                            type: "file",
+                                            id: "image",
+                                            accept: "image/*",
+                                            required: "",
+                                          },
+                                          on: {
+                                            change: function ($event) {
+                                              return _vm.handleFileUpload(
+                                                $event,
+                                                "proof_of_payment"
+                                              )
+                                            },
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ]),
+                                ]),
+                              ]
+                            ),
+                          ]
+                        ),
+                      ]
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "modal-footer bg-light border-0 py-3 px-4 d-flex justify-content-end",
+                  },
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success px-4 py-2 shadow-sm",
+                        attrs: { type: "button", disabled: _vm.isSubmitting },
+                        on: { click: _vm.submitPayment },
+                      },
+                      [
+                        _vm.isSubmitting
+                          ? _c("span", [
+                              _c("i", {
+                                staticClass: "fas fa-spinner fa-spin me-2",
+                              }),
+                              _vm._v(" Saving...\n            "),
+                            ])
+                          : _c("span", [
+                              _c("i", { staticClass: "fas fa-save me-2" }),
+                              _vm._v(
+                                "\n              " +
+                                  _vm._s(
+                                    _vm.modalMode === "add"
+                                      ? "Add Property"
+                                      : "Save Changes"
+                                  ) +
+                                  "\n            "
+                              ),
+                            ]),
+                      ]
+                    ),
+                  ]
+                ),
+              ]
+            ),
+          ]
+        ),
+      ]
+    ),
   ])
 }
 var staticRenderFns = [
@@ -49487,208 +51195,306 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-2" }, [
-      _c("select", { staticClass: "form-control" }, [
-        _c("option", { attrs: { value: "5" } }, [_vm._v("5 per page")]),
+    return _c("thead", [
+      _c("tr", [
+        _c(
+          "th",
+          { staticStyle: { "background-color": "#198754", color: "white" } },
+          [_vm._v("#")]
+        ),
         _vm._v(" "),
-        _c("option", { attrs: { value: "10" } }, [_vm._v("10 per page")]),
+        _c(
+          "th",
+          { staticStyle: { "background-color": "#198754", color: "white" } },
+          [_vm._v("\n                Transaction No.\n              ")]
+        ),
         _vm._v(" "),
-        _c("option", { attrs: { value: "25" } }, [_vm._v("25 per page")]),
+        _c(
+          "th",
+          { staticStyle: { "background-color": "#198754", color: "white" } },
+          [_vm._v("\n                Invoice No\n              ")]
+        ),
         _vm._v(" "),
-        _c("option", { attrs: { value: "50" } }, [_vm._v("50 per page")]),
+        _c(
+          "th",
+          { staticStyle: { "background-color": "#198754", color: "white" } },
+          [_vm._v("\n                Mode of Payment\n              ")]
+        ),
         _vm._v(" "),
-        _c("option", { attrs: { value: "100" } }, [_vm._v("100 per page")]),
+        _c(
+          "th",
+          { staticStyle: { "background-color": "#198754", color: "white" } },
+          [_vm._v("Amount")]
+        ),
+        _vm._v(" "),
+        _c(
+          "th",
+          { staticStyle: { "background-color": "#198754", color: "white" } },
+          [_vm._v("\n                Account Number\n              ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "th",
+          { staticStyle: { "background-color": "#198754", color: "white" } },
+          [_vm._v("\n                Date Paid\n              ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "th",
+          {
+            staticClass: "blue",
+            staticStyle: { "background-color": "#198754", color: "white" },
+            attrs: { colspan: "2" },
+          },
+          [_vm._v("\n                Tenant Information\n              ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "th",
+          {
+            staticClass: "blue",
+            staticStyle: { "background-color": "#198754", color: "white" },
+            attrs: { colspan: "3" },
+          },
+          [_vm._v("\n                Properties Information\n              ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "th",
+          { staticStyle: { "background-color": "#198754", color: "white" } },
+          [_vm._v("Actions")]
+        ),
       ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-8" }, [
-      _c("input", {
-        staticClass: "form-control",
-        staticStyle: { position: "left" },
-        attrs: { type: "text", placeholder: "Search Properties..." },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "table-responsive" }, [
-      _c("br"),
       _vm._v(" "),
-      _c("table", [
-        _c("thead", [
-          _c("tr", [
-            _c(
-              "th",
-              {
-                staticStyle: { "background-color": "#198754", color: "white" },
-              },
-              [_vm._v("#")]
-            ),
-            _vm._v(" "),
-            _c(
-              "th",
-              {
-                staticStyle: { "background-color": "#198754", color: "white" },
-              },
-              [_vm._v("\n                Transaction No.\n              ")]
-            ),
-            _vm._v(" "),
-            _c(
-              "th",
-              {
-                staticStyle: { "background-color": "#198754", color: "white" },
-              },
-              [_vm._v("\n                Invoice No\n              ")]
-            ),
-            _vm._v(" "),
-            _c(
-              "th",
-              {
-                staticStyle: { "background-color": "#198754", color: "white" },
-              },
-              [_vm._v("\n                Mode of Payment\n              ")]
-            ),
-            _vm._v(" "),
-            _c(
-              "th",
-              {
-                staticStyle: { "background-color": "#198754", color: "white" },
-              },
-              [_vm._v("Amount")]
-            ),
-            _vm._v(" "),
-            _c(
-              "th",
-              {
-                staticStyle: { "background-color": "#198754", color: "white" },
-              },
-              [_vm._v("\n                Account Number\n              ")]
-            ),
-            _vm._v(" "),
-            _c(
-              "th",
-              {
-                staticStyle: { "background-color": "#198754", color: "white" },
-              },
-              [_vm._v("Total")]
-            ),
-            _vm._v(" "),
-            _c(
-              "th",
-              {
-                staticStyle: { "background-color": "#198754", color: "white" },
-              },
-              [_vm._v("\n                Date Paid\n              ")]
-            ),
-            _vm._v(" "),
-            _c(
-              "th",
-              {
-                staticClass: "blue",
-                staticStyle: { "background-color": "#198754", color: "white" },
-                attrs: { colspan: "2" },
-              },
-              [_vm._v("\n                Tenant Information\n              ")]
-            ),
-            _vm._v(" "),
-            _c(
-              "th",
-              {
-                staticClass: "blue",
-                staticStyle: { "background-color": "#198754", color: "white" },
-                attrs: { colspan: "4" },
-              },
-              [
-                _vm._v(
-                  "\n                Properties Information\n              "
-                ),
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "th",
-              {
-                staticStyle: { "background-color": "#198754", color: "white" },
-              },
-              [_vm._v("Actions")]
-            ),
-          ]),
-          _vm._v(" "),
-          _c("tr", [
-            _c("th"),
-            _vm._v(" "),
-            _c("th"),
-            _vm._v(" "),
-            _c("th"),
-            _vm._v(" "),
-            _c("th"),
-            _vm._v(" "),
-            _c("th"),
-            _vm._v(" "),
-            _c("th"),
-            _vm._v(" "),
-            _c("th"),
-            _vm._v(" "),
-            _c("th"),
-            _vm._v(" "),
-            _c("th", [_vm._v("Name")]),
-            _vm._v(" "),
-            _c("th", [_vm._v("Contact")]),
-            _vm._v(" "),
-            _c("th", [_vm._v("Property No")]),
-            _vm._v(" "),
-            _c("th", [_vm._v("Property Name")]),
-            _vm._v(" "),
-            _c("th", [_vm._v("Property Type")]),
-            _vm._v(" "),
-            _c("th", [_vm._v("Square Meter")]),
-            _vm._v(" "),
-            _c("th"),
-          ]),
-        ]),
+      _c("tr", [
+        _c("th"),
         _vm._v(" "),
-        _c("tbody", [
-          _c("tr", [
-            _c("td", { staticClass: "text-center" }),
-            _vm._v(" "),
-            _c("td"),
-            _vm._v(" "),
-            _c("td"),
-            _vm._v(" "),
-            _c("td"),
-            _vm._v(" "),
-            _c("td"),
-            _vm._v(" "),
-            _c("td"),
-            _vm._v(" "),
-            _c("td"),
-            _vm._v(" "),
-            _c("td"),
-            _vm._v(" "),
-            _c("td"),
-            _vm._v(" "),
-            _c("td"),
-            _vm._v(" "),
-            _c("td"),
-            _vm._v(" "),
-            _c("td", { staticClass: "text-center" }, [
-              _c("a", [
-                _c("i", {
-                  staticClass: "bi bi-pencil-square text-primary",
-                  staticStyle: { "font-size": "1.2rem" },
-                }),
-              ]),
-            ]),
-          ]),
-        ]),
+        _c("th"),
+        _vm._v(" "),
+        _c("th"),
+        _vm._v(" "),
+        _c("th"),
+        _vm._v(" "),
+        _c("th"),
+        _vm._v(" "),
+        _c("th"),
+        _vm._v(" "),
+        _c("th"),
+        _vm._v(" "),
+        _c("th", [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Contact")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Property No")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Property Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Property Type")]),
+        _vm._v(" "),
+        _c("th"),
       ]),
     ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "text-center" }, [
+      _c("a", [
+        _c("i", {
+          staticClass: "bi bi-pencil-square text-primary",
+          staticStyle: { "font-size": "1.2rem" },
+        }),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header bg-info text-white" }, [
+      _c("i", { staticClass: "fas fa-user me-2" }),
+      _vm._v(" Tenant & Lease Information\n                "),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _c("i", { staticClass: "fas fa-search me-1" }),
+      _vm._v(" Search Tenant\n                      "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "property_name" } }, [
+      _c("i", { staticClass: "fas fa-building me-1" }),
+      _vm._v(" Property Name\n                      "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "lease_start_date" } }, [
+      _c("i", { staticClass: "fas fa-calendar-day me-1" }),
+      _vm._v(
+        " Lease Start\n                          Date\n                        "
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "lease_end_date" } }, [
+      _c("i", { staticClass: "fas fa-calendar-check me-1" }),
+      _vm._v(
+        " Lease End\n                          Date\n                        "
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "monthly_rate" } }, [
+      _c("i", { staticClass: "fas fa-money-bill-wave me-1" }),
+      _vm._v(
+        " Monthly\n                          Rate\n                        "
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "lease_duration" } }, [
+      _c("i", { staticClass: "fas fa-clock me-1" }),
+      _vm._v(" Lease Duration\n                        "),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header bg-primary text-white" }, [
+      _c("i", { staticClass: "fas fa-wallet me-2" }),
+      _vm._v(" Payment Details\n                "),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "form-label", attrs: { for: "mode_of_payment" } },
+      [
+        _c("i", { staticClass: "fas fa-credit-card me-1" }),
+        _vm._v(" Mode of\n                        Payment "),
+        _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "form-label mt-3", attrs: { for: "gcash_number" } },
+      [
+        _c("i", { staticClass: "fab fa-google-pay me-1" }),
+        _vm._v(" GCash Number\n                        "),
+        _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "input-group-text" }, [
+      _c("i", { staticClass: "fab fa-google-wallet" }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "form-label mt-3", attrs: { for: "bank_account_number" } },
+      [
+        _c("i", { staticClass: "fas fa-building-columns me-1" }),
+        _vm._v(" Bank\n                        Account Number "),
+        _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "input-group-text" }, [
+      _c("i", { staticClass: "fas fa-bank" }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "form-label", attrs: { for: "amount" } },
+      [
+        _c("i", { staticClass: "fas fa-money-bill-wave me-1" }),
+        _vm._v(" Amount\n                        "),
+        _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "input-group-text" }, [
+      _c("i", { staticClass: "fas fa-peso-sign" }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "form-label", attrs: { for: "date_paid" } },
+      [
+        _c("i", { staticClass: "fas fa-calendar-check me-1" }),
+        _vm._v(" Date Paid\n                        "),
+        _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "form-label", attrs: { for: "proof_of_payment" } },
+      [
+        _c("i", { staticClass: "fas fa-file-upload me-1" }),
+        _vm._v(" Proof of\n                        Payment "),
+        _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+      ]
+    )
   },
 ]
 render._withStripped = true
