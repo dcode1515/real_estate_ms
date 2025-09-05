@@ -509,59 +509,91 @@ class AdminController extends Controller
         }
 
       public function store_tenant_payment(Request $request)
-{
-    // Validate request
-    $validated = $request->validate([
-        'proof_of_payment' => 'required|file|mimes:png,jpeg,jpg',
-    ]);
+    {
+        // Validate request
+        $validated = $request->validate([
+            'proof_of_payment' => 'required|file|mimes:png,jpeg,jpg',
+        ]);
 
-    // Generate the unique invoice number
-    $invoice = Carbon::now()->format('Y');
-    $text = "INV";
-    $invoice_no = PaymentTenant::IDGenerator(new PaymentTenant, 'invoice', 4, $text . $invoice);
+        // Generate the unique invoice number
+        $invoice = Carbon::now()->format('Y');
+        $text = "INV";
+        $invoice_no = PaymentTenant::IDGenerator(new PaymentTenant, 'invoice', 4, $text . $invoice);
 
-    // Generate a unique transaction number
-    $transaction_no = $this->generateUniqueTransactionNo();
+        // Generate a unique transaction number
+        $transaction_no = $this->generateUniqueTransactionNo();
 
-    // Create a new payment record
-    $payment = new PaymentTenant;
-    $payment->invoice = $invoice_no;
-    $payment->transaction_no = $transaction_no; // Set transaction number
-    $payment->tenant_id = $request->selectedTenantId;
-    $payment->property_id = $request->property_id;
-    $payment->mode_of_payment = $request->mode_of_payment;
-    $payment->acctno = $request->acctno;
-    $payment->amount = $request->amount;
-    $payment->date_paid = $request->date_paid;
-    $payment->user_id = Auth::user()->id;
-    $payment->status = "Paid";
+        // Create a new payment record
+        $payment = new PaymentTenant;
+        $payment->invoice = $invoice_no;
+        $payment->transaction_no = $transaction_no; // Set transaction number
+        $payment->tenant_id = $request->selectedTenantId;
+        $payment->property_id = $request->property_id;
+        $payment->mode_of_payment = $request->mode_of_payment;
+      
+         $payment->acctno = $request->mode_of_payment === 'Cash' ? 'N/A' : $request->acctno;
 
-    // Handle proof of payment file upload
-    
-        if($request->hasFile('proof_of_payment')){
-			$now = Carbon::now();
-			$ext = $request->file('proof_of_payment')->extension();
-			$rootName = str_replace(' ', '_',strtoupper($request->mode_of_payment));
-			$track = str_replace(' ', '_', $invoice_no);
-			$fileName = $now->year. '-'. $rootName.'.'. $track.'.' .$ext;
-			$request->proof_of_payment->move(public_path('tenant/'.$payment->tenant->tenant_name), $fileName);
-            $payment->proof_of_payment = $fileName;
+
+        $payment->amount = $request->amount;
+        $payment->date_paid = $request->date_paid;
+        $payment->user_id = Auth::user()->id;
+        $payment->status = "Paid";
+
+        // Handle proof of payment file upload
+        
+            if($request->hasFile('proof_of_payment')){
+                $now = Carbon::now();
+                $ext = $request->file('proof_of_payment')->extension();
+                $rootName = str_replace(' ', '_',strtoupper($request->mode_of_payment));
+                $track = str_replace(' ', '_', $payment->invoice . '_' . $payment->date_paid);
+                $fileName = $now->year. '-'. $rootName.'.'. $track.'.' .$ext;
+                $request->proof_of_payment->move(public_path('tenant/'.$payment->tenant->tenant_no), $fileName);
+                $payment->proof_of_payment = $fileName;
+            }
+        // Save the payment record to the database
+        if ($payment->save()) {
+            // Update the tenant's due date based on the payment date
+            $tenant = Tenant::find($request->selectedTenantId);
+            if ($tenant) {
+                $datePaid = Carbon::parse($request->date_paid);
+                $tenant->duedate = $datePaid->addMonth(1);
+                $tenant->save();
+            }
+
+            return response()->json(['status' => 'Tenant Payment Successfully Saved'], 200);
+        } else {
+            return response()->json(['error' => 'Something went Wrong. Please Try Again'], 202);
         }
-    // Save the payment record to the database
-    if ($payment->save()) {
-        // Update the tenant's due date based on the payment date
-        $tenant = Tenant::find($request->selectedTenantId);
-        if ($tenant) {
-            $datePaid = Carbon::parse($request->date_paid);
-            $tenant->duedate = $datePaid->addMonth(1);
-            $tenant->save();
-        }
-
-        return response()->json(['status' => 'Tenant Payment Successfully Saved'], 200);
-    } else {
-        return response()->json(['error' => 'Something went Wrong. Please Try Again'], 202);
     }
-}
+
+     public function update_tenant_payment(Request $request,$id)
+    {
+        // Validate request
+        $validated = $request->validate([
+            'proof_of_payment' => 'nullable|file|mimes:png,jpeg,jpg',
+        ]);
+
+        $payment = PaymentTenant::find($id);
+        $payment->mode_of_payment = $request->mode_of_payment;
+        $payment->acctno = $request->mode_of_payment === 'Cash' ? 'N/A' : $request->acctno;
+        $payment->amount = $request->amount;
+        $payment->date_paid = $request->date_paid;
+        $payment->user_id = Auth::user()->id;
+        
+            if($request->hasFile('proof_of_payment')){
+                $now = Carbon::now();
+                $ext = $request->file('proof_of_payment')->extension();
+                $rootName = str_replace(' ', '_',strtoupper($payment->mode_of_payment));
+                $track = str_replace(' ', '_', $payment->invoice);
+                $fileName = $now->year. '-'. $rootName.'.'. $track.'.' .$ext;
+                $request->proof_of_payment->move(public_path('tenant/'.$payment->tenant->tenant_no), $fileName);
+                $payment->proof_of_payment = $fileName;
+            }
+         $payment->save();   
+       
+
+       return response()->json(['status' => 'Tenant Payment Successfully Saved'], 200);
+    } 
 
 
     private function generateUniqueTransactionNo()
@@ -591,7 +623,7 @@ public function getDataPayment(Request $request)
         $search = $request->query('search');
         $perPage = $request->query('per_page', 10); // Default to 10
 
-        $payments = PaymentTenant::with(['tenant', 'property'])
+        $payments = PaymentTenant::with(['tenant', 'property','tenancy'])
             ->when($search, function ($query, $search) {
                 return $query
                     ->where('transaction_no', 'like', '%' . $search . '%')
@@ -646,6 +678,17 @@ public function getDataPayment(Request $request)
     }
 
 }
+
+    public function deleteTenantPayment($id)
+    {
+        $payment = PaymentTenant::findOrFail($id);
+        $payment->delete(); // Soft delete
+        return response()->json(['status' => 'Tenant payment successfully deleted.']);
+    }
+
+    public function ledger(){
+        return view('admin.ledger');
+    }
 
                 
 

@@ -43,6 +43,9 @@ Route::get('/get-tenancies', [App\Http\Controllers\AdminController::class, 'getA
 Route::get('/get-tenancy/{tenantId}', [App\Http\Controllers\AdminController::class, 'getTenancyByTenant']);
 Route::post('/api/store/payment', [App\Http\Controllers\AdminController::class, 'store_tenant_payment']);
 Route::get('/api/get/data/payment', [App\Http\Controllers\AdminController::class, 'getDataPayment']);
+Route::post('/api/update/payment/{ID}', [App\Http\Controllers\AdminController::class, 'update_tenant_payment']);
+Route::delete('/api/delete/data/payment/{id}', [App\Http\Controllers\AdminController::class, 'deleteTenantPayment']);
+Route::get('/ledger', [App\Http\Controllers\AdminController::class, 'ledger'])->name('ledger');
 
 
 

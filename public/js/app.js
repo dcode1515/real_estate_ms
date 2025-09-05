@@ -6712,6 +6712,317 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/Ledger.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/Ledger.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  methods: {
+    formatDate: function formatDate(date) {
+      if (!date) return "";
+      return new Date(date).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      });
+    },
+    formatAmount: function formatAmount(value) {
+      if (value == null) return "";
+      return new Intl.NumberFormat("en-US").format(value);
+    },
+    getDataTenancy: function getDataTenancy() {
+      var _this = this;
+      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+        var response, _t;
+        return _regenerator().w(function (_context) {
+          while (1) switch (_context.p = _context.n) {
+            case 0:
+              _context.p = 0;
+              _context.n = 1;
+              return axios.get("/real_estate_ms/api/get/data/tenancy", {
+                params: {
+                  page: _this.tenancies.current_page,
+                  per_page: _this.perPage,
+                  search: _this.searchQuery
+                }
+              });
+            case 1:
+              response = _context.v;
+              _this.tenancies = response.data.data;
+              _context.n = 3;
+              break;
+            case 2:
+              _context.p = 2;
+              _t = _context.v;
+              console.error("Error fetching data:", _t);
+            case 3:
+              return _context.a(2);
+          }
+        }, _callee, null, [[0, 2]]);
+      }))();
+    },
+    changePage: function changePage(page) {
+      if (page >= 1 && page <= this.totalPages) {
+        this.tenancies.current_page = page;
+        this.getDataTenancy();
+      }
+    }
+  },
+  data: function data() {
+    return {
+      searchQuery: "",
+      perPage: 10,
+      tenancies: {
+        data: [],
+        current_page: 1,
+        last_page: 1,
+        per_page: 10,
+        total: 0
+      }
+    };
+  },
+  computed: {
+    totalPages: function totalPages() {
+      return Math.ceil(this.tenancies.total / this.tenancies.per_page);
+    }
+  },
+  mounted: function mounted() {
+    this.getDataTenancy();
+    console.log("Component Mounted");
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/Payment.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/Payment.vue?vue&type=script&lang=js& ***!
@@ -7306,11 +7617,18 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
+      total_income: 0,
+      today_income: 0,
+      monthly_income: 0,
+      yearly_income: 0,
       searchQuery: "",
       perPage: 10,
       payments: {
@@ -7343,43 +7661,88 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
     };
   },
   methods: {
-    getDataPayment: function getDataPayment() {
+    deletePayment: function deletePayment(payment) {
       var _this = this;
       return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-        var response, totals, _t;
+        var confirmation, _t;
         return _regenerator().w(function (_context) {
           while (1) switch (_context.p = _context.n) {
             case 0:
-              _context.p = 0;
               _context.n = 1;
+              return sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+                title: "Are you sure?",
+                text: "Delete payment for ".concat(payment.tenant.tenant_name, " (Invoice: ").concat(payment.invoice, ")?"),
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes, delete it!",
+                cancelButtonText: "Cancel"
+              });
+            case 1:
+              confirmation = _context.v;
+              if (confirmation.isConfirmed) {
+                _context.n = 2;
+                break;
+              }
+              return _context.a(2);
+            case 2:
+              _context.p = 2;
+              _context.n = 3;
+              return axios["delete"]("/real_estate_ms/api/delete/data/payment/".concat(payment.id));
+            case 3:
+              sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire("Deleted!", "Payment has been deleted.", "success");
+
+              // Refresh payment list
+              _this.getDataPayment(); // or remove payment from local array if you want to avoid a full reload
+              _context.n = 5;
+              break;
+            case 4:
+              _context.p = 4;
+              _t = _context.v;
+              console.error(_t);
+              sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire("Error", "Failed to delete payment.", "error");
+            case 5:
+              return _context.a(2);
+          }
+        }, _callee, null, [[2, 4]]);
+      }))();
+    },
+    getDataPayment: function getDataPayment() {
+      var _this2 = this;
+      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+        var response, totals, _t2;
+        return _regenerator().w(function (_context2) {
+          while (1) switch (_context2.p = _context2.n) {
+            case 0:
+              _context2.p = 0;
+              _context2.n = 1;
               return axios.get("/real_estate_ms/api/get/data/payment", {
                 params: {
-                  page: _this.payments.current_page,
-                  per_page: _this.perPage,
-                  search: _this.searchQuery
+                  page: _this2.payments.current_page,
+                  per_page: _this2.perPage,
+                  search: _this2.searchQuery
                 }
               });
             case 1:
-              response = _context.v;
-              _this.payments = response.data.data;
-              _this.payments = response.data.data;
+              response = _context2.v;
+              _this2.payments = response.data.data;
+              _this2.payments = response.data.data;
 
               // Set totals
               totals = response.data.totals;
-              _this.total_income = totals.total_income;
-              _this.today_income = totals.today_income;
-              _this.monthly_income = totals.monthly_income;
-              _this.yearly_income = totals.yearly_income;
-              _context.n = 3;
+              _this2.total_income = totals.total_income;
+              _this2.today_income = totals.today_income;
+              _this2.monthly_income = totals.monthly_income;
+              _this2.yearly_income = totals.yearly_income;
+              _context2.n = 3;
               break;
             case 2:
-              _context.p = 2;
-              _t = _context.v;
-              console.error("Error fetching data:", _t);
+              _context2.p = 2;
+              _t2 = _context2.v;
+              console.error("Error fetching data:", _t2);
             case 3:
-              return _context.a(2);
+              return _context2.a(2);
           }
-        }, _callee, null, [[0, 2]]);
+        }, _callee2, null, [[0, 2]]);
       }))();
     },
     changePage: function changePage(page) {
@@ -7389,69 +7752,69 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       }
     },
     submitPayment: function submitPayment() {
-      var _this2 = this;
-      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
-        var errorMessage, confirmation, formData, response, data, errorMessages, key, _t2;
-        return _regenerator().w(function (_context2) {
-          while (1) switch (_context2.p = _context2.n) {
+      var _this3 = this;
+      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
+        var errorMessage, confirmation, formData, response, paymentId, data, errorMessages, key, _t3;
+        return _regenerator().w(function (_context3) {
+          while (1) switch (_context3.p = _context3.n) {
             case 0:
-              _context2.p = 0;
-              if (_this2.selectedTenantId) {
-                _context2.n = 1;
+              _context3.p = 0;
+              if (_this3.selectedTenantId) {
+                _context3.n = 1;
                 break;
               }
               sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire("Validation Error", "Please select a Tenant.", "error");
-              return _context2.a(2);
+              return _context3.a(2);
             case 1:
-              if (_this2.formData.mode_of_payment) {
-                _context2.n = 2;
+              if (_this3.formData.mode_of_payment) {
+                _context3.n = 2;
                 break;
               }
               sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire("Validation Error", "Please select the mode of payment.", "error");
-              return _context2.a(2);
+              return _context3.a(2);
             case 2:
-              if (!(_this2.formData.mode_of_payment === "G-Cash" || _this2.formData.mode_of_payment === "Bank Deposit")) {
-                _context2.n = 3;
+              if (!(_this3.formData.mode_of_payment === "G-Cash" || _this3.formData.mode_of_payment === "Bank Deposit")) {
+                _context3.n = 3;
                 break;
               }
-              if (_this2.formData.acctno) {
-                _context2.n = 3;
+              if (_this3.formData.acctno) {
+                _context3.n = 3;
                 break;
               }
               // Specific validation message based on payment mode
-              errorMessage = _this2.formData.mode_of_payment === "G-Cash" ? "Please provide your G-Cash account number." : "Please provide your Bank account number.";
+              errorMessage = _this3.formData.mode_of_payment === "G-Cash" ? "Please provide your G-Cash account number." : "Please provide your Bank account number.";
               sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire("Validation Error", errorMessage, "error");
-              return _context2.a(2);
+              return _context3.a(2);
             case 3:
-              if (!(_this2.formData.mode_of_payment !== "Cash" && !_this2.formData.acctno)) {
-                _context2.n = 4;
+              if (!(_this3.formData.mode_of_payment !== "Cash" && !_this3.formData.acctno)) {
+                _context3.n = 4;
                 break;
               }
               sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire("Validation Error", "Please provide account number.", "error");
-              return _context2.a(2);
+              return _context3.a(2);
             case 4:
-              if (!(_this2.formData.mode_of_payment !== "Cash" && !_this2.formData.acctno)) {
-                _context2.n = 5;
+              if (!(_this3.formData.mode_of_payment !== "Cash" && !_this3.formData.acctno)) {
+                _context3.n = 5;
                 break;
               }
               sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire("Validation Error", "Please provide account number.", "error");
-              return _context2.a(2);
+              return _context3.a(2);
             case 5:
-              if (!(!_this2.formData.amount || _this2.formData.amount <= 0)) {
-                _context2.n = 6;
+              if (!(!_this3.formData.amount || _this3.formData.amount <= 0)) {
+                _context3.n = 6;
                 break;
               }
               sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire("Validation Error", "Please enter a valid payment amount.", "error");
-              return _context2.a(2);
+              return _context3.a(2);
             case 6:
-              if (_this2.formData.date_paid) {
-                _context2.n = 7;
+              if (_this3.formData.date_paid) {
+                _context3.n = 7;
                 break;
               }
               sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire("Validation Error", "Please select the date paid.", "error");
-              return _context2.a(2);
+              return _context3.a(2);
             case 7:
-              _context2.n = 8;
+              _context3.n = 8;
               return sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
                 title: "Are you sure?",
                 text: "You are about to submit the payment. Do you want to proceed?",
@@ -7461,37 +7824,55 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
                 cancelButtonText: "Cancel"
               });
             case 8:
-              confirmation = _context2.v;
+              confirmation = _context3.v;
               if (confirmation.isConfirmed) {
-                _context2.n = 9;
+                _context3.n = 9;
                 break;
               }
-              return _context2.a(2);
+              return _context3.a(2);
             case 9:
               // Step 2: Create FormData and Submit
-              _this2.isSubmitting = true;
+              _this3.isSubmitting = true;
               formData = new FormData();
-              formData.append("mode_of_payment", _this2.formData.mode_of_payment);
-              formData.append("selectedTenantId", _this2.selectedTenantId);
-              formData.append("property_id", _this2.formData.property_id);
-              formData.append("acctno", _this2.formData.acctno);
-              formData.append("amount", _this2.formData.amount);
-              formData.append("date_paid", _this2.formData.date_paid);
+              formData.append("mode_of_payment", _this3.formData.mode_of_payment);
+              formData.append("selectedTenantId", _this3.selectedTenantId);
+              formData.append("property_id", _this3.formData.property_id);
+              formData.append("acctno", _this3.formData.acctno);
+              formData.append("amount", _this3.formData.amount);
+              formData.append("date_paid", _this3.formData.date_paid);
 
               // Optional fields
-              if (_this2.formData.proof_of_payment) {
-                formData.append("proof_of_payment", _this2.formData.proof_of_payment);
+              if (_this3.formData.proof_of_payment) {
+                formData.append("proof_of_payment", _this3.formData.proof_of_payment);
               }
 
               // Step 3: Send the request
-              _context2.n = 10;
+              if (!(_this3.modalMode === "add")) {
+                _context3.n = 11;
+                break;
+              }
+              _context3.n = 10;
               return axios.post("/real_estate_ms/api/store/payment", formData, {
                 headers: {
                   "Content-Type": "multipart/form-data"
                 }
               });
             case 10:
-              response = _context2.v;
+              response = _context3.v;
+              _context3.n = 13;
+              break;
+            case 11:
+              // PUT for editing existing payment
+              paymentId = _this3.formData.id; // Make sure this exists
+              _context3.n = 12;
+              return axios.post("/real_estate_ms/api/update/payment/".concat(paymentId), formData, {
+                headers: {
+                  "Content-Type": "multipart/form-data"
+                }
+              });
+            case 12:
+              response = _context3.v;
+            case 13:
               // Success Handling
               sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
                 icon: "success",
@@ -7501,16 +7882,16 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               }).then(function () {
                 window.location.href = "/real_estate_ms/payment";
               });
-              _context2.n = 12;
+              _context3.n = 15;
               break;
-            case 11:
-              _context2.p = 11;
-              _t2 = _context2.v;
-              console.error(_t2);
+            case 14:
+              _context3.p = 14;
+              _t3 = _context3.v;
+              console.error(_t3);
 
               // Handle validation or other errors
-              if (_t2.response && _t2.response.status === 422) {
-                data = _t2.response.data;
+              if (_t3.response && _t3.response.status === 422) {
+                data = _t3.response.data;
                 if (data.errors) {
                   errorMessages = '<ul style="text-align: left;">';
                   for (key in data.errors) {
@@ -7532,48 +7913,48 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
                   text: "Something went wrong while submitting the form."
                 });
               }
-            case 12:
-              _context2.p = 12;
-              _this2.isSubmitting = false;
-              return _context2.f(12);
-            case 13:
-              return _context2.a(2);
+            case 15:
+              _context3.p = 15;
+              _this3.isSubmitting = false;
+              return _context3.f(15);
+            case 16:
+              return _context3.a(2);
           }
-        }, _callee2, null, [[0, 11, 12, 13]]);
+        }, _callee3, null, [[0, 14, 15, 16]]);
       }))();
     },
     loadTenancies: function loadTenancies() {
-      var _this3 = this;
-      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
-        var response, _t3;
-        return _regenerator().w(function (_context3) {
-          while (1) switch (_context3.p = _context3.n) {
+      var _this4 = this;
+      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4() {
+        var response, _t4;
+        return _regenerator().w(function (_context4) {
+          while (1) switch (_context4.p = _context4.n) {
             case 0:
-              _context3.p = 0;
-              _context3.n = 1;
+              _context4.p = 0;
+              _context4.n = 1;
               return fetch("/real_estate_ms/get-tenancies");
             case 1:
-              response = _context3.v;
-              _context3.n = 2;
+              response = _context4.v;
+              _context4.n = 2;
               return response.json();
             case 2:
-              _this3.tenancies = _context3.v;
-              _context3.n = 4;
+              _this4.tenancies = _context4.v;
+              _context4.n = 4;
               break;
             case 3:
-              _context3.p = 3;
-              _t3 = _context3.v;
-              console.error("Failed to load tenancies:", _t3);
+              _context4.p = 3;
+              _t4 = _context4.v;
+              console.error("Failed to load tenancies:", _t4);
             case 4:
-              return _context3.a(2);
+              return _context4.a(2);
           }
-        }, _callee3, null, [[0, 3]]);
+        }, _callee4, null, [[0, 3]]);
       }))();
     },
     populateFields: function populateFields() {
-      var _this4 = this;
+      var _this5 = this;
       var tenancy = this.tenancies.find(function (t) {
-        return t.tenant_id === _this4.selectedTenantId;
+        return t.tenant_id === _this5.selectedTenantId;
       });
       if (tenancy) {
         this.formData.property_id = tenancy.property_id; // ✅ Use ID
@@ -7587,47 +7968,46 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
     handleFileUpload: function handleFileUpload(event, field) {
       this.formData[field] = event.target.files[0];
     },
-    openModal: function openModal(mode, property) {
+    openModal: function openModal(mode, payment) {
+      var _this6 = this;
       this.formData = {
         id: "",
-        date_created: "",
+        property_id: "",
+        mode_of_payment: "",
+        acctno: "",
+        amount: "",
+        date_paid: "",
+        proof_of_payment: "Cash",
+        tenant_name: "",
         property_name: "",
-        province: "",
-        municipality: "",
-        barangay: "",
-        street: "",
-        zip_code: "",
-        description_of_property: "",
-        bedrooms: "",
-        sq_meter: "",
-        car_park: "",
-        toilet: "",
-        bathroom: "",
-        monthly_rate: "",
-        furnishing: "",
-        image: null
+        lease_start_date: "",
+        lease_end_date: "",
+        monthly_rent_amount: "",
+        lease_duration: ""
       };
       this.modalMode = mode;
       this.modalTitle = mode === "add" ? "Create Payment" : mode === "edit" ? "Edit Payment" : "View Payment";
       if (mode === "edit" || mode === "view") {
-        this.formData.id = property.id;
-        this.formData.date_created = property.date_created;
-        this.formData.property_name = property.property_name;
-        this.formData.province = property.province;
-        this.formData.municipality = property.municipality;
-        this.formData.barangay = property.barangay;
-        this.formData.street = property.street;
-        this.formData.zip_code = property.zip_code;
-        this.formData.description_of_property = property.description_of_property;
-        this.formData.bedrooms = property.bedrooms;
-        this.formData.sq_meter = property.sq_meter;
-        this.formData.car_park = property.car_park;
-        this.formData.toilet = property.toilet;
-        this.formData.bathroom = property.bathroom;
-        this.formData.monthly_rate = property.monthly_rate;
-        this.formData.furnishing = property.furnishing;
-        this.formData.property_type = property.property_type;
-        this.formData.image = property.image;
+        this.formData.id = payment.id;
+        this.formData.property_id = payment.property_id;
+        this.formData.mode_of_payment = payment.mode_of_payment;
+        this.formData.acctno = payment.acctno;
+        this.formData.amount = payment.amount;
+        this.formData.date_paid = payment.date_paid;
+        this.formData.proof_of_payment = payment.proof_of_payment;
+        this.selectedTenantId = payment.tenant.id;
+        this.formData.property_name = payment.property.property_name;
+        var tenancy = this.tenancies.find(function (t) {
+          return t.tenant_id === _this6.selectedTenantId;
+        });
+        if (tenancy) {
+          this.formData.property_id = tenancy.property_id; // ✅ Use ID
+          this.formData.property_name = tenancy.property_name;
+          this.formData.lease_start_date = tenancy.lease_start_date;
+          this.formData.lease_end_date = tenancy.lease_end_date;
+          this.formData.monthly_rent_amount = tenancy.monthly_rent_amount;
+          this.formData.lease_duration = tenancy.lease_duration;
+        }
       }
       $("#modalProperty").modal("show");
     },
@@ -13514,6 +13894,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "\n.bg-success[data-v-12f52172] {\r\n  background-color: #198754 !important;\n}\n.modal-content[data-v-12f52172] {\r\n  font-family: \"Segoe UI\", sans-serif;\r\n  font-size: 15px;\n}\n.modal-header h5 i[data-v-12f52172] {\r\n  font-size: 1.2rem;\n}\n.modal-body h6 i[data-v-12f52172] {\r\n  font-size: 1rem;\n}\n.modal-body ul li[data-v-12f52172] {\r\n  margin-bottom: 0.5rem;\n}\n.custom-modal-width[data-v-12f52172] {\r\n  max-width: 50%;\r\n  /* Adjust this percentage to fit your needs */\n}\n.modal-button[data-v-12f52172] {\r\n  display: inline-block;\r\n  background: #1e87f0;\r\n  color: #ffffff !important;\r\n  border: none;\r\n  padding: 12px 30px;\r\n  border-radius: 6px;\r\n  font-size: 16px;\r\n  font-weight: 500;\r\n  text-decoration: none;\r\n  cursor: pointer;\r\n  transition: background 0.3s ease;\n}\n.nav-tabs[data-v-12f52172] {\r\n  border-bottom: 2px solid #ddd;\r\n  /* Removed the background color */\n}\n.nav-link[data-v-12f52172] {\r\n  padding: 10px 20px;\r\n  color: white;\r\n  font-size: 16px;\r\n  transition: all 0.3s ease;\r\n  background-color: gray;\r\n  /* Default background color */\r\n  margin: 1px;\r\n  /* Space around the element */\n}\n.nav-link.active[data-v-12f52172] {\r\n  background-color: rgb(7, 71, 36, 1);\r\n  /* Active tab background color */\r\n  color: white;\n}\n.tab-content[data-v-12f52172] {\r\n  padding: 20px;\r\n  background-color: #f8f9fa;\n}\n.nav-pills .nav-link[data-v-12f52172] {\r\n  color: black;\r\n  background-color: transparent;\r\n  /* Removed the black background */\r\n  text-align: left;\r\n  width: 100%;\r\n  border-radius: 0;\n}\n.nav-pills .nav-link[data-v-12f52172]:hover {\r\n  background-color: #222;\n}\n.nav-pills .nav-link.active[data-v-12f52172] {\r\n  background-color: green;\r\n  color: white;\n}\ntable[data-v-12f52172] {\r\n  width: 100%;\r\n  border-collapse: collapse;\n}\nth[data-v-12f52172],\r\ntd[data-v-12f52172] {\r\n  border: 1px solid black;\r\n  padding: 8px;\r\n  text-align: center;\r\n  word-wrap: break-word;\r\n  white-space: normal;\n}\nth[data-v-12f52172] {\r\n  background-color: #f2f2f2;\n}\n.subheader[data-v-12f52172] {\r\n  font-size: 0.9em;\r\n  font-style: italic;\n}\n.fixed-width[data-v-12f52172] {\r\n  width: 150px;\r\n  /* Adjust this value based on your needs */\r\n  white-space: normal;\r\n  /* Allows text to wrap */\r\n  word-wrap: break-word;\r\n  /* Breaks long words if necessary */\r\n  text-align: center;\r\n  /* Optional: centers the text */\n}\nth[data-v-12f52172] {\r\n  max-width: 120px;\r\n  /* Adjust as needed */\r\n  white-space: normal;\n}\n.education-table[data-v-12f52172] {\r\n  width: 100%;\r\n  border-collapse: collapse;\r\n  background-color: #fff;\n}\r\n\r\n/* Header styling */\n.education-table th[data-v-12f52172] {\r\n  border: 1px solid #000;\r\n  padding: 5px;\r\n  text-align: center;\r\n  font-weight: bold;\r\n  text-transform: uppercase;\r\n  background-color: #f0f0f0;\n}\r\n\r\n/* Subheader styling for 'From' and 'To' */\n.education-table th.subheader[data-v-12f52172] {\r\n  font-weight: normal;\r\n  text-transform: none;\r\n  background-color: #f0f0f0;\n}\r\n\r\n/* Body styling */\n.education-table td[data-v-12f52172] {\r\n  border: 1px solid #000;\r\n  padding: 5px;\r\n  height: 30px;\r\n  /* To match the row height in the image */\n}\r\n\r\n/* First column (LEVEL) styling */\n.education-table td[data-v-12f52172]:first-child {\r\n  background-color: #e6e6e6;\r\n  text-align: center;\r\n  font-weight: bold;\n}\r\n\r\n/* Responsive adjustments */\n@media screen and (max-width: 600px) {\n.education-table[data-v-12f52172] {\r\n    font-size: 10px;\n}\n.education-table th[data-v-12f52172],\r\n  .education-table td[data-v-12f52172] {\r\n    padding: 3px;\n}\n}\n.scrollable-table-wrapper[data-v-12f52172] {\r\n  max-height: 400px;\r\n\r\n  overflow-y: auto;\r\n  overflow-x: auto;\r\n\r\n  border: 1px solid #dee2e6;\r\n  margin-top: 1rem;\n}\r\n\r\n/* Apply styles for valid date formatting */\r\n/* For valid date (Green) */\n.formatted-date[data-v-12f52172] {\r\n  color: #771361;\r\n  /* Green color for valid dates */\r\n  font-weight: bold;\r\n  /* Optional: make the text bold */\r\n  font-style: normal;\r\n  /* Optional: reset italic if previously applied */\n}\r\n\r\n/* For \"Not Scheduled\" or invalid date (Red) */\n.no-date[data-v-12f52172] {\r\n  color: #f44336;\r\n  /* Red color for \"Not Scheduled\" or empty date */\r\n  font-style: italic;\r\n  /* Italic style for emphasis */\n}.badge-custom-for-rent[data-v-12f52172] {\r\n  background-color: green;\r\n  color: white;\n}\n.badge-custom-sold[data-v-12f52172] {\r\n  background-color: red;\r\n  color: white;\n}\n.badge-custom-pending[data-v-12f52172] {\r\n  background-color: yellow;\r\n  color: black;\n}\n.badge-custom-available[data-v-12f52172] {\r\n  background-color: blue;  /* You can change this color */\r\n  color: white;\n}\r\n\r\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/Ledger.vue?vue&type=style&index=0&id=347117b4&scoped=true&lang=css&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/Ledger.vue?vue&type=style&index=0&id=347117b4&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.bg-success[data-v-347117b4] {\r\n  background-color: #198754 !important;\n}\n.modal-content[data-v-347117b4] {\r\n  font-family: \"Segoe UI\", sans-serif;\r\n  font-size: 15px;\n}\n.modal-header h5 i[data-v-347117b4] {\r\n  font-size: 1.2rem;\n}\n.modal-body h6 i[data-v-347117b4] {\r\n  font-size: 1rem;\n}\n.modal-body ul li[data-v-347117b4] {\r\n  margin-bottom: 0.5rem;\n}\n.custom-modal-width[data-v-347117b4] {\r\n  max-width: 50%;\r\n  /* Adjust this percentage to fit your needs */\n}\n.modal-button[data-v-347117b4] {\r\n  display: inline-block;\r\n  background: #1e87f0;\r\n  color: #ffffff !important;\r\n  border: none;\r\n  padding: 12px 30px;\r\n  border-radius: 6px;\r\n  font-size: 16px;\r\n  font-weight: 500;\r\n  text-decoration: none;\r\n  cursor: pointer;\r\n  transition: background 0.3s ease;\n}\n.nav-tabs[data-v-347117b4] {\r\n  border-bottom: 2px solid #ddd;\r\n  /* Removed the background color */\n}\n.nav-link[data-v-347117b4] {\r\n  padding: 10px 20px;\r\n  color: white;\r\n  font-size: 16px;\r\n  transition: all 0.3s ease;\r\n  background-color: gray;\r\n  /* Default background color */\r\n  margin: 1px;\r\n  /* Space around the element */\n}\n.nav-link.active[data-v-347117b4] {\r\n  background-color: rgb(7, 71, 36, 1);\r\n  /* Active tab background color */\r\n  color: white;\n}\n.tab-content[data-v-347117b4] {\r\n  padding: 20px;\r\n  background-color: #f8f9fa;\n}\n.nav-pills .nav-link[data-v-347117b4] {\r\n  color: black;\r\n  background-color: transparent;\r\n  /* Removed the black background */\r\n  text-align: left;\r\n  width: 100%;\r\n  border-radius: 0;\n}\n.nav-pills .nav-link[data-v-347117b4]:hover {\r\n  background-color: #222;\n}\n.nav-pills .nav-link.active[data-v-347117b4] {\r\n  background-color: green;\r\n  color: white;\n}\ntable[data-v-347117b4] {\r\n  width: 100%;\r\n  border-collapse: collapse;\n}\nth[data-v-347117b4],\r\ntd[data-v-347117b4] {\r\n  border: 1px solid black;\r\n  padding: 8px;\r\n  text-align: center;\r\n  word-wrap: break-word;\r\n  white-space: normal;\n}\nth[data-v-347117b4] {\r\n  background-color: #f2f2f2;\n}\n.subheader[data-v-347117b4] {\r\n  font-size: 0.9em;\r\n  font-style: italic;\n}\n.fixed-width[data-v-347117b4] {\r\n  width: 150px;\r\n  /* Adjust this value based on your needs */\r\n  white-space: normal;\r\n  /* Allows text to wrap */\r\n  word-wrap: break-word;\r\n  /* Breaks long words if necessary */\r\n  text-align: center;\r\n  /* Optional: centers the text */\n}\nth[data-v-347117b4] {\r\n  max-width: 120px;\r\n  /* Adjust as needed */\r\n  white-space: normal;\n}\n.education-table[data-v-347117b4] {\r\n  width: 100%;\r\n  border-collapse: collapse;\r\n  background-color: #fff;\n}\r\n\r\n/* Header styling */\n.education-table th[data-v-347117b4] {\r\n  border: 1px solid #000;\r\n  padding: 5px;\r\n  text-align: center;\r\n  font-weight: bold;\r\n  text-transform: uppercase;\r\n  background-color: #f0f0f0;\n}\r\n\r\n/* Subheader styling for 'From' and 'To' */\n.education-table th.subheader[data-v-347117b4] {\r\n  font-weight: normal;\r\n  text-transform: none;\r\n  background-color: #f0f0f0;\n}\r\n\r\n/* Body styling */\n.education-table td[data-v-347117b4] {\r\n  border: 1px solid #000;\r\n  padding: 5px;\r\n  height: 30px;\r\n  /* To match the row height in the image */\n}\r\n\r\n/* First column (LEVEL) styling */\n.education-table td[data-v-347117b4]:first-child {\r\n  background-color: #e6e6e6;\r\n  text-align: center;\r\n  font-weight: bold;\n}\r\n\r\n/* Responsive adjustments */\n@media screen and (max-width: 600px) {\n.education-table[data-v-347117b4] {\r\n    font-size: 10px;\n}\n.education-table th[data-v-347117b4],\r\n  .education-table td[data-v-347117b4] {\r\n    padding: 3px;\n}\n}\n.scrollable-table-wrapper[data-v-347117b4] {\r\n  max-height: 400px;\r\n\r\n  overflow-y: auto;\r\n  overflow-x: auto;\r\n\r\n  border: 1px solid #dee2e6;\r\n  margin-top: 1rem;\n}\r\n\r\n/* Apply styles for valid date formatting */\r\n/* For valid date (Green) */\n.formatted-date[data-v-347117b4] {\r\n  color: #771361;\r\n  /* Green color for valid dates */\r\n  font-weight: bold;\r\n  /* Optional: make the text bold */\r\n  font-style: normal;\r\n  /* Optional: reset italic if previously applied */\n}\r\n\r\n/* For \"Not Scheduled\" or invalid date (Red) */\n.no-date[data-v-347117b4] {\r\n  color: #f44336;\r\n  /* Red color for \"Not Scheduled\" or empty date */\r\n  font-style: italic;\r\n  /* Italic style for emphasis */\n}\n.badge-custom-for-rent[data-v-347117b4] {\r\n  background-color: green;\r\n  color: white;\n}\n.badge-custom-sold[data-v-347117b4] {\r\n  background-color: red;\r\n  color: white;\n}\n.badge-custom-pending[data-v-347117b4] {\r\n  background-color: yellow;\r\n  color: black;\n}\n.badge-custom-available[data-v-347117b4] {\r\n  background-color: blue; /* You can change this color */\r\n  color: white;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -41862,6 +42266,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/Ledger.vue?vue&type=style&index=0&id=347117b4&scoped=true&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/Ledger.vue?vue&type=style&index=0&id=347117b4&scoped=true&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Ledger_vue_vue_type_style_index_0_id_347117b4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Ledger.vue?vue&type=style&index=0&id=347117b4&scoped=true&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/Ledger.vue?vue&type=style&index=0&id=347117b4&scoped=true&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Ledger_vue_vue_type_style_index_0_id_347117b4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Ledger_vue_vue_type_style_index_0_id_347117b4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/Payment.vue?vue&type=style&index=0&id=71e963cb&scoped=true&lang=css&":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/Payment.vue?vue&type=style&index=0&id=71e963cb&scoped=true&lang=css& ***!
@@ -49983,6 +50417,488 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/Ledger.vue?vue&type=template&id=347117b4&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/Ledger.vue?vue&type=template&id=347117b4&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* binding */ render),
+/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "tab-content", attrs: { id: "myTabContent" } }, [
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane fade show active",
+          attrs: {
+            id: "tenancy",
+            role: "tabpanel",
+            "aria-labelledby": "tenancy-tab",
+          },
+        },
+        [
+          _c("div", { staticClass: "row mb-3" }, [
+            _c("div", { staticClass: "col-md-2" }, [
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.perPage,
+                      expression: "perPage",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  on: {
+                    change: [
+                      function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.perPage = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      },
+                      _vm.getDataTenancy,
+                    ],
+                  },
+                },
+                [
+                  _c("option", { attrs: { value: "5" } }, [
+                    _vm._v("5 per page"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "10" } }, [
+                    _vm._v("10 per page"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "25" } }, [
+                    _vm._v("25 per page"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "50" } }, [
+                    _vm._v("50 per page"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "100" } }, [
+                    _vm._v("100 per page"),
+                  ]),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-8" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.searchQuery,
+                    expression: "searchQuery",
+                  },
+                ],
+                staticClass: "form-control",
+                staticStyle: { position: "left" },
+                attrs: { type: "text", placeholder: "Search Properties..." },
+                domProps: { value: _vm.searchQuery },
+                on: {
+                  input: [
+                    function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.searchQuery = $event.target.value
+                    },
+                    _vm.getDataTenancy,
+                  ],
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "col-md-2 d-flex justify-content-end align-items-center",
+              },
+              [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-success",
+                    attrs: {
+                      href: "/real_estate_ms/create/tenancy",
+                      type: "button",
+                    },
+                  },
+                  [
+                    _c("i", { staticClass: "fas fa-plus" }),
+                    _vm._v(" Create Lease/Tenancy\n          "),
+                  ]
+                ),
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "table-responsive" }, [
+              _c("br"),
+              _vm._v(" "),
+              _c("table", [
+                _vm._m(1),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.tenancies.data, function (tenancy, index) {
+                    return _c("tr", { key: tenancy.id }, [
+                      _c("td", { staticClass: "text-center" }, [
+                        _vm._v(
+                          "\n                  " +
+                            _vm._s(
+                              (_vm.tenancies.current_page - 1) *
+                                _vm.tenancies.per_page +
+                                index +
+                                1
+                            ) +
+                            "\n                "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(tenancy.transaction_no))]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          _vm._s(_vm.formatDate(tenancy.lease_start_date))
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(_vm._s(_vm.formatDate(tenancy.lease_end_date))),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          _vm._s(_vm.formatAmount(tenancy.monthly_rent_amount))
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(_vm._s(_vm.formatAmount(tenancy.total_amount))),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(tenancy.lease_duration))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(tenancy.tenant.tenant_name))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(tenancy.tenant.contact_number))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(tenancy.property.property_no))]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(_vm._s(tenancy.property.property_name)),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(_vm._s(tenancy.property.property_type)),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(tenancy.status))]),
+                      _vm._v(" "),
+                      _vm._m(2, true),
+                    ])
+                  }),
+                  0
+                ),
+              ]),
+              _vm._v(" "),
+              _vm.tenancies.total > 0
+                ? _c("nav", { attrs: { "aria-label": "Page navigation" } }, [
+                    _c(
+                      "ul",
+                      { staticClass: "pagination justify-content-center mt-3" },
+                      [
+                        _c(
+                          "li",
+                          {
+                            staticClass: "page-item",
+                            class: {
+                              disabled: _vm.tenancies.current_page === 1,
+                            },
+                          },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "page-link",
+                                attrs: { href: "#" },
+                                on: {
+                                  click: function ($event) {
+                                    $event.preventDefault()
+                                    return _vm.changePage(
+                                      _vm.tenancies.current_page - 1
+                                    )
+                                  },
+                                },
+                              },
+                              [_vm._v("Previous")]
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _vm._l(_vm.totalPages, function (page) {
+                          return _c(
+                            "li",
+                            {
+                              key: page,
+                              staticClass: "page-item",
+                              class: {
+                                active: page === _vm.tenancies.current_page,
+                              },
+                            },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "page-link",
+                                  attrs: { href: "#" },
+                                  on: {
+                                    click: function ($event) {
+                                      $event.preventDefault()
+                                      return _vm.changePage(page)
+                                    },
+                                  },
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                  " +
+                                      _vm._s(page) +
+                                      "\n                "
+                                  ),
+                                ]
+                              ),
+                            ]
+                          )
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "li",
+                          {
+                            staticClass: "page-item",
+                            class: {
+                              disabled:
+                                _vm.tenancies.current_page === _vm.totalPages,
+                            },
+                          },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "page-link",
+                                attrs: { href: "#" },
+                                on: {
+                                  click: function ($event) {
+                                    $event.preventDefault()
+                                    return _vm.changePage(
+                                      _vm.tenancies.current_page + 1
+                                    )
+                                  },
+                                },
+                              },
+                              [_vm._v("Next")]
+                            ),
+                          ]
+                        ),
+                      ],
+                      2
+                    ),
+                  ])
+                : _vm._e(),
+            ]),
+          ]),
+        ]
+      ),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "ul",
+      { staticClass: "nav nav-tabs", attrs: { id: "myTab", role: "tablist" } },
+      [
+        _c("li", { staticClass: "nav-item", attrs: { role: "presentation" } }, [
+          _c(
+            "button",
+            {
+              staticClass: "nav-link active btn btn-primary text-white",
+              attrs: {
+                id: "tenancy-tab",
+                "data-bs-toggle": "tab",
+                "data-bs-target": "#tenancy",
+                type: "button",
+                role: "tab",
+                "aria-controls": "tenancy",
+                "aria-selected": "true",
+              },
+            },
+            [
+              _c("i", { staticClass: "fas fa-user" }),
+              _vm._v(" Show Tenancy\n      "),
+            ]
+          ),
+        ]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c(
+          "th",
+          { staticStyle: { "background-color": "#198754", color: "white" } },
+          [_vm._v("#")]
+        ),
+        _vm._v(" "),
+        _c(
+          "th",
+          { staticStyle: { "background-color": "#198754", color: "white" } },
+          [_vm._v("\n                  Transaction No.\n                ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "th",
+          { staticStyle: { "background-color": "#198754", color: "white" } },
+          [_vm._v("\n                  Lease Start Date\n                ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "th",
+          { staticStyle: { "background-color": "#198754", color: "white" } },
+          [_vm._v("\n                  Lease End Date\n                ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "th",
+          { staticStyle: { "background-color": "#198754", color: "white" } },
+          [_vm._v("\n                  Monthly Rent Amount\n                ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "th",
+          { staticStyle: { "background-color": "#198754", color: "white" } },
+          [_vm._v("Total")]
+        ),
+        _vm._v(" "),
+        _c(
+          "th",
+          { staticStyle: { "background-color": "#198754", color: "white" } },
+          [_vm._v("\n                  Duration\n                ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "th",
+          {
+            staticClass: "blue",
+            staticStyle: { "background-color": "#198754", color: "white" },
+            attrs: { colspan: "2" },
+          },
+          [_vm._v("\n                  Tenant Information\n                ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "th",
+          {
+            staticClass: "blue",
+            staticStyle: { "background-color": "#198754", color: "white" },
+            attrs: { colspan: "4" },
+          },
+          [
+            _vm._v(
+              "\n                  Properties Information\n                "
+            ),
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "th",
+          { staticStyle: { "background-color": "#198754", color: "white" } },
+          [_vm._v("\n                  Actions\n                ")]
+        ),
+      ]),
+      _vm._v(" "),
+      _c("tr", [
+        _c("th"),
+        _vm._v(" "),
+        _c("th"),
+        _vm._v(" "),
+        _c("th"),
+        _vm._v(" "),
+        _c("th"),
+        _vm._v(" "),
+        _c("th"),
+        _vm._v(" "),
+        _c("th"),
+        _vm._v(" "),
+        _c("th"),
+        _vm._v(" "),
+        _c("th", [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Contact")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Property No")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Property Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Property Type")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Square Meter")]),
+        _vm._v(" "),
+        _c("th"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "text-center" }, [
+      _c("a", [
+        _c("i", {
+          staticClass: "bi bi-pencil-square text-primary",
+          staticStyle: { "font-size": "1.2rem" },
+        }),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/Payment.vue?vue&type=template&id=71e963cb&scoped=true&":
 /*!*************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/Payment.vue?vue&type=template&id=71e963cb&scoped=true& ***!
@@ -50261,8 +51177,8 @@ var render = function () {
                       {
                         attrs: {
                           href:
-                            "/real_estate_ms/public/PaymentTenant/" +
-                            payment.invoice +
+                            "/real_estate_ms/public/tenant/" +
+                            payment.tenant.tenant_no +
                             "/" +
                             payment.proof_of_payment,
                           target: "_blank",
@@ -50296,7 +51212,42 @@ var render = function () {
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(payment.property.property_type))]),
                   _vm._v(" "),
-                  _vm._m(2, true),
+                  _c("td", { staticClass: "text-center" }, [
+                    _c(
+                      "a",
+                      {
+                        on: {
+                          click: function ($event) {
+                            return _vm.openModal("edit", payment)
+                          },
+                        },
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "bi bi-pencil-square text-primary",
+                          staticStyle: { "font-size": "1.2rem" },
+                        }),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        attrs: { title: "Delete Payment" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.deletePayment(payment)
+                          },
+                        },
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "bi bi-trash text-danger",
+                          staticStyle: { "font-size": "1.2rem" },
+                        }),
+                      ]
+                    ),
+                  ]),
                 ])
               }),
               0
@@ -50472,7 +51423,7 @@ var render = function () {
                           "div",
                           { staticClass: "card border-0 shadow-sm mb-4" },
                           [
-                            _vm._m(3),
+                            _vm._m(2),
                             _vm._v(" "),
                             _c("div", { staticClass: "card-body" }, [
                               _c("div", { staticClass: "form-floating mb-3" }, [
@@ -50488,7 +51439,10 @@ var render = function () {
                                       },
                                     ],
                                     staticClass: "form-select",
-                                    attrs: { required: "" },
+                                    attrs: {
+                                      disabled: _vm.modalMode === "edit",
+                                      required: "",
+                                    },
                                     on: {
                                       change: [
                                         function ($event) {
@@ -50545,7 +51499,7 @@ var render = function () {
                                   2
                                 ),
                                 _vm._v(" "),
-                                _vm._m(4),
+                                _vm._m(3),
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "form-floating mb-3" }, [
@@ -50580,7 +51534,7 @@ var render = function () {
                                   },
                                 }),
                                 _vm._v(" "),
-                                _vm._m(5),
+                                _vm._m(4),
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "row" }, [
@@ -50623,7 +51577,7 @@ var render = function () {
                                         },
                                       }),
                                       _vm._v(" "),
-                                      _vm._m(6),
+                                      _vm._m(5),
                                     ]
                                   ),
                                 ]),
@@ -50666,7 +51620,7 @@ var render = function () {
                                         },
                                       }),
                                       _vm._v(" "),
-                                      _vm._m(7),
+                                      _vm._m(6),
                                     ]
                                   ),
                                 ]),
@@ -50711,7 +51665,7 @@ var render = function () {
                                         },
                                       }),
                                       _vm._v(" "),
-                                      _vm._m(8),
+                                      _vm._m(7),
                                     ]
                                   ),
                                 ]),
@@ -50754,7 +51708,7 @@ var render = function () {
                                         },
                                       }),
                                       _vm._v(" "),
-                                      _vm._m(9),
+                                      _vm._m(8),
                                     ]
                                   ),
                                 ]),
@@ -50787,12 +51741,12 @@ var render = function () {
                               "div",
                               { staticClass: "card border-0 shadow-sm mb-4" },
                               [
-                                _vm._m(10),
+                                _vm._m(9),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "card-body" }, [
                                   _c("div", { staticClass: "row" }, [
                                     _c("div", { staticClass: "col-md-12" }, [
-                                      _vm._m(11),
+                                      _vm._m(10),
                                       _vm._v(" "),
                                       _c(
                                         "select",
@@ -50879,13 +51833,13 @@ var render = function () {
                                           "div",
                                           { staticClass: "col-md-12" },
                                           [
-                                            _vm._m(12),
+                                            _vm._m(11),
                                             _vm._v(" "),
                                             _c(
                                               "div",
                                               { staticClass: "input-group" },
                                               [
-                                                _vm._m(13),
+                                                _vm._m(12),
                                                 _vm._v(" "),
                                                 _c("input", {
                                                   directives: [
@@ -50935,13 +51889,13 @@ var render = function () {
                                           "div",
                                           { staticClass: "col-md-12" },
                                           [
-                                            _vm._m(14),
+                                            _vm._m(13),
                                             _vm._v(" "),
                                             _c(
                                               "div",
                                               { staticClass: "input-group" },
                                               [
-                                                _vm._m(15),
+                                                _vm._m(14),
                                                 _vm._v(" "),
                                                 _c("input", {
                                                   directives: [
@@ -50990,13 +51944,13 @@ var render = function () {
                                       "div",
                                       { staticClass: "col-md-4 mt-3" },
                                       [
-                                        _vm._m(16),
+                                        _vm._m(15),
                                         _vm._v(" "),
                                         _c(
                                           "div",
                                           { staticClass: "input-group" },
                                           [
-                                            _vm._m(17),
+                                            _vm._m(16),
                                             _vm._v(" "),
                                             _c("input", {
                                               directives: [
@@ -51040,7 +51994,7 @@ var render = function () {
                                       "div",
                                       { staticClass: "col-md-4 mt-3" },
                                       [
-                                        _vm._m(18),
+                                        _vm._m(17),
                                         _vm._v(" "),
                                         _c("input", {
                                           directives: [
@@ -51080,7 +52034,7 @@ var render = function () {
                                       "div",
                                       { staticClass: "col-md-4 mt-3" },
                                       [
-                                        _vm._m(19),
+                                        _vm._m(18),
                                         _vm._v(" "),
                                         _c("input", {
                                           staticClass: "form-control",
@@ -51141,7 +52095,7 @@ var render = function () {
                                   _vm._s(
                                     _vm.modalMode === "add"
                                       ? "Add Property"
-                                      : "Save Changes"
+                                      : "Edit Payment"
                                   ) +
                                   "\n            "
                               ),
@@ -51292,19 +52246,6 @@ var staticRenderFns = [
         _c("th", [_vm._v("Property Type")]),
         _vm._v(" "),
         _c("th"),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "text-center" }, [
-      _c("a", [
-        _c("i", {
-          staticClass: "bi bi-pencil-square text-primary",
-          staticStyle: { "font-size": "1.2rem" },
-        }),
       ]),
     ])
   },
@@ -65584,6 +66525,7 @@ Vue.component('Forrent', (__webpack_require__(/*! ./components/Admin/Forrent.vue
 Vue.component('Createtanancy', (__webpack_require__(/*! ./components/Admin/Createtanancy.vue */ "./resources/js/components/Admin/Createtanancy.vue")["default"]));
 Vue.component('Showtenancy', (__webpack_require__(/*! ./components/Admin/Showtenancy.vue */ "./resources/js/components/Admin/Showtenancy.vue")["default"]));
 Vue.component('Payment', (__webpack_require__(/*! ./components/Admin/Payment.vue */ "./resources/js/components/Admin/Payment.vue")["default"]));
+Vue.component('Ledger', (__webpack_require__(/*! ./components/Admin/Ledger.vue */ "./resources/js/components/Admin/Ledger.vue")["default"]));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -65808,6 +66750,94 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Forrent_vue_vue_type_template_id_12f52172_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Forrent_vue_vue_type_template_id_12f52172_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Forrent.vue?vue&type=template&id=12f52172&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/Forrent.vue?vue&type=template&id=12f52172&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/Ledger.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/components/Admin/Ledger.vue ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Ledger_vue_vue_type_template_id_347117b4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Ledger.vue?vue&type=template&id=347117b4&scoped=true& */ "./resources/js/components/Admin/Ledger.vue?vue&type=template&id=347117b4&scoped=true&");
+/* harmony import */ var _Ledger_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Ledger.vue?vue&type=script&lang=js& */ "./resources/js/components/Admin/Ledger.vue?vue&type=script&lang=js&");
+/* harmony import */ var _Ledger_vue_vue_type_style_index_0_id_347117b4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Ledger.vue?vue&type=style&index=0&id=347117b4&scoped=true&lang=css& */ "./resources/js/components/Admin/Ledger.vue?vue&type=style&index=0&id=347117b4&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Ledger_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Ledger_vue_vue_type_template_id_347117b4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Ledger_vue_vue_type_template_id_347117b4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "347117b4",
+  null
+  
+)
+
+/* hot reload */
+if (false) // removed by dead control flow
+{ var api; }
+component.options.__file = "resources/js/components/Admin/Ledger.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/Ledger.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/Admin/Ledger.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Ledger_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Ledger.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/Ledger.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Ledger_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/Ledger.vue?vue&type=style&index=0&id=347117b4&scoped=true&lang=css&":
+/*!***********************************************************************************************************!*\
+  !*** ./resources/js/components/Admin/Ledger.vue?vue&type=style&index=0&id=347117b4&scoped=true&lang=css& ***!
+  \***********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Ledger_vue_vue_type_style_index_0_id_347117b4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Ledger.vue?vue&type=style&index=0&id=347117b4&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/Ledger.vue?vue&type=style&index=0&id=347117b4&scoped=true&lang=css&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Admin/Ledger.vue?vue&type=template&id=347117b4&scoped=true&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/Admin/Ledger.vue?vue&type=template&id=347117b4&scoped=true& ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Ledger_vue_vue_type_template_id_347117b4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Ledger_vue_vue_type_template_id_347117b4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Ledger_vue_vue_type_template_id_347117b4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Ledger.vue?vue&type=template&id=347117b4&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Admin/Ledger.vue?vue&type=template&id=347117b4&scoped=true&");
 
 
 /***/ }),

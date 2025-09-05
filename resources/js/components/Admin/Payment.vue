@@ -170,11 +170,7 @@
                 <td>{{ payment.transaction_no }}</td>
                 <td>
                   <a
-                    :href="`/real_estate_ms/public/PaymentTenant/${
-                      payment.invoice
-                    }/${
-                      payment.proof_of_payment
-                    }`"
+                    :href="`/real_estate_ms/public/tenant/${payment.tenant.tenant_no}/${payment.proof_of_payment}`"
                     target="_blank"
                   >
                     {{ payment.invoice }}
@@ -193,9 +189,15 @@
                 <td>{{ payment.property.property_type }}</td>
 
                 <td class="text-center">
-                  <a>
+                  <a @click="openModal('edit', payment)">
                     <i
                       class="bi bi-pencil-square text-primary"
+                      style="font-size: 1.2rem"
+                    ></i>
+                  </a>
+                  <a @click="deletePayment(payment)" title="Delete Payment">
+                    <i
+                      class="bi bi-trash text-danger"
                       style="font-size: 1.2rem"
                     ></i>
                   </a>
@@ -296,6 +298,7 @@
                         class="form-select"
                         v-model="selectedTenantId"
                         @change="populateFields"
+                        :disabled="modalMode === 'edit'"
                         required
                       >
                         <option disabled value="">Select Tenant</option>
@@ -564,7 +567,7 @@
               <!-- Add or Edit icon and label -->
               <span v-else>
                 <i class="fas fa-save me-2"></i>
-                {{ modalMode === "add" ? "Add Property" : "Save Changes" }}
+                {{ modalMode === "add" ? "Add Property" : "Edit Payment" }}
               </span>
             </button>
           </div>
@@ -580,6 +583,10 @@ import Swal from "sweetalert2";
 export default {
   data() {
     return {
+      total_income: 0,
+      today_income: 0,
+      monthly_income: 0,
+      yearly_income: 0,
       searchQuery: "",
       perPage: 10,
       payments: {
@@ -614,6 +621,34 @@ export default {
     };
   },
   methods: {
+    async deletePayment(payment) {
+      const confirmation = await Swal.fire({
+        title: "Are you sure?",
+      text: `Delete payment for ${payment.tenant.tenant_name} (Invoice: ${payment.invoice})?`,
+
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "Cancel",
+      });
+
+      if (!confirmation.isConfirmed) {
+        return;
+      }
+
+      try {
+        await axios.delete(`/real_estate_ms/api/delete/data/payment/${payment.id}`);
+
+        Swal.fire("Deleted!", "Payment has been deleted.", "success");
+
+        // Refresh payment list
+        this.getDataPayment(); // or remove payment from local array if you want to avoid a full reload
+      } catch (error) {
+        console.error(error);
+        Swal.fire("Error", "Failed to delete payment.", "error");
+      }
+    },
+
     async getDataPayment() {
       try {
         const response = await axios.get(
@@ -750,15 +785,27 @@ export default {
         }
 
         // Step 3: Send the request
-        let response = await axios.post(
-          "/real_estate_ms/api/store/payment",
-          formData,
-          {
-            headers: {
-              "Content-Type": "multipart/form-data",
-            },
-          }
-        );
+        let response;
+        if (this.modalMode === "add") {
+          // POST for adding new payment
+          response = await axios.post(
+            "/real_estate_ms/api/store/payment",
+            formData,
+            {
+              headers: { "Content-Type": "multipart/form-data" },
+            }
+          );
+        } else {
+          // PUT for editing existing payment
+          const paymentId = this.formData.id; // Make sure this exists
+          response = await axios.post(
+            `/real_estate_ms/api/update/payment/${paymentId}`,
+            formData,
+            {
+              headers: { "Content-Type": "multipart/form-data" },
+            }
+          );
+        }
 
         // Success Handling
         Swal.fire({
@@ -829,25 +876,21 @@ export default {
     handleFileUpload(event, field) {
       this.formData[field] = event.target.files[0];
     },
-    openModal(mode, property) {
+    openModal(mode, payment) {
       this.formData = {
         id: "",
-        date_created: "",
+        property_id: "",
+        mode_of_payment: "",
+        acctno: "",
+        amount: "",
+        date_paid: "",
+        proof_of_payment: "Cash",
+        tenant_name: "",
         property_name: "",
-        province: "",
-        municipality: "",
-        barangay: "",
-        street: "",
-        zip_code: "",
-        description_of_property: "",
-        bedrooms: "",
-        sq_meter: "",
-        car_park: "",
-        toilet: "",
-        bathroom: "",
-        monthly_rate: "",
-        furnishing: "",
-        image: null,
+        lease_start_date: "",
+        lease_end_date: "",
+        monthly_rent_amount: "",
+        lease_duration: "",
       };
 
       this.modalMode = mode;
@@ -859,25 +902,27 @@ export default {
           : "View Payment";
 
       if (mode === "edit" || mode === "view") {
-        this.formData.id = property.id;
-        this.formData.date_created = property.date_created;
-        this.formData.property_name = property.property_name;
-        this.formData.province = property.province;
-        this.formData.municipality = property.municipality;
-        this.formData.barangay = property.barangay;
-        this.formData.street = property.street;
-        this.formData.zip_code = property.zip_code;
-        this.formData.description_of_property =
-          property.description_of_property;
-        this.formData.bedrooms = property.bedrooms;
-        this.formData.sq_meter = property.sq_meter;
-        this.formData.car_park = property.car_park;
-        this.formData.toilet = property.toilet;
-        this.formData.bathroom = property.bathroom;
-        this.formData.monthly_rate = property.monthly_rate;
-        this.formData.furnishing = property.furnishing;
-        this.formData.property_type = property.property_type;
-        this.formData.image = property.image;
+        this.formData.id = payment.id;
+        this.formData.property_id = payment.property_id;
+        this.formData.mode_of_payment = payment.mode_of_payment;
+        this.formData.acctno = payment.acctno;
+        this.formData.amount = payment.amount;
+        this.formData.date_paid = payment.date_paid;
+        this.formData.proof_of_payment = payment.proof_of_payment;
+        this.selectedTenantId = payment.tenant.id;
+        this.formData.property_name = payment.property.property_name;
+        const tenancy = this.tenancies.find(
+          (t) => t.tenant_id === this.selectedTenantId
+        );
+
+        if (tenancy) {
+          this.formData.property_id = tenancy.property_id; // ✅ Use ID
+          this.formData.property_name = tenancy.property_name;
+          this.formData.lease_start_date = tenancy.lease_start_date;
+          this.formData.lease_end_date = tenancy.lease_end_date;
+          this.formData.monthly_rent_amount = tenancy.monthly_rent_amount;
+          this.formData.lease_duration = tenancy.lease_duration;
+        }
       }
 
       $("#modalProperty").modal("show");

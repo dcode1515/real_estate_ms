@@ -40,6 +40,10 @@ class PaymentTenant extends Model
     {
         return $this->belongsTo(Property::class);
     }
+      public function tenancy()
+    {
+        return $this->belongsTo(Tenancy::class);
+    }
    
    public static function IDGenerator($model,$trow,$length = 4, $prefix){
     $data = $model::orderBy('id','desc')->first();
