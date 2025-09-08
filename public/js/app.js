@@ -8258,9 +8258,6 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   methods: {
@@ -52607,8 +52604,6 @@ var render = function () {
                         ),
                       ]),
                       _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(tenancy.transaction_no))]),
-                      _vm._v(" "),
                       _c("td", [
                         _vm._v(
                           _vm._s(_vm.formatDate(tenancy.lease_start_date))
@@ -52623,10 +52618,6 @@ var render = function () {
                         _vm._v(
                           _vm._s(_vm.formatAmount(tenancy.monthly_rent_amount))
                         ),
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _vm._v(_vm._s(_vm.formatAmount(tenancy.total_amount))),
                       ]),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(tenancy.lease_duration))]),
@@ -52811,12 +52802,6 @@ var staticRenderFns = [
         _c(
           "th",
           { staticStyle: { "background-color": "#198754", color: "white" } },
-          [_vm._v("\n                  Transaction No.\n                ")]
-        ),
-        _vm._v(" "),
-        _c(
-          "th",
-          { staticStyle: { "background-color": "#198754", color: "white" } },
           [_vm._v("\n                  Lease Start Date\n                ")]
         ),
         _vm._v(" "),
@@ -52830,12 +52815,6 @@ var staticRenderFns = [
           "th",
           { staticStyle: { "background-color": "#198754", color: "white" } },
           [_vm._v("\n                  Monthly Rent Amount\n                ")]
-        ),
-        _vm._v(" "),
-        _c(
-          "th",
-          { staticStyle: { "background-color": "#198754", color: "white" } },
-          [_vm._v("Total")]
         ),
         _vm._v(" "),
         _c(
@@ -52886,10 +52865,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th"),
         _vm._v(" "),
-        _c("th"),
-        _vm._v(" "),
-        _c("th"),
-        _vm._v(" "),
         _c("th", [_vm._v("Name")]),
         _vm._v(" "),
         _c("th", [_vm._v("Contact")]),
@@ -52911,12 +52886,23 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("td", { staticClass: "text-center" }, [
-      _c("a", [
-        _c("i", {
-          staticClass: "bi bi-pencil-square text-primary",
-          staticStyle: { "font-size": "1.2rem" },
-        }),
-      ]),
+      _c(
+        "button",
+        { staticClass: "btn btn-primary btn-sm", attrs: { type: "button" } },
+        [
+          _c("i", { staticClass: "fas fa-pencil-alt" }),
+          _vm._v(" Edit\n                  "),
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-danger btn-sm", attrs: { type: "button" } },
+        [
+          _c("i", { staticClass: "fas fa-book" }),
+          _vm._v(" View Ledger\n                  "),
+        ]
+      ),
     ])
   },
 ]

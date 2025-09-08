@@ -33,7 +33,7 @@
                     <h4>
                         <div style="display: flex; align-items: center; gap: 6px; margin-top: 10px;">
                           <!-- Dashboard Icon -->
-                            <span style="color:white;"><b>Real Estate Management System</b></span>
+                            <span style="color:white;"><b>DENR XI - ORSPS</b></span>
                         </div>
                     </h4>
                 </button>

@@ -64,9 +64,7 @@
               <thead>
                 <tr>
                   <th style="background-color: #198754; color: white">#</th>
-                  <th style="background-color: #198754; color: white">
-                    Transaction No.
-                  </th>
+
                   <th style="background-color: #198754; color: white">
                     Lease Start Date
                   </th>
@@ -76,7 +74,7 @@
                   <th style="background-color: #198754; color: white">
                     Monthly Rent Amount
                   </th>
-                  <th style="background-color: #198754; color: white">Total</th>
+                 
                   <th style="background-color: #198754; color: white">
                     Duration
                   </th>
@@ -102,13 +100,12 @@
                 </tr>
                 <tr>
                   <th></th>
-                  <th></th>
 
                   <th></th>
                   <th></th>
                   <th></th>
                   <th></th>
-                  <th></th>
+                 
                   <!-- <th>Next In Rank</th> -->
                   <th>Name</th>
 
@@ -134,12 +131,12 @@
                       1
                     }}
                   </td>
-                  <td>{{ tenancy.transaction_no }}</td>
+
                   <td>{{ formatDate(tenancy.lease_start_date) }}</td>
                   <td>{{ formatDate(tenancy.lease_end_date) }}</td>
 
                   <td>{{ formatAmount(tenancy.monthly_rent_amount) }}</td>
-                  <td>{{ formatAmount(tenancy.total_amount) }}</td>
+                  <!-- <td>{{ formatAmount(tenancy.total_amount) }}</td> -->
 
                   <td>{{ tenancy.lease_duration }}</td>
                   <td>{{ tenancy.tenant.tenant_name }}</td>
@@ -150,12 +147,12 @@
                   <td>{{ tenancy.property.property_type }}</td>
                   <td>{{ tenancy.status }}</td>
                   <td class="text-center">
-                    <a>
-                      <i
-                        class="bi bi-pencil-square text-primary"
-                        style="font-size: 1.2rem"
-                      ></i>
-                    </a>
+                    <button type="button" class="btn btn-primary btn-sm">
+                      <i class="fas fa-pencil-alt"></i> Edit
+                    </button>
+                    <button type="button" class="btn btn-danger btn-sm">
+                      <i class="fas fa-book"></i> View Ledger
+                    </button>
                   </td>
                 </tr>
                 <!-- Repeat for more rows as needed -->
@@ -218,12 +215,12 @@
 <script>
 export default {
   methods: {
-     formatDate(date) {
+    formatDate(date) {
       if (!date) return "";
       return new Date(date).toLocaleDateString("en-US", {
         year: "numeric",
         month: "long",
-        day: "numeric"
+        day: "numeric",
       });
     },
     formatAmount(value) {
@@ -248,7 +245,7 @@ export default {
         console.error("Error fetching data:", error);
       }
     },
-      changePage(page) {
+    changePage(page) {
       if (page >= 1 && page <= this.totalPages) {
         this.tenancies.current_page = page;
         this.getDataTenancy();
@@ -279,6 +276,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 .bg-success {
   background-color: #198754 !important;

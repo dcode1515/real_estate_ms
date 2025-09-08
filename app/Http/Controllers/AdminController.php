@@ -690,6 +690,7 @@ public function getDataPayment(Request $request)
         return view('admin.ledger');
     }
 
-                
+
+    
 
 }
