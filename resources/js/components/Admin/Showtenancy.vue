@@ -74,10 +74,8 @@
                   <th style="background-color: #198754; color: white">
                     Monthly Rent Amount
                   </th>
-                 
-                  <th style="background-color: #198754; color: white">
-                    Duration
-                  </th>
+
+               
 
                   <th
                     colspan="2"
@@ -87,12 +85,20 @@
                     Tenant Information
                   </th>
                   <th
-                    colspan="4"
+                    colspan="2"
                     class="blue"
                     style="background-color: #198754; color: white"
                   >
                     Properties Information
                   </th>
+                  <th
+                    colspan="3"
+                    class="blue"
+                    style="background-color: #198754; color: white"
+                  >
+                    No of Payment
+                  </th>
+
                   <th style="background-color: #198754; color: white">
                     Actions
                   </th>
@@ -104,17 +110,18 @@
                   <th></th>
                   <th></th>
                   <th></th>
-                  <th></th>
                  
+
                   <!-- <th>Next In Rank</th> -->
                   <th>Name</th>
 
                   <th>Contact</th>
 
-                  <th>Property No</th>
                   <th>Property Name</th>
                   <th>Property Type</th>
-                  <th>Square Meter</th>
+                  <th>Next Payment</th>
+                  <th>No of Payment</th>
+                  <th>Total</th>
                   <th></th>
                 </tr>
               </thead>
@@ -138,21 +145,36 @@
                   <td>{{ formatAmount(tenancy.monthly_rent_amount) }}</td>
                   <!-- <td>{{ formatAmount(tenancy.total_amount) }}</td> -->
 
-                  <td>{{ tenancy.lease_duration }}</td>
+                 
                   <td>{{ tenancy.tenant.tenant_name }}</td>
 
                   <td>{{ tenancy.tenant.contact_number }}</td>
-                  <td>{{ tenancy.property.property_no }}</td>
+
                   <td>{{ tenancy.property.property_name }}</td>
                   <td>{{ tenancy.property.property_type }}</td>
-                  <td>{{ tenancy.status }}</td>
+                  <td>{{ formatDate(tenancy.due_date) }}</td>
+                  <td>{{ tenancy.payment_tenants_count }}</td>
+                  <td>
+                    {{
+                      tenancy.payment_tenants_sum_amount
+                        ? new Intl.NumberFormat("en-PH", {
+                            style: "currency",
+                            currency: "PHP",
+                          }).format(tenancy.payment_tenants_sum_amount)
+                        : "₱0.00"
+                    }}
+                  </td>
                   <td class="text-center">
                     <button type="button" class="btn btn-primary btn-sm">
                       <i class="fas fa-pencil-alt"></i> Edit
                     </button>
-                    <button type="button" class="btn btn-danger btn-sm">
+                    <a
+                      v-bind:href="'/real_estate_ms/view/ledger/' + tenancy.id"
+                      class="btn btn-danger btn-sm"
+                      type="button"
+                    >
                       <i class="fas fa-book"></i> View Ledger
-                    </button>
+                    </a>
                   </td>
                 </tr>
                 <!-- Repeat for more rows as needed -->

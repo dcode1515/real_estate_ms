@@ -10,15 +10,16 @@
             <i class="bi bi-person-circle fs-3 me-2 text-primary"></i>
             <h4 class="mb-0 flex-grow-1">Create Lease/Tenancy</h4>
             <div class="d-flex flex-wrap gap-2 ms-auto">
-              <a  v-bind:href="'/real_estate_ms/show/tenancy'" class="btn btn-outline-primary">
+              <a
+                v-bind:href="'/real_estate_ms/show/tenancy'"
+                class="btn btn-outline-primary"
+              >
                 <i class="ri-download-2-line align-bottom me-1"></i>
                 <span class="d-none d-sm-inline">Back</span>
                 <span class="d-inline d-sm-none">PDS</span>
               </a>
             </div>
           </div>
-
-          
 
           <div class="card-body">
             <!-- Note for required fields -->
@@ -109,6 +110,18 @@
                         >Lease End Date
                         <span class="text-danger">*</span></label
                       >
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="form-floating mb-3 position-relative">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="next_payment_date"
+                        v-model="formData.nextPaymentDate"
+                        readonly
+                      />
+                      <label for="next_payment_date">Next Payment Date</label>
                     </div>
                   </div>
                 </div>
@@ -281,6 +294,11 @@
                   <th>Lease End Date</th>
                   <td>{{ formData.leaseEndDate }}</td>
                 </tr>
+
+                <tr>
+                  <th>Next Payment</th>
+                  <td>{{ formData.nextPaymentDate }}</td>
+                </tr>
                 <tr>
                   <th>Monthly Rent</th>
                   <td>{{ formData.monthlyRent }}</td>
@@ -289,6 +307,7 @@
                   <th>Lease Duration</th>
                   <td>{{ leaseDuration }}</td>
                 </tr>
+
                 <tr>
                   <th>Total Rent</th>
                   <td>{{ totalAmount }}</td>
@@ -382,12 +401,12 @@ export default {
         monthlyRent: 0,
         leaseDocuments: null,
         tenancyTerms: "",
-     
-       
+        nextPaymentDate: "", // Add this
+
         upload_lease_document: null,
       },
-         totalAmount: "",
-          leaseDuration: "",
+      totalAmount: "",
+      leaseDuration: "",
 
       properties: [],
       tenants: [],
@@ -397,6 +416,19 @@ export default {
     "formData.leaseStartDate": "computeLeaseDetails",
     "formData.leaseEndDate": "computeLeaseDetails",
     "formData.monthlyRent": "computeTotalAmount",
+
+    "formData.leaseStartDate"(newDate) {
+      if (!newDate) {
+        this.formData.nextPaymentDate = "";
+        return;
+      }
+
+      const date = new Date(newDate);
+      date.setMonth(date.getMonth() + 1);
+
+      // Format as yyyy-mm-dd
+      this.formData.nextPaymentDate = date.toISOString().split("T")[0];
+    },
   },
   methods: {
     handleFileUpload(event, field) {
@@ -421,6 +453,7 @@ export default {
         formData.append("tenant", this.formData.tenant);
         formData.append("leaseStartDate", this.formData.leaseStartDate);
         formData.append("leaseEndDate", this.formData.leaseEndDate);
+        formData.append("nextPaymentDate", this.formData.nextPaymentDate);
 
         formData.append("totalAmount", this.totalAmount);
         formData.append("leaseDuration", this.leaseDuration);
@@ -598,15 +631,29 @@ export default {
         let years = end.getFullYear() - start.getFullYear();
         let months = end.getMonth() - start.getMonth();
 
+        if (end.getDate() < start.getDate()) {
+          months--; // Adjust if end day is earlier than start day
+        }
+
         if (months < 0) {
           years--;
           months += 12;
         }
 
-        this.leaseDuration = `${years} year(s) ${months} month(s)`;
+        if (years === 0) {
+          this.leaseDuration = `${months} month(s)`;
+        } else if (months === 0) {
+          this.leaseDuration = `${years} year(s)`;
+        } else {
+          this.leaseDuration = `${years} year(s) ${months} month(s)`;
+        }
+
         this.computeTotalAmount();
+      } else {
+        this.leaseDuration = "";
       }
     },
+
     computeTotalAmount() {
       if (
         this.formData.monthlyRent &&

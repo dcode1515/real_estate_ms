@@ -20,6 +20,7 @@ class Tenancy extends Model
        'lease_end_date',
        'monthly_rent_amount',
        'lease_duration',
+       'due_date',
        'total_amount',
        'transaction_no',
        'upload_lease_document',
@@ -37,6 +38,12 @@ class Tenancy extends Model
     {
         return $this->belongsTo(Property::class);
     }
+    public function paymentTenants()
+    {
+        return $this->hasMany(PaymentTenant::class, 'tenant_id', 'tenant_id')
+                    ->whereColumn('tenant_payment.property_id', 'tenancy_leases.property_id');
+    }
+
       public static function IDGenerator($model,$trow,$length = 4, $prefix){
         $data = $model::orderBy('id','desc')->first();
         if(!$data){

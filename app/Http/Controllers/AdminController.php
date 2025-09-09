@@ -410,6 +410,9 @@ class AdminController extends Controller
         $tenancy->lease_duration = $request->leaseDuration;
         $tenancy->total_amount = $request->totalAmount;
         $tenancy->tenancy_terms = $request->tenancyTerms;
+        $tenancy->due_date = $request->nextPaymentDate;
+
+        
    
         $tenancy->status = "Rented";
         $fileFields = ['upload_lease_document'];
@@ -451,26 +454,26 @@ class AdminController extends Controller
             $search = $request->query('search');
             $perPage = $request->query('per_page', 10); // Default to 10 if per_page is not provided
      
-            $properties = Tenancy::with(['tenant','property'])
+            $properties = Tenancy::with(['tenant', 'property'])
+                ->withCount('paymentTenants') // This adds payment_tenants_count to each tenancy
+                  ->withSum('paymentTenants', 'amount')    // Adds: payment_tenants_sum_amount
                 ->when($search, function ($query, $search) {
                     return $query
                         ->where('transaction_no', 'like', '%' . $search . '%')
-                         ->orWhere('date_created', 'like', '%' . $search . '%')
+                        ->orWhere('date_created', 'like', '%' . $search . '%')
                         ->orWhere('lease_start_date', 'like', '%' . $search . '%')
                         ->orWhere('lease_end_date', 'like', '%' . $search . '%')
                         ->orWhere('monthly_rent_amount', 'like', '%' . $search . '%')
-                         ->orWhereHas('tenant', function ($q) use ($search) {
+                        ->orWhereHas('tenant', function ($q) use ($search) {
                             $q->where('tenant_name', 'like', '%' . $search . '%');
                         })
-                          ->orWhereHas('property', function ($q) use ($search) {
+                        ->orWhereHas('property', function ($q) use ($search) {
                             $q->where('property_name', 'like', '%' . $search . '%');
                         });
-                       
-
                 })
-               
                 ->where('status', 'Rented')
                 ->paginate($perPage);
+
 
             return response()->json([
                 'success' => true,
@@ -501,7 +504,8 @@ class AdminController extends Controller
                         'lease_start_date' => $tenancy->lease_start_date ?? 'Unknown ',
                         'lease_end_date' => $tenancy->lease_end_date ?? 'Unknown ',
                         'monthly_rent_amount' => $tenancy->monthly_rent_amount ?? 'Unknown ',
-                           'lease_duration' => $tenancy->lease_duration ?? 'Unknown ',
+                        'lease_duration' => $tenancy->lease_duration ?? 'Unknown ',
+                        'due_date' => $tenancy->due_date ?? 'Unknown ',
                     ];
                 });
 
@@ -550,13 +554,13 @@ class AdminController extends Controller
                 $request->proof_of_payment->move(public_path('tenant/'.$payment->tenant->tenant_no), $fileName);
                 $payment->proof_of_payment = $fileName;
             }
-        // Save the payment record to the database
-        if ($payment->save()) {
+           // Save the payment record to the database
+            if ($payment->save()) {
             // Update the tenant's due date based on the payment date
-            $tenant = Tenant::find($request->selectedTenantId);
+            $tenant = Tenancy::find($request->selectedTenantId);
             if ($tenant) {
                 $datePaid = Carbon::parse($request->date_paid);
-                $tenant->duedate = $datePaid->addMonth(1);
+                $tenant->due_date = $datePaid->addMonth(1);
                 $tenant->save();
             }
 
@@ -589,7 +593,16 @@ class AdminController extends Controller
                 $request->proof_of_payment->move(public_path('tenant/'.$payment->tenant->tenant_no), $fileName);
                 $payment->proof_of_payment = $fileName;
             }
-         $payment->save();   
+         if ($payment->save()) {
+            // Update the tenant's due date based on the payment date
+            $tenant = Tenancy::find($request->selectedTenantId);
+            if ($tenant) {
+                $datePaid = Carbon::parse($request->date_paid);
+                $tenant->due_date = $datePaid->addMonth(1);
+                $tenant->save();
+            }
+            
+        }
        
 
        return response()->json(['status' => 'Tenant Payment Successfully Saved'], 200);
@@ -688,6 +701,15 @@ public function getDataPayment(Request $request)
 
     public function ledger(){
         return view('admin.ledger');
+    }
+
+    public function view_ledger($id){
+        $tenancy = Tenancy::with(['tenant','property'])->findOrFail($id);
+        $tenantPayment  = PaymentTenant::where('tenant_id', $tenancy->tenant_id)
+                        ->where('property_id', $tenancy->property_id)
+                        ->where('status', 'Paid')
+                        ->get();
+       return view('admin.view_ledger', compact('tenancy','tenantPayment'));
     }
 
 

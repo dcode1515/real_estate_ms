@@ -46,6 +46,7 @@ Route::get('/api/get/data/payment', [App\Http\Controllers\AdminController::class
 Route::post('/api/update/payment/{ID}', [App\Http\Controllers\AdminController::class, 'update_tenant_payment']);
 Route::delete('/api/delete/data/payment/{id}', [App\Http\Controllers\AdminController::class, 'deleteTenantPayment']);
 Route::get('/ledger', [App\Http\Controllers\AdminController::class, 'ledger'])->name('ledger');
+Route::get('/view/ledger/{id}', [App\Http\Controllers\AdminController::class, 'view_ledger']);
 
 
 

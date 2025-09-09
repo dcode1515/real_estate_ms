@@ -366,6 +366,20 @@
                           </label>
                         </div>
                       </div>
+                       <div class="col-md-12">
+                        <div class="form-floating mb-3">
+                          <input
+                            type="date"
+                            class="form-control"
+                            id="nextPaymentDate"
+                            v-model="formData.nextPaymentDate"
+                            disabled
+                          />
+                          <label for="lease_end_date">
+                            <i class="fas fa-calendar-check me-1"></i> Due Date
+                          </label>
+                        </div>
+                      </div>
 
                       <!-- Monthly Rate -->
                       <div class="col-md-6">
@@ -612,11 +626,12 @@ export default {
         proof_of_payment: "Cash",
         tenant_name: "",
         property_name: "",
-
         lease_start_date: "",
         lease_end_date: "",
+        nextPaymentDate: "",
         monthly_rent_amount: "",
         lease_duration: "",
+          
       },
     };
   },
@@ -663,7 +678,7 @@ export default {
         );
 
         this.payments = response.data.data;
-        this.payments = response.data.data;
+     
 
         // Set totals
         const totals = response.data.totals;
@@ -870,6 +885,7 @@ export default {
         this.formData.lease_end_date = tenancy.lease_end_date;
         this.formData.monthly_rent_amount = tenancy.monthly_rent_amount;
         this.formData.lease_duration = tenancy.lease_duration;
+         this.formData.nextPaymentDate = tenancy.due_date;
       }
     },
 
@@ -922,6 +938,7 @@ export default {
           this.formData.lease_end_date = tenancy.lease_end_date;
           this.formData.monthly_rent_amount = tenancy.monthly_rent_amount;
           this.formData.lease_duration = tenancy.lease_duration;
+            this.formData.nextPaymentDate = tenancy.due_date;
         }
       }
 

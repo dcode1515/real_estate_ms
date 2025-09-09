@@ -27,6 +27,7 @@ Vue.component('Createtanancy', require('./components/Admin/Createtanancy.vue').d
 Vue.component('Showtenancy', require('./components/Admin/Showtenancy.vue').default);
 Vue.component('Payment', require('./components/Admin/Payment.vue').default);
 Vue.component('Ledger', require('./components/Admin/Ledger.vue').default);
+Vue.component('Viewledger', require('./components/Admin/Viewledger.vue').default);
 
 
 
