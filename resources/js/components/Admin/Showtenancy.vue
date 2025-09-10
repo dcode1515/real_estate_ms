@@ -24,6 +24,15 @@
         aria-labelledby="tenancy-tab"
       >
         <div class="row mb-3">
+          <div class="alert alert-info d-flex align-items-center" role="alert">
+            <i class="fas fa-info-circle me-2"></i>
+            <div>
+              <strong>Note:</strong> Property and Tenant fields are not
+              editable. Payments must be completed before the lease can be
+              deleted.
+            </div>
+          </div>
+
           <div class="col-md-2">
             <select
               class="form-control"
@@ -75,8 +84,6 @@
                     Monthly Rent Amount
                   </th>
 
-               
-
                   <th
                     colspan="2"
                     class="blue"
@@ -96,7 +103,7 @@
                     class="blue"
                     style="background-color: #198754; color: white"
                   >
-                    No of Payment
+                    Payment Information
                   </th>
 
                   <th style="background-color: #198754; color: white">
@@ -110,7 +117,6 @@
                   <th></th>
                   <th></th>
                   <th></th>
-                 
 
                   <!-- <th>Next In Rank</th> -->
                   <th>Name</th>
@@ -145,7 +151,6 @@
                   <td>{{ formatAmount(tenancy.monthly_rent_amount) }}</td>
                   <!-- <td>{{ formatAmount(tenancy.total_amount) }}</td> -->
 
-                 
                   <td>{{ tenancy.tenant.tenant_name }}</td>
 
                   <td>{{ tenancy.tenant.contact_number }}</td>
@@ -165,15 +170,26 @@
                     }}
                   </td>
                   <td class="text-center">
-                    <button type="button" class="btn btn-primary btn-sm">
+                    <a
+                      @click="openModal('edit', tenancy)"
+                      type="button"
+                      class="btn btn-primary btn-sm"
+                    >
                       <i class="fas fa-pencil-alt"></i> Edit
-                    </button>
+                    </a>
                     <a
                       v-bind:href="'/real_estate_ms/view/ledger/' + tenancy.id"
                       class="btn btn-danger btn-sm"
                       type="button"
                     >
                       <i class="fas fa-book"></i> View Ledger
+                    </a>
+                    <a
+                      @click="deleteTenancy(tenancy)"
+                      type="button"
+                      class="btn btn-warning btn-sm"
+                    >
+                      <i class="fas fa-trash"></i> Delete
                     </a>
                   </td>
                 </tr>
@@ -227,6 +243,229 @@
                 </li>
               </ul>
             </nav>
+            <div
+              class="modal fade"
+              id="modalTenancies"
+              tabindex="-1"
+              aria-labelledby="modalTenancies"
+              aria-hidden="true"
+              data-bs-backdrop="static"
+              data-bs-keyboard="false"
+            >
+              <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content border-0 shadow-lg rounded-4">
+                  <!-- Header -->
+                  <div
+                    class="modal-header text-white py-3"
+                    style="background: linear-gradient(90deg, #198754, #198754)"
+                  >
+                    <h4
+                      class="modal-title d-flex align-items-center"
+                      style="color: white"
+                    >
+                      <i class="fa fa-file-alt me-2"></i>{{ modalTitle }}
+                    </h4>
+                    <button
+                      type="button"
+                      class="btn-close btn-close-white"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+
+                  <!-- Body -->
+                  <div
+                    class="modal-body"
+                    style="max-height: 70vh; overflow-y: auto"
+                  >
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-floating mb-3">
+                          <input
+                            type="text"
+                            class="form-control"
+                            v-model="formData.property"
+                            placeholder="Property Name"
+                            required
+                            disabled
+                          />
+                          <label for="property_name"
+                            >Property Name
+                            <span class="text-danger">*</span></label
+                          >
+                        </div>
+                        <div class="form-floating mb-3">
+                          <input
+                            type="text"
+                            class="form-control"
+                            v-model="formData.tenant"
+                            placeholder="Tenant Name"
+                            required
+                            disabled
+                          />
+                          <label for="tenant_name"
+                            >Tenant Name
+                            <span class="text-danger">*</span></label
+                          >
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-6">
+                            <div class="form-floating mb-3 position-relative">
+                              <input
+                                type="date"
+                                class="form-control"
+                                id="lease_start_date"
+                                v-model="formData.lease_start_date"
+                                required
+                              />
+                              <label for="lease_start_date"
+                                >Lease Start Date
+                                <span class="text-danger">*</span></label
+                              >
+                            </div>
+                          </div>
+                          <div class="col-lg-6">
+                            <div class="form-floating mb-3 position-relative">
+                              <input
+                                type="date"
+                                class="form-control"
+                                id="lease_end_date"
+                                v-model="formData.lease_end_date"
+                                required
+                              />
+                              <label for="lease_end_date"
+                                >Lease End Date
+                                <span class="text-danger">*</span></label
+                              >
+                            </div>
+                          </div>
+                          <div class="form-floating mb-3">
+                            <input
+                              type="number"
+                              class="form-control"
+                              v-model="formData.monthlyRentAmount"
+                              placeholder="Monthly Rate"
+                              min="0"
+                              required
+                            />
+                            <label for="monthly_rate"
+                              >Monthly Rate
+                              <span class="text-danger">*</span></label
+                            >
+                          </div>
+                          <div class="col-lg-12">
+                            <div class="form-floating mb-3 position-relative">
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="next_payment_date"
+                                v-model="formData.nextPaymentDate"
+                                disabled
+                              />
+                              <label for="next_payment_date"
+                                >Next Payment Date</label
+                              >
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <div class="form-floating mb-3">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  v-model="formData.leaseDuration"
+                                  placeholder="Lease Duration"
+                                  disabled
+                                />
+                                <label for="lease_duration"
+                                  >Lease Duration
+                                  <span class="text-danger">*</span></label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <div class="form-floating mb-3">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  v-model="formData.overAllTotal"
+                                  placeholder="Lease Duration"
+                                  disabled
+                                />
+                                <label for="lease_duration"
+                                  >Overall Total Amount
+                                  <span class="text-danger">*</span></label
+                                >
+                              </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                              <input
+                                type="file"
+                                class="form-control"
+                                id="lease_documents"
+                                @change="
+                                  handleFileUpload(
+                                    $event,
+                                    'upload_lease_document'
+                                  )
+                                "
+                                required
+                              />
+                              <label for="lease_documents"
+                                >Upload Lease Documents
+                                <span class="text-danger">*</span></label
+                              >
+                            </div>
+                            <div class="form-floating mb-3">
+                              <textarea
+                                class="form-control"
+                                id="tenancy_terms"
+                                v-model="formData.tenancyTerms"
+                                placeholder="Tenancy Terms"
+                                required
+                              ></textarea>
+                              <label for="tenancy_terms">
+                                Tenancy Terms
+                                <span class="text-danger">*</span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Nav Tabs -->
+                  </div>
+
+                  <!-- Footer -->
+                  <div
+                    class="modal-footer bg-light border-0 py-3 px-4 d-flex justify-content-end"
+                  >
+                    <button
+                      type="button"
+                      class="btn btn-success px-4 py-2 shadow-sm"
+                      :disabled="isSubmitting"
+                      @click="submitForm(formData.id)"
+                    >
+                      <!-- Spinner icon while submitting -->
+                      <span v-if="isSubmitting">
+                        <i class="fas fa-spinner fa-spin me-2"></i> Saving...
+                      </span>
+
+                      <!-- Add or Edit icon and label -->
+                      <span v-else>
+                        <i class="fas fa-save me-2"></i>
+                        {{
+                          modalMode === "add" ? "Add Property" : "Save Changes"
+                        }}
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -235,8 +474,243 @@
 </template>
 
 <script>
+import Swal from "sweetalert2";
 export default {
   methods: {
+    async deleteTenancy(tenancy) {
+      const confirmation = await Swal.fire({
+        title: 'Are you sure?',
+        text: `You are about to delete tenancy: ${tenancy.transaction_no}`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'Cancel'
+      });
+
+      if (confirmation.isConfirmed) {
+        try {
+          const response = await axios.delete(`/real_estate_ms/api/delete/tenancy/${tenancy.id}`);
+          
+          // Success alert
+          await Swal.fire({
+            title: 'Deleted!',
+            text: response.data.success,
+            icon: 'success',
+            timer: 2000,
+            showConfirmButton: false
+          });
+
+          this.getDataTenancy(); // Refresh your tenancy list
+        } catch (error) {
+          if (error.response && error.response.status === 422) {
+            // Laravel validation / logic error (like payment record exists)
+            await Swal.fire({
+              title: 'Error',
+              text: error.response.data.error,
+              icon: 'error'
+            });
+          } else {
+            // Other errors (network, server, etc.)
+            await Swal.fire({
+              title: 'Unexpected Error',
+              text: 'Something went wrong while trying to delete.',
+              icon: 'error'
+            });
+            console.error(error);
+          }
+        }
+      }
+    },
+    async submitForm(id) {
+      try {
+        this.isSubmitting = true;
+
+        const formData = new FormData();
+        // formData.append("property", this.formData.property);
+        // formData.append("tenant", this.formData.tenant);
+        formData.append("lease_start_date", this.formData.lease_start_date);
+        formData.append("lease_end_date", this.formData.lease_end_date);
+        formData.append("nextPaymentDate", this.formData.nextPaymentDate);
+
+        formData.append("monthlyRentAmount", this.formData.monthlyRentAmount);
+        formData.append("leaseDuration", this.formData.leaseDuration);
+        formData.append("overAllTotal", this.formData.overAllTotal);
+
+        formData.append("tenancyTerms", this.formData.tenancyTerms);
+
+        // If file is selected, append it to formData
+        if (this.formData.upload_lease_document instanceof File) {
+          formData.append(
+            "upload_lease_document",
+            this.formData.upload_lease_document
+          );
+        }
+
+        const response = await axios.post(
+          "/real_estate_ms/api/update/tenancy/" + id,
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+
+        // If successful, show a success message
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text:
+            this.modalMode === "add"
+              ? "Property successfully added!"
+              : "Property successfully updated!",
+          confirmButtonText: "OK",
+        }).then(() => {
+          window.location.href = "/real_estate_ms/show/tenancy";
+        });
+      } catch (error) {
+        console.error(error);
+
+        // Check if the error response is from Laravel validation (422)
+        if (error.response && error.response.status === 422) {
+          const data = error.response.data;
+
+          // 1. Custom 'exist' error from Laravel controller (duplicate tenancy)
+          if (data.exist) {
+            Swal.fire({
+              icon: "error",
+              title: "Duplicate Property",
+              text: data.exist, // The error message sent by the controller
+            });
+            return;
+          }
+
+          // 2. Standard validation errors
+          if (data.errors) {
+            let errorMessages = '<ul style="text-align: left;">';
+
+            // Loop through formErrors to create list of error messages
+            for (const key in data.errors) {
+              if (data.errors.hasOwnProperty(key)) {
+                errorMessages += `<li>${data.errors[key][0]}</li>`;
+              }
+            }
+
+            errorMessages += "</ul>";
+
+            Swal.fire({
+              icon: "error",
+              title: "Validation Error",
+              html: errorMessages,
+            });
+          }
+        } else {
+          // Any other error
+          Swal.fire({
+            icon: "error",
+            title: "Submission Failed",
+            text: "Something went wrong while submitting the form.",
+          });
+        }
+      } finally {
+        this.isSubmitting = false;
+      }
+    },
+    computeLeaseDetails() {
+      if (this.formData.lease_start_date && this.formData.lease_end_date) {
+        const start = new Date(this.formData.lease_start_date);
+        const end = new Date(this.formData.lease_end_date);
+
+        let years = end.getFullYear() - start.getFullYear();
+        let months = end.getMonth() - start.getMonth();
+
+        if (end.getDate() < start.getDate()) {
+          months--; // Adjust if end day is earlier than start day
+        }
+
+        if (months < 0) {
+          years--;
+          months += 12;
+        }
+
+        if (years === 0) {
+          this.formData.leaseDuration = `${months} month(s)`;
+        } else if (months === 0) {
+          this.formData.leaseDuration = `${years} year(s)`;
+        } else {
+          this.formData.leaseDuration = `${years} year(s) ${months} month(s)`;
+        }
+
+        this.computeTotalAmount();
+      } else {
+        this.formData.leaseDuration = "";
+      }
+    },
+    computeTotalAmount() {
+      if (
+        this.formData.monthlyRentAmount &&
+        this.formData.lease_start_date &&
+        this.formData.lease_end_date
+      ) {
+        const start = new Date(this.formData.lease_start_date);
+        const end = new Date(this.formData.lease_end_date);
+
+        const totalMonths =
+          (end.getFullYear() - start.getFullYear()) * 12 +
+          end.getMonth() -
+          start.getMonth();
+
+        if (totalMonths < 0) return;
+
+        this.formData.overAllTotal =
+          this.formData.monthlyRentAmount * totalMonths;
+      }
+    },
+    handleFileUpload(event, field) {
+      const file = event.target.files[0];
+      this.formData[field] = file;
+
+      // Store file name to display in modal
+      this.uploadedLeaseDocumentName = file ? file.name : "";
+    },
+    openModal(mode, tenancy) {
+      this.formData = {
+        id: "",
+        property: "",
+        tenant: "",
+        lease_start_date: "",
+        lease_end_date: "",
+        nextPaymentDate: "",
+        monthlyRentAmount: "",
+        leaseDuration: "",
+        overAllTotal: "",
+        tenancyTerms: "",
+        upload_lease_document: null,
+      };
+
+      this.modalMode = mode;
+      this.modalTitle =
+        mode === "add"
+          ? "Add Tenancies"
+          : mode === "edit"
+          ? "Edit Tenancies"
+          : "View Tenancies";
+
+      if (mode === "edit" || mode === "view") {
+        this.formData.id = tenancy.id;
+        this.formData.property = tenancy.property.property_name;
+        this.formData.tenant = tenancy.tenant.tenant_name;
+        this.formData.lease_start_date = tenancy.lease_start_date;
+        this.formData.lease_end_date = tenancy.lease_end_date;
+        this.formData.nextPaymentDate = tenancy.due_date;
+        this.formData.monthlyRentAmount = tenancy.monthly_rent_amount;
+        this.formData.leaseDuration = tenancy.lease_duration;
+        this.formData.overAllTotal = tenancy.total_amount;
+        this.formData.tenancyTerms = tenancy.tenancy_terms;
+      }
+
+      $("#modalTenancies").modal("show");
+    },
     formatDate(date) {
       if (!date) return "";
       return new Date(date).toLocaleDateString("en-US", {
@@ -276,6 +750,9 @@ export default {
   },
   data() {
     return {
+      isSubmitting: false,
+      modalTitle: "",
+      modalMode: "add",
       searchQuery: "",
       perPage: 10,
       tenancies: {
@@ -285,7 +762,37 @@ export default {
         per_page: 10,
         total: 0,
       },
+      formData: {
+        id: "",
+        property: "",
+        tenant: "",
+        lease_start_date: "",
+        lease_end_date: "",
+        nextPaymentDate: "",
+        monthlyRentAmount: "",
+        leaseDuration: "",
+        overAllTotal: "",
+        tenancyTerms: "",
+      },
     };
+  },
+  watch: {
+    "formData.lease_start_date": "computeLeaseDetails",
+    "formData.lease_end_date": "computeLeaseDetails",
+    "formData.monthlyRentAmount": "computeTotalAmount",
+
+    "formData.leaseStartDate"(newDate) {
+      if (!newDate) {
+        this.formData.nextPaymentDate = "";
+        return;
+      }
+
+      const date = new Date(newDate);
+      date.setMonth(date.getMonth() + 1);
+
+      // Format as yyyy-mm-dd
+      this.formData.nextPaymentDate = date.toISOString().split("T")[0];
+    },
   },
   computed: {
     totalPages() {

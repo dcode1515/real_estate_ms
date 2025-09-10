@@ -312,7 +312,7 @@
                         </div>
                       </div>
                       <div class="row">
-                        <div class="col-md-4">
+                        <!-- <div class="col-md-4">
                           <div class="form-floating mb-3">
                             <input
                               type="number"
@@ -327,8 +327,8 @@
                               <span class="text-danger">*</span></label
                             >
                           </div>
-                        </div>
-                        <div class="col-md-4">
+                        </div> -->
+                        <!-- <div class="col-md-4">
                           <div class="form-floating mb-3">
                             <input
                               type="text"
@@ -343,8 +343,8 @@
                               <span class="text-danger">*</span></label
                             >
                           </div>
-                        </div>
-                        <div class="col-md-4">
+                        </div> -->
+                        <!-- <div class="col-md-4">
                           <div class="form-floating mb-3">
                             <input
                               type="date"
@@ -359,7 +359,7 @@
                               <span class="text-danger">*</span></label
                             >
                           </div>
-                        </div>
+                        </div> -->
                       </div>
                       <hr />
                       <h5>Documents Attached</h5>

@@ -36,6 +36,7 @@ Route::get('/create/tenancy', [App\Http\Controllers\AdminController::class, 'cre
 Route::get('/api/get/available/property', [App\Http\Controllers\AdminController::class, 'getAvailableProperties']);
 Route::get('/api/get/available/tenant', [App\Http\Controllers\AdminController::class, 'getAvailableTenant']);
 Route::post('/api/store/tenancy', [App\Http\Controllers\AdminController::class, 'store_tenancy_lease']);
+Route::post('/api/update/tenancy/{id}', [App\Http\Controllers\AdminController::class, 'update_tenancy_lease']);
 Route::get('/show/tenancy', [App\Http\Controllers\AdminController::class, 'show_tenancy'])->name('show.tenancy');
 Route::get('/api/get/data/tenancy', [App\Http\Controllers\AdminController::class, 'getDataTenancy']);
 Route::get('/payment', [App\Http\Controllers\AdminController::class, 'payment'])->name('payment.index');
@@ -47,6 +48,7 @@ Route::post('/api/update/payment/{ID}', [App\Http\Controllers\AdminController::c
 Route::delete('/api/delete/data/payment/{id}', [App\Http\Controllers\AdminController::class, 'deleteTenantPayment']);
 Route::get('/ledger', [App\Http\Controllers\AdminController::class, 'ledger'])->name('ledger');
 Route::get('/view/ledger/{id}', [App\Http\Controllers\AdminController::class, 'view_ledger']);
+Route::delete('/api/delete/tenancy/{id}', [App\Http\Controllers\AdminController::class, 'delete_tenancy']);
 
 
 

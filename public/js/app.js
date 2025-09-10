@@ -8104,6 +8104,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
@@ -8344,9 +8346,488 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   methods: {
+    deleteTenancy: function deleteTenancy(tenancy) {
+      var _this = this;
+      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+        var confirmation, response, _t;
+        return _regenerator().w(function (_context) {
+          while (1) switch (_context.p = _context.n) {
+            case 0:
+              _context.n = 1;
+              return sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+                title: 'Are you sure?',
+                text: "You are about to delete tenancy: ".concat(tenancy.transaction_no),
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'Cancel'
+              });
+            case 1:
+              confirmation = _context.v;
+              if (!confirmation.isConfirmed) {
+                _context.n = 9;
+                break;
+              }
+              _context.p = 2;
+              _context.n = 3;
+              return axios["delete"]("/real_estate_ms/api/delete/tenancy/".concat(tenancy.id));
+            case 3:
+              response = _context.v;
+              _context.n = 4;
+              return sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+                title: 'Deleted!',
+                text: response.data.success,
+                icon: 'success',
+                timer: 2000,
+                showConfirmButton: false
+              });
+            case 4:
+              _this.getDataTenancy(); // Refresh your tenancy list
+              _context.n = 9;
+              break;
+            case 5:
+              _context.p = 5;
+              _t = _context.v;
+              if (!(_t.response && _t.response.status === 422)) {
+                _context.n = 7;
+                break;
+              }
+              _context.n = 6;
+              return sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+                title: 'Error',
+                text: _t.response.data.error,
+                icon: 'error'
+              });
+            case 6:
+              _context.n = 9;
+              break;
+            case 7:
+              _context.n = 8;
+              return sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+                title: 'Unexpected Error',
+                text: 'Something went wrong while trying to delete.',
+                icon: 'error'
+              });
+            case 8:
+              console.error(_t);
+            case 9:
+              return _context.a(2);
+          }
+        }, _callee, null, [[2, 5]]);
+      }))();
+    },
+    submitForm: function submitForm(id) {
+      var _this2 = this;
+      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+        var formData, response, data, errorMessages, key, _t2;
+        return _regenerator().w(function (_context2) {
+          while (1) switch (_context2.p = _context2.n) {
+            case 0:
+              _context2.p = 0;
+              _this2.isSubmitting = true;
+              formData = new FormData(); // formData.append("property", this.formData.property);
+              // formData.append("tenant", this.formData.tenant);
+              formData.append("lease_start_date", _this2.formData.lease_start_date);
+              formData.append("lease_end_date", _this2.formData.lease_end_date);
+              formData.append("nextPaymentDate", _this2.formData.nextPaymentDate);
+              formData.append("monthlyRentAmount", _this2.formData.monthlyRentAmount);
+              formData.append("leaseDuration", _this2.formData.leaseDuration);
+              formData.append("overAllTotal", _this2.formData.overAllTotal);
+              formData.append("tenancyTerms", _this2.formData.tenancyTerms);
+
+              // If file is selected, append it to formData
+              if (_this2.formData.upload_lease_document instanceof File) {
+                formData.append("upload_lease_document", _this2.formData.upload_lease_document);
+              }
+              _context2.n = 1;
+              return axios.post("/real_estate_ms/api/update/tenancy/" + id, formData, {
+                headers: {
+                  "Content-Type": "multipart/form-data"
+                }
+              });
+            case 1:
+              response = _context2.v;
+              // If successful, show a success message
+              sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+                icon: "success",
+                title: "Success",
+                text: _this2.modalMode === "add" ? "Property successfully added!" : "Property successfully updated!",
+                confirmButtonText: "OK"
+              }).then(function () {
+                window.location.href = "/real_estate_ms/show/tenancy";
+              });
+              _context2.n = 5;
+              break;
+            case 2:
+              _context2.p = 2;
+              _t2 = _context2.v;
+              console.error(_t2);
+
+              // Check if the error response is from Laravel validation (422)
+              if (!(_t2.response && _t2.response.status === 422)) {
+                _context2.n = 4;
+                break;
+              }
+              data = _t2.response.data; // 1. Custom 'exist' error from Laravel controller (duplicate tenancy)
+              if (!data.exist) {
+                _context2.n = 3;
+                break;
+              }
+              sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+                icon: "error",
+                title: "Duplicate Property",
+                text: data.exist // The error message sent by the controller
+              });
+              return _context2.a(2);
+            case 3:
+              // 2. Standard validation errors
+              if (data.errors) {
+                errorMessages = '<ul style="text-align: left;">'; // Loop through formErrors to create list of error messages
+                for (key in data.errors) {
+                  if (data.errors.hasOwnProperty(key)) {
+                    errorMessages += "<li>".concat(data.errors[key][0], "</li>");
+                  }
+                }
+                errorMessages += "</ul>";
+                sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+                  icon: "error",
+                  title: "Validation Error",
+                  html: errorMessages
+                });
+              }
+              _context2.n = 5;
+              break;
+            case 4:
+              // Any other error
+              sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+                icon: "error",
+                title: "Submission Failed",
+                text: "Something went wrong while submitting the form."
+              });
+            case 5:
+              _context2.p = 5;
+              _this2.isSubmitting = false;
+              return _context2.f(5);
+            case 6:
+              return _context2.a(2);
+          }
+        }, _callee2, null, [[0, 2, 5, 6]]);
+      }))();
+    },
+    computeLeaseDetails: function computeLeaseDetails() {
+      if (this.formData.lease_start_date && this.formData.lease_end_date) {
+        var start = new Date(this.formData.lease_start_date);
+        var end = new Date(this.formData.lease_end_date);
+        var years = end.getFullYear() - start.getFullYear();
+        var months = end.getMonth() - start.getMonth();
+        if (end.getDate() < start.getDate()) {
+          months--; // Adjust if end day is earlier than start day
+        }
+        if (months < 0) {
+          years--;
+          months += 12;
+        }
+        if (years === 0) {
+          this.formData.leaseDuration = "".concat(months, " month(s)");
+        } else if (months === 0) {
+          this.formData.leaseDuration = "".concat(years, " year(s)");
+        } else {
+          this.formData.leaseDuration = "".concat(years, " year(s) ").concat(months, " month(s)");
+        }
+        this.computeTotalAmount();
+      } else {
+        this.formData.leaseDuration = "";
+      }
+    },
+    computeTotalAmount: function computeTotalAmount() {
+      if (this.formData.monthlyRentAmount && this.formData.lease_start_date && this.formData.lease_end_date) {
+        var start = new Date(this.formData.lease_start_date);
+        var end = new Date(this.formData.lease_end_date);
+        var totalMonths = (end.getFullYear() - start.getFullYear()) * 12 + end.getMonth() - start.getMonth();
+        if (totalMonths < 0) return;
+        this.formData.overAllTotal = this.formData.monthlyRentAmount * totalMonths;
+      }
+    },
+    handleFileUpload: function handleFileUpload(event, field) {
+      var file = event.target.files[0];
+      this.formData[field] = file;
+
+      // Store file name to display in modal
+      this.uploadedLeaseDocumentName = file ? file.name : "";
+    },
+    openModal: function openModal(mode, tenancy) {
+      this.formData = {
+        id: "",
+        property: "",
+        tenant: "",
+        lease_start_date: "",
+        lease_end_date: "",
+        nextPaymentDate: "",
+        monthlyRentAmount: "",
+        leaseDuration: "",
+        overAllTotal: "",
+        tenancyTerms: "",
+        upload_lease_document: null
+      };
+      this.modalMode = mode;
+      this.modalTitle = mode === "add" ? "Add Tenancies" : mode === "edit" ? "Edit Tenancies" : "View Tenancies";
+      if (mode === "edit" || mode === "view") {
+        this.formData.id = tenancy.id;
+        this.formData.property = tenancy.property.property_name;
+        this.formData.tenant = tenancy.tenant.tenant_name;
+        this.formData.lease_start_date = tenancy.lease_start_date;
+        this.formData.lease_end_date = tenancy.lease_end_date;
+        this.formData.nextPaymentDate = tenancy.due_date;
+        this.formData.monthlyRentAmount = tenancy.monthly_rent_amount;
+        this.formData.leaseDuration = tenancy.lease_duration;
+        this.formData.overAllTotal = tenancy.total_amount;
+        this.formData.tenancyTerms = tenancy.tenancy_terms;
+      }
+      $("#modalTenancies").modal("show");
+    },
     formatDate: function formatDate(date) {
       if (!date) return "";
       return new Date(date).toLocaleDateString("en-US", {
@@ -8360,34 +8841,34 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       return new Intl.NumberFormat("en-US").format(value);
     },
     getDataTenancy: function getDataTenancy() {
-      var _this = this;
-      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-        var response, _t;
-        return _regenerator().w(function (_context) {
-          while (1) switch (_context.p = _context.n) {
+      var _this3 = this;
+      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
+        var response, _t3;
+        return _regenerator().w(function (_context3) {
+          while (1) switch (_context3.p = _context3.n) {
             case 0:
-              _context.p = 0;
-              _context.n = 1;
+              _context3.p = 0;
+              _context3.n = 1;
               return axios.get("/real_estate_ms/api/get/data/tenancy", {
                 params: {
-                  page: _this.tenancies.current_page,
-                  per_page: _this.perPage,
-                  search: _this.searchQuery
+                  page: _this3.tenancies.current_page,
+                  per_page: _this3.perPage,
+                  search: _this3.searchQuery
                 }
               });
             case 1:
-              response = _context.v;
-              _this.tenancies = response.data.data;
-              _context.n = 3;
+              response = _context3.v;
+              _this3.tenancies = response.data.data;
+              _context3.n = 3;
               break;
             case 2:
-              _context.p = 2;
-              _t = _context.v;
-              console.error("Error fetching data:", _t);
+              _context3.p = 2;
+              _t3 = _context3.v;
+              console.error("Error fetching data:", _t3);
             case 3:
-              return _context.a(2);
+              return _context3.a(2);
           }
-        }, _callee, null, [[0, 2]]);
+        }, _callee3, null, [[0, 2]]);
       }))();
     },
     changePage: function changePage(page) {
@@ -8399,6 +8880,9 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
   },
   data: function data() {
     return {
+      isSubmitting: false,
+      modalTitle: "",
+      modalMode: "add",
       searchQuery: "",
       perPage: 10,
       tenancies: {
@@ -8407,8 +8891,36 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         last_page: 1,
         per_page: 10,
         total: 0
+      },
+      formData: {
+        id: "",
+        property: "",
+        tenant: "",
+        lease_start_date: "",
+        lease_end_date: "",
+        nextPaymentDate: "",
+        monthlyRentAmount: "",
+        leaseDuration: "",
+        overAllTotal: "",
+        tenancyTerms: ""
       }
     };
+  },
+  watch: {
+    "formData.lease_start_date": "computeLeaseDetails",
+    "formData.lease_end_date": "computeLeaseDetails",
+    "formData.monthlyRentAmount": "computeTotalAmount",
+    "formData.leaseStartDate": function formDataLeaseStartDate(newDate) {
+      if (!newDate) {
+        this.formData.nextPaymentDate = "";
+        return;
+      }
+      var date = new Date(newDate);
+      date.setMonth(date.getMonth() + 1);
+
+      // Format as yyyy-mm-dd
+      this.formData.nextPaymentDate = date.toISOString().split("T")[0];
+    }
   },
   computed: {
     totalPages: function totalPages() {
@@ -53058,6 +53570,8 @@ var render = function () {
         },
         [
           _c("div", { staticClass: "row mb-3" }, [
+            _vm._m(1),
+            _vm._v(" "),
             _c("div", { staticClass: "col-md-2" }, [
               _c(
                 "select",
@@ -53170,7 +53684,7 @@ var render = function () {
               _c("br"),
               _vm._v(" "),
               _c("table", [
-                _vm._m(1),
+                _vm._m(2),
                 _vm._v(" "),
                 _c(
                   "tbody",
@@ -53239,7 +53753,22 @@ var render = function () {
                       ]),
                       _vm._v(" "),
                       _c("td", { staticClass: "text-center" }, [
-                        _vm._m(2, true),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-primary btn-sm",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function ($event) {
+                                return _vm.openModal("edit", tenancy)
+                              },
+                            },
+                          },
+                          [
+                            _c("i", { staticClass: "fas fa-pencil-alt" }),
+                            _vm._v(" Edit\n                  "),
+                          ]
+                        ),
                         _vm._v(" "),
                         _c(
                           "a",
@@ -53253,6 +53782,23 @@ var render = function () {
                           [
                             _c("i", { staticClass: "fas fa-book" }),
                             _vm._v(" View Ledger\n                  "),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-warning btn-sm",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function ($event) {
+                                return _vm.deleteTenancy(tenancy)
+                              },
+                            },
+                          },
+                          [
+                            _c("i", { staticClass: "fas fa-trash" }),
+                            _vm._v(" Delete\n                  "),
                           ]
                         ),
                       ]),
@@ -53364,6 +53910,588 @@ var render = function () {
                     ),
                   ])
                 : _vm._e(),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "modal fade",
+                  attrs: {
+                    id: "modalTenancies",
+                    tabindex: "-1",
+                    "aria-labelledby": "modalTenancies",
+                    "aria-hidden": "true",
+                    "data-bs-backdrop": "static",
+                    "data-bs-keyboard": "false",
+                  },
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "modal-dialog modal-xl modal-dialog-centered",
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "modal-content border-0 shadow-lg rounded-4",
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "modal-header text-white py-3",
+                              staticStyle: {
+                                background:
+                                  "linear-gradient(90deg, #198754, #198754)",
+                              },
+                            },
+                            [
+                              _c(
+                                "h4",
+                                {
+                                  staticClass:
+                                    "modal-title d-flex align-items-center",
+                                  staticStyle: { color: "white" },
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "fa fa-file-alt me-2",
+                                  }),
+                                  _vm._v(
+                                    _vm._s(_vm.modalTitle) +
+                                      "\n                  "
+                                  ),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("button", {
+                                staticClass: "btn-close btn-close-white",
+                                attrs: {
+                                  type: "button",
+                                  "data-bs-dismiss": "modal",
+                                  "aria-label": "Close",
+                                },
+                              }),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "modal-body",
+                              staticStyle: {
+                                "max-height": "70vh",
+                                "overflow-y": "auto",
+                              },
+                            },
+                            [
+                              _c("div", { staticClass: "row" }, [
+                                _c("div", { staticClass: "col-md-12" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "form-floating mb-3" },
+                                    [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.formData.property,
+                                            expression: "formData.property",
+                                          },
+                                        ],
+                                        staticClass: "form-control",
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Property Name",
+                                          required: "",
+                                          disabled: "",
+                                        },
+                                        domProps: {
+                                          value: _vm.formData.property,
+                                        },
+                                        on: {
+                                          input: function ($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.formData,
+                                              "property",
+                                              $event.target.value
+                                            )
+                                          },
+                                        },
+                                      }),
+                                      _vm._v(" "),
+                                      _vm._m(3),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "form-floating mb-3" },
+                                    [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.formData.tenant,
+                                            expression: "formData.tenant",
+                                          },
+                                        ],
+                                        staticClass: "form-control",
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Tenant Name",
+                                          required: "",
+                                          disabled: "",
+                                        },
+                                        domProps: {
+                                          value: _vm.formData.tenant,
+                                        },
+                                        on: {
+                                          input: function ($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.formData,
+                                              "tenant",
+                                              $event.target.value
+                                            )
+                                          },
+                                        },
+                                      }),
+                                      _vm._v(" "),
+                                      _vm._m(4),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "row" }, [
+                                    _c("div", { staticClass: "col-lg-6" }, [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "form-floating mb-3 position-relative",
+                                        },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value:
+                                                  _vm.formData.lease_start_date,
+                                                expression:
+                                                  "formData.lease_start_date",
+                                              },
+                                            ],
+                                            staticClass: "form-control",
+                                            attrs: {
+                                              type: "date",
+                                              id: "lease_start_date",
+                                              required: "",
+                                            },
+                                            domProps: {
+                                              value:
+                                                _vm.formData.lease_start_date,
+                                            },
+                                            on: {
+                                              input: function ($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.formData,
+                                                  "lease_start_date",
+                                                  $event.target.value
+                                                )
+                                              },
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _vm._m(5),
+                                        ]
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-lg-6" }, [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "form-floating mb-3 position-relative",
+                                        },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value:
+                                                  _vm.formData.lease_end_date,
+                                                expression:
+                                                  "formData.lease_end_date",
+                                              },
+                                            ],
+                                            staticClass: "form-control",
+                                            attrs: {
+                                              type: "date",
+                                              id: "lease_end_date",
+                                              required: "",
+                                            },
+                                            domProps: {
+                                              value:
+                                                _vm.formData.lease_end_date,
+                                            },
+                                            on: {
+                                              input: function ($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.formData,
+                                                  "lease_end_date",
+                                                  $event.target.value
+                                                )
+                                              },
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _vm._m(6),
+                                        ]
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "form-floating mb-3" },
+                                      [
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value:
+                                                _vm.formData.monthlyRentAmount,
+                                              expression:
+                                                "formData.monthlyRentAmount",
+                                            },
+                                          ],
+                                          staticClass: "form-control",
+                                          attrs: {
+                                            type: "number",
+                                            placeholder: "Monthly Rate",
+                                            min: "0",
+                                            required: "",
+                                          },
+                                          domProps: {
+                                            value:
+                                              _vm.formData.monthlyRentAmount,
+                                          },
+                                          on: {
+                                            input: function ($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.formData,
+                                                "monthlyRentAmount",
+                                                $event.target.value
+                                              )
+                                            },
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._m(7),
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-lg-12" }, [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "form-floating mb-3 position-relative",
+                                        },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value:
+                                                  _vm.formData.nextPaymentDate,
+                                                expression:
+                                                  "formData.nextPaymentDate",
+                                              },
+                                            ],
+                                            staticClass: "form-control",
+                                            attrs: {
+                                              type: "text",
+                                              id: "next_payment_date",
+                                              disabled: "",
+                                            },
+                                            domProps: {
+                                              value:
+                                                _vm.formData.nextPaymentDate,
+                                            },
+                                            on: {
+                                              input: function ($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.formData,
+                                                  "nextPaymentDate",
+                                                  $event.target.value
+                                                )
+                                              },
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "label",
+                                            {
+                                              attrs: {
+                                                for: "next_payment_date",
+                                              },
+                                            },
+                                            [_vm._v("Next Payment Date")]
+                                          ),
+                                        ]
+                                      ),
+                                    ]),
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-lg-12" }, [
+                                    _c("div", { staticClass: "row" }, [
+                                      _c("div", { staticClass: "col-lg-6" }, [
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-floating mb-3" },
+                                          [
+                                            _c("input", {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value:
+                                                    _vm.formData.leaseDuration,
+                                                  expression:
+                                                    "formData.leaseDuration",
+                                                },
+                                              ],
+                                              staticClass: "form-control",
+                                              attrs: {
+                                                type: "text",
+                                                placeholder: "Lease Duration",
+                                                disabled: "",
+                                              },
+                                              domProps: {
+                                                value:
+                                                  _vm.formData.leaseDuration,
+                                              },
+                                              on: {
+                                                input: function ($event) {
+                                                  if ($event.target.composing) {
+                                                    return
+                                                  }
+                                                  _vm.$set(
+                                                    _vm.formData,
+                                                    "leaseDuration",
+                                                    $event.target.value
+                                                  )
+                                                },
+                                              },
+                                            }),
+                                            _vm._v(" "),
+                                            _vm._m(8),
+                                          ]
+                                        ),
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("div", { staticClass: "col-lg-6" }, [
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-floating mb-3" },
+                                          [
+                                            _c("input", {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value:
+                                                    _vm.formData.overAllTotal,
+                                                  expression:
+                                                    "formData.overAllTotal",
+                                                },
+                                              ],
+                                              staticClass: "form-control",
+                                              attrs: {
+                                                type: "text",
+                                                placeholder: "Lease Duration",
+                                                disabled: "",
+                                              },
+                                              domProps: {
+                                                value:
+                                                  _vm.formData.overAllTotal,
+                                              },
+                                              on: {
+                                                input: function ($event) {
+                                                  if ($event.target.composing) {
+                                                    return
+                                                  }
+                                                  _vm.$set(
+                                                    _vm.formData,
+                                                    "overAllTotal",
+                                                    $event.target.value
+                                                  )
+                                                },
+                                              },
+                                            }),
+                                            _vm._v(" "),
+                                            _vm._m(9),
+                                          ]
+                                        ),
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-floating mb-3" },
+                                        [
+                                          _c("input", {
+                                            staticClass: "form-control",
+                                            attrs: {
+                                              type: "file",
+                                              id: "lease_documents",
+                                              required: "",
+                                            },
+                                            on: {
+                                              change: function ($event) {
+                                                return _vm.handleFileUpload(
+                                                  $event,
+                                                  "upload_lease_document"
+                                                )
+                                              },
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _vm._m(10),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-floating mb-3" },
+                                        [
+                                          _c("textarea", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value:
+                                                  _vm.formData.tenancyTerms,
+                                                expression:
+                                                  "formData.tenancyTerms",
+                                              },
+                                            ],
+                                            staticClass: "form-control",
+                                            attrs: {
+                                              id: "tenancy_terms",
+                                              placeholder: "Tenancy Terms",
+                                              required: "",
+                                            },
+                                            domProps: {
+                                              value: _vm.formData.tenancyTerms,
+                                            },
+                                            on: {
+                                              input: function ($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.formData,
+                                                  "tenancyTerms",
+                                                  $event.target.value
+                                                )
+                                              },
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _vm._m(11),
+                                        ]
+                                      ),
+                                    ]),
+                                  ]),
+                                ]),
+                              ]),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "modal-footer bg-light border-0 py-3 px-4 d-flex justify-content-end",
+                            },
+                            [
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "btn btn-success px-4 py-2 shadow-sm",
+                                  attrs: {
+                                    type: "button",
+                                    disabled: _vm.isSubmitting,
+                                  },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.submitForm(_vm.formData.id)
+                                    },
+                                  },
+                                },
+                                [
+                                  _vm.isSubmitting
+                                    ? _c("span", [
+                                        _c("i", {
+                                          staticClass:
+                                            "fas fa-spinner fa-spin me-2",
+                                        }),
+                                        _vm._v(
+                                          " Saving...\n                    "
+                                        ),
+                                      ])
+                                    : _c("span", [
+                                        _c("i", {
+                                          staticClass: "fas fa-save me-2",
+                                        }),
+                                        _vm._v(
+                                          "\n                      " +
+                                            _vm._s(
+                                              _vm.modalMode === "add"
+                                                ? "Add Property"
+                                                : "Save Changes"
+                                            ) +
+                                            "\n                    "
+                                        ),
+                                      ]),
+                                ]
+                              ),
+                            ]
+                          ),
+                        ]
+                      ),
+                    ]
+                  ),
+                ]
+              ),
             ]),
           ]),
         ]
@@ -53399,6 +54527,28 @@ var staticRenderFns = [
               _c("i", { staticClass: "fas fa-user" }),
               _vm._v(" Show Tenancy\n      "),
             ]
+          ),
+        ]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "alert alert-info d-flex align-items-center",
+        attrs: { role: "alert" },
+      },
+      [
+        _c("i", { staticClass: "fas fa-info-circle me-2" }),
+        _vm._v(" "),
+        _c("div", [
+          _c("strong", [_vm._v("Note:")]),
+          _vm._v(
+            " Property and Tenant fields are not\n            editable. Payments must be completed before the lease can be\n            deleted.\n          "
           ),
         ]),
       ]
@@ -53465,7 +54615,7 @@ var staticRenderFns = [
             staticStyle: { "background-color": "#198754", color: "white" },
             attrs: { colspan: "3" },
           },
-          [_vm._v("\n                  No of Payment\n                ")]
+          [_vm._v("\n                  Payment Information\n                ")]
         ),
         _vm._v(" "),
         _c(
@@ -53506,14 +54656,84 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      { staticClass: "btn btn-primary btn-sm", attrs: { type: "button" } },
-      [
-        _c("i", { staticClass: "fas fa-pencil-alt" }),
-        _vm._v(" Edit\n                  "),
-      ]
-    )
+    return _c("label", { attrs: { for: "property_name" } }, [
+      _vm._v("Property Name\n                          "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "tenant_name" } }, [
+      _vm._v("Tenant Name\n                          "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "lease_start_date" } }, [
+      _vm._v("Lease Start Date\n                              "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "lease_end_date" } }, [
+      _vm._v("Lease End Date\n                              "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "monthly_rate" } }, [
+      _vm._v("Monthly Rate\n                            "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "lease_duration" } }, [
+      _vm._v("Lease Duration\n                                "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "lease_duration" } }, [
+      _vm._v("Overall Total Amount\n                                "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "lease_documents" } }, [
+      _vm._v("Upload Lease Documents\n                              "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "tenancy_terms" } }, [
+      _vm._v(
+        "\n                              Tenancy Terms\n                              "
+      ),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
+    ])
   },
 ]
 render._withStripped = true
@@ -54150,137 +55370,7 @@ var render = function () {
                                 ]),
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "row" }, [
-                                _c("div", { staticClass: "col-md-4" }, [
-                                  _c(
-                                    "div",
-                                    { staticClass: "form-floating mb-3" },
-                                    [
-                                      _c("input", {
-                                        directives: [
-                                          {
-                                            name: "model",
-                                            rawName: "v-model",
-                                            value: _vm.formData.monthly_payment,
-                                            expression:
-                                              "formData.monthly_payment",
-                                          },
-                                        ],
-                                        staticClass: "form-control",
-                                        attrs: {
-                                          type: "number",
-                                          id: "monthly_payment",
-                                          placeholder: "Monthly Payment",
-                                          required: "",
-                                        },
-                                        domProps: {
-                                          value: _vm.formData.monthly_payment,
-                                        },
-                                        on: {
-                                          input: function ($event) {
-                                            if ($event.target.composing) {
-                                              return
-                                            }
-                                            _vm.$set(
-                                              _vm.formData,
-                                              "monthly_payment",
-                                              $event.target.value
-                                            )
-                                          },
-                                        },
-                                      }),
-                                      _vm._v(" "),
-                                      _vm._m(7),
-                                    ]
-                                  ),
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "col-md-4" }, [
-                                  _c(
-                                    "div",
-                                    { staticClass: "form-floating mb-3" },
-                                    [
-                                      _c("input", {
-                                        directives: [
-                                          {
-                                            name: "model",
-                                            rawName: "v-model",
-                                            value: _vm.formData.lease_period,
-                                            expression: "formData.lease_period",
-                                          },
-                                        ],
-                                        staticClass: "form-control",
-                                        attrs: {
-                                          type: "text",
-                                          id: "lease_period",
-                                          placeholder: "Lease Period",
-                                          required: "",
-                                        },
-                                        domProps: {
-                                          value: _vm.formData.lease_period,
-                                        },
-                                        on: {
-                                          input: function ($event) {
-                                            if ($event.target.composing) {
-                                              return
-                                            }
-                                            _vm.$set(
-                                              _vm.formData,
-                                              "lease_period",
-                                              $event.target.value
-                                            )
-                                          },
-                                        },
-                                      }),
-                                      _vm._v(" "),
-                                      _vm._m(8),
-                                    ]
-                                  ),
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "col-md-4" }, [
-                                  _c(
-                                    "div",
-                                    { staticClass: "form-floating mb-3" },
-                                    [
-                                      _c("input", {
-                                        directives: [
-                                          {
-                                            name: "model",
-                                            rawName: "v-model",
-                                            value: _vm.formData.due_date,
-                                            expression: "formData.due_date",
-                                          },
-                                        ],
-                                        staticClass: "form-control",
-                                        attrs: {
-                                          type: "date",
-                                          id: "due_date",
-                                          placeholder: "Due Date",
-                                          required: "",
-                                        },
-                                        domProps: {
-                                          value: _vm.formData.due_date,
-                                        },
-                                        on: {
-                                          input: function ($event) {
-                                            if ($event.target.composing) {
-                                              return
-                                            }
-                                            _vm.$set(
-                                              _vm.formData,
-                                              "due_date",
-                                              $event.target.value
-                                            )
-                                          },
-                                        },
-                                      }),
-                                      _vm._v(" "),
-                                      _vm._m(9),
-                                    ]
-                                  ),
-                                ]),
-                              ]),
+                              _c("div", { staticClass: "row" }),
                               _vm._v(" "),
                               _c("hr"),
                               _vm._v(" "),
@@ -54288,7 +55378,7 @@ var render = function () {
                               _vm._v(" "),
                               _c("div", { staticClass: "row" }, [
                                 _c("div", { staticClass: "col-md-4" }, [
-                                  _vm._m(10),
+                                  _vm._m(7),
                                   _vm._v(" "),
                                   _c("input", {
                                     staticClass: "form-control",
@@ -54305,7 +55395,7 @@ var render = function () {
                                 ]),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "col-md-4" }, [
-                                  _vm._m(11),
+                                  _vm._m(8),
                                   _vm._v(" "),
                                   _c("input", {
                                     staticClass: "form-control",
@@ -54322,7 +55412,7 @@ var render = function () {
                                 ]),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "col-md-4" }, [
-                                  _vm._m(12),
+                                  _vm._m(9),
                                   _vm._v(" "),
                                   _c("input", {
                                     staticClass: "form-control",
@@ -54550,33 +55640,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "address" } }, [
       _vm._v("Address "),
-      _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "monthly_payment" } }, [
-      _vm._v("Monthly Payment\n                            "),
-      _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "lease_period" } }, [
-      _vm._v("Lease Period\n                            "),
-      _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "due_date" } }, [
-      _vm._v("Due Date\n                            "),
       _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
     ])
   },

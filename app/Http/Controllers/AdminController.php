@@ -28,10 +28,7 @@ class AdminController extends Controller
             'tenant_name'      => 'required|string|max:255',
             'contact_no'       => 'required|string|max:20',
             'address'          => 'required|string|max:255',
-            'monthly_rate'     => 'required|numeric',
             'date_created'     => 'required|date',
-            'lease_period'     => 'required|string|max:50',
-            'due_date'         => 'required|date',
             'contracts'        => 'required|file|mimes:pdf',
             'id1'              => 'required|file|mimes:png,jpeg,jpg',
             'id2'              => 'required|file|mimes:png,jpeg,jpg',
@@ -45,9 +42,6 @@ class AdminController extends Controller
         $tenant->tenant_name = $validated['tenant_name'];
         $tenant->address = $validated['address'];
         $tenant->contact_number = $validated['contact_no'];
-        $tenant->rate = $validated['monthly_rate'];
-        $tenant->period = $validated['lease_period'];
-        $tenant->duedate = $validated['due_date'];
         $tenant->status = "Active";
         $tenant->date_created = $validated['date_created'];
 
@@ -443,6 +437,46 @@ class AdminController extends Controller
         return response()->json(['message' => $tenancy]);
     }
 
+    public function update_tenancy_lease(Request $request,$id){
+        
+     
+     
+        $tenancy  = Tenancy::find($id);
+        // $tenancy->property_id = $tenancy->property_id;
+        // $tenancy->tenant_id = $tenanct->tenant_id;
+        $tenancy->lease_start_date = $request->lease_start_date;
+        $tenancy->lease_end_date = $request->lease_end_date;
+        $tenancy->due_date = Carbon::parse($request->nextPaymentDate)->addMonth();
+        $tenancy->monthly_rent_amount = $request->monthlyRentAmount;
+        $tenancy->lease_duration = $request->leaseDuration;
+        $tenancy->total_amount = $request->overAllTotal;
+        $tenancy->tenancy_terms = $request->tenancyTerms;
+        
+
+        $fileFields = ['upload_lease_document'];
+        $uploadPath = public_path('TenancyLeases/' . $tenancy->transaction_no);
+
+        if (!file_exists($uploadPath)) {
+            mkdir($uploadPath, 0755, true);
+        }
+
+        foreach ($fileFields as $field) {
+            if ($request->hasFile($field) && $request->file($field)->isValid()) {
+                $file = $request->file($field);
+                $ext = $file->getClientOriginalExtension();
+                $rootName = strtoupper(str_replace(' ', '_', $tenancy->tenant->tenant_name));
+                $fileName = now()->year . '-' . $rootName . '.' . $tenancy->transaction_no . '.' . $field . '.' . $ext;
+                $file->move($uploadPath, $fileName);
+                $tenancy->$field = $fileName;
+            }
+        }
+        
+
+        $tenancy->save();
+        return response()->json(['message' => $tenancy]);
+
+    }
+
     public function show_tenancy(){
         return view('admin.show_tenancy');
     }
@@ -711,6 +745,27 @@ public function getDataPayment(Request $request)
                         ->get();
        return view('admin.view_ledger', compact('tenancy','tenantPayment'));
     }
+
+    public function delete_tenancy($id)
+{
+            $tenancy = Tenancy::findOrFail($id);
+
+            // Check if there are any related payment records
+            $hasPayments = PaymentTenant::where('tenant_id', $id)->exists();
+
+            if ($hasPayments) {
+                return response()->json([
+                    'error' => 'This tenancy has associated payment records and cannot be deleted.'
+                ], 422);
+            }
+
+            $tenancy->delete();
+
+            return response()->json([
+                'success' => 'Tenancy deleted successfully.'
+            ]);
+        }
+
 
 
     
