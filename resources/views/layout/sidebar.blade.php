@@ -115,6 +115,9 @@
                     <li class="nav-item">
                         <a href="{{ route('payment.index') }}" class="nav-link">Payment</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('reports') }}" class="nav-link">Report</a>
+                    </li>
                    
                     </ul>
                 </div>

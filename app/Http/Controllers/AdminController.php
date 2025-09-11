@@ -16,7 +16,17 @@ class AdminController extends Controller
     //
 
     public function dashboard(){
-       return view('admin.index');
+       $totalProperties = Property::count();
+       $occupiedProperties = Property::where('status', 'Occupied')->count();
+       $availableProperties = Property::where('status', 'Available')->count();
+       $tenantCount = Tenant::where('status', 'Active')->count();
+
+        return view('admin.index', compact(
+            'totalProperties',
+            'occupiedProperties',
+            'availableProperties',
+            'tenantCount',
+        ));
     }
     public function tenants(){
         return view('admin.tenants');
@@ -747,7 +757,7 @@ public function getDataPayment(Request $request)
     }
 
     public function delete_tenancy($id)
-{
+    {
             $tenancy = Tenancy::findOrFail($id);
 
             // Check if there are any related payment records
@@ -764,6 +774,10 @@ public function getDataPayment(Request $request)
             return response()->json([
                 'success' => 'Tenancy deleted successfully.'
             ]);
+        }
+
+        public function reports(){
+            return view('admin.reports');
         }
 
 

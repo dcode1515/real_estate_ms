@@ -53,6 +53,9 @@
       <style>
         #page-topbar {
     background-color: #007bff;
+
+    
+    
 }
 
 
@@ -104,6 +107,57 @@
     <script src="{{ asset('public/Dashboard-Template-Velzon-main/assets/libs/swiper/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('public/Dashboard-Template-Velzon-main/assets/js/pages/dashboard-ecommerce.init.js') }}"></script>
     <script src="{{ asset('public/Dashboard-Template-Velzon-main/assets/js/app.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const propertyData = {
+            labels: ["Total", "Occupied", "Available"],
+            datasets: [{
+                label: "Properties",
+                data: [{{ $totalProperties }}, {{ $occupiedProperties }}, {{ $availableProperties }}],
+                backgroundColor: ["#4CAF50", "#2196F3", "#FFC107"],
+                borderColor: ["#388E3C", "#1976D2", "#FFA000"],
+                borderWidth: 1
+            }]
+        };
+
+        // Bar Chart
+        new Chart(document.getElementById("propertyBarChart"), {
+            type: "bar",
+            data: propertyData,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            precision: 0 // Show whole numbers
+                        }
+                    }
+                }
+            }
+        });
+
+        // Pie Chart
+        new Chart(document.getElementById("propertyPieChart"), {
+            type: "pie",
+            data: {
+                labels: ["Total", "Occupied", "Available"],
+                datasets: [{
+                    data: [{{ $totalProperties }}, {{ $occupiedProperties }}, {{ $availableProperties }}],
+                    backgroundColor: ["#4CAF50", "#2196F3", "#FFC107"],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+            }
+        });
+    });
+</script>
+
+    
+
     
   <!-- <script>
   document.addEventListener('DOMContentLoaded', function () {

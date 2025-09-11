@@ -479,48 +479,49 @@ export default {
   methods: {
     async deleteTenancy(tenancy) {
       const confirmation = await Swal.fire({
-        title: 'Are you sure?',
+        title: "Are you sure?",
         text: `You are about to delete tenancy: ${tenancy.transaction_no}`,
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonText: 'Yes, delete it!',
-        cancelButtonText: 'Cancel'
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "Cancel",
       });
 
       if (confirmation.isConfirmed) {
         try {
-          const response = await axios.delete(`/real_estate_ms/api/delete/tenancy/${tenancy.id}`);
-          
-          // Success alert
+          const response = await axios.delete(
+            `/real_estate_ms/api/delete/tenancy/${tenancy.id}`
+          );
+
+          // Success alert with OK and then redirect
           await Swal.fire({
-            title: 'Deleted!',
+            title: "Deleted!",
             text: response.data.success,
-            icon: 'success',
-            timer: 2000,
-            showConfirmButton: false
+            icon: "success",
+            confirmButtonText: "OK",
           });
 
-          this.getDataTenancy(); // Refresh your tenancy list
+          // ✅ After user clicks "OK", redirect
+          window.location.href = "/real_estate_ms/show/tenancy"; // Change this path to your actual route
         } catch (error) {
           if (error.response && error.response.status === 422) {
-            // Laravel validation / logic error (like payment record exists)
             await Swal.fire({
-              title: 'Error',
+              title: "Error",
               text: error.response.data.error,
-              icon: 'error'
+              icon: "error",
             });
           } else {
-            // Other errors (network, server, etc.)
             await Swal.fire({
-              title: 'Unexpected Error',
-              text: 'Something went wrong while trying to delete.',
-              icon: 'error'
+              title: "Unexpected Error",
+              text: "Something went wrong while trying to delete.",
+              icon: "error",
             });
             console.error(error);
           }
         }
       }
     },
+
     async submitForm(id) {
       try {
         this.isSubmitting = true;

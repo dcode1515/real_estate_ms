@@ -49,6 +49,10 @@ Route::delete('/api/delete/data/payment/{id}', [App\Http\Controllers\AdminContro
 Route::get('/ledger', [App\Http\Controllers\AdminController::class, 'ledger'])->name('ledger');
 Route::get('/view/ledger/{id}', [App\Http\Controllers\AdminController::class, 'view_ledger']);
 Route::delete('/api/delete/tenancy/{id}', [App\Http\Controllers\AdminController::class, 'delete_tenancy']);
+Route::get('/reports', [App\Http\Controllers\AdminController::class, 'reports'])->name('reports');
+Route::get('/api/reports/payments', [App\Http\Controllers\ReportController::class, 'getPaymentReport']);
+Route::get('/download/report', [App\Http\Controllers\ReportController::class, 'downloadPDF']);
+
 
 
 
