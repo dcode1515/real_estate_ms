@@ -9,6 +9,8 @@ use Carbon\Carbon;
 use App\Models\Tenancy;
 use App\Models\PaymentTenant;
 use Auth;
+use ZipArchive;
+use File;
 
 
 class AdminController extends Controller
@@ -45,6 +47,14 @@ class AdminController extends Controller
         ]);
 
         $tenant = new Tenant;
+        if (Tenant::where('tenant_name', $request->tenant_name)->exists()) {
+        return response()->json([
+            'message' => 'Tenant already exists.',
+            'errors' => [
+                'tenant_name' => ['A tenant with this name already exists.']
+            ]
+        ], 422);
+        }
         $nowYear = now()->format('Y');
         $tenant_no = Tenant::IDGenerator(new Tenant, 'tenant_no', 4, $nowYear);
 
@@ -56,8 +66,12 @@ class AdminController extends Controller
         $tenant->date_created = $validated['date_created'];
 
         $fileFields = ['contracts', 'id1', 'id2'];
+
+        // Clean and prepare folder name
+    //    $tenantNameSafe = strtoupper(str_replace(' ', '_', $tenant->tenant_name));
         $uploadPath = public_path('tenant/' . $tenant_no);
 
+        // Create the directory if it doesn't exist
         if (!file_exists($uploadPath)) {
             mkdir($uploadPath, 0755, true);
         }
@@ -66,12 +80,17 @@ class AdminController extends Controller
             if ($request->hasFile($field) && $request->file($field)->isValid()) {
                 $file = $request->file($field);
                 $ext = $file->getClientOriginalExtension();
-                $rootName = strtoupper(str_replace(' ', '_', $tenant->tenant_name));
-                $fileName = now()->year . '-' . $rootName . '.' . $tenant_no . '.' . $field . '.' . $ext;
+
+                $fileName = now()->year . '-' . $tenant_no . '.' . $field . '.' . $ext;
+
+                // Move the file
                 $file->move($uploadPath, $fileName);
+
+                // Save the file name to the tenant model
                 $tenant->$field = $fileName;
             }
         }
+
 
         $tenant->save();
 
@@ -242,6 +261,81 @@ class AdminController extends Controller
     }
 
 
+    public function store_properties_forsale(Request $request)
+    {
+        $validated = $request->validate([
+            'date_created'            => 'required|date',
+            'property_name'           => 'required|string|max:255',
+            'description_of_property' => 'required|string|max:1000',
+            'property_type'           => 'required|string|max:50',
+            'province'                => 'required|string|max:100',
+            'municipality'            => 'required|string|max:100',
+                'barangay'            => 'required|string|max:100',
+            'street'                  => 'required|string|max:255',
+            'zip_code'                => 'required|string|max:10',
+            'bedrooms'                => 'required|integer|min:0',
+            'sq_meter'                => 'required|numeric|min:0',
+            'car_park'                => 'required|integer|min:0',
+            'toilet'                  => 'required|integer|min:0',
+            'bathroom'                => 'required|integer|min:0',
+            'sale_price'            => 'required',
+            'furnishing'              => 'required|string|max:100',
+            'image'                   => 'required|file|mimes:png,jpeg,jpg',
+        ]);
+
+        $property  = new Property();
+        if (Property::where('property_name', $request->property_name)->exists()) {
+            // Handle the case where the property_name already exists, for example, return an error response
+            return response()->json(['exist' => 'Property name already exist'], 422);
+        }
+        
+        $text = "PN-";
+        $now = Carbon::now()->format('Y');
+        $property_no = Property::IDGenerator(new Property,'property_no', 4,$text.$now);
+        $property->property_no = $property_no;
+        $property->property_name = $validated['property_name'];
+        $property->description_of_property = $validated['description_of_property'];
+        $property->property_type = $validated['property_type'];
+        $property->province = $validated['province'];
+        $property->municipality = $validated['municipality'];
+        $property->barangay = $validated['barangay'];
+        $property->street = $validated['street'];
+        $property->zip_code = $validated['zip_code'];
+        $property->bedrooms = $validated['bedrooms'];
+        $property->sq_meter = $validated['sq_meter'];
+        $property->car_park = $validated['car_park'];
+        $property->toilet = $validated['toilet'];
+        $property->bathroom = $validated['bathroom'];
+        $property->furnishing = $validated['furnishing'];
+        $property->monthly_rate = $validated['sale_price'];
+        $property->status = "Available";
+         $property->status_type = "For Sale";
+        $property->date_created = $validated['date_created'];
+
+        $fileFields = ['image'];
+        $uploadPath = public_path('Property/' . $property_no);
+
+        if (!file_exists($uploadPath)) {
+            mkdir($uploadPath, 0755, true);
+        }
+
+        foreach ($fileFields as $field) {
+            if ($request->hasFile($field) && $request->file($field)->isValid()) {
+                $file = $request->file($field);
+                $ext = $file->getClientOriginalExtension();
+                $rootName = strtoupper(str_replace(' ', '_', $property->property_name));
+                $fileName = now()->year . '-' . $rootName . '.' . $property_no . '.' . $field . '.' . $ext;
+                $file->move($uploadPath, $fileName);
+                $property->$field = $fileName;
+            }
+        }
+
+        $property->save();
+
+        return response()->json(['message' => 'Property Added!']);
+    }
+
+
     public function update_properties(Request $request,$id)
     {
         $validated = $request->validate([
@@ -316,6 +410,80 @@ class AdminController extends Controller
         return response()->json(['message' => 'Property Added!']);
     }
 
+    public function update_properties_forsale(Request $request,$id)
+    {
+        $validated = $request->validate([
+            'date_created'            => 'nullable|date',
+            'property_name'           => 'nullable|string|max:255',
+            'description_of_property' => 'nullable|string|max:1000',
+            'property_type'           => 'nullable|string|max:50',
+            'province'                => 'nullable|string|max:100',
+            'municipality'            => 'nullable|string|max:100',
+            'barangay'            => 'nullable|string|max:100',
+            'street'                  => 'nullable|string|max:255',
+            'zip_code'                => 'nullable|string|max:10',
+            'bedrooms'                => 'nullable|integer|min:0',
+            'sq_meter'                => 'nullable|numeric|min:0',
+            'car_park'                => 'nullable|integer|min:0',
+            'toilet'                  => 'nullable|integer|min:0',
+            'bathroom'                => 'nullable|integer|min:0',
+            'sale_price'            => 'nullable',
+            'furnishing'              => 'nullable|string|max:100',
+            'image'                   => 'nullable|file|mimes:png,jpeg,jpg',
+        ]);
+
+       if ($request->filled('property_name')) {
+                $exists = Property::where('property_name', $request->property_name)
+                    ->where('id', '!=', $id)
+                    ->exists();
+
+                if ($exists) {
+                    return response()->json(['exist' => 'Property name already exists'], 422);
+                }
+            }
+        
+      $property = Property::find($id);
+        $property->property_name = $validated['property_name'];
+        $property->description_of_property = $validated['description_of_property'];
+        $property->property_type = $validated['property_type'];
+        $property->province = $validated['province'];
+        $property->municipality = $validated['municipality'];
+           $property->barangay = $validated['barangay'];
+        $property->street = $validated['street'];
+        $property->zip_code = $validated['zip_code'];
+        $property->bedrooms = $validated['bedrooms'];
+        $property->sq_meter = $validated['sq_meter'];
+        $property->car_park = $validated['car_park'];
+        $property->toilet = $validated['toilet'];
+        $property->bathroom = $validated['bathroom'];
+        $property->furnishing = $validated['furnishing'];
+        $property->monthly_rate = $validated['sale_price'];
+      
+        $property->date_created = $validated['date_created'];
+
+        $fileFields = ['image'];
+        $uploadPath = public_path('Property/' . $property->property_no);
+
+        if (!file_exists($uploadPath)) {
+            mkdir($uploadPath, 0755, true);
+        }
+
+        foreach ($fileFields as $field) {
+            if ($request->hasFile($field) && $request->file($field)->isValid()) {
+                $file = $request->file($field);
+                $ext = $file->getClientOriginalExtension();
+                $rootName = strtoupper(str_replace(' ', '_', $property->property_name));
+                $fileName = now()->year . '-' . $rootName . '.' . $property_no . '.' . $field . '.' . $ext;
+                $file->move($uploadPath, $fileName);
+                $property->$field = $fileName;
+            }
+        }
+
+        $property->save();
+
+        return response()->json(['message' => 'Property Added!']);
+    }
+
     
 
 
@@ -355,6 +523,55 @@ class AdminController extends Controller
                     return $query->where('property_type', $propertyType);
                 })
                 ->where('status_type', 'For Rent')
+                ->paginate($perPage);
+
+            return response()->json([
+                'success' => true,
+                'data' => $properties
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'error' => 'An error occurred: ' . $e->getMessage()
+            ], 500);
+        }
+    }
+    public function get_data_properties_forsale(Request $request)
+    {
+
+        try {
+            $search = $request->query('search');
+            $perPage = $request->query('per_page', 10); // Default to 10 if per_page is not provided
+            $propertyType = $request->query('property_type'); // Add this line to get the property_type filter
+
+
+            $properties = Property::query()
+                ->when($search, function ($query, $search) {
+                    return $query
+                        ->where('property_no', 'like', '%' . $search . '%')
+                         ->orWhere('date_created', 'like', '%' . $search . '%')
+                        ->orWhere('property_name', 'like', '%' . $search . '%')
+                        ->orWhere('description_of_property', 'like', '%' . $search . '%')
+                        ->orWhere('property_type', 'like', '%' . $search . '%')
+                        ->orWhere('monthly_rate', 'like', '%' . $search . '%')
+                        ->orWhere('province', 'like', '%' . $search . '%')
+                        ->orWhere('municipality', 'like', '%' . $search . '%')
+                        ->orWhere('province', 'like', '%' . $search . '%')
+                        ->orWhere('barangay', 'like', '%' . $search . '%')
+                        ->orWhere('street', 'like', '%' . $search . '%')
+                        ->orWhere('zip_code', 'like', '%' . $search . '%')
+                        ->orWhere('bedrooms', 'like', '%' . $search . '%')
+                        ->orWhere('sq_meter', 'like', '%' . $search . '%')
+                        ->orWhere('car_park', 'like', '%' . $search . '%')
+                        ->orWhere('toilet', 'like', '%' . $search . '%')
+                        ->orWhere('bathroom', 'like', '%' . $search . '%')
+                        ->orWhere('furnishing', 'like', '%' . $search . '%');
+
+                })
+                 ->when($propertyType, function ($query, $propertyType) {
+                    return $query->where('property_type', $propertyType);
+                })
+                ->where('status_type', 'For Sale')
                 ->paginate($perPage);
 
             return response()->json([
@@ -757,29 +974,104 @@ public function getDataPayment(Request $request)
     }
 
     public function delete_tenancy($id)
-    {
-            $tenancy = Tenancy::findOrFail($id);
+{
+    $tenancy = Tenancy::findOrFail($id);
 
-            // Check if there are any related payment records
-            $hasPayments = PaymentTenant::where('tenant_id', $id)->exists();
+    // 🔍 Correctly fetch tenant_id from tenancy
+    $tenantId = $tenancy->tenant_id;
 
-            if ($hasPayments) {
-                return response()->json([
-                    'error' => 'This tenancy has associated payment records and cannot be deleted.'
-                ], 422);
-            }
+    // ✅ Check payment records using tenant_id
+    $hasPayments = PaymentTenant::where('tenant_id', $tenantId)->exists();
 
-            $tenancy->delete();
+    if ($hasPayments) {
+        return response()->json([
+            'error' => 'This tenancy has associated payment records and cannot be deleted.'
+        ], 422);
+    }
 
-            return response()->json([
-                'success' => 'Tenancy deleted successfully.'
-            ]);
+    // Update related Property status to "Available"
+    if ($tenancy->property_id) {
+        $property = Property::find($tenancy->property_id);
+        if ($property) {
+            $property->status = 'Available';
+            $property->save();
         }
+    }
+
+    $tenancy->delete();
+
+    return response()->json([
+        'success' => 'Tenancy deleted successfully and property marked as available.'
+    ]);
+}
+
+
 
         public function reports(){
             return view('admin.reports');
         }
+    public function download_attachment_tenant($id)
+    {
+        $downloadattachment = Tenant::find($id);
+        $zip = new ZipArchive;
+        $fileName = $downloadattachment->tenant_no . '_' . $downloadattachment->tenant_name. '_Attachment.zip';
 
+        if ($zip->open(public_path($fileName), ZipArchive::CREATE) === TRUE) {
+            $files = File::files(public_path('tenant/' . $downloadattachment->tenant_no));
+            foreach ($files as $key => $value) {
+                $relativeNameInZipFile = basename($value);
+                $zip->addFile($value, $relativeNameInZipFile);
+            }
+            $pdfFileName = $downloadattachment->tenant_no . 'Teenant Documents' . '.pdf';
+            $zip->addFile($pdfFileName);
+            $zip->close();
+        }
+        return response()->download(public_path($fileName));
+    }
+
+    public function deleteTenant($id)
+    {
+        // Check if there are any related payment records
+        $hasPayments = PaymentTenant::where('tenant_id', $id)->exists();
+
+        if ($hasPayments) {
+            return response()->json([
+                'error' => 'This tenant has associated payment records and cannot be deleted.'
+            ], 422);
+        }
+
+        $tenant = Tenant::findOrFail($id);
+        $tenant->delete(); // Soft delete
+        return response()->json(['status' => 'Tenant successfully deleted.']);
+    }
+
+    public function deleteProperty($id)
+    {
+        // Check if there are any related tenancy or payment records
+        $hasTenancy = Tenancy::where('property_id', $id)->exists();
+        $hasPayments = PaymentTenant::where('property_id', $id)->exists();
+
+        // Check if property is occupied
+        $property = Property::findOrFail($id);
+        if ($property->status === 'Occupied') {
+            return response()->json([
+            'error' => 'This property is currently occupied and cannot be deleted.'
+            ], 422);
+        }
+
+        if ($hasTenancy || $hasPayments) {
+            return response()->json([
+            'error' => 'This property has associated tenancy or payment records and cannot be deleted.'
+            ], 422);
+        }
+
+        $property->delete(); // Soft delete
+        return response()->json(['status' => 'Property successfully deleted.']);
+    }
+
+    public function for_sale(){
+        return view('admin.for_sale');
+    }
 
 
     

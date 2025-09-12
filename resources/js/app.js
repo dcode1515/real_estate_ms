@@ -29,6 +29,7 @@ Vue.component('Payment', require('./components/Admin/Payment.vue').default);
 Vue.component('Ledger', require('./components/Admin/Ledger.vue').default);
 Vue.component('Viewledger', require('./components/Admin/Viewledger.vue').default);
 Vue.component('Reports', require('./components/Admin/Reports.vue').default);
+Vue.component('Forsale', require('./components/Admin/Forsale.vue').default);
 
 
 

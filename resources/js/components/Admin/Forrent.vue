@@ -24,54 +24,70 @@
         aria-labelledby="generallist-tab"
       >
         <div class="row mb-3">
-          <div class="col-md-2">
-            <select
-              class="form-control"
-              v-model="perPage"
-              @change="getDataProperties"
-            >
-              <option value="5">5 per page</option>
-              <option value="10">10 per page</option>
-              <option value="25">25 per page</option>
-              <option value="50">50 per page</option>
-              <option value="100">100 per page</option>
-            </select>
-          </div>
-          <div class="col-md-2">
-            <select
-              class="form-control"
-              v-model="propertyType"
-              @change="getDataProperties"
-            >
-              <option value="">All Types</option>
-              <option value="House">House</option>
-              <option value="Condo">Condo</option>
-              <option value="Apartment">Apartment</option>
-              <option value="Townhouse">Townhouse</option>
-              <!-- Add other property types as needed -->
-            </select>
-          </div>
-          <div class="col-md-6">
-            <input
-              v-model="searchQuery"
-              @input="getDataProperties"
-              type="text"
-              class="form-control"
-              style="position: left"
-              placeholder="Search Properties..."
-            />
-          </div>
-          <div class="col-md-2 d-flex justify-content-end align-items-center">
-            <button
-              class="btn btn-success"
-              type="button"
-              @click="openModal('add')"
-            >
-              <i class="fas fa-plus"></i> Create Property
-            </button>
+          <div class="row mb-3">
+            <!-- Per Page Selector -->
+            <div class="col-md-3">
+              <select
+                class="form-control"
+                v-model="perPage"
+                @change="getDataProperties"
+              >
+                <option value="5">5 per page</option>
+                <option value="10">10 per page</option>
+                <option value="25">25 per page</option>
+                <option value="50">50 per page</option>
+                <option value="100">100 per page</option>
+              </select>
+            </div>
+
+            <!-- Property Type Selector -->
+            <div class="col-md-3">
+              <select
+                class="form-control"
+                v-model="propertyType"
+                @change="getDataProperties"
+              >
+                <option value="">All Types</option>
+                <option value="House">House</option>
+                <option value="Condo">Condo</option>
+                <option value="Apartment">Apartment</option>
+                <option value="Townhouse">Townhouse</option>
+                <!-- Add other property types as needed -->
+              </select>
+            </div>
+
+            <!-- Search Box -->
+            <div class="col-md-4">
+              <input
+                v-model="searchQuery"
+                @input="getDataProperties"
+                type="text"
+                class="form-control"
+                placeholder="Search Properties..."
+              />
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="col-md-2 d-flex justify-content-end gap-2">
+               <button
+                class="btn btn-secondary"
+                type="button"
+                @click="getDataProperties"
+              >
+                <i class="fas fa-sync"></i> Reload
+              </button>
+              <button
+                class="btn btn-success me-1"
+                type="button"
+                @click="openModal('add')"
+              >
+                <i class="fas fa-plus"></i> Create
+              </button>
+             
+            </div>
           </div>
           <div class="table-responsive">
-            <br />
+        
 
             <table>
               <thead>
@@ -140,6 +156,7 @@
                 <tr
                   v-for="(property, index) in properties.data"
                   :key="property.id"
+                  :class="index % 2 === 0 ? 'table-row-even' : 'table-row-odd'"
                 >
                   <td class="text-center">
                     {{
@@ -183,6 +200,14 @@
                         class="bi bi-pencil-square text-primary"
                         style="font-size: 1.2rem"
                       ></i>
+                    </a>
+                    <a
+                      @click="deleteProperties(property)"
+                      type="button"
+                      class="btn btn-danger btn-sm me-1"
+                      title="Delete"
+                    >
+                      <i class="fas fa-trash"></i>
                     </a>
                   </td>
                 </tr>
@@ -655,6 +680,50 @@ import Swal from "sweetalert2";
 
 export default {
   methods: {
+    async deleteProperties(property) {
+      const confirmation = await Swal.fire({
+        title: "Are you sure?",
+        text: `You are about to delete Property: ${property.property_name}. This action cannot be undone.`,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "Cancel",
+      });
+
+      if (confirmation.isConfirmed) {
+        try {
+          const response = await axios.delete(
+            `/real_estate_ms/api/delete/property/${property.id}`
+          );
+
+          // Success alert with OK and then redirect
+          await Swal.fire({
+            title: "Deleted!",
+            text: response.data.success,
+            icon: "success",
+            confirmButtonText: "OK",
+          });
+
+          // ✅ After user clicks "OK", redirect
+          window.location.href = "/real_estate_ms/for/rent/properties"; // Change this path to your actual route
+        } catch (error) {
+          if (error.response && error.response.status === 422) {
+            await Swal.fire({
+              title: "Error",
+              text: error.response.data.error,
+              icon: "error",
+            });
+          } else {
+            await Swal.fire({
+              title: "Unexpected Error",
+              text: "Something went wrong while trying to delete.",
+              icon: "error",
+            });
+            console.error(error);
+          }
+        }
+      }
+    },
     handleFileUpload(event, field) {
       this.formData[field] = event.target.files[0];
     },
@@ -1116,7 +1185,8 @@ th {
   /* Red color for "Not Scheduled" or empty date */
   font-style: italic;
   /* Italic style for emphasis */
-}.badge-custom-for-rent {
+}
+.badge-custom-for-rent {
   background-color: green;
   color: white;
 }
@@ -1132,8 +1202,20 @@ th {
 }
 
 .badge-custom-available {
-  background-color: blue;  /* You can change this color */
+  background-color: blue; /* You can change this color */
   color: white;
 }
+.table-row-even {
+  background-color: #f9f9f9; /* light gray */
+}
 
+.table-row-odd {
+  background-color: #ffffff; /* white */
+}
+
+/* Optional: Highlight on hover */
+.table-row-even:hover,
+.table-row-odd:hover {
+  background-color: #eef5ff;
+}
 </style>

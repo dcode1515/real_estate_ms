@@ -20,19 +20,18 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bootstrap any application services.
+     * Bootstrap any application services. 
      *
      * @return void
      */
     public function boot()
     {
         //
-         View::composer('*', function ($view) {
+        View::composer('*', function ($view) {
         $totalProperties = Property::count();
         $occupiedProperties = Property::where('status', 'Occupied')->count();
         $availableProperties = Property::where('status', 'Available')->count();
         $tenantCount = Tenant::where('status', 'Active')->count();
-
         $view->with(compact('totalProperties', 'occupiedProperties', 'availableProperties', 'tenantCount'));
     });
     }

@@ -191,6 +191,7 @@
                     >
                       <i class="fas fa-trash"></i> Delete
                     </a>
+                  
                   </td>
                 </tr>
                 <!-- Repeat for more rows as needed -->
@@ -480,44 +481,49 @@ export default {
     async deleteTenancy(tenancy) {
       const confirmation = await Swal.fire({
         title: "Are you sure?",
-        text: `You are about to delete tenancy: ${tenancy.transaction_no}`,
+        text: `You are about to delete tenancy for: ${tenancy.tenant.tenant_name}`,
         icon: "warning",
         showCancelButton: true,
         confirmButtonText: "Yes, delete it!",
         cancelButtonText: "Cancel",
       });
 
-      if (confirmation.isConfirmed) {
-        try {
-          const response = await axios.delete(
-            `/real_estate_ms/api/delete/tenancy/${tenancy.id}`
-          );
+      if (!confirmation.isConfirmed) return;
 
-          // Success alert with OK and then redirect
+      try {
+        const response = await axios.delete(
+          `/real_estate_ms/api/delete/tenancy/${tenancy.id}`
+        );
+
+        // ✅ Success: tenancy deleted
+        await Swal.fire({
+          title: "Deleted!",
+          text: response.data.success || "Tenancy deleted successfully.",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+
+        // Optionally refresh data or redirect
+        // window.location.href = "/real_estate_ms/show/tenancy";
+        this.getDataTenancy();
+      } catch (error) {
+        // ⚠️ Backend returns 422 if payment records exist
+        if (error.response && error.response.status === 422) {
           await Swal.fire({
-            title: "Deleted!",
-            text: response.data.success,
-            icon: "success",
-            confirmButtonText: "OK",
+            title: "Cannot Delete",
+            text:
+              error.response.data.error ||
+              "This tenancy has payments and cannot be deleted.",
+            icon: "error",
           });
-
-          // ✅ After user clicks "OK", redirect
-          window.location.href = "/real_estate_ms/show/tenancy"; // Change this path to your actual route
-        } catch (error) {
-          if (error.response && error.response.status === 422) {
-            await Swal.fire({
-              title: "Error",
-              text: error.response.data.error,
-              icon: "error",
-            });
-          } else {
-            await Swal.fire({
-              title: "Unexpected Error",
-              text: "Something went wrong while trying to delete.",
-              icon: "error",
-            });
-            console.error(error);
-          }
+        } else {
+          // ⚠️ Unknown error
+          await Swal.fire({
+            title: "Unexpected Error",
+            text: "Something went wrong while trying to delete the tenancy.",
+            icon: "error",
+          });
+          console.error(error);
         }
       }
     },

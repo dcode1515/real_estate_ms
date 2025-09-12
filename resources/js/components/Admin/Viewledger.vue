@@ -145,13 +145,20 @@
                     <option :value="50">50 per page</option>
                   </select>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-8">
                   <input
                     v-model="searchQuery"
                     type="text"
                     class="form-control"
                     placeholder="Search by any field..."
                   />
+                </div>
+                <div class="col-md-2">
+                  <button type="button" class="btn btn-success"
+                   @click="openStatusModal(tenancy)"
+                  >
+                    <i class="fas fa-check"></i> Update Status
+                  </button>
                 </div>
               </div>
 
@@ -197,7 +204,18 @@
                     <td>{{ payment.transaction_no }}</td>
                     <td>{{ payment.mode_of_payment }}</td>
                     <td>{{ payment.acctno }}</td>
-                    <td><a v-bind:href="'/real_estate_ms/public/tenant/' + tenancy.tenant.tenant_no + '/' + payment.proof_of_payment"  target="_blank">{{ payment.proof_of_payment }}</a></td>
+                    <td>
+                      <a
+                        v-bind:href="
+                          '/real_estate_ms/public/tenant/' +
+                          tenancy.tenant.tenant_no +
+                          '/' +
+                          payment.proof_of_payment
+                        "
+                        target="_blank"
+                        >{{ payment.proof_of_payment }}</a
+                      >
+                    </td>
                     <td>{{ payment.date_paid }}</td>
                     <td>{{ formatPHP(payment.amount) }}</td>
                   </tr>
@@ -258,6 +276,7 @@
                   </li>
                 </ul>
               </nav>
+              
             </div>
           </div>
         </div>

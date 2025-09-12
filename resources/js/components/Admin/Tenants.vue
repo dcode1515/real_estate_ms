@@ -105,44 +105,19 @@
                   <td>{{ tenant.contact_number }}</td>
                   <td>{{ tenant.address }}</td>
                   <td>
-                    <div class="dropdown">
-                      <button
-                        class="btn btn-secondary dropdown-toggle"
-                        type="button"
-                        id="contractDropdown"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        <i class="fas fa-file-contract"></i> File
-                      </button>
-                      <ul
-                        class="dropdown-menu"
-                        aria-labelledby="contractDropdown"
-                      >
-                        <li>
-                          <a v-bind:href="
-                            '/real_estate_ms/public/tenant/' + tenant.tenant_no + '/' + tenant.contracts
-                          " class="dropdown-item" target="_blank">
-                            <i class="fas fa-id-badge me-2"></i> Contracts
-                          </a>
-                        </li>
-                        <li>
-                          <a v-bind:href="
-                            '/real_estate_ms/public/tenant/' + tenant.tenant_no + '/' + tenant.id1
-                          "  class="dropdown-item">
-                            <i class="fas fa-id-badge me-2" target="_blank"></i> ID 1
-                          </a>
-                        </li>
-                        <li>
-                          <a v-bind:href="
-                            '/real_estate_ms/public/tenant/' + tenant.tenant_no + '/' + tenant.id2
-                          "   class="dropdown-item">
-                            <i class="fas fa-id-badge me-2" target="_blank"></i> ID 2
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
+                    <a
+                      v-bind:href="
+                        '/real_estate_ms/download/attachment/tenant/' +
+                        tenant.id
+                      "
+                      type="button"
+                      class="btn btn-danger"
+                      target="_blank"
+                    >
+                      <i class="fas fa-download me-2"></i> Download
+                    </a>
                   </td>
+
                   <td>{{ tenant.status }}</td>
                   <td>
                     <!-- <button class="btn btn-primary btn-sm me-1" title="View"  @click="openModalViewTenant('edit_t', tenant)">
@@ -155,6 +130,14 @@
                     >
                       <i class="fas fa-edit"></i>
                     </button>
+                        <a
+                         @click="deleteTenant(tenant)"
+                        type="button"
+                        class="btn btn-danger btn-sm me-1"
+                        title="Delete"
+                        >
+                        <i class="fas fa-trash"></i>
+                        </a>
                     <!-- <button class="btn btn-danger btn-sm" title="Delete">
                       <i class="fas fa-trash"></i>
                     </button> -->
@@ -372,7 +355,7 @@
                           <input
                             type="file"
                             class="form-control"
-                           @change="handleFileUpload($event, 'contracts')"
+                            @change="handleFileUpload($event, 'contracts')"
                           />
                         </div>
                         <div class="col-md-4">
@@ -382,7 +365,7 @@
                           <input
                             type="file"
                             class="form-control"
-                              @change="handleFileUpload($event, 'id1')"
+                            @change="handleFileUpload($event, 'id1')"
                           />
                         </div>
                         <div class="col-md-4">
@@ -392,7 +375,7 @@
                           <input
                             type="file"
                             class="form-control"
-                              @change="handleFileUpload($event, 'id2')"
+                            @change="handleFileUpload($event, 'id2')"
                           />
                         </div>
                       </div>
@@ -440,6 +423,51 @@ import Swal from "sweetalert2";
 
 export default {
   methods: {
+    async deleteTenant(tenant) {
+      const confirmation = await Swal.fire({
+        title: "Are you sure?",
+        text: `You are about to delete tenant: ${tenant.tenant_name}. This action cannot be undone.`,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "Cancel",
+      });
+
+      if (confirmation.isConfirmed) {
+        try {
+          const response = await axios.delete(
+            `/real_estate_ms/api/delete/tenant/${tenant.id}`
+          );
+
+          // Success alert with OK and then redirect
+          await Swal.fire({
+            title: "Deleted!",
+            text: response.data.success,
+            icon: "success",
+            confirmButtonText: "OK",
+          });
+
+          // ✅ After user clicks "OK", redirect
+          window.location.href = "/real_estate_ms/tenants"; // Change this path to your actual route
+        } catch (error) {
+          if (error.response && error.response.status === 422) {
+            await Swal.fire({
+              title: "Error",
+              text: error.response.data.error,
+              icon: "error",
+            });
+          } else {
+            await Swal.fire({
+              title: "Unexpected Error",
+              text: "Something went wrong while trying to delete.",
+              icon: "error",
+            });
+            console.error(error);
+          }
+        }
+      }
+    },
+
     handleFileUpload(event, field) {
       this.formData[field] = event.target.files[0];
     },

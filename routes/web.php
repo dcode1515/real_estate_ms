@@ -44,7 +44,7 @@ Route::get('/get-tenancies', [App\Http\Controllers\AdminController::class, 'getA
 Route::get('/get-tenancy/{tenantId}', [App\Http\Controllers\AdminController::class, 'getTenancyByTenant']);
 Route::post('/api/store/payment', [App\Http\Controllers\AdminController::class, 'store_tenant_payment']);
 Route::get('/api/get/data/payment', [App\Http\Controllers\AdminController::class, 'getDataPayment']);
-Route::post('/api/update/payment/{ID}', [App\Http\Controllers\AdminController::class, 'update_tenant_payment']);
+Route::post('/api/update/payment/{id}', [App\Http\Controllers\AdminController::class, 'update_tenant_payment']);
 Route::delete('/api/delete/data/payment/{id}', [App\Http\Controllers\AdminController::class, 'deleteTenantPayment']);
 Route::get('/ledger', [App\Http\Controllers\AdminController::class, 'ledger'])->name('ledger');
 Route::get('/view/ledger/{id}', [App\Http\Controllers\AdminController::class, 'view_ledger']);
@@ -52,8 +52,13 @@ Route::delete('/api/delete/tenancy/{id}', [App\Http\Controllers\AdminController:
 Route::get('/reports', [App\Http\Controllers\AdminController::class, 'reports'])->name('reports');
 Route::get('/api/reports/payments', [App\Http\Controllers\ReportController::class, 'getPaymentReport']);
 Route::get('/download/report', [App\Http\Controllers\ReportController::class, 'downloadPDF']);
-
-
+Route::get('/download/attachment/tenant/{id}', [App\Http\Controllers\AdminController::class, 'download_attachment_tenant']);
+Route::delete('/api/delete/tenant/{id}', [App\Http\Controllers\AdminController::class, 'deleteTenant']);
+Route::delete('/api/delete/property/{id}', [App\Http\Controllers\AdminController::class, 'deleteProperty']);
+Route::get('/for/sale', [App\Http\Controllers\AdminController::class, 'for_sale'])->name('for.sale');
+Route::get('/api/get/data/properties/forsale', [App\Http\Controllers\AdminController::class, 'get_data_properties_forsale']);
+Route::post('/api/store/property/forsale', [App\Http\Controllers\AdminController::class, 'store_properties_forsale']);
+Route::post('/api/update/property/forsale/{id}', [App\Http\Controllers\AdminController::class, 'update_properties_forsale']);
 
 
 /*End Admin Routes*/
