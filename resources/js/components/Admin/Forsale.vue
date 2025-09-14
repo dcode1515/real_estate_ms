@@ -2,34 +2,18 @@
   <div>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
-        <button
-          class="nav-link active"
-          id="generallist-tab"
-          data-bs-toggle="tab"
-          data-bs-target="#generallist"
-          type="button"
-          role="tab"
-          aria-controls="generallist"
-          aria-selected="true"
-        >
+        <button class="nav-link active" id="generallist-tab" data-bs-toggle="tab" data-bs-target="#generallist"
+          type="button" role="tab" aria-controls="generallist" aria-selected="true">
           <i class="fas fa-building"></i> PROPERTY -> For Sale Properties
         </button>
       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
-      <div
-        class="tab-pane fade show active"
-        id="generallist"
-        role="tabpanel"
-        aria-labelledby="generallist-tab"
-      >
-        <div class="row mb-3">
+      <div class="tab-pane fade show active" id="generallist" role="tabpanel" aria-labelledby="generallist-tab">
+        <div class="row align-items-center mb-3">
+          <!-- Per Page Selector -->
           <div class="col-md-2">
-            <select
-              class="form-control"
-              v-model="perPage"
-              @change="getDataProperties"
-            >
+            <select class="form-control" v-model="perPage" @change="getDataProperties">
               <option value="5">5 per page</option>
               <option value="10">10 per page</option>
               <option value="25">25 per page</option>
@@ -37,39 +21,33 @@
               <option value="100">100 per page</option>
             </select>
           </div>
+
+          <!-- Property Type Selector -->
           <div class="col-md-2">
-            <select
-              class="form-control"
-              v-model="propertyType"
-              @change="getDataProperties"
-            >
+            <select class="form-control" v-model="propertyType" @change="getDataProperties">
               <option value="">All Types</option>
               <option value="House">House</option>
               <option value="Condo">Condo</option>
               <option value="Apartment">Apartment</option>
               <option value="Townhouse">Townhouse</option>
-              <!-- Add other property types as needed -->
             </select>
           </div>
-          <div class="col-md-6">
-            <input
-              v-model="searchQuery"
-              @input="getDataProperties"
-              type="text"
-              class="form-control"
-              style="position: left"
-              placeholder="Search Properties..."
-            />
+
+          <!-- Search Field -->
+          <div class="col-md-4">
+            <input v-model="searchQuery" @input="getDataProperties" type="text" class="form-control"
+              placeholder="Search Properties..." />
           </div>
-          <div class="col-md-2 d-flex justify-content-end align-items-center">
-            <button
-              class="btn btn-success"
-              type="button"
-              @click="openModal('add')"
-            >
+
+          <!-- Buttons -->
+          <div class="col-md-4 d-flex justify-content-end gap-2">
+           
+            <button class="btn btn-primary" type="button" @click="openModal('add')">
               <i class="fas fa-plus"></i> Create Property
             </button>
           </div>
+
+
           <div class="table-responsive">
             <br />
 
@@ -90,24 +68,13 @@
                     Status
                   </th>
 
-                  <th
-                    colspan="3"
-                    class="blue"
-                    style="background-color: #198754; color: white"
-                  >
+                  <th colspan="3" class="blue" style="background-color: #198754; color: white">
                     Location
                   </th>
-                  <th
-                    colspan="6"
-                    class="blue"
-                    style="background-color: #198754; color: white"
-                  >
+                  <th colspan="6" class="blue" style="background-color: #198754; color: white">
                     Features and Amenities
                   </th>
-                  <th
-                    class="blue"
-                    style="background-color: #198754; color: white"
-                  ></th>
+             
                   <th style="background-color: #198754; color: white">
                     Actions
                   </th>
@@ -128,23 +95,20 @@
 
                   <th>Barangay</th>
 
-               
+
                   <th>Bedrooms</th>
                   <th>Sq.m</th>
                   <th>Car Park</th>
                   <th>Toilet</th>
                   <th>Bathroom</th>
                   <th>Furnishing</th>
-                  <th></th>
+                
                   <th></th>
                 </tr>
               </thead>
               <tbody>
                 <!-- Add empty rows to match the design -->
-                <tr
-                  v-for="(property, index) in properties.data"
-                  :key="property.id"
-                >
+                <tr v-for="(property, index) in properties.data" :key="property.id">
                   <td class="text-center">
                     {{
                       (properties.current_page - 1) * properties.per_page +
@@ -156,16 +120,13 @@
                   <td>{{ property.property_type }}</td>
                   <td>{{ property.property_name }}</td>
                   <td>
-                    <span
-                      class="badge"
-                      :class="{
-                        'badge-custom-for-rent': property.status === 'For Rent',
-                        'badge-custom-sold': property.status === 'Occupied',
-                        'badge-custom-pending': property.status === 'Pending',
-                        'badge-custom-available':
-                          property.status === 'Available',
-                      }"
-                    >
+                    <span class="badge" :class="{
+                      'badge-custom-for-rent': property.status === 'For Rent',
+                      'badge-custom-sold': property.status === 'Occupied',
+                      'badge-custom-pending': property.status === 'Pending',
+                      'badge-custom-available':
+                        property.status === 'Available',
+                    }">
                       {{ property.status }}
                     </span>
                   </td>
@@ -173,29 +134,19 @@
                   <td>{{ property.province }}</td>
                   <td>{{ property.municipality }}</td>
                   <td>{{ property.barangay }}</td>
-               
+
                   <td>{{ property.bedrooms }}</td>
                   <td>{{ property.sq_meter }}</td>
                   <td>{{ property.car_park }}</td>
                   <td>{{ property.toilet }}</td>
                   <td>{{ property.bathroom }}</td>
                   <td>{{ property.furnishing }}</td>
-                  <td>
-                    <button type="button" class="btn btn-danger btn-sm">
-                      <i class="bi bi-cart-check"></i> Sold To
-                    </button>
-                  </td>
-
+               
                   <td class="text-center">
                     <a @click="openModal('edit', property)" title="Edit">
-                      <i
-                        class="bi bi-pencil-square text-primary"
-                        style="font-size: 1.2rem"
-                      ></i>
+                      <i class="bi bi-pencil-square text-primary" style="font-size: 1.2rem"></i>
                     </a>
-                    <a
-                      @click="deleteProperties(property)"
-                    >
+                    <a @click="deleteProperties(property)">
                       <i class="bi bi-trash text-danger" style="font-size: 1.2rem"></i>
 
                     </a>
@@ -207,142 +158,73 @@
             <nav v-if="properties.total > 0" aria-label="Page navigation">
               <ul class="pagination justify-content-center mt-3">
                 <!-- Previous Button -->
-                <li
-                  class="page-item"
-                  :class="{ disabled: properties.current_page === 1 }"
-                >
-                  <a
-                    class="page-link"
-                    href="#"
-                    @click.prevent="changePage(properties.current_page - 1)"
-                    >Previous</a
-                  >
+                <li class="page-item" :class="{ disabled: properties.current_page === 1 }">
+                  <a class="page-link" href="#" @click.prevent="changePage(properties.current_page - 1)">Previous</a>
                 </li>
 
                 <!-- Page Numbers -->
-                <li
-                  class="page-item"
-                  v-for="page in totalPages"
-                  :key="page"
-                  :class="{ active: page === properties.current_page }"
-                >
-                  <a
-                    class="page-link"
-                    href="#"
-                    @click.prevent="changePage(page)"
-                  >
+                <li class="page-item" v-for="page in totalPages" :key="page"
+                  :class="{ active: page === properties.current_page }">
+                  <a class="page-link" href="#" @click.prevent="changePage(page)">
                     {{ page }}
                   </a>
                 </li>
 
                 <!-- Next Button -->
-                <li
-                  class="page-item"
-                  :class="{
-                    disabled: properties.current_page === totalPages,
-                  }"
-                >
-                  <a
-                    class="page-link"
-                    href="#"
-                    @click.prevent="changePage(properties.current_page + 1)"
-                    >Next</a
-                  >
+                <li class="page-item" :class="{
+                  disabled: properties.current_page === totalPages,
+                }">
+                  <a class="page-link" href="#" @click.prevent="changePage(properties.current_page + 1)">Next</a>
                 </li>
               </ul>
             </nav>
 
-            <div
-              class="modal fade"
-              id="modalProperty"
-              tabindex="-1"
-              aria-labelledby="modalProperty"
-              aria-hidden="true"
-              data-bs-backdrop="static"
-              data-bs-keyboard="false"
-            >
+            <div class="modal fade" id="modalProperty" tabindex="-1" aria-labelledby="modalProperty" aria-hidden="true"
+              data-bs-backdrop="static" data-bs-keyboard="false">
               <div class="modal-dialog modal-xl modal-dialog-centered">
                 <div class="modal-content border-0 shadow-lg rounded-4">
                   <!-- Header -->
-                  <div
-                    class="modal-header text-white py-3"
-                    style="background: linear-gradient(90deg, #198754, #198754)"
-                  >
-                    <h4
-                      class="modal-title d-flex align-items-center"
-                      style="color: white"
-                    >
+                  <div class="modal-header text-white py-3"
+                    style="background: linear-gradient(90deg, #198754, #198754)">
+                    <h4 class="modal-title d-flex align-items-center" style="color: white">
                       <i class="fa fa-file-alt me-2"></i>{{ modalTitle }}
                     </h4>
-                    <button
-                      type="button"
-                      class="btn-close btn-close-white"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                      aria-label="Close"></button>
                   </div>
 
                   <!-- Body -->
-                  <div
-                    class="modal-body"
-                    style="max-height: 70vh; overflow-y: auto"
-                  >
+                  <div class="modal-body" style="max-height: 70vh; overflow-y: auto">
                     <div class="row">
                       <div class="col-md-12">
                         <!-- Date Created -->
                         <div class="form-floating mb-3">
-                          <input
-                            type="date"
-                            class="form-control"
-                            id="date_created"
-                            v-model="formData.date_created"
-                            required
-                          />
-                          <label for="date_created"
-                            >Date Created
-                            <span class="text-danger">*</span></label
-                          >
+                          <input type="date" class="form-control" id="date_created" v-model="formData.date_created"
+                            required />
+                          <label for="date_created">Date Created
+                            <span class="text-danger">*</span></label>
                         </div>
 
                         <!-- Property Name -->
                         <div class="form-floating mb-3">
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="property_name"
-                            v-model="formData.property_name"
-                            placeholder="Property Name"
-                            required
-                          />
-                          <label for="property_name"
-                            >Property Name
-                            <span class="text-danger">*</span></label
-                          >
+                          <input type="text" class="form-control" id="property_name" v-model="formData.property_name"
+                            placeholder="Property Name" required />
+                          <label for="property_name">Property Name
+                            <span class="text-danger">*</span></label>
                         </div>
 
                         <!-- Description of Property -->
                         <div class="form-floating mb-3">
-                          <textarea
-                            class="form-control"
-                            id="description_of_property"
-                            v-model="formData.description_of_property"
-                            placeholder="Description of Property"
-                            style="height: 80px"
-                            required
-                          ></textarea>
-                          <label for="description_of_property"
-                            >Description of Property
-                            <span class="text-danger">*</span></label
-                          >
+                          <textarea class="form-control" id="description_of_property"
+                            v-model="formData.description_of_property" placeholder="Description of Property"
+                            style="height: 80px" required></textarea>
+                          <label for="description_of_property">Description of Property
+                            <span class="text-danger">*</span></label>
                         </div>
 
                         <!-- Property Type -->
                         <div class="form-floating mb-3">
-                          <select
-                            class="form-select"
-                            v-model="formData.property_type"
-                            required
-                          >
+                          <select class="form-select" v-model="formData.property_type" required>
                             <option disabled value="">
                               Select Property Type
                             </option>
@@ -352,248 +234,128 @@
                             <option value="Townhouse">Townhouse</option>
                             <option value="Commercial">Commercial</option>
                           </select>
-                          <label for="property_type"
-                            >Property Type
-                            <span class="text-danger">*</span></label
-                          >
+                          <label for="property_type">Property Type
+                            <span class="text-danger">*</span></label>
                         </div>
 
                         <!-- Monthly Rate -->
                         <div class="form-floating mb-3">
-                          <input
-                            type="number"
-                            class="form-control"
-                            id="sale_price"
-                            v-model="formData.sale_price"
-                            placeholder="Monthly Rate"
-                            min="0"
-                            required
-                          />
-                          <label for="sale_price"
-                            >Sale Price
-                            <span class="text-danger">*</span></label
-                          >
+                          <input type="number" class="form-control" id="sale_price" v-model="formData.sale_price"
+                            placeholder="Monthly Rate" min="0" required />
+                          <label for="sale_price">Sale Price
+                            <span class="text-danger">*</span></label>
                         </div>
                       </div>
                     </div>
                     <!-- Nav Tabs -->
                     <ul class="nav nav-tabs" id="propertyTabs" role="tablist">
                       <li class="nav-item" role="presentation">
-                        <button
-                          class="nav-link active"
-                          id="location-tab"
-                          data-bs-toggle="tab"
-                          data-bs-target="#location"
-                          type="button"
-                          role="tab"
-                          aria-controls="location"
-                          aria-selected="true"
-                        >
+                        <button class="nav-link active" id="location-tab" data-bs-toggle="tab"
+                          data-bs-target="#location" type="button" role="tab" aria-controls="location"
+                          aria-selected="true">
                           <i class="fas fa-map-marker-alt"></i> Location
                         </button>
                       </li>
-                      <li class="nav-item" role="presentation">
-                        <button
-                          class="nav-link"
-                          id="features-tab"
-                          data-bs-toggle="tab"
-                          data-bs-target="#features"
-                          type="button"
-                          role="tab"
-                          aria-controls="features"
-                          aria-selected="false"
-                        >
-                          <i class="fas fa-couch"></i> Features & Amenities
-                        </button>
-                      </li>
+
                     </ul>
 
                     <!-- Tab Content -->
                     <div class="tab-content pt-3" id="propertyTabsContent">
                       <!-- Location Tab -->
-                      <div
-                        class="tab-pane fade show active"
-                        id="location"
-                        role="tabpanel"
-                        aria-labelledby="location-tab"
-                      >
+                      <div class="tab-pane fade show active" id="location" role="tabpanel"
+                        aria-labelledby="location-tab">
                         <!-- Your location form inputs go here -->
 
                         <div class="row">
                           <div class="col-md-4">
                             <div class="form-floating mb-3">
-                              <input
-                                type="text"
-                                class="form-control"
-                                id="province"
-                                v-model="formData.province"
-                                required
-                              />
-                              <label for="date_created"
-                                >Province
-                                <span class="text-danger">*</span></label
-                              >
+                              <input type="text" class="form-control" id="province" v-model="formData.province"
+                                required />
+                              <label for="date_created">Province
+                                <span class="text-danger">*</span></label>
                             </div>
                           </div>
                           <div class="col-md-4">
                             <div class="form-floating mb-3">
-                              <input
-                                type="text"
-                                class="form-control"
-                                id="municipality"
-                                v-model="formData.municipality"
-                                required
-                              />
-                              <label for="municipality"
-                                >Municipality
-                                <span class="text-danger">*</span></label
-                              >
+                              <input type="text" class="form-control" id="municipality" v-model="formData.municipality"
+                                required />
+                              <label for="municipality">Municipality
+                                <span class="text-danger">*</span></label>
                             </div>
                           </div>
                           <div class="col-md-4">
                             <div class="form-floating mb-3">
-                              <input
-                                type="text"
-                                class="form-control"
-                                id="barangay"
-                                v-model="formData.barangay"
-                                required
-                              />
-                              <label for="barangay"
-                                >Barangay
-                                <span class="text-danger">*</span></label
-                              >
+                              <input type="text" class="form-control" id="barangay" v-model="formData.barangay"
+                                required />
+                              <label for="barangay">Barangay
+                                <span class="text-danger">*</span></label>
                             </div>
                           </div>
                           <div class="col-md-12">
                             <div class="form-floating mb-3">
-                              <input
-                                type="text"
-                                class="form-control"
-                                id="street"
-                                v-model="formData.street"
-                                required
-                              />
-                              <label for="street"
-                                >Street Name
-                                <span class="text-danger">*</span></label
-                              >
+                              <input type="text" class="form-control" id="street" v-model="formData.street" required />
+                              <label for="street">Street Name
+                                <span class="text-danger">*</span></label>
                             </div>
                           </div>
                           <div class="col-md-12">
                             <div class="form-floating mb-3">
-                              <input
-                                type="text"
-                                class="form-control"
-                                id="zip_code"
-                                v-model="formData.zip_code"
-                                required
-                              />
-                              <label for="zip_code"
-                                >Zip Code
-                                <span class="text-danger">*</span></label
-                              >
+                              <input type="text" class="form-control" id="zip_code" v-model="formData.zip_code"
+                                required />
+                              <label for="zip_code">Zip Code
+                                <span class="text-danger">*</span></label>
                             </div>
                           </div>
                         </div>
                       </div>
 
                       <!-- Features & Amenities Tab -->
-                      <div
-                        class="tab-pane fade"
-                        id="features"
-                        role="tabpanel"
-                        aria-labelledby="features-tab"
-                      >
+                      <div class="tab-pane fade" id="features" role="tabpanel" aria-labelledby="features-tab">
                         <!-- Your features form inputs go here -->
                         <div class="row">
                           <div class="col-md-4">
                             <div class="form-floating mb-3">
-                              <input
-                                type="number"
-                                class="form-control"
-                                id="bedrooms"
-                                v-model="formData.bedrooms"
-                                required
-                                min="0"
-                              />
-                              <label for="bedrooms"
-                                >Bedrooms
-                                <span class="text-danger">*</span></label
-                              >
+                              <input type="number" class="form-control" id="bedrooms" v-model="formData.bedrooms"
+                                required min="0" />
+                              <label for="bedrooms">Bedrooms
+                                <span class="text-danger">*</span></label>
                             </div>
                           </div>
                           <div class="col-md-4">
                             <div class="form-floating mb-3">
-                              <input
-                                type="number"
-                                class="form-control"
-                                id="sq_meter"
-                                v-model="formData.sq_meter"
-                                required
-                                min="0"
-                              />
-                              <label for="sq_meter"
-                                >Square Meter
-                                <span class="text-danger">*</span></label
-                              >
+                              <input type="number" class="form-control" id="sq_meter" v-model="formData.sq_meter"
+                                required min="0" />
+                              <label for="sq_meter">Square Meter
+                                <span class="text-danger">*</span></label>
                             </div>
                           </div>
                           <div class="col-md-4">
                             <div class="form-floating mb-3">
-                              <input
-                                type="number"
-                                class="form-control"
-                                id="car_park"
-                                v-model="formData.car_park"
-                                required
-                                min="0"
-                              />
-                              <label for="car_park"
-                                >Car Park
-                                <span class="text-danger">*</span></label
-                              >
+                              <input type="number" class="form-control" id="car_park" v-model="formData.car_park"
+                                required min="0" />
+                              <label for="car_park">Car Park
+                                <span class="text-danger">*</span></label>
                             </div>
                           </div>
                           <div class="col-md-4">
                             <div class="form-floating mb-3">
-                              <input
-                                type="number"
-                                class="form-control"
-                                id="toilet"
-                                v-model="formData.toilet"
-                                required
-                                min="0"
-                              />
-                              <label for="toilet"
-                                >Toilet
-                                <span class="text-danger">*</span></label
-                              >
+                              <input type="number" class="form-control" id="toilet" v-model="formData.toilet" required
+                                min="0" />
+                              <label for="toilet">Toilet
+                                <span class="text-danger">*</span></label>
                             </div>
                           </div>
                           <div class="col-md-4">
                             <div class="form-floating mb-3">
-                              <input
-                                type="number"
-                                class="form-control"
-                                id="bathroom"
-                                v-model="formData.bathroom"
-                                required
-                                min="0"
-                              />
-                              <label for="bathroom"
-                                >Bathroom
-                                <span class="text-danger">*</span></label
-                              >
+                              <input type="number" class="form-control" id="bathroom" v-model="formData.bathroom"
+                                required min="0" />
+                              <label for="bathroom">Bathroom
+                                <span class="text-danger">*</span></label>
                             </div>
                           </div>
                           <div class="col-md-4">
                             <div class="form-floating mb-3">
-                              <select
-                                class="form-select"
-                                v-model="formData.furnishing"
-                                required
-                              >
+                              <select class="form-select" v-model="formData.furnishing" required>
                                 <option disabled value="">
                                   Select Furnishing
                                 </option>
@@ -603,25 +365,16 @@
                                 </option>
                                 <option value="Unfurnished">Unfurnished</option>
                               </select>
-                              <label for="furnishing"
-                                >Furnishing
-                                <span class="text-danger">*</span></label
-                              >
+                              <label for="furnishing">Furnishing
+                                <span class="text-danger">*</span></label>
                             </div>
                           </div>
                           <div class="col-md-12">
                             <div class="form-floating mb-3">
-                              <input
-                                type="file"
-                                class="form-control"
-                                id="image"
-                                @change="handleFileUpload($event, 'image')"
-                                accept="image/*"
-                              />
-                              <label for="image"
-                                >Property Image
-                                <span class="text-danger">*</span></label
-                              >
+                              <input type="file" class="form-control" id="image"
+                                @change="handleFileUpload($event, 'image')" accept="image/*" />
+                              <label for="image">Property Image
+                                <span class="text-danger">*</span></label>
                             </div>
                           </div>
                         </div>
@@ -632,15 +385,9 @@
                   </div>
 
                   <!-- Footer -->
-                  <div
-                    class="modal-footer bg-light border-0 py-3 px-4 d-flex justify-content-end"
-                  >
-                    <button
-                      type="button"
-                      class="btn btn-success px-4 py-2 shadow-sm"
-                      :disabled="isSubmitting"
-                      @click="submitProperties"
-                    >
+                  <div class="modal-footer bg-light border-0 py-3 px-4 d-flex justify-content-end">
+                    <button type="button" class="btn btn-success px-4 py-2 shadow-sm" :disabled="isSubmitting"
+                      @click="submitProperties">
                       <!-- Spinner icon while submitting -->
                       <span v-if="isSubmitting">
                         <i class="fas fa-spinner fa-spin me-2"></i> Saving...
@@ -658,6 +405,193 @@
                 </div>
               </div>
             </div>
+
+            <div class="modal fade" id="modalPropertySold" tabindex="-1" aria-labelledby="modalPropertySold"
+              aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+              <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content border-0 shadow-lg rounded-4">
+                  <!-- Header -->
+                  <div class="modal-header text-white py-3"
+                    style="background: linear-gradient(90deg, #198754, #198754)">
+                    <h4 class="modal-title d-flex align-items-center" style="color: white">
+                      <i class="fa fa-file-alt me-2"></i>{{ modalTitle }}
+                    </h4>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                      aria-label="Close"></button>
+                  </div>
+
+                  <!-- Body -->
+                  <div class="modal-body" style="max-height: 70vh; overflow-y: auto">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <!-- Date Created -->
+
+                        <!-- Property Name -->
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control" id="property_name" v-model="formData.property_name"
+                            placeholder="Property Name" disabled />
+                          <label for="property_name">Property Name
+                            <span class="text-danger">*</span></label>
+                        </div>
+                        <div class="form-floating mb-3">
+                          <input type="number" class="form-control" id="sale_price" v-model="formData.sale_price"
+                            placeholder="Monthly Rate" min="0" disabled />
+                          <label for="sale_price">Sale Price
+                            <span class="text-danger">*</span></label>
+                        </div>
+                      </div>
+                      <hr>
+
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" v-model="formData.customer_name"
+                          placeholder="Property Name" required />
+                        <label for="property_name">Customer Name
+                          <span class="text-danger">*</span></label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" v-model="formData.contact_no"
+                          placeholder="Customer Name" required />
+                        <label for="property_name">Contact Number
+                          <span class="text-danger">*</span></label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" v-model="formData.address" placeholder="Property Name"
+                          required />
+                        <label for="property_name">Address
+                          <span class="text-danger">*</span></label>
+                      </div>
+
+                      <!-- Description of Property -->
+
+
+                      <!-- Monthly Rate -->
+
+
+                    </div>
+                    <!-- Nav Tabs -->
+                    <ul class="nav nav-tabs" id="propertyTabs" role="tablist">
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="location-tab" data-bs-toggle="tab"
+                          data-bs-target="#location" type="button" role="tab" aria-controls="location"
+                          aria-selected="true">
+                          <i class="fas fa-map-marker-alt"></i> Payment Details
+                        </button>
+                      </li>
+
+                    </ul>
+
+                    <!-- Tab Content -->
+                    <div class="tab-content pt-3" id="propertyTabsContent">
+                      <!-- Location Tab -->
+                      <div class="tab-pane fade show active" id="location" role="tabpanel"
+                        aria-labelledby="location-tab">
+
+                        <div class="row">
+                          <!-- Mode of Payment -->
+                          <div class="col-md-12">
+                            <label for="mode_of_payment" class="form-label">
+                              <i class="fas fa-credit-card me-1"></i> Mode of
+                              Payment <span class="text-danger">*</span>
+                            </label>
+                            <select class="form-select" id="mode_of_payment" v-model="formData.mode_of_payment"
+                              required>
+                              <option value="" disabled>Select Mode</option>
+                              <option value="G-Cash">G-Cash</option>
+
+                              <option value="Bank Deposit">Bank Deposit</option>
+                              <option value="Cash">Cash</option>
+                            </select>
+                          </div>
+
+                          <!-- GCash Number -->
+                          <div class="col-md-12" v-if="formData.mode_of_payment === 'G-Cash'">
+                            <label for="gcash_number" class="form-label mt-3">
+                              <i class="fab fa-google-pay me-1"></i> GCash Number
+                              <span class="text-danger">*</span>
+                            </label>
+                            <div class="input-group">
+                              <span class="input-group-text"><i class="fab fa-google-wallet"></i></span>
+                              <input type="text" class="form-control" id="gcash_number" v-model="formData.acctno"
+                                placeholder="09xxxxxxxxx" required />
+                            </div>
+                          </div>
+
+                          <!-- Bank Account Number -->
+                          <div class="col-md-12" v-if="formData.mode_of_payment === 'Bank Deposit'">
+                            <label for="bank_account_number" class="form-label mt-3">
+                              <i class="fas fa-building-columns me-1"></i> Bank
+                              Account Number <span class="text-danger">*</span>
+                            </label>
+                            <div class="input-group">
+                              <span class="input-group-text"><i class="fas fa-bank"></i></span>
+                              <input type="text" class="form-control" id="bank_account_number" v-model="formData.acctno"
+                                placeholder="Enter bank account number" required />
+                            </div>
+                          </div>
+
+                          <!-- Amount -->
+                          <div class="col-md-4 mt-3">
+                            <label for="amount" class="form-label">
+                              <i class="fas fa-money-bill-wave me-1"></i> Amount
+                              <span class="text-danger">*</span>
+                            </label>
+                            <div class="input-group">
+                              <span class="input-group-text"><i class="fas fa-peso-sign"></i></span>
+                              <input type="number" step="0.01" class="form-control" id="amount"
+                                v-model="formData.amount" placeholder="0.00" required />
+                            </div>
+                          </div>
+
+                          <!-- Date Paid -->
+                          <div class="col-md-4 mt-3">
+                            <label for="date_paid" class="form-label">
+                              <i class="fas fa-calendar-check me-1"></i> Date Paid
+                              <span class="text-danger">*</span>
+                            </label>
+                            <input type="date" class="form-control" id="date_paid" v-model="formData.date_paid"
+                              required />
+                          </div>
+
+                          <!-- Proof of Payment -->
+                          <div class="col-md-4 mt-3">
+                            <label for="proof_of_payment" class="form-label">
+                              <i class="fas fa-file-upload me-1"></i> Proof of
+                              Payment <span class="text-danger">*</span>
+                            </label>
+                            <input type="file" class="form-control" id="image" accept="image/*"
+                              @change="handleFileUpload($event, 'proof_of_payment')" required />
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Features & Amenities Tab -->
+
+                      <!-- Photos Tab -->
+                    </div>
+                  </div>
+
+                  <!-- Footer -->
+                  <div class="modal-footer bg-light border-0 py-3 px-4 d-flex justify-content-end">
+                    <button type="button" class="btn btn-success px-4 py-2 shadow-sm" :disabled="isSubmitting"
+                      @click="submitPayment">
+                      <!-- Spinner icon while submitting -->
+                      <span v-if="isSubmitting">
+                        <i class="fas fa-spinner fa-spin me-2"></i> Saving...
+                      </span>
+
+                      <!-- Add or Edit icon and label -->
+                      <span v-else>
+                        <i class="fas fa-save me-2"></i>
+                        {{
+                          modalMode === "add" ? "Add Property" : "Save Changes"
+                        }}
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -670,6 +604,185 @@ import Swal from "sweetalert2";
 
 export default {
   methods: {
+    async submitPayment() {
+      try {
+        // Frontend Validation
+        if (!this.formData.customer_name) {
+          Swal.fire("Validation Error", "Please select a Customer.", "error");
+          return;
+        }
+
+        if (!this.formData.contact_no) {
+          Swal.fire(
+            "Validation Error",
+            "Please select the Contact Number.",
+            "error"
+          );
+          return;
+        }
+        if (!this.formData.address) {
+          Swal.fire(
+            "Validation Error",
+            "Please select the Address.",
+            "error"
+          );
+          return;
+        }
+
+        // Validate `acctno` based on `mode_of_payment`
+        if (
+          this.formData.mode_of_payment === "G-Cash" ||
+          this.formData.mode_of_payment === "Bank Deposit"
+        ) {
+          if (!this.formData.acctno) {
+            // Specific validation message based on payment mode
+            const errorMessage =
+              this.formData.mode_of_payment === "G-Cash"
+                ? "Please provide your G-Cash account number."
+                : "Please provide your Bank account number.";
+
+            Swal.fire("Validation Error", errorMessage, "error");
+            return;
+          }
+        }
+
+        // If mode_of_payment is "Cash", acctno is not required
+        // "E-Payment" or other modes do not require acctno
+        if (this.formData.mode_of_payment !== "Cash" && !this.formData.acctno) {
+          Swal.fire(
+            "Validation Error",
+            "Please provide account number.",
+            "error"
+          );
+          return;
+        }
+
+        // If mode_of_payment is "Cash", acctno is not required
+        if (this.formData.mode_of_payment !== "Cash" && !this.formData.acctno) {
+          Swal.fire(
+            "Validation Error",
+            "Please provide account number.",
+            "error"
+          );
+          return;
+        }
+
+        if (!this.formData.amount || this.formData.amount <= 0) {
+          Swal.fire(
+            "Validation Error",
+            "Please enter a valid payment amount.",
+            "error"
+          );
+          return;
+        }
+        if (!this.formData.date_paid) {
+          Swal.fire(
+            "Validation Error",
+            "Please select the date paid.",
+            "error"
+          );
+          return;
+        }
+
+        // Step 1: Confirm Submission
+        const confirmation = await Swal.fire({
+          title: "Are you sure?",
+          text: "You are about to submit the payment. Do you want to proceed?",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Yes, Submit",
+          cancelButtonText: "Cancel",
+        });
+
+        if (!confirmation.isConfirmed) {
+          return;
+        }
+
+        // Step 2: Create FormData and Submit
+        this.isSubmitting = true;
+
+        const formData = new FormData();
+        formData.append("customer_name", this.formData.customer_name);
+        formData.append("contact_no", this.formData.contact_no);
+
+
+        formData.append("address", this.formData.address);
+        formData.append("mode_of_payment", this.formData.mode_of_payment);
+        formData.append("amount", this.formData.amount);
+        formData.append("acct_no", this.formData.acctno);
+        formData.append("date_paid", this.formData.date_paid);
+
+        // Optional fields
+        if (this.formData.proof_of_payment) {
+          formData.append("proof_of_payment", this.formData.proof_of_payment);
+        }
+
+        // Step 3: Send the request
+        let response;
+        if (this.modalMode === "add") {
+          // POST for adding new payment
+          response = await axios.post(
+            "/real_estate_ms/api/store/payment/for/sale",
+            formData,
+            {
+              headers: { "Content-Type": "multipart/form-data" },
+            }
+          );
+        } else {
+          // PUT for editing existing payment
+          const paymentId = this.formData.id; // Make sure this exists
+          response = await axios.post(
+            `/real_estate_ms/api/update/payment/${paymentId}`,
+            formData,
+            {
+              headers: { "Content-Type": "multipart/form-data" },
+            }
+          );
+        }
+
+        // Success Handling
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Payment has been successfully submitted.",
+          confirmButtonText: "OK",
+        }).then(() => {
+          window.location.href = "/real_estate_ms/for/sale";
+        });
+      } catch (error) {
+        console.error(error);
+
+        // Handle validation or other errors
+        if (error.response && error.response.status === 422) {
+          const data = error.response.data;
+
+          if (data.errors) {
+            let errorMessages = '<ul style="text-align: left;">';
+            for (const key in data.errors) {
+              if (data.errors.hasOwnProperty(key)) {
+                errorMessages += `<li>${data.errors[key][0]}</li>`;
+              }
+            }
+            errorMessages += "</ul>";
+
+            Swal.fire({
+              icon: "error",
+              title: "Validation Error",
+              html: errorMessages,
+            });
+          }
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Submission Failed",
+            text: "Something went wrong while submitting the form.",
+          });
+        }
+      } finally {
+        this.isSubmitting = false;
+      }
+    },
+
     async deleteProperties(property) {
       const confirmation = await Swal.fire({
         title: "Are you sure?",
@@ -891,8 +1004,8 @@ export default {
         mode === "add"
           ? "Add For Sale Property"
           : mode === "edit"
-          ? "Edit For Sale Property"
-          : "View For Sale Property";
+            ? "Edit For Sale Property"
+            : "View For Sale Property";
 
       if (mode === "edit" || mode === "view") {
         this.formData.id = property.id;
@@ -917,6 +1030,59 @@ export default {
       }
 
       $("#modalProperty").modal("show");
+    },
+    openModalSold(mode, property) {
+      this.formData = {
+        id: "",
+        date_created: "",
+        property_name: "",
+        province: "",
+        municipality: "",
+        barangay: "",
+        street: "",
+        zip_code: "",
+        description_of_property: "",
+        bedrooms: "",
+        sq_meter: "",
+        car_park: "",
+        toilet: "",
+        bathroom: "",
+        sale_price: "",
+        furnishing: "",
+        image: null,
+      };
+
+      this.modalMode = mode;
+      this.modalTitle =
+        mode === "add"
+          ? "Add For Sale Property"
+          : mode === "edit"
+            ? "Sold To Property"
+            : "Sold Property";
+
+      if (mode === "sold_to_modal" || mode === "view") {
+        this.formData.id = property.id;
+        this.formData.date_created = property.date_created;
+        this.formData.property_name = property.property_name;
+        this.formData.province = property.province;
+        this.formData.municipality = property.municipality;
+        this.formData.barangay = property.barangay;
+        this.formData.street = property.street;
+        this.formData.zip_code = property.zip_code;
+        this.formData.description_of_property =
+          property.description_of_property;
+        this.formData.bedrooms = property.bedrooms;
+        this.formData.sq_meter = property.sq_meter;
+        this.formData.car_park = property.car_park;
+        this.formData.toilet = property.toilet;
+        this.formData.bathroom = property.bathroom;
+        this.formData.sale_price = property.monthly_rate;
+        this.formData.furnishing = property.furnishing;
+        this.formData.property_type = property.property_type;
+        this.formData.image = property.image;
+      }
+
+      $("#modalPropertySold").modal("show");
     },
   },
   data() {
@@ -946,6 +1112,14 @@ export default {
         bathroom: "",
         furnishing: "",
         image: "",
+        customer_name: "",
+        contact_no: "",
+        address: "",
+        mode_of_payment: "",
+        acctno: "",
+        amount: "",
+        date_paid: "",
+        proof_of_payment: "",
       },
       searchQuery: "",
       perPage: 10,
@@ -1176,6 +1350,7 @@ th {
   font-style: italic;
   /* Italic style for emphasis */
 }
+
 .badge-custom-for-rent {
   background-color: green;
   color: white;
@@ -1192,7 +1367,8 @@ th {
 }
 
 .badge-custom-available {
-  background-color: blue; /* You can change this color */
+  background-color: blue;
+  /* You can change this color */
   color: white;
 }
 </style>

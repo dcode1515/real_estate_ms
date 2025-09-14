@@ -11,6 +11,7 @@ use App\Models\PaymentTenant;
 use Auth;
 use ZipArchive;
 use File;
+USE App\Models\SaleProperty;
 
 
 class AdminController extends Controller
@@ -1073,7 +1074,44 @@ public function getDataPayment(Request $request)
         return view('admin.for_sale');
     }
 
+    public function store_sale_property(){
+        
+        $sale = new SaleProperty();
+        $sale->customer_name = $request->customer_name;
+        $sale->contact_no = $request->contact_no;
+        $sale->mode_of_payment = $request->mode_of_payment;
+        $sale->amount = $request->amount;
+        $sale->acct_no = $request->acct_no;
+        $sale->date_paid = $request->date_paid;
+        $sale->proof_of_payment = $request->proof_of_payment;
+        $sale->due_date = $request->nextPaymentDate;
 
+        $sale->status = "Sold";
+        $fileFields = ['proof_of_payment'];
+        $uploadPath = public_path('PropertySold/' . $customer_name);
+
+        if (!file_exists($uploadPath)) {
+            mkdir($uploadPath, 0755, true);
+        }
+
+        foreach ($fileFields as $field) {
+            if ($request->hasFile($field) && $request->file($field)->isValid()) {
+                $file = $request->file($field);
+                $ext = $file->getClientOriginalExtension();
+                $rootName = strtoupper(str_replace(' ', '_', $sale->tenant->tenant_name));
+                $fileName = now()->year . '-' . $rootName . '.' . $customer_name . '.' . $field . '.' . $ext;
+                $file->move($uploadPath, $fileName);
+                $sale->$field = $fileName;
+            }
+        }
+
+        $sale->save();
+       
+
+        return response()->json(['message' => $sale]);
+       
+
+    }
     
 
 }

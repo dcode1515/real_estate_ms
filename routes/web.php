@@ -20,8 +20,11 @@ Route::get('/', function () {
 
 Route::get('/', [App\Http\Controllers\AuthController::class, 'login'])->name('login');
 Route::post('/api/login/post', [App\Http\Controllers\AuthController::class, 'postLogin']);
+Route::get('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
 
 
+Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'admin'], function () {
 /*Admin Routes*/
 Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'dashboard'])->name('dashboard');
 Route::get('/tenants', [App\Http\Controllers\AdminController::class, 'tenants'])->name('tenants');
@@ -43,6 +46,7 @@ Route::get('/payment', [App\Http\Controllers\AdminController::class, 'payment'])
 Route::get('/get-tenancies', [App\Http\Controllers\AdminController::class, 'getAllTenancyData']);
 Route::get('/get-tenancy/{tenantId}', [App\Http\Controllers\AdminController::class, 'getTenancyByTenant']);
 Route::post('/api/store/payment', [App\Http\Controllers\AdminController::class, 'store_tenant_payment']);
+Route::post('/api/store/payment/for/sale', [App\Http\Controllers\AdminController::class, 'store_sale_property']);
 Route::get('/api/get/data/payment', [App\Http\Controllers\AdminController::class, 'getDataPayment']);
 Route::post('/api/update/payment/{id}', [App\Http\Controllers\AdminController::class, 'update_tenant_payment']);
 Route::delete('/api/delete/data/payment/{id}', [App\Http\Controllers\AdminController::class, 'deleteTenantPayment']);
@@ -59,6 +63,7 @@ Route::get('/for/sale', [App\Http\Controllers\AdminController::class, 'for_sale'
 Route::get('/api/get/data/properties/forsale', [App\Http\Controllers\AdminController::class, 'get_data_properties_forsale']);
 Route::post('/api/store/property/forsale', [App\Http\Controllers\AdminController::class, 'store_properties_forsale']);
 Route::post('/api/update/property/forsale/{id}', [App\Http\Controllers\AdminController::class, 'update_properties_forsale']);
-
+});
+});
 
 /*End Admin Routes*/

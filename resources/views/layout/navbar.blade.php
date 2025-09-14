@@ -33,7 +33,7 @@
                     <h4>
                         <div style="display: flex; align-items: center; gap: 6px; margin-top: 10px;">
                           <!-- Dashboard Icon -->
-                            <span style="color:white;"><b>DENR XI - ORSPS</b></span>
+                            <span style="color:white;"><b>REAL ESTATE MANAGEMENT SYSTEM</b></span>
                         </div>
                     </h4>
                 </button>
@@ -62,7 +62,7 @@
                             <span class="text-start ms-xl-2" style="color: #ffffff;">
                                
                                 <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text" style="color: #ffffff;"></span>
-                          <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text" style="color: #ffffff;">
+                          <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text" style="color: #ffffff;">{{Auth::user()->name}}
                             &nbsp;&nbsp;<i class="fas fa-user-shield me-1"></i>
                             </h5>
                             </span>
@@ -71,12 +71,9 @@
                     <div class="dropdown-menu dropdown-menu-end">
                         <!-- item-->
                         <h6 class="dropdown-header"></h6>
-                        <a class="dropdown-item" href="">
-                            <i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i>
-                            <span class="align-middle">Profile</span>
-                        </a>
-
-                        <form action="" method="GET" style="display: inline;">
+                      
+                        <form action="{{ route('logout') }}" method="GET" style="display: inline;">
+                            @csrf
                                
                                 <button type="submit" class="dropdown-item">
                                     <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i>

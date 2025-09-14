@@ -30,14 +30,14 @@
             <span class="d-flex align-items-center gap-2">
                 <img class="rounded header-profile-user" src="" alt="Header Avatar">
                 <span class="text-start">
-                    <span class="d-block fw-medium sidebar-user-name-text">Anna Adame</span>
+                    <span class="d-block fw-medium sidebar-user-name-text">{{Auth::user()->name}}</span>
                     <span class="d-block fs-14 sidebar-user-name-sub-text"><i class="ri ri-circle-fill fs-10 text-success align-baseline"></i> <span class="align-middle">Online</span></span>
                 </span>
             </span>
         </button>
         <div class="dropdown-menu dropdown-menu-end">
             <!-- item-->
-            <h6 class="dropdown-header">Welcome Anna!</h6>
+            <h6 class="dropdown-header">{{Auth::user()->name}}</h6>
             <a class="dropdown-item" href="pages-profile.html"><i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Profile</span></a>
             <a class="dropdown-item" href="apps-chat.html"><i class="mdi mdi-message-text-outline text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Messages</span></a>
             <a class="dropdown-item" href="apps-tasks-kanban.html"><i class="mdi mdi-calendar-check-outline text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Taskboard</span></a>
@@ -123,12 +123,12 @@
                 </div>
                 </li>
 
-
+<!-- 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="">
                         <i class="ri-group-line"></i> <span data-key="t-authentication">Users</span>
                     </a>
-                </li>
+                </li> -->
 
         
              

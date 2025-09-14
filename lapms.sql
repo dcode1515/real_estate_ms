@@ -16,19 +16,19 @@
 
 
 -- Dumping database structure for lapms
-CREATE DATABASE IF NOT EXISTS `lapms` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE IF NOT EXISTS `lapms` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `lapms`;
 
 -- Dumping structure for table lapms.agent
 CREATE TABLE IF NOT EXISTS `agent` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `contact` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `contact` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
-  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -39,11 +39,11 @@ REPLACE INTO `agent` (`id`, `name`, `address`, `contact`, `created_at`, `updated
 -- Dumping structure for table lapms.borrower
 CREATE TABLE IF NOT EXISTS `borrower` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `borrower_no` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `contact` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `borrower_no` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `contact` varchar(12) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `status` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -60,11 +60,11 @@ REPLACE INTO `borrower` (`id`, `borrower_no`, `name`, `contact`, `address`, `sta
 -- Dumping structure for table lapms.failed_jobs
 CREATE TABLE IF NOT EXISTS `failed_jobs` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `uuid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
@@ -75,10 +75,10 @@ CREATE TABLE IF NOT EXISTS `failed_jobs` (
 -- Dumping structure for table lapms.loans
 CREATE TABLE IF NOT EXISTS `loans` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `principal` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `interest_rate` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `monthly_payment` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `loan_terms` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `principal` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `interest_rate` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `monthly_payment` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `loan_terms` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -93,26 +93,26 @@ CREATE TABLE IF NOT EXISTS `loan_details` (
   `id` int NOT NULL AUTO_INCREMENT,
   `borrower_id` int DEFAULT NULL,
   `agent_id` int DEFAULT NULL,
-  `loan_no` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `date_released` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `due_date` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `loan_amount` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `loan_no` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `date_released` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `due_date` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `loan_amount` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `balance` decimal(10,0) DEFAULT NULL,
   `interest` double DEFAULT NULL,
   `loan_term` int DEFAULT NULL,
   `monthly_payment` decimal(10,0) DEFAULT NULL,
   `partial` decimal(10,0) DEFAULT NULL,
   `interest_due` double DEFAULT NULL,
-  `agent` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Bank` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `account_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `collateral` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `collateral_address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `collateral_file` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `agent` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Bank` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `account_number` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `collateral` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `collateral_address` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `collateral_file` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `date_effective` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `status` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `date_effective` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -125,7 +125,7 @@ REPLACE INTO `loan_details` (`id`, `borrower_id`, `agent_id`, `loan_no`, `date_r
 CREATE TABLE IF NOT EXISTS `loan_payments` (
   `id` int NOT NULL AUTO_INCREMENT,
   `loan_id` int DEFAULT NULL,
-  `payment_date` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `payment_date` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `payment` decimal(10,2) DEFAULT NULL,
   `interest` decimal(10,2) DEFAULT NULL,
   `adjusted_payment` decimal(10,2) DEFAULT NULL,
@@ -140,8 +140,8 @@ CREATE TABLE IF NOT EXISTS `loan_payments` (
 CREATE TABLE IF NOT EXISTS `logs` (
   `id` int NOT NULL AUTO_INCREMENT,
   `user_id` int DEFAULT NULL,
-  `type_logs` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `type_logs` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
@@ -154,15 +154,15 @@ CREATE TABLE IF NOT EXISTS `logs` (
 CREATE TABLE IF NOT EXISTS `memorial` (
   `id` int NOT NULL AUTO_INCREMENT,
   `date_created` date DEFAULT NULL,
-  `memorial_no` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `memorial_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `memorial_address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `memorial_no` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `memorial_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `memorial_address` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `sq_meter` int DEFAULT NULL,
   `amount` int DEFAULT NULL,
-  `documents` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `rentedidle` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `documents` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `status` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `rentedidle` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
@@ -175,19 +175,19 @@ CREATE TABLE IF NOT EXISTS `memorial` (
 CREATE TABLE IF NOT EXISTS `memorial_sold` (
   `id` int NOT NULL AUTO_INCREMENT,
   `memorial_id` int DEFAULT NULL,
-  `customer_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `customer_address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `contact_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `amount_paid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `mode_of_payment` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `account_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `customer_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `customer_address` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `contact_number` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `amount_paid` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `mode_of_payment` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `account_number` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `date_paid` date DEFAULT NULL,
-  `proof_of_payment` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `proof_of_payment` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
-  `status` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `code_no` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `status` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `code_no` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `date_created` date DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -197,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `memorial_sold` (
 -- Dumping structure for table lapms.migrations
 CREATE TABLE IF NOT EXISTS `migrations` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -213,8 +213,8 @@ REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 -- Dumping structure for table lapms.password_resets
 CREATE TABLE IF NOT EXISTS `password_resets` (
-  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   KEY `password_resets_email_index` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -228,17 +228,17 @@ CREATE TABLE IF NOT EXISTS `payment` (
   `payment_id` int DEFAULT NULL,
   `borrower_id` int DEFAULT NULL,
   `period_date` timestamp NULL DEFAULT NULL,
-  `due_date` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `date_paid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `mode_of_payment` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `mode_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `monthly_payment` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `due_date` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `date_paid` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `mode_of_payment` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `mode_number` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `monthly_payment` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `total` decimal(10,0) DEFAULT NULL,
-  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `status` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `interest_due` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `partial` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `interest_due` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `partial` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -247,10 +247,10 @@ CREATE TABLE IF NOT EXISTS `payment` (
 -- Dumping structure for table lapms.permissions
 CREATE TABLE IF NOT EXISTS `permissions` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `role_id` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `role_id` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `permissions_name_unique` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -287,11 +287,11 @@ CREATE TABLE IF NOT EXISTS `permission_role` (
 -- Dumping structure for table lapms.personal_access_tokens
 CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `tokenable_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tokenable_id` bigint unsigned NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text COLLATE utf8mb4_unicode_ci,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -305,56 +305,55 @@ CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
 -- Dumping structure for table lapms.property
 CREATE TABLE IF NOT EXISTS `property` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `property_no` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `property_no` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `property_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `date_created` date DEFAULT NULL,
-  `property_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `description_of_property` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `property_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `province` longtext COLLATE utf8mb4_general_ci,
-  `municipality` longtext COLLATE utf8mb4_general_ci,
-  `barangay` longtext COLLATE utf8mb4_general_ci,
-  `zip_code` longtext COLLATE utf8mb4_general_ci,
-  `street` longtext COLLATE utf8mb4_general_ci,
-  `bedrooms` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `complete_address` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `description_of_property` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `province` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `municipality` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `barangay` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `street` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `zip_code` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `bedrooms` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `sq_meter` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `car_park` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `toilet` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `type` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `toilet` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `bathroom` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `monthly_rate` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `status_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `furnishing` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `property_type` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `status_type` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `furnishing` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `rentedidle` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `rentedidle` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `status` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
-  `image2` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `image3` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `image2` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `image3` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table lapms.property: ~8 rows (approximately)
-REPLACE INTO `property` (`id`, `property_no`, `date_created`, `property_name`, `description_of_property`, `property_type`, `province`, `municipality`, `barangay`, `zip_code`, `street`, `bedrooms`, `sq_meter`, `car_park`, `type`, `toilet`, `bathroom`, `monthly_rate`, `status_type`, `furnishing`, `image`, `rentedidle`, `status`, `created_at`, `updated_at`, `deleted_at`, `image2`, `image3`) VALUES
-	(1, 'PN-20240000', '2025-09-02', 'WOODRIDGE INCORPORATION', 'Woodridge is also home to several upscale townhouses called Woodridge Park Homes. Each residence is clustered into one of three design themes: North Forest Park Homes, Narra Park', 'Condo', 'COTABATO CITY', 'DAVAO CITY', 'TIBUNGCO', '8000', 'BLK 43 LOT 6 STREET', '2', '3', '2', 'For Sale', '4', '2', '4000', 'For Rent', 'Furnished', '2024-WOODRIDGE_INCORPORATION.PN-20240000-1.png', 'Available', 'Occupied', '2024-08-05 01:11:24', '2025-09-04 19:03:05', NULL, '2024-WOODRIDGE_INCORPORATION.PN-20240000-2.png', '2024-WOODRIDGE_INCORPORATION.PN-20240000-3.png'),
-	(2, 'PN-20240001', '2025-09-02', 'PROPERTY NAME', 'Woodridge is also home to several upscale townhouses called Woodridge Park Homes. Each residence is clustered into one of three design themes: North Forest Park Homes, Narra Park', 'Real State', 'COTABATO CITY', 'dsa', 'dsadsa', '8000', 'BLK 43 LOT 6 STREET', '12', '32', '12', 'For Rent', '32', '32', '10000', 'For Rent', 'Furnished', '2024-PROPERTY_NAME.PN-20240001-1.jpg', 'Available', 'Available', '2024-08-05 01:15:49', '2025-09-02 23:36:27', NULL, '2024-PROPERTY_NAME.PN-20240001-2.jpg', '2024-PROPERTY_NAME.PN-20240001-3.jpg'),
-	(3, 'PN-20240002', '2025-09-02', 'DASDSA', 'SADSADAS', 'Real State', 'cxzcxzcxz', 'zxcxzcxz', 'czxcxz', '8000', 'cxzcxzcxz', '12', '1321', '312', 'For Rent', '1321', '321', '50000', 'For Rent', 'Unfurnished', '2024-DASDSA.PN-20240002-1.jpg', 'Available', 'Available', '2024-08-05 01:16:18', '2025-09-02 22:28:24', NULL, '2024-DASDSA.PN-20240002-2.jpg', '2024-DASDSA.PN-20240002-3.jpg'),
-	(4, '2025240003', '2025-09-02', 'DANRICK PROPERTY', 'LOCATED AT DAVAO CITY', 'Apartment', 'DAVAO DEL SUR', 'DAVAO CITY', NULL, '8000', 'SANTAN STEET DAVAO CITY', '3', '3', '12', NULL, '3', '4', '2600', 'For Rent', 'Furnished', '2025-DANRICK_PROPERTY.2025240003.image.png', NULL, 'Available', '2025-09-01 23:13:18', '2025-09-02 21:46:55', NULL, NULL, NULL),
-	(5, 'PN-20250004', '2025-09-02', 'DANRICK PROPERTY', 'DASDS', 'Apartment', 'COTABATO CITY', 'DAVAO CITY', NULL, '8000', 'BLK 43 LOT 6 STREET', '31', '1231', '13', NULL, '31', '31', '1800', 'For Rent', 'Semi-Furnished', '2025-DANRICK_PROPERTY.PN-20250004.image.png', NULL, 'Available', '2025-09-01 23:16:19', '2025-09-02 21:35:23', NULL, NULL, NULL),
-	(6, 'PN-20250005', '2025-09-02', 'bandiokla PROPERTY', 'sadsa', 'Apartment', 'COTABATO CITY', 'DAVAO CITY', NULL, '8000', 'BLK 43 LOT 6 STREET', '12', '32', '2', NULL, '213', '3213', '32131', 'For Rent', 'Semi-Furnished', '2025-BANDIOKLA_PROPERTY.PN-20250005.image.png', NULL, 'Available', '2025-09-01 23:19:48', '2025-09-03 20:46:35', NULL, NULL, NULL),
-	(7, 'PN-20250006', '2025-09-02', 'test1232dasda', 'test1232dasda', 'House', 'COTABATO CITY', 'DAVAO CITY', NULL, '8000', 'BLK 43 LOT 6 STREET', '2', '12', '12', NULL, '3', '4', '131', 'For Rent', 'Furnished', '2025-TEST1232DASDA.PN-20250006.image.jpg', NULL, 'Available', '2025-09-02 00:12:53', '2025-09-02 00:12:53', NULL, NULL, NULL),
-	(8, 'PN-20250007', '2025-09-02', 'diszaya corporation construction', 'dsa', 'Apartment', 'COTABATO CITY', 'DAVAO CITY', NULL, '8000', 'BLK 43 LOT 6 STREET', '2', '3', '4', NULL, '5', '2', '12321', 'For Rent', 'Furnished', '2025-DISZAYA_CORPORATION_CONSTRUCTION.PN-20250007.image.png', NULL, 'Available', '2025-09-02 00:19:56', '2025-09-02 21:54:26', NULL, NULL, NULL);
+REPLACE INTO `property` (`id`, `property_no`, `property_name`, `date_created`, `complete_address`, `description_of_property`, `province`, `municipality`, `barangay`, `street`, `zip_code`, `bedrooms`, `sq_meter`, `car_park`, `type`, `toilet`, `bathroom`, `monthly_rate`, `property_type`, `status_type`, `description`, `furnishing`, `image`, `rentedidle`, `status`, `created_at`, `updated_at`, `deleted_at`, `image2`, `image3`) VALUES
+	(1, 'PN-20250000', 'FOR SALE PROPERTYsssss', '2025-09-14', NULL, 'ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;', 'Region I - Ilocos Region', 'DAVAO', 'TIBUNGCI', 'LIANGA WEST', '8000', '1', '2', '3', NULL, '4', '2', '86000', 'Apartment', 'For Sale', NULL, 'Furnished', '2025-FOR_SALE_PROPERTY.PN-20250000.image.jpeg', NULL, 'Available', '2025-09-13 18:17:01', '2025-09-14 04:33:06', NULL, NULL, NULL),
+	(2, 'PN-20250001', 'woodridge', '2025-09-14', NULL, 'SADASDA', 'Region I - Ilocos Region', 'DAVAO', 'LIANGAN', 'LIANGA WEST', '8000', '312', '21321', '432', NULL, '312', '312', '350000', 'Apartment', 'For Sale', NULL, 'Semi-Furnished', '2025-WOODRIDGE.PN-20250001.image.jpeg', NULL, 'Available', '2025-09-13 18:18:33', '2025-09-13 18:18:33', NULL, NULL, NULL),
+	(3, 'PN-20250002', 'ROBINSON PROPERTY', '2025-11-19', NULL, 'DASDAS', 'Region I - Ilocos Region', 'DAVAO', NULL, 'LIANGA WEST', '8000', '2', '3', '4', NULL, '5', '2', '6500', 'Townhouse', 'For Rent', NULL, 'Furnished', '2025-ROBINSON_PROPERTY.PN-20250002.image.jpeg', NULL, 'Occupied', '2025-09-13 18:20:42', '2025-09-13 18:24:26', NULL, NULL, NULL),
+	(4, 'PN-20250003', 'AMERY RESORT HOTEL', '2025-09-14', NULL, 'VERY WOW', 'DAVAO ORIENTAL', 'MATI', NULL, 'DAHICAN STREET', '8200', '2', '50', '1', NULL, '2', '2', '8000', 'Apartment', 'For Rent', NULL, 'Furnished', '2025-AMERY_RESORT_HOTEL.PN-20250003.image.jpeg', NULL, 'Occupied', '2025-09-13 23:27:44', '2025-09-13 23:29:12', NULL, NULL, NULL),
+	(5, 'PN-20250004', 'TEST PROPERTIES', '2025-09-14', NULL, 'DASDASDA', 'Region I - Ilocos Region', 'DAVAO', NULL, 'LIANGA WEST', '8000', '2', '3', '4', NULL, '2', '5', '650000', 'Apartment', 'For Rent', NULL, 'Furnished', '2025-TEST_PROPERTIES.PN-20250004.image.jpeg', NULL, 'Available', '2025-09-14 05:37:44', '2025-09-14 05:37:44', NULL, NULL, NULL);
 
 -- Dumping structure for table lapms.roles
 CREATE TABLE IF NOT EXISTS `roles` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
-  `status` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `permission_id` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `permission_id` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `roles_name_unique` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -365,56 +364,73 @@ REPLACE INTO `roles` (`id`, `name`, `created_at`, `updated_at`, `deleted_at`, `s
 	(2, 'Viewer', '2024-01-21 06:14:06', '2024-01-21 06:14:06', NULL, 'Active', '14,18,21'),
 	(3, 'Moderator', '2024-01-21 06:26:00', '2024-01-21 06:29:59', NULL, 'Active', '11,19,15,14,13');
 
+-- Dumping structure for table lapms.sale_property
+CREATE TABLE IF NOT EXISTS `sale_property` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `property_id` int DEFAULT NULL,
+  `customer_name` varchar(255) DEFAULT NULL,
+  `contact_no` varchar(255) DEFAULT NULL,
+  `address` longtext,
+  `mode_of_payment` varchar(255) DEFAULT NULL,
+  `amount` int DEFAULT NULL,
+  `acct_no` varchar(255) DEFAULT NULL,
+  `date_paid` date DEFAULT NULL,
+  `proof_of_payment` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Dumping data for table lapms.sale_property: ~0 rows (approximately)
+
 -- Dumping structure for table lapms.tenancy_leases
 CREATE TABLE IF NOT EXISTS `tenancy_leases` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `transaction_no` varchar(255) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '0',
+  `transaction_no` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '0',
   `date_created` date DEFAULT NULL,
   `property_id` int DEFAULT NULL,
   `tenant_id` int DEFAULT NULL,
   `lease_start_date` date DEFAULT NULL,
   `lease_end_date` date DEFAULT NULL,
   `monthly_rent_amount` int DEFAULT NULL,
-  `lease_duration` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `due_date` date DEFAULT NULL,
+  `lease_duration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `total_amount` int DEFAULT NULL,
-  `upload_lease_document` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tenancy_terms` longtext COLLATE utf8mb4_general_ci,
-  `status` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `upload_lease_document` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `tenancy_terms` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table lapms.tenancy_leases: ~0 rows (approximately)
-REPLACE INTO `tenancy_leases` (`id`, `transaction_no`, `date_created`, `property_id`, `tenant_id`, `lease_start_date`, `lease_end_date`, `monthly_rent_amount`, `lease_duration`, `total_amount`, `upload_lease_document`, `tenancy_terms`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(1, 'TRANSACTI0N-20250000', '2025-09-05', 1, 1, '2025-09-05', '2026-04-16', 3500, '0 year(s) 7 month(s)', 24500, '2025-DANRICK_C._TEKIKO.TRANSACTI0N-20250000.upload_lease_document.pdf', '1 MONTH PAYMENT', 'Rented', '2025-09-04 19:03:05', '2025-09-04 19:03:05', NULL);
 
 -- Dumping structure for table lapms.tenant
 CREATE TABLE IF NOT EXISTS `tenant` (
   `id` int NOT NULL AUTO_INCREMENT,
   `property_id` int DEFAULT NULL,
   `date_created` date DEFAULT NULL,
-  `tenant_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `contact_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `rate` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `period` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `tenant_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `contact_number` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `rate` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `period` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `duedate` date DEFAULT NULL,
-  `contracts` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `id1` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `id2` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `contracts` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `id1` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `id2` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `status` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
-  `tenant_no` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `tenant_no` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table lapms.tenant: ~6 rows (approximately)
-REPLACE INTO `tenant` (`id`, `property_id`, `date_created`, `tenant_name`, `address`, `contact_number`, `rate`, `period`, `duedate`, `contracts`, `id1`, `id2`, `status`, `created_at`, `updated_at`, `deleted_at`, `tenant_no`) VALUES
-	(1, NULL, '2025-09-05', 'DANRICK C. TEKIKO', 'TIBUNGCO DAVAO CITY', '09199533529', '321', '12', '2025-10-05', '2025-DANRICK_C._TEKIKO.20250000.contracts.pdf', '2025-DANRICK_C._TEKIKO.20250000.id1.jpg', '2025-DANRICK_C._TEKIKO.20250000.id2.jpg', 'Active', '2025-09-04 19:01:39', '2025-09-04 19:15:30', NULL, '20250000');
+-- Dumping data for table lapms.tenant: ~0 rows (approximately)
 
 -- Dumping structure for table lapms.tenant_payment
 CREATE TABLE IF NOT EXISTS `tenant_payment` (
@@ -422,56 +438,51 @@ CREATE TABLE IF NOT EXISTS `tenant_payment` (
   `tenant_id` int DEFAULT NULL,
   `property_id` int DEFAULT NULL,
   `user_id` int DEFAULT NULL,
-  `invoice` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `transaction_no` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `mode_of_payment` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `acctno` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `amount` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `invoice` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `mode_of_payment` varchar(250) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `transaction_no` varchar(250) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `acctno` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `amount` varchar(250) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `proof_of_payment` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `date_paid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `status` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `date_paid` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `status` varchar(250) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table lapms.tenant_payment: ~4 rows (approximately)
-REPLACE INTO `tenant_payment` (`id`, `tenant_id`, `property_id`, `user_id`, `invoice`, `transaction_no`, `mode_of_payment`, `acctno`, `amount`, `proof_of_payment`, `date_paid`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(1, 1, 1, 1, 'INV20250000', '2025-0001', 'G-Cash', '09199533529', '3500', '2025-G-CASH.INV20250000.jpg', '2025-09-05', 'Paid', '2025-09-04 19:03:39', '2025-09-04 19:03:39', NULL),
-	(2, 1, 1, 1, 'INV20250001', '2025-0002', 'Cash', 'N/A', '3500', '2025-CASH.INV20250001.png', '2025-09-05', 'Paid', '2025-09-04 19:03:59', '2025-09-04 19:03:59', NULL),
-	(3, 1, 1, 1, 'INV20250002', '2025-0003', 'Cash', 'N/A', '3500', '2025-CASH.INV20250002.jpg', '2025-09-05', 'Paid', '2025-09-04 19:04:12', '2025-09-04 19:13:58', NULL),
-	(4, 1, 1, 1, 'INV20250003', '2025-0004', 'G-Cash', '09199533529', '3500', '2025-G-CASH.INV20250003.png', '2025-09-05', 'Paid', '2025-09-04 19:04:28', '2025-09-04 19:13:51', NULL),
-	(5, 1, 1, 1, 'INV20250004', '2025-0005', 'G-Cash', '09199533529', '3500', '2025-G-CASH.INV20250004_2025-09-05.jpg', '2025-09-05', 'Paid', '2025-09-04 19:15:30', '2025-09-04 19:15:44', '2025-09-04 19:15:44');
+-- Dumping data for table lapms.tenant_payment: ~2 rows (approximately)
 
 -- Dumping structure for table lapms.users
 CREATE TABLE IF NOT EXISTS `users` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `contact_no` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `contact_no` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `user_role` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_role` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `last_login_at` timestamp NULL DEFAULT NULL,
-  `last_login_ip` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `new_column` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_login_ip` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `new_column` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `role_id` bigint unsigned NOT NULL,
-  `module` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `module` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table lapms.users: ~4 rows (approximately)
-REPLACE INTO `users` (`id`, `name`, `email`, `contact_no`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `user_role`, `last_login_at`, `last_login_ip`, `status`, `new_column`, `role_id`, `module`) VALUES
-	(1, 'Danrick C. Tekiko', 'dcode0516@gmail.com', '09199533529', NULL, '$2y$10$3tatTWxmeRshqRepGHdq1eR2hYbKD7OdNaS6OPNbFbbXOken7EPMO', NULL, '2023-01-24 04:43:52', '2024-01-04 03:17:09', 'Admin', '2024-01-04 03:17:09', '::1', 'Active', '', 2, 'Property Modeule'),
-	(2, 'password', 'al@gmail.com', '09199533529', NULL, '$2y$10$tos0uRCnc2wONsm5OdGYI.LWdSGxQR3XCwzKRSYK0K7lIh8iDE8jm', NULL, '2023-07-06 07:47:45', '2023-07-06 08:00:08', 'User', '2023-07-06 08:00:08', '::1', 'Active', '', 0, NULL),
-	(3, 'password', 'siarez@gmail.com', '09199533529', NULL, '$2y$10$7DEtB0QLVow9NlbOM5Ssd.c5yFdT3iqv6A6.tcjyueFLIXc0.enkC', NULL, '2023-07-06 07:48:27', '2023-07-06 07:48:27', 'User', NULL, NULL, 'Active', '', 0, NULL),
-	(4, 'password', 'cristal@gmail.com', '09199533529', NULL, '$2y$10$3tatTWxmeRshqRepGHdq1eR2hYbKD7OdNaS6OPNbFbbXOken7EPMO', NULL, '2023-07-06 07:50:13', '2023-07-06 07:50:13', 'User', NULL, NULL, 'Active', '', 0, NULL);
+REPLACE INTO `users` (`id`, `name`, `email`, `contact_no`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `user_role`, `user_type`, `last_login_at`, `last_login_ip`, `status`, `new_column`, `role_id`, `module`) VALUES
+	(1, 'Danrick C. Tekiko', 'admin@gmail.com', '09199533529', NULL, '$2y$10$3tatTWxmeRshqRepGHdq1eR2hYbKD7OdNaS6OPNbFbbXOken7EPMO', NULL, '2023-01-24 04:43:52', '2024-01-04 03:17:09', 'Admin', 'Super Admin', '2024-01-04 03:17:09', '::1', 'Active', '', 2, 'Property Modeule'),
+	(2, 'password', 'al@gmail.com', '09199533529', NULL, '$2y$10$tos0uRCnc2wONsm5OdGYI.LWdSGxQR3XCwzKRSYK0K7lIh8iDE8jm', NULL, '2023-07-06 07:47:45', '2023-07-06 08:00:08', 'User', NULL, '2023-07-06 08:00:08', '::1', 'Active', '', 0, NULL),
+	(3, 'password', 'siarez@gmail.com', '09199533529', NULL, '$2y$10$7DEtB0QLVow9NlbOM5Ssd.c5yFdT3iqv6A6.tcjyueFLIXc0.enkC', NULL, '2023-07-06 07:48:27', '2023-07-06 07:48:27', 'User', NULL, NULL, NULL, 'Active', '', 0, NULL),
+	(4, 'password', 'cristal@gmail.com', '09199533529', NULL, '$2y$10$3tatTWxmeRshqRepGHdq1eR2hYbKD7OdNaS6OPNbFbbXOken7EPMO', NULL, '2023-07-06 07:50:13', '2023-07-06 07:50:13', 'User', NULL, NULL, NULL, 'Active', '', 0, NULL);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
