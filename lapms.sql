@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `agent` (
   `deleted_at` timestamp NULL DEFAULT NULL,
   `status` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+);
 
 -- Dumping data for table lapms.agent: ~0 rows (approximately)
 REPLACE INTO `agent` (`id`, `name`, `address`, `contact`, `created_at`, `updated_at`, `deleted_at`, `status`) VALUES
