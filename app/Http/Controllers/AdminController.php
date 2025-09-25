@@ -42,9 +42,9 @@ class AdminController extends Controller
             'contact_no'       => 'required|string|max:20',
             'address'          => 'required|string|max:255',
             'date_created'     => 'required|date',
-            'contracts'        => 'required|file|mimes:pdf',
-            'id1'              => 'required|file|mimes:png,jpeg,jpg',
-            'id2'              => 'required|file|mimes:png,jpeg,jpg',
+            'contracts'        => 'nullable|file|mimes:pdf',
+            'id1'              => 'nullable|file|mimes:png,jpeg,jpg',
+            'id2'              => 'nullable|file|mimes:png,jpeg,jpg',
         ]);
 
         $tenant = new Tenant;

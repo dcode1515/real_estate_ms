@@ -5739,7 +5739,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
                 formData.append("upload_lease_document", _this.formData.upload_lease_document);
               }
               _context.n = 1;
-              return axios.post("/real_estate_ms/api/store/tenancy", formData, {
+              return axios.post("/api/store/tenancy", formData, {
                 headers: {
                   "Content-Type": "multipart/form-data"
                 }
@@ -5753,7 +5753,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
                 text: _this.modalMode === "add" ? "Property successfully added!" : "Property successfully updated!",
                 confirmButtonText: "OK"
               }).then(function () {
-                window.location.href = "/real_estate_ms/show/tenancy";
+                window.location.href = "/show/tenancy";
               });
               _context.n = 5;
               break;
@@ -5874,7 +5874,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
             case 0:
               _context2.p = 0;
               _context2.n = 1;
-              return axios.get("/real_estate_ms/api/get/available/tenant");
+              return axios.get("/api/get/available/tenant");
             case 1:
               response = _context2.v;
               // Directly use the data as an array of objects
@@ -5900,7 +5900,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
             case 0:
               _context3.p = 0;
               _context3.n = 1;
-              return axios.get("/real_estate_ms/api/get/available/property");
+              return axios.get("/api/get/available/property");
             case 1:
               response = _context3.v;
               // Directly use the data as an array of objects
@@ -80378,7 +80378,7 @@ var render = function () {
                   "a",
                   {
                     staticClass: "btn btn-outline-primary",
-                    attrs: { href: "/real_estate_ms/show/tenancy" },
+                    attrs: { href: "/show/tenancy" },
                   },
                   [
                     _c("i", {
