@@ -13,11 +13,11 @@
         <!-- Light Logo-->
         <a href="index.html" class="logo logo-light">
             <span class="logo-sm">
-                <img src="{{ URL::asset('public/images/pngtree-professional-real-estate-logo-design-template-png-image_5334765-removebg-preview.png') }}" alt="" height="50">
+                <img src="{{ URL::asset('public/images/1600w-XiFB45jcRSc-removebg-preview.png') }}" alt="" height="50">
             </span>
             <span class="logo-lg">
 
-                <img src="{{ URL::asset('public/images/pngtree-professional-real-estate-logo-design-template-png-image_5334765-removebg-preview.png') }}" alt="" width="150">
+                <img src="{{ URL::asset('public/images/1600w-XiFB45jcRSc-removebg-preview.png') }}" alt="" width="150">
             </span>
         </a>
         <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
