@@ -5739,7 +5739,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
                 formData.append("upload_lease_document", _this.formData.upload_lease_document);
               }
               _context.n = 1;
-              return axios.post("/api/store/tenancy", formData, {
+              return axios.post("/real_estate_ms/api/store/tenancy", formData, {
                 headers: {
                   "Content-Type": "multipart/form-data"
                 }
@@ -5753,7 +5753,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
                 text: _this.modalMode === "add" ? "Property successfully added!" : "Property successfully updated!",
                 confirmButtonText: "OK"
               }).then(function () {
-                window.location.href = "/show/tenancy";
+                window.location.href = "/real_estate_ms/show/tenancy";
               });
               _context.n = 5;
               break;
@@ -5874,7 +5874,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
             case 0:
               _context2.p = 0;
               _context2.n = 1;
-              return axios.get("/api/get/available/tenant");
+              return axios.get("/real_estate_ms/api/get/available/tenant");
             case 1:
               response = _context2.v;
               // Directly use the data as an array of objects
@@ -5900,7 +5900,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
             case 0:
               _context3.p = 0;
               _context3.n = 1;
-              return axios.get("/api/get/available/property");
+              return axios.get("/real_estate_ms/api/get/available/property");
             case 1:
               response = _context3.v;
               // Directly use the data as an array of objects
@@ -11132,22 +11132,74 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   methods: {
-    deleteTenant: function deleteTenant(tenant) {
+    downloadTenantAttachment: function downloadTenantAttachment(tenantId) {
       return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-        var confirmation, response, _t;
+        var response, blob, url, link, contentDisposition, fileName, reader, _t;
         return _regenerator().w(function (_context) {
           while (1) switch (_context.p = _context.n) {
             case 0:
+              _context.p = 0;
               _context.n = 1;
+              return axios({
+                url: "/real_estate_ms/download/attachment/tenant/".concat(tenantId),
+                method: 'GET',
+                responseType: 'blob' // Important for file downloads
+              });
+            case 1:
+              response = _context.v;
+              // Create a blob and simulate download
+              blob = new Blob([response.data], {
+                type: response.headers['content-type']
+              });
+              url = window.URL.createObjectURL(blob);
+              link = document.createElement('a'); // Try to get filename from header or fallback
+              contentDisposition = response.headers['content-disposition'];
+              fileName = 'Tenant_Attachment.zip';
+              if (contentDisposition && contentDisposition.indexOf('filename=') !== -1) {
+                fileName = contentDisposition.split('filename=')[1].replace(/"/g, '').trim();
+              }
+              link.href = url;
+              link.setAttribute('download', fileName);
+              document.body.appendChild(link);
+              link.click();
+              link.remove();
+              window.URL.revokeObjectURL(url);
+              _context.n = 3;
+              break;
+            case 2:
+              _context.p = 2;
+              _t = _context.v;
+              if (_t.response && _t.response.data) {
+                reader = new FileReader();
+                reader.onload = function () {
+                  try {
+                    var errorData = JSON.parse(reader.result);
+                    alert(errorData.message || 'Download failed.');
+                  } catch (e) {
+                    alert('Download failed.');
+                  }
+                };
+                reader.readAsText(_t.response.data);
+              } else {
+                alert('An unexpected error occurred.');
+              }
+            case 3:
+              return _context.a(2);
+          }
+        }, _callee, null, [[0, 2]]);
+      }))();
+    },
+    deleteTenant: function deleteTenant(tenant) {
+      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+        var confirmation, response, _t2;
+        return _regenerator().w(function (_context2) {
+          while (1) switch (_context2.p = _context2.n) {
+            case 0:
+              _context2.n = 1;
               return sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
                 title: "Are you sure?",
                 text: "You are about to delete tenant: ".concat(tenant.tenant_name, ". This action cannot be undone."),
@@ -11157,17 +11209,17 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
                 cancelButtonText: "Cancel"
               });
             case 1:
-              confirmation = _context.v;
+              confirmation = _context2.v;
               if (!confirmation.isConfirmed) {
-                _context.n = 9;
+                _context2.n = 9;
                 break;
               }
-              _context.p = 2;
-              _context.n = 3;
+              _context2.p = 2;
+              _context2.n = 3;
               return axios["delete"]("/real_estate_ms/api/delete/tenant/".concat(tenant.id));
             case 3:
-              response = _context.v;
-              _context.n = 4;
+              response = _context2.v;
+              _context2.n = 4;
               return sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
                 title: "Deleted!",
                 text: response.data.success,
@@ -11177,37 +11229,37 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
             case 4:
               // ✅ After user clicks "OK", redirect
               window.location.href = "/real_estate_ms/tenants"; // Change this path to your actual route
-              _context.n = 9;
+              _context2.n = 9;
               break;
             case 5:
-              _context.p = 5;
-              _t = _context.v;
-              if (!(_t.response && _t.response.status === 422)) {
-                _context.n = 7;
+              _context2.p = 5;
+              _t2 = _context2.v;
+              if (!(_t2.response && _t2.response.status === 422)) {
+                _context2.n = 7;
                 break;
               }
-              _context.n = 6;
+              _context2.n = 6;
               return sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
                 title: "Error",
-                text: _t.response.data.error,
+                text: _t2.response.data.error,
                 icon: "error"
               });
             case 6:
-              _context.n = 9;
+              _context2.n = 9;
               break;
             case 7:
-              _context.n = 8;
+              _context2.n = 8;
               return sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
                 title: "Unexpected Error",
                 text: "Something went wrong while trying to delete.",
                 icon: "error"
               });
             case 8:
-              console.error(_t);
+              console.error(_t2);
             case 9:
-              return _context.a(2);
+              return _context2.a(2);
           }
-        }, _callee, null, [[2, 5]]);
+        }, _callee2, null, [[2, 5]]);
       }))();
     },
     handleFileUpload: function handleFileUpload(event, field) {
@@ -11215,13 +11267,13 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
     },
     getDataTenant: function getDataTenant() {
       var _this = this;
-      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
-        var response, _t2;
-        return _regenerator().w(function (_context2) {
-          while (1) switch (_context2.p = _context2.n) {
+      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
+        var response, _t3;
+        return _regenerator().w(function (_context3) {
+          while (1) switch (_context3.p = _context3.n) {
             case 0:
-              _context2.p = 0;
-              _context2.n = 1;
+              _context3.p = 0;
+              _context3.n = 1;
               return axios.get("/real_estate_ms/api/get/data/tenant", {
                 params: {
                   page: _this.tenants.current_page,
@@ -11230,18 +11282,18 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
                 }
               });
             case 1:
-              response = _context2.v;
+              response = _context3.v;
               _this.tenants = response.data.data;
-              _context2.n = 3;
+              _context3.n = 3;
               break;
             case 2:
-              _context2.p = 2;
-              _t2 = _context2.v;
-              console.error("Error fetching data:", _t2);
+              _context3.p = 2;
+              _t3 = _context3.v;
+              console.error("Error fetching data:", _t3);
             case 3:
-              return _context2.a(2);
+              return _context3.a(2);
           }
-        }, _callee2, null, [[0, 2]]);
+        }, _callee3, null, [[0, 2]]);
       }))();
     },
     changePage: function changePage(page) {
@@ -11252,12 +11304,12 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
     },
     submitTenant: function submitTenant() {
       var _this2 = this;
-      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
-        var formData, response, errors, errorMessages, key, _t3;
-        return _regenerator().w(function (_context3) {
-          while (1) switch (_context3.p = _context3.n) {
+      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4() {
+        var formData, response, errors, errorMessages, key, _t4;
+        return _regenerator().w(function (_context4) {
+          while (1) switch (_context4.p = _context4.n) {
             case 0:
-              _context3.p = 0;
+              _context4.p = 0;
               _this2.isSubmitting = true;
               formData = new FormData();
               formData.append("date_created", _this2.formData.date_created);
@@ -11277,32 +11329,32 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
                 formData.append("id2", _this2.formData.id2);
               }
               if (!(_this2.modalMode === "add")) {
-                _context3.n = 2;
+                _context4.n = 2;
                 break;
               }
-              _context3.n = 1;
+              _context4.n = 1;
               return axios.post("/real_estate_ms/api/store/tenant", formData, {
                 headers: {
                   "Content-Type": "multipart/form-data"
                 }
               });
             case 1:
-              response = _context3.v;
-              _context3.n = 4;
+              response = _context4.v;
+              _context4.n = 4;
               break;
             case 2:
               if (!(_this2.modalMode === "edit")) {
-                _context3.n = 4;
+                _context4.n = 4;
                 break;
               }
-              _context3.n = 3;
+              _context4.n = 3;
               return axios.post("/real_estate_ms/api/update/tenant/".concat(_this2.formData.id), formData, {
                 headers: {
                   "Content-Type": "multipart/form-data"
                 }
               });
             case 3:
-              response = _context3.v;
+              response = _context4.v;
             case 4:
               // Success message
               sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
@@ -11313,14 +11365,14 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               }).then(function () {
                 window.location.href = "/real_estate_ms/tenants";
               });
-              _context3.n = 6;
+              _context4.n = 6;
               break;
             case 5:
-              _context3.p = 5;
-              _t3 = _context3.v;
-              console.error(_t3);
-              if (_t3.response && _t3.response.status === 422) {
-                errors = _t3.response.data.errors;
+              _context4.p = 5;
+              _t4 = _context4.v;
+              console.error(_t4);
+              if (_t4.response && _t4.response.status === 422) {
+                errors = _t4.response.data.errors;
                 errorMessages = '<ul style="text-align: left;">';
                 for (key in errors) {
                   if (errors.hasOwnProperty(key)) {
@@ -11341,13 +11393,13 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
                 });
               }
             case 6:
-              _context3.p = 6;
+              _context4.p = 6;
               _this2.isSubmitting = false;
-              return _context3.f(6);
+              return _context4.f(6);
             case 7:
-              return _context3.a(2);
+              return _context4.a(2);
           }
-        }, _callee3, null, [[0, 5, 6, 7]]);
+        }, _callee4, null, [[0, 5, 6, 7]]);
       }))();
     },
     openModal: function openModal(mode, tenant) {
@@ -80378,7 +80430,7 @@ var render = function () {
                   "a",
                   {
                     staticClass: "btn btn-outline-primary",
-                    attrs: { href: "/show/tenancy" },
+                    attrs: { href: "/real_estate_ms/show/tenancy" },
                   },
                   [
                     _c("i", {
@@ -89652,15 +89704,13 @@ var render = function () {
                       _vm._v(" "),
                       _c("td", [
                         _c(
-                          "a",
+                          "button",
                           {
                             staticClass: "btn btn-danger",
-                            attrs: {
-                              href:
-                                "/real_estate_ms/download/attachment/tenant/" +
-                                tenant.id,
-                              type: "button",
-                              target: "_blank",
+                            on: {
+                              click: function ($event) {
+                                return _vm.downloadTenantAttachment(tenant.id)
+                              },
                             },
                           },
                           [

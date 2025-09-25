@@ -91,8 +91,7 @@
 
     </div>
    
-<script src="{{ asset('public/js/app.js') }}?v={{ config('app.version') }}"></script>
-
+    <script src="{{ asset('public/js/app.js') }}?v={{ config('app.version') }}"></script>
 
     <!-- <script src="{{ asset('public/Dashboard-Template-Velzon-main/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script> -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

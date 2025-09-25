@@ -105,17 +105,12 @@
                   <td>{{ tenant.contact_number }}</td>
                   <td>{{ tenant.address }}</td>
                   <td>
-                    <a
-                      v-bind:href="
-                        '/real_estate_ms/download/attachment/tenant/' +
-                        tenant.id
-                      "
-                      type="button"
+                    <button
+                      @click="downloadTenantAttachment(tenant.id)"
                       class="btn btn-danger"
-                      target="_blank"
                     >
                       <i class="fas fa-download me-2"></i> Download
-                    </a>
+                    </button>
                   </td>
 
                   <td>{{ tenant.status }}</td>
@@ -130,14 +125,14 @@
                     >
                       <i class="fas fa-edit"></i>
                     </button>
-                        <a
-                         @click="deleteTenant(tenant)"
-                        type="button"
-                        class="btn btn-danger btn-sm me-1"
-                        title="Delete"
-                        >
-                        <i class="fas fa-trash"></i>
-                        </a>
+                    <a
+                      @click="deleteTenant(tenant)"
+                      type="button"
+                      class="btn btn-danger btn-sm me-1"
+                      title="Delete"
+                    >
+                      <i class="fas fa-trash"></i>
+                    </a>
                     <!-- <button class="btn btn-danger btn-sm" title="Delete">
                       <i class="fas fa-trash"></i>
                     </button> -->
@@ -423,6 +418,53 @@ import Swal from "sweetalert2";
 
 export default {
   methods: {
+   async downloadTenantAttachment(tenantId) {
+    try {
+      const response = await axios({
+        url: `/real_estate_ms/download/attachment/tenant/${tenantId}`,
+        method: 'GET',
+        responseType: 'blob', // Important for file downloads
+      });
+
+      // Create a blob and simulate download
+      const blob = new Blob([response.data], { type: response.headers['content-type'] });
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+
+      // Try to get filename from header or fallback
+      const contentDisposition = response.headers['content-disposition'];
+      let fileName = 'Tenant_Attachment.zip';
+      if (contentDisposition && contentDisposition.indexOf('filename=') !== -1) {
+        fileName = contentDisposition
+          .split('filename=')[1]
+          .replace(/"/g, '')
+          .trim();
+      }
+
+      link.href = url;
+      link.setAttribute('download', fileName);
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      if (error.response && error.response.data) {
+        const reader = new FileReader();
+        reader.onload = () => {
+          try {
+            const errorData = JSON.parse(reader.result);
+            alert(errorData.message || 'Download failed.');
+          } catch (e) {
+            alert('Download failed.');
+          }
+        };
+        reader.readAsText(error.response.data);
+      } else {
+        alert('An unexpected error occurred.');
+      }
+    }
+    },
+ 
     async deleteTenant(tenant) {
       const confirmation = await Swal.fire({
         title: "Are you sure?",

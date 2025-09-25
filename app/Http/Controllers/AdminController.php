@@ -1011,24 +1011,48 @@ public function getDataPayment(Request $request)
         public function reports(){
             return view('admin.reports');
         }
-    public function download_attachment_tenant($id)
-    {
-        $downloadattachment = Tenant::find($id);
-        $zip = new ZipArchive;
-        $fileName = $downloadattachment->tenant_no . '_' . $downloadattachment->tenant_name. '_Attachment.zip';
+            public function download_attachment_tenant($id)
+            {
+                $tenant = Tenant::find($id);
 
-        if ($zip->open(public_path($fileName), ZipArchive::CREATE) === TRUE) {
-            $files = File::files(public_path('tenant/' . $downloadattachment->tenant_no));
-            foreach ($files as $key => $value) {
-                $relativeNameInZipFile = basename($value);
-                $zip->addFile($value, $relativeNameInZipFile);
+                if (!$tenant) {
+                    return response()->json(['message' => 'Tenant not found.'], 404);
+                }
+
+                $tenantFolder = public_path('tenant/' . $tenant->tenant_no);
+
+                // Check if the folder exists and has files
+                if (!File::exists($tenantFolder) || empty(File::files($tenantFolder))) {
+                    return response()->json(['message' => 'No Uploading File'], 404);
+                }
+
+                $zip = new ZipArchive;
+                $fileName = $tenant->tenant_no . '_' . $tenant->tenant_name . '_Attachment.zip';
+                $zipPath = public_path($fileName);
+
+                if ($zip->open($zipPath, ZipArchive::CREATE | ZipArchive::OVERWRITE) === TRUE) {
+                    // Add tenant files
+                    $files = File::files($tenantFolder);
+                    foreach ($files as $file) {
+                        $zip->addFile($file, basename($file));
+                    }
+
+                    // Add specific PDF if it exists
+                    $pdfFileName = $tenant->tenant_no . 'Teenant Documents.pdf';
+                    $pdfFilePath = public_path($pdfFileName);
+
+                    if (File::exists($pdfFilePath)) {
+                        $zip->addFile($pdfFilePath, $pdfFileName);
+                    }
+
+                    $zip->close();
+                } else {
+                    return response()->json(['message' => 'Failed to create ZIP file.'], 500);
+                }
+
+                return response()->download($zipPath)->deleteFileAfterSend(true);
             }
-            $pdfFileName = $downloadattachment->tenant_no . 'Teenant Documents' . '.pdf';
-            $zip->addFile($pdfFileName);
-            $zip->close();
-        }
-        return response()->download(public_path($fileName));
-    }
+
 
     public function deleteTenant($id)
     {
