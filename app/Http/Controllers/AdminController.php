@@ -193,7 +193,7 @@ class AdminController extends Controller
         $validated = $request->validate([
             'date_created'            => 'required|date',
             'property_name'           => 'required|string|max:255',
-            'description_of_property' => 'required|string|max:1000',
+            'description_of_property' => 'nullable|string|max:1000',
             'property_type'           => 'required|string|max:50',
             'province'                => 'nullable|string|max:100',
             'municipality'            => 'nullable|string|max:100',
@@ -267,7 +267,7 @@ class AdminController extends Controller
         $validated = $request->validate([
             'date_created'            => 'required|date',
             'property_name'           => 'required|string|max:255',
-            'description_of_property' => 'required|string|max:1000',
+            'description_of_property' => 'nullable|string|max:1000',
             'property_type'           => 'required|string|max:50',
             'province'                => 'nullable|string|max:100',
             'municipality'            => 'nullable|string|max:100',
