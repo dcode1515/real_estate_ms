@@ -11409,6 +11409,11 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       }
     };
   },
+  computed: {
+    totalPages: function totalPages() {
+      return Math.ceil(this.tenants.total / this.tenants.per_page);
+    }
+  },
   mounted: function mounted() {
     // Any initialization code can go herec
     this.getDataTenant();

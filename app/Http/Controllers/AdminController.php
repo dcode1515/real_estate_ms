@@ -104,10 +104,8 @@ class AdminController extends Controller
             'tenant_name'      => 'nullable|string|max:255',
             'contact_no'       => 'nullable|string|max:20',
             'address'          => 'nullable|string|max:255',
-            'monthly_rate'     => 'nullable|numeric',
+          
             'date_created'     => 'nullable|date',
-            'lease_period'     => 'nullable|string|max:50',
-            'due_date'         => 'nullable|date',
             'contracts'        => 'nullable|file|mimes:pdf',
             'id1'              => 'nullable|file|mimes:png,jpeg,jpg',
             'id2'              => 'nullable|file|mimes:png,jpeg,jpg',
@@ -121,9 +119,7 @@ class AdminController extends Controller
         $tenant->tenant_name = $validated['tenant_name'];
         $tenant->address = $validated['address'];
         $tenant->contact_number = $validated['contact_no'];
-        $tenant->rate = $validated['monthly_rate'];
-        $tenant->period = $validated['lease_period'];
-        $tenant->duedate = $validated['due_date'];
+   
         $tenant->status = "Active";
         $tenant->date_created = $validated['date_created'];
 

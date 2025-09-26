@@ -701,6 +701,11 @@ export default {
       },
     };
   },
+   computed: {
+    totalPages() {
+      return Math.ceil(this.tenants.total / this.tenants.per_page);
+    },
+  },
   mounted() {
     // Any initialization code can go herec
     this.getDataTenant();
