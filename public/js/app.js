@@ -6626,60 +6626,6 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -81724,6 +81670,12 @@ var render = function () {
                               _c("div", { staticClass: "row" }, [
                                 _c("div", { staticClass: "col-md-12" }, [
                                   _c(
+                                    "h5",
+                                    { staticClass: "text-success mb-3" },
+                                    [_vm._v("General Information")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
                                     "div",
                                     { staticClass: "form-floating mb-3" },
                                     [
@@ -81991,685 +81943,583 @@ var render = function () {
                                     ]
                                   ),
                                 ]),
-                              ]),
-                              _vm._v(" "),
-                              _vm._m(7),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "tab-content pt-3",
-                                  attrs: { id: "propertyTabsContent" },
-                                },
-                                [
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-md-12 mt-2" }, [
                                   _c(
-                                    "div",
-                                    {
-                                      staticClass: "tab-pane fade show active",
-                                      attrs: {
-                                        id: "location",
-                                        role: "tabpanel",
-                                        "aria-labelledby": "location-tab",
-                                      },
-                                    },
-                                    [
-                                      _c("div", { staticClass: "row" }, [
-                                        _c("div", { staticClass: "col-md-4" }, [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "form-floating mb-3",
-                                            },
-                                            [
-                                              _c("input", {
-                                                directives: [
-                                                  {
-                                                    name: "model",
-                                                    rawName: "v-model",
-                                                    value:
-                                                      _vm.formData.province,
-                                                    expression:
-                                                      "formData.province",
-                                                  },
-                                                ],
-                                                staticClass: "form-control",
-                                                attrs: {
-                                                  type: "text",
-                                                  id: "province",
-                                                  required: "",
-                                                },
-                                                domProps: {
-                                                  value: _vm.formData.province,
-                                                },
-                                                on: {
-                                                  input: function ($event) {
-                                                    if (
-                                                      $event.target.composing
-                                                    ) {
-                                                      return
-                                                    }
-                                                    _vm.$set(
-                                                      _vm.formData,
-                                                      "province",
-                                                      $event.target.value
-                                                    )
-                                                  },
-                                                },
-                                              }),
-                                              _vm._v(" "),
-                                              _vm._m(8),
-                                            ]
-                                          ),
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("div", { staticClass: "col-md-4" }, [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "form-floating mb-3",
-                                            },
-                                            [
-                                              _c("input", {
-                                                directives: [
-                                                  {
-                                                    name: "model",
-                                                    rawName: "v-model",
-                                                    value:
-                                                      _vm.formData.municipality,
-                                                    expression:
-                                                      "formData.municipality",
-                                                  },
-                                                ],
-                                                staticClass: "form-control",
-                                                attrs: {
-                                                  type: "text",
-                                                  id: "municipality",
-                                                  required: "",
-                                                },
-                                                domProps: {
-                                                  value:
-                                                    _vm.formData.municipality,
-                                                },
-                                                on: {
-                                                  input: function ($event) {
-                                                    if (
-                                                      $event.target.composing
-                                                    ) {
-                                                      return
-                                                    }
-                                                    _vm.$set(
-                                                      _vm.formData,
-                                                      "municipality",
-                                                      $event.target.value
-                                                    )
-                                                  },
-                                                },
-                                              }),
-                                              _vm._v(" "),
-                                              _vm._m(9),
-                                            ]
-                                          ),
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("div", { staticClass: "col-md-4" }, [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "form-floating mb-3",
-                                            },
-                                            [
-                                              _c("input", {
-                                                directives: [
-                                                  {
-                                                    name: "model",
-                                                    rawName: "v-model",
-                                                    value:
-                                                      _vm.formData.barangay,
-                                                    expression:
-                                                      "formData.barangay",
-                                                  },
-                                                ],
-                                                staticClass: "form-control",
-                                                attrs: {
-                                                  type: "text",
-                                                  id: "barangay",
-                                                  required: "",
-                                                },
-                                                domProps: {
-                                                  value: _vm.formData.barangay,
-                                                },
-                                                on: {
-                                                  input: function ($event) {
-                                                    if (
-                                                      $event.target.composing
-                                                    ) {
-                                                      return
-                                                    }
-                                                    _vm.$set(
-                                                      _vm.formData,
-                                                      "barangay",
-                                                      $event.target.value
-                                                    )
-                                                  },
-                                                },
-                                              }),
-                                              _vm._v(" "),
-                                              _vm._m(10),
-                                            ]
-                                          ),
-                                        ]),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-md-12" },
-                                          [
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "form-floating mb-3",
-                                              },
-                                              [
-                                                _c("input", {
-                                                  directives: [
-                                                    {
-                                                      name: "model",
-                                                      rawName: "v-model",
-                                                      value:
-                                                        _vm.formData.street,
-                                                      expression:
-                                                        "formData.street",
-                                                    },
-                                                  ],
-                                                  staticClass: "form-control",
-                                                  attrs: {
-                                                    type: "text",
-                                                    id: "street",
-                                                    required: "",
-                                                  },
-                                                  domProps: {
-                                                    value: _vm.formData.street,
-                                                  },
-                                                  on: {
-                                                    input: function ($event) {
-                                                      if (
-                                                        $event.target.composing
-                                                      ) {
-                                                        return
-                                                      }
-                                                      _vm.$set(
-                                                        _vm.formData,
-                                                        "street",
-                                                        $event.target.value
-                                                      )
-                                                    },
-                                                  },
-                                                }),
-                                                _vm._v(" "),
-                                                _vm._m(11),
-                                              ]
-                                            ),
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-md-12" },
-                                          [
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "form-floating mb-3",
-                                              },
-                                              [
-                                                _c("input", {
-                                                  directives: [
-                                                    {
-                                                      name: "model",
-                                                      rawName: "v-model",
-                                                      value:
-                                                        _vm.formData.zip_code,
-                                                      expression:
-                                                        "formData.zip_code",
-                                                    },
-                                                  ],
-                                                  staticClass: "form-control",
-                                                  attrs: {
-                                                    type: "text",
-                                                    id: "zip_code",
-                                                    required: "",
-                                                  },
-                                                  domProps: {
-                                                    value:
-                                                      _vm.formData.zip_code,
-                                                  },
-                                                  on: {
-                                                    input: function ($event) {
-                                                      if (
-                                                        $event.target.composing
-                                                      ) {
-                                                        return
-                                                      }
-                                                      _vm.$set(
-                                                        _vm.formData,
-                                                        "zip_code",
-                                                        $event.target.value
-                                                      )
-                                                    },
-                                                  },
-                                                }),
-                                                _vm._v(" "),
-                                                _vm._m(12),
-                                              ]
-                                            ),
-                                          ]
-                                        ),
-                                      ]),
-                                    ]
+                                    "h5",
+                                    { staticClass: "text-success mb-3" },
+                                    [_vm._v("Location")]
                                   ),
                                   _vm._v(" "),
+                                  _c("div", { staticClass: "row" }, [
+                                    _c("div", { staticClass: "col-md-4" }, [
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-floating mb-3" },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.formData.province,
+                                                expression: "formData.province",
+                                              },
+                                            ],
+                                            staticClass: "form-control",
+                                            attrs: {
+                                              type: "text",
+                                              id: "province",
+                                              required: "",
+                                            },
+                                            domProps: {
+                                              value: _vm.formData.province,
+                                            },
+                                            on: {
+                                              input: function ($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.formData,
+                                                  "province",
+                                                  $event.target.value
+                                                )
+                                              },
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _vm._m(7),
+                                        ]
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-md-4" }, [
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-floating mb-3" },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value:
+                                                  _vm.formData.municipality,
+                                                expression:
+                                                  "formData.municipality",
+                                              },
+                                            ],
+                                            staticClass: "form-control",
+                                            attrs: {
+                                              type: "text",
+                                              id: "municipality",
+                                              required: "",
+                                            },
+                                            domProps: {
+                                              value: _vm.formData.municipality,
+                                            },
+                                            on: {
+                                              input: function ($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.formData,
+                                                  "municipality",
+                                                  $event.target.value
+                                                )
+                                              },
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _vm._m(8),
+                                        ]
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-md-4" }, [
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-floating mb-3" },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.formData.barangay,
+                                                expression: "formData.barangay",
+                                              },
+                                            ],
+                                            staticClass: "form-control",
+                                            attrs: {
+                                              type: "text",
+                                              id: "barangay",
+                                              required: "",
+                                            },
+                                            domProps: {
+                                              value: _vm.formData.barangay,
+                                            },
+                                            on: {
+                                              input: function ($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.formData,
+                                                  "barangay",
+                                                  $event.target.value
+                                                )
+                                              },
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _vm._m(9),
+                                        ]
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-md-12" }, [
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-floating mb-3" },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.formData.street,
+                                                expression: "formData.street",
+                                              },
+                                            ],
+                                            staticClass: "form-control",
+                                            attrs: {
+                                              type: "text",
+                                              id: "street",
+                                              required: "",
+                                            },
+                                            domProps: {
+                                              value: _vm.formData.street,
+                                            },
+                                            on: {
+                                              input: function ($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.formData,
+                                                  "street",
+                                                  $event.target.value
+                                                )
+                                              },
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _vm._m(10),
+                                        ]
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-md-12" }, [
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-floating mb-3" },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.formData.zip_code,
+                                                expression: "formData.zip_code",
+                                              },
+                                            ],
+                                            staticClass: "form-control",
+                                            attrs: {
+                                              type: "text",
+                                              id: "zip_code",
+                                              required: "",
+                                            },
+                                            domProps: {
+                                              value: _vm.formData.zip_code,
+                                            },
+                                            on: {
+                                              input: function ($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.formData,
+                                                  "zip_code",
+                                                  $event.target.value
+                                                )
+                                              },
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _vm._m(11),
+                                        ]
+                                      ),
+                                    ]),
+                                  ]),
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-md-12 mt-2" }, [
                                   _c(
-                                    "div",
-                                    {
-                                      staticClass: "tab-pane fade",
-                                      attrs: {
-                                        id: "features",
-                                        role: "tabpanel",
-                                        "aria-labelledby": "features-tab",
-                                      },
-                                    },
-                                    [
-                                      _c("div", { staticClass: "row" }, [
-                                        _c("div", { staticClass: "col-md-4" }, [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "form-floating mb-3",
+                                    "h5",
+                                    { staticClass: "text-success mb-3" },
+                                    [_vm._v("Features & Amenities")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "row" }, [
+                                    _c("div", { staticClass: "col-md-4" }, [
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-floating mb-3" },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.formData.bedrooms,
+                                                expression: "formData.bedrooms",
+                                              },
+                                            ],
+                                            staticClass: "form-control",
+                                            attrs: {
+                                              type: "number",
+                                              id: "bedrooms",
+                                              required: "",
+                                              min: "0",
                                             },
-                                            [
-                                              _c("input", {
-                                                directives: [
-                                                  {
-                                                    name: "model",
-                                                    rawName: "v-model",
-                                                    value:
-                                                      _vm.formData.bedrooms,
-                                                    expression:
-                                                      "formData.bedrooms",
-                                                  },
-                                                ],
-                                                staticClass: "form-control",
-                                                attrs: {
-                                                  type: "number",
-                                                  id: "bedrooms",
-                                                  required: "",
-                                                  min: "0",
-                                                },
-                                                domProps: {
-                                                  value: _vm.formData.bedrooms,
-                                                },
-                                                on: {
-                                                  input: function ($event) {
-                                                    if (
-                                                      $event.target.composing
-                                                    ) {
-                                                      return
-                                                    }
-                                                    _vm.$set(
-                                                      _vm.formData,
-                                                      "bedrooms",
-                                                      $event.target.value
-                                                    )
-                                                  },
-                                                },
-                                              }),
-                                              _vm._v(" "),
-                                              _vm._m(13),
-                                            ]
-                                          ),
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("div", { staticClass: "col-md-4" }, [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "form-floating mb-3",
+                                            domProps: {
+                                              value: _vm.formData.bedrooms,
                                             },
-                                            [
-                                              _c("input", {
-                                                directives: [
-                                                  {
-                                                    name: "model",
-                                                    rawName: "v-model",
-                                                    value:
-                                                      _vm.formData.sq_meter,
-                                                    expression:
-                                                      "formData.sq_meter",
-                                                  },
-                                                ],
-                                                staticClass: "form-control",
-                                                attrs: {
-                                                  type: "number",
-                                                  id: "sq_meter",
-                                                  required: "",
-                                                  min: "0",
-                                                },
-                                                domProps: {
-                                                  value: _vm.formData.sq_meter,
-                                                },
-                                                on: {
-                                                  input: function ($event) {
-                                                    if (
-                                                      $event.target.composing
-                                                    ) {
-                                                      return
-                                                    }
-                                                    _vm.$set(
-                                                      _vm.formData,
-                                                      "sq_meter",
-                                                      $event.target.value
-                                                    )
-                                                  },
-                                                },
-                                              }),
-                                              _vm._v(" "),
-                                              _vm._m(14),
-                                            ]
-                                          ),
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("div", { staticClass: "col-md-4" }, [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "form-floating mb-3",
+                                            on: {
+                                              input: function ($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.formData,
+                                                  "bedrooms",
+                                                  $event.target.value
+                                                )
+                                              },
                                             },
-                                            [
-                                              _c("input", {
-                                                directives: [
-                                                  {
-                                                    name: "model",
-                                                    rawName: "v-model",
-                                                    value:
-                                                      _vm.formData.car_park,
-                                                    expression:
-                                                      "formData.car_park",
-                                                  },
-                                                ],
-                                                staticClass: "form-control",
-                                                attrs: {
-                                                  type: "number",
-                                                  id: "car_park",
-                                                  required: "",
-                                                  min: "0",
-                                                },
-                                                domProps: {
-                                                  value: _vm.formData.car_park,
-                                                },
-                                                on: {
-                                                  input: function ($event) {
-                                                    if (
-                                                      $event.target.composing
-                                                    ) {
-                                                      return
-                                                    }
-                                                    _vm.$set(
-                                                      _vm.formData,
-                                                      "car_park",
-                                                      $event.target.value
-                                                    )
-                                                  },
-                                                },
-                                              }),
-                                              _vm._v(" "),
-                                              _vm._m(15),
-                                            ]
-                                          ),
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("div", { staticClass: "col-md-4" }, [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "form-floating mb-3",
+                                          }),
+                                          _vm._v(" "),
+                                          _vm._m(12),
+                                        ]
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-md-4" }, [
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-floating mb-3" },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.formData.sq_meter,
+                                                expression: "formData.sq_meter",
+                                              },
+                                            ],
+                                            staticClass: "form-control",
+                                            attrs: {
+                                              type: "number",
+                                              id: "sq_meter",
+                                              required: "",
+                                              min: "0",
                                             },
-                                            [
-                                              _c("input", {
-                                                directives: [
-                                                  {
-                                                    name: "model",
-                                                    rawName: "v-model",
-                                                    value: _vm.formData.toilet,
-                                                    expression:
-                                                      "formData.toilet",
-                                                  },
-                                                ],
-                                                staticClass: "form-control",
-                                                attrs: {
-                                                  type: "number",
-                                                  id: "toilet",
-                                                  required: "",
-                                                  min: "0",
-                                                },
-                                                domProps: {
-                                                  value: _vm.formData.toilet,
-                                                },
-                                                on: {
-                                                  input: function ($event) {
-                                                    if (
-                                                      $event.target.composing
-                                                    ) {
-                                                      return
-                                                    }
-                                                    _vm.$set(
-                                                      _vm.formData,
-                                                      "toilet",
-                                                      $event.target.value
-                                                    )
-                                                  },
-                                                },
-                                              }),
-                                              _vm._v(" "),
-                                              _vm._m(16),
-                                            ]
-                                          ),
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("div", { staticClass: "col-md-4" }, [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "form-floating mb-3",
+                                            domProps: {
+                                              value: _vm.formData.sq_meter,
                                             },
-                                            [
-                                              _c("input", {
-                                                directives: [
-                                                  {
-                                                    name: "model",
-                                                    rawName: "v-model",
-                                                    value:
-                                                      _vm.formData.bathroom,
-                                                    expression:
-                                                      "formData.bathroom",
-                                                  },
-                                                ],
-                                                staticClass: "form-control",
-                                                attrs: {
-                                                  type: "number",
-                                                  id: "bathroom",
-                                                  required: "",
-                                                  min: "0",
-                                                },
-                                                domProps: {
-                                                  value: _vm.formData.bathroom,
-                                                },
-                                                on: {
-                                                  input: function ($event) {
-                                                    if (
-                                                      $event.target.composing
-                                                    ) {
-                                                      return
-                                                    }
-                                                    _vm.$set(
-                                                      _vm.formData,
-                                                      "bathroom",
-                                                      $event.target.value
-                                                    )
-                                                  },
-                                                },
-                                              }),
-                                              _vm._v(" "),
-                                              _vm._m(17),
-                                            ]
-                                          ),
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("div", { staticClass: "col-md-4" }, [
+                                            on: {
+                                              input: function ($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.formData,
+                                                  "sq_meter",
+                                                  $event.target.value
+                                                )
+                                              },
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _vm._m(13),
+                                        ]
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-md-4" }, [
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-floating mb-3" },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.formData.car_park,
+                                                expression: "formData.car_park",
+                                              },
+                                            ],
+                                            staticClass: "form-control",
+                                            attrs: {
+                                              type: "number",
+                                              id: "car_park",
+                                              required: "",
+                                              min: "0",
+                                            },
+                                            domProps: {
+                                              value: _vm.formData.car_park,
+                                            },
+                                            on: {
+                                              input: function ($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.formData,
+                                                  "car_park",
+                                                  $event.target.value
+                                                )
+                                              },
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _vm._m(14),
+                                        ]
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-md-4" }, [
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-floating mb-3" },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.formData.toilet,
+                                                expression: "formData.toilet",
+                                              },
+                                            ],
+                                            staticClass: "form-control",
+                                            attrs: {
+                                              type: "number",
+                                              id: "toilet",
+                                              required: "",
+                                              min: "0",
+                                            },
+                                            domProps: {
+                                              value: _vm.formData.toilet,
+                                            },
+                                            on: {
+                                              input: function ($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.formData,
+                                                  "toilet",
+                                                  $event.target.value
+                                                )
+                                              },
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _vm._m(15),
+                                        ]
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-md-4" }, [
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-floating mb-3" },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.formData.bathroom,
+                                                expression: "formData.bathroom",
+                                              },
+                                            ],
+                                            staticClass: "form-control",
+                                            attrs: {
+                                              type: "number",
+                                              id: "bathroom",
+                                              required: "",
+                                              min: "0",
+                                            },
+                                            domProps: {
+                                              value: _vm.formData.bathroom,
+                                            },
+                                            on: {
+                                              input: function ($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.formData,
+                                                  "bathroom",
+                                                  $event.target.value
+                                                )
+                                              },
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _vm._m(16),
+                                        ]
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-md-4" }, [
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-floating mb-3" },
+                                        [
                                           _c(
-                                            "div",
+                                            "select",
                                             {
-                                              staticClass: "form-floating mb-3",
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value:
+                                                    _vm.formData.furnishing,
+                                                  expression:
+                                                    "formData.furnishing",
+                                                },
+                                              ],
+                                              staticClass: "form-select",
+                                              attrs: { required: "" },
+                                              on: {
+                                                change: function ($event) {
+                                                  var $$selectedVal =
+                                                    Array.prototype.filter
+                                                      .call(
+                                                        $event.target.options,
+                                                        function (o) {
+                                                          return o.selected
+                                                        }
+                                                      )
+                                                      .map(function (o) {
+                                                        var val =
+                                                          "_value" in o
+                                                            ? o._value
+                                                            : o.value
+                                                        return val
+                                                      })
+                                                  _vm.$set(
+                                                    _vm.formData,
+                                                    "furnishing",
+                                                    $event.target.multiple
+                                                      ? $$selectedVal
+                                                      : $$selectedVal[0]
+                                                  )
+                                                },
+                                              },
                                             },
                                             [
                                               _c(
-                                                "select",
+                                                "option",
                                                 {
-                                                  directives: [
-                                                    {
-                                                      name: "model",
-                                                      rawName: "v-model",
-                                                      value:
-                                                        _vm.formData.furnishing,
-                                                      expression:
-                                                        "formData.furnishing",
-                                                    },
-                                                  ],
-                                                  staticClass: "form-select",
-                                                  attrs: { required: "" },
-                                                  on: {
-                                                    change: function ($event) {
-                                                      var $$selectedVal =
-                                                        Array.prototype.filter
-                                                          .call(
-                                                            $event.target
-                                                              .options,
-                                                            function (o) {
-                                                              return o.selected
-                                                            }
-                                                          )
-                                                          .map(function (o) {
-                                                            var val =
-                                                              "_value" in o
-                                                                ? o._value
-                                                                : o.value
-                                                            return val
-                                                          })
-                                                      _vm.$set(
-                                                        _vm.formData,
-                                                        "furnishing",
-                                                        $event.target.multiple
-                                                          ? $$selectedVal
-                                                          : $$selectedVal[0]
-                                                      )
-                                                    },
+                                                  attrs: {
+                                                    disabled: "",
+                                                    value: "",
                                                   },
                                                 },
                                                 [
-                                                  _c(
-                                                    "option",
-                                                    {
-                                                      attrs: {
-                                                        disabled: "",
-                                                        value: "",
-                                                      },
-                                                    },
-                                                    [
-                                                      _vm._v(
-                                                        "\n                                Select Furnishing\n                              "
-                                                      ),
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "option",
-                                                    {
-                                                      attrs: {
-                                                        value: "Furnished",
-                                                      },
-                                                    },
-                                                    [_vm._v("Furnished")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "option",
-                                                    {
-                                                      attrs: {
-                                                        value: "Semi-Furnished",
-                                                      },
-                                                    },
-                                                    [
-                                                      _vm._v(
-                                                        "\n                                Semi-Furnished\n                              "
-                                                      ),
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "option",
-                                                    {
-                                                      attrs: {
-                                                        value: "Unfurnished",
-                                                      },
-                                                    },
-                                                    [_vm._v("Unfurnished")]
+                                                  _vm._v(
+                                                    "\n                                Select Furnishing\n                              "
                                                   ),
                                                 ]
                                               ),
                                               _vm._v(" "),
-                                              _vm._m(18),
+                                              _c(
+                                                "option",
+                                                {
+                                                  attrs: { value: "Furnished" },
+                                                },
+                                                [_vm._v("Furnished")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                {
+                                                  attrs: {
+                                                    value: "Semi-Furnished",
+                                                  },
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                                Semi-Furnished\n                              "
+                                                  ),
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                {
+                                                  attrs: {
+                                                    value: "Unfurnished",
+                                                  },
+                                                },
+                                                [_vm._v("Unfurnished")]
+                                              ),
                                             ]
                                           ),
-                                        ]),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-md-12" },
-                                          [
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "form-floating mb-3",
+                                          _vm._v(" "),
+                                          _vm._m(17),
+                                        ]
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", { staticClass: "col-md-12" }, [
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-floating mb-3" },
+                                        [
+                                          _c("input", {
+                                            staticClass: "form-control",
+                                            attrs: {
+                                              type: "file",
+                                              id: "image",
+                                              accept: "image/*",
+                                            },
+                                            on: {
+                                              change: function ($event) {
+                                                return _vm.handleFileUpload(
+                                                  $event,
+                                                  "image"
+                                                )
                                               },
-                                              [
-                                                _c("input", {
-                                                  staticClass: "form-control",
-                                                  attrs: {
-                                                    type: "file",
-                                                    id: "image",
-                                                    accept: "image/*",
-                                                  },
-                                                  on: {
-                                                    change: function ($event) {
-                                                      return _vm.handleFileUpload(
-                                                        $event,
-                                                        "image"
-                                                      )
-                                                    },
-                                                  },
-                                                }),
-                                                _vm._v(" "),
-                                                _vm._m(19),
-                                              ]
-                                            ),
-                                          ]
-                                        ),
-                                      ]),
-                                    ]
-                                  ),
-                                ]
-                              ),
+                                            },
+                                          }),
+                                          _vm._v(" "),
+                                          _vm._m(18),
+                                        ]
+                                      ),
+                                    ]),
+                                  ]),
+                                ]),
+                              ]),
                             ]
                           ),
                           _vm._v(" "),
@@ -82919,64 +82769,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "ul",
-      {
-        staticClass: "nav nav-tabs",
-        attrs: { id: "propertyTabs", role: "tablist" },
-      },
-      [
-        _c("li", { staticClass: "nav-item", attrs: { role: "presentation" } }, [
-          _c(
-            "button",
-            {
-              staticClass: "nav-link active",
-              attrs: {
-                id: "location-tab",
-                "data-bs-toggle": "tab",
-                "data-bs-target": "#location",
-                type: "button",
-                role: "tab",
-                "aria-controls": "location",
-                "aria-selected": "true",
-              },
-            },
-            [
-              _c("i", { staticClass: "fas fa-map-marker-alt" }),
-              _vm._v(" Location\n                      "),
-            ]
-          ),
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "nav-item", attrs: { role: "presentation" } }, [
-          _c(
-            "button",
-            {
-              staticClass: "nav-link",
-              attrs: {
-                id: "features-tab",
-                "data-bs-toggle": "tab",
-                "data-bs-target": "#features",
-                type: "button",
-                role: "tab",
-                "aria-controls": "features",
-                "aria-selected": "false",
-              },
-            },
-            [
-              _c("i", { staticClass: "fas fa-couch" }),
-              _vm._v(" Features & Amenities\n                      "),
-            ]
-          ),
-        ]),
-      ]
-    )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "date_created" } }, [
+    return _c("label", { attrs: { for: "province" } }, [
       _vm._v("Province\n                              "),
       _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
     ])

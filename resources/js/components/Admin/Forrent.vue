@@ -69,7 +69,7 @@
 
             <!-- Action Buttons -->
             <div class="col-md-2 d-flex justify-content-end gap-2">
-               <button
+              <button
                 class="btn btn-secondary"
                 type="button"
                 @click="getDataProperties"
@@ -83,12 +83,9 @@
               >
                 <i class="fas fa-plus"></i> Create
               </button>
-             
             </div>
           </div>
           <div class="table-responsive">
-        
-
             <table>
               <thead>
                 <tr>
@@ -262,6 +259,7 @@
               </ul>
             </nav>
 
+            <!-- Property Modal -->
             <div
               class="modal fade"
               id="modalProperty"
@@ -298,8 +296,10 @@
                     style="max-height: 70vh; overflow-y: auto"
                   >
                     <div class="row">
+                      <!-- General Info -->
                       <div class="col-md-12">
-                        <!-- Date Created -->
+                        <h5 class="text-success mb-3">General Information</h5>
+
                         <div class="form-floating mb-3">
                           <input
                             type="date"
@@ -314,7 +314,6 @@
                           >
                         </div>
 
-                        <!-- Property Name -->
                         <div class="form-floating mb-3">
                           <input
                             type="text"
@@ -330,7 +329,6 @@
                           >
                         </div>
 
-                        <!-- Description of Property -->
                         <div class="form-floating mb-3">
                           <textarea
                             class="form-control"
@@ -346,7 +344,6 @@
                           >
                         </div>
 
-                        <!-- Property Type -->
                         <div class="form-floating mb-3">
                           <select
                             class="form-select"
@@ -368,7 +365,6 @@
                           >
                         </div>
 
-                        <!-- Monthly Rate -->
                         <div class="form-floating mb-3">
                           <input
                             type="number"
@@ -385,50 +381,10 @@
                           >
                         </div>
                       </div>
-                    </div>
-                    <!-- Nav Tabs -->
-                    <ul class="nav nav-tabs" id="propertyTabs" role="tablist">
-                      <li class="nav-item" role="presentation">
-                        <button
-                          class="nav-link active"
-                          id="location-tab"
-                          data-bs-toggle="tab"
-                          data-bs-target="#location"
-                          type="button"
-                          role="tab"
-                          aria-controls="location"
-                          aria-selected="true"
-                        >
-                          <i class="fas fa-map-marker-alt"></i> Location
-                        </button>
-                      </li>
-                      <li class="nav-item" role="presentation">
-                        <button
-                          class="nav-link"
-                          id="features-tab"
-                          data-bs-toggle="tab"
-                          data-bs-target="#features"
-                          type="button"
-                          role="tab"
-                          aria-controls="features"
-                          aria-selected="false"
-                        >
-                          <i class="fas fa-couch"></i> Features & Amenities
-                        </button>
-                      </li>
-                    </ul>
 
-                    <!-- Tab Content -->
-                    <div class="tab-content pt-3" id="propertyTabsContent">
-                      <!-- Location Tab -->
-                      <div
-                        class="tab-pane fade show active"
-                        id="location"
-                        role="tabpanel"
-                        aria-labelledby="location-tab"
-                      >
-                        <!-- Your location form inputs go here -->
-
+                      <!-- Location -->
+                      <div class="col-md-12 mt-2">
+                        <h5 class="text-success mb-3">Location</h5>
                         <div class="row">
                           <div class="col-md-4">
                             <div class="form-floating mb-3">
@@ -439,7 +395,7 @@
                                 v-model="formData.province"
                                 required
                               />
-                              <label for="date_created"
+                              <label for="province"
                                 >Province
                                 <span class="text-danger">*</span></label
                               >
@@ -508,14 +464,9 @@
                         </div>
                       </div>
 
-                      <!-- Features & Amenities Tab -->
-                      <div
-                        class="tab-pane fade"
-                        id="features"
-                        role="tabpanel"
-                        aria-labelledby="features-tab"
-                      >
-                        <!-- Your features form inputs go here -->
+                      <!-- Features -->
+                      <div class="col-md-12 mt-2">
+                        <h5 class="text-success mb-3">Features & Amenities</h5>
                         <div class="row">
                           <div class="col-md-4">
                             <div class="form-floating mb-3">
@@ -636,8 +587,6 @@
                           </div>
                         </div>
                       </div>
-
-                      <!-- Photos Tab -->
                     </div>
                   </div>
 
@@ -651,12 +600,9 @@
                       :disabled="isSubmitting"
                       @click="submitProperties"
                     >
-                      <!-- Spinner icon while submitting -->
                       <span v-if="isSubmitting">
                         <i class="fas fa-spinner fa-spin me-2"></i> Saving...
                       </span>
-
-                      <!-- Add or Edit icon and label -->
                       <span v-else>
                         <i class="fas fa-save me-2"></i>
                         {{
