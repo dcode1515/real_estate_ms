@@ -93,7 +93,7 @@
                       />
                       <label for="lease_start_date"
                         >Lease Start Date
-                        <span class="text-danger">*</span></label
+                      </label
                       >
                     </div>
                   </div>
@@ -108,7 +108,7 @@
                       />
                       <label for="lease_end_date"
                         >Lease End Date
-                        <span class="text-danger">*</span></label
+                       </label
                       >
                     </div>
                   </div>
@@ -138,7 +138,7 @@
                   />
                   <label for="rent_amount"
                     >Monthly Rent Amount
-                    <span class="text-danger">*</span></label
+                   </label
                   >
                   <i
                     class="bi bi-cash-coin position-absolute top-50 end-0 translate-middle-y me-3"
@@ -203,7 +203,7 @@
                   />
                   <label for="lease_documents"
                     >Upload Lease Documents
-                    <span class="text-danger">*</span></label
+                   </label
                   >
                   <i
                     class="bi bi-upload position-absolute top-50 end-0 translate-middle-y me-3"
@@ -485,8 +485,8 @@ export default {
           title: "Success",
           text:
             this.modalMode === "add"
-              ? "Property successfully added!"
-              : "Property successfully updated!",
+              ? "Tenancy successfully added!"
+              : "Tenancy successfully added!",
           confirmButtonText: "OK",
         }).then(() => {
           window.location.href = "/real_estate_ms/show/tenancy";
@@ -541,56 +541,56 @@ export default {
     },
 
     openModal() {
-      this.formErrors = [];
+      // this.formErrors = [];
 
-      // Validate form fields
-      if (!this.formData.propertyAvailed) {
-        this.formErrors.push("Property is required.");
-      }
-      if (!this.formData.tenant) {
-        this.formErrors.push("Tenant is required.");
-      }
-      if (!this.formData.leaseStartDate) {
-        this.formErrors.push("Lease Start Date is required.");
-      }
-      if (!this.formData.leaseEndDate) {
-        this.formErrors.push("Lease End Date is required.");
-      }
-      if (!this.formData.monthlyRent || this.formData.monthlyRent <= 0) {
-        this.formErrors.push("Monthly Rent must be a positive number.");
-      }
-      if (!this.formData.tenancyTerms) {
-        this.formErrors.push("Tenancy Terms are required.");
-      }
+    
+      // if (!this.formData.propertyAvailed) {
+      //   this.formErrors.push("Property is required.");
+      // }
+      // if (!this.formData.tenant) {
+      //   this.formErrors.push("Tenant is required.");
+      // }
+      // if (!this.formData.leaseStartDate) {
+      //   this.formErrors.push("Lease Start Date is required.");
+      // }
+      // if (!this.formData.leaseEndDate) {
+      //   this.formErrors.push("Lease End Date is required.");
+      // }
+      // if (!this.formData.monthlyRent || this.formData.monthlyRent <= 0) {
+      //   this.formErrors.push("Monthly Rent must be a positive number.");
+      // }
+      // if (!this.formData.tenancyTerms) {
+      //   this.formErrors.push("Tenancy Terms are required.");
+      // }
 
-      // File validation for upload_lease_document
-      if (!this.formData.upload_lease_document) {
-        this.formErrors.push("Lease document is required.");
-      } else {
-        const file = this.formData.upload_lease_document;
-        const fileExtension = file.name.split(".").pop().toLowerCase();
-        if (fileExtension !== "pdf") {
-          this.formErrors.push("Lease document must be a PDF.");
-        }
-      }
+     
+      // if (!this.formData.upload_lease_document) {
+      //   this.formErrors.push("Lease document is required.");
+      // } else {
+      //   const file = this.formData.upload_lease_document;
+      //   const fileExtension = file.name.split(".").pop().toLowerCase();
+      //   if (fileExtension !== "pdf") {
+      //     this.formErrors.push("Lease document must be a PDF.");
+      //   }
+      // }
 
-      // If there are errors, show them and prevent opening modal
-      if (this.formErrors.length > 0) {
-        let errorMessages = '<ul style="text-align: left;">';
-        this.formErrors.forEach((error) => {
-          errorMessages += `<li>${error}</li>`;
-        });
-        errorMessages += "</ul>";
+     
+      // if (this.formErrors.length > 0) {
+      //   let errorMessages = '<ul style="text-align: left;">';
+      //   this.formErrors.forEach((error) => {
+      //     errorMessages += `<li>${error}</li>`;
+      //   });
+      //   errorMessages += "</ul>";
 
-        Swal.fire({
-          icon: "error",
-          title: "Please correct the errors",
-          html: errorMessages,
-        });
-        return;
-      }
+      //   Swal.fire({
+      //     icon: "error",
+      //     title: "Please correct the errors",
+      //     html: errorMessages,
+      //   });
+      //   return;
+      // }
 
-      // If no errors, show the modal
+      
       $("#confirmTenancyModal").modal("show");
     },
 

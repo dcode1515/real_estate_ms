@@ -603,7 +603,19 @@ class AdminController extends Controller
     public function store_tenancy_lease(Request $request)
     {
         
-        // Check if the tenant already has a rented property
+         $request->validate([
+                'propertyAvailed' => 'required|exists:property,id',
+                'tenant' => 'required|exists:tenant,id',
+                'leaseStartDate' => 'nullable|date|before_or_equal:leaseEndDate',
+                'leaseEndDate' => 'nullable|date|after_or_equal:leaseStartDate',
+                'monthlyRent' => 'nullable',
+                'leaseDuration' => 'nullable',
+                'totalAmount' => 'nullable',
+                'tenancyTerms' => 'nullable|string',
+                'nextPaymentDate' => 'nullable|date|after_or_equal:leaseStartDate',
+                'upload_lease_document' => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:2048', // example file validation
+            ]);
+
         $existingTenancy = Tenancy::where('tenant_id', $request->tenant)
             ->where('status', 'Rented')
             ->first();
@@ -663,19 +675,36 @@ class AdminController extends Controller
 
     public function update_tenancy_lease(Request $request,$id){
         
-     
+        $request->validate([
+                'propertyAvailed' => 'nullable|exists:property,id',
+                'tenant' => 'nullable|exists:tenant,id',
+                'leaseStartDate' => 'nullable|date|before_or_equal:leaseEndDate',
+                'leaseEndDate' => 'nullable|date|after_or_equal:leaseStartDate',
+                'monthlyRent' => 'nullable',
+                'leaseDuration' => 'nullable',
+                'totalAmount' => 'nullable',
+                'tenancyTerms' => 'nullable|string',
+                'nextPaymentDate' => 'nullable|date|after_or_equal:leaseStartDate',
+                'upload_lease_document' => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:2048', // example file validation
+            ]);
      
         $tenancy  = Tenancy::find($id);
-        // $tenancy->property_id = $tenancy->property_id;
-        // $tenancy->tenant_id = $tenanct->tenant_id;
-        $tenancy->lease_start_date = $request->lease_start_date;
-        $tenancy->lease_end_date = $request->lease_end_date;
-        $tenancy->due_date = Carbon::parse($request->nextPaymentDate)->addMonth();
-        $tenancy->monthly_rent_amount = $request->monthlyRentAmount;
-        $tenancy->lease_duration = $request->leaseDuration;
-        $tenancy->total_amount = $request->overAllTotal;
-        $tenancy->tenancy_terms = $request->tenancyTerms;
-        
+       
+        $tenancy->lease_start_date = ($request->lease_start_date === 'null' || empty($request->lease_start_date)) ? null : $request->lease_start_date;
+
+        $tenancy->lease_end_date = ($request->lease_end_date === 'null' || empty($request->lease_end_date)) ? null : $request->lease_end_date;
+
+        $tenancy->monthly_rent_amount = ($request->monthlyRentAmount === 'null' || empty($request->monthlyRentAmount)) ? null : $request->monthlyRentAmount;
+
+        $tenancy->lease_duration = ($request->leaseDuration === 'null' || empty($request->leaseDuration)) ? null : $request->leaseDuration;
+
+        $tenancy->total_amount = ($request->overAllTotal === 'null' || empty($request->overAllTotal)) ? null : $request->overAllTotal;
+
+        $tenancy->tenancy_terms = ($request->tenancyTerms === 'null' || empty($request->tenancyTerms)) ? null : $request->tenancyTerms;
+
+            
+        $tenancy->due_date = $request->nextPaymentDate;
+       
 
         $fileFields = ['upload_lease_document'];
         $uploadPath = public_path('TenancyLeases/' . $tenancy->transaction_no);

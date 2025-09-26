@@ -459,7 +459,7 @@
                       <span v-else>
                         <i class="fas fa-save me-2"></i>
                         {{
-                          modalMode === "add" ? "Add Property" : "Save Changes"
+                          modalMode === "add" ? "Add Property" : "Update"
                         }}
                       </span>
                     </button>
@@ -569,8 +569,8 @@ export default {
           title: "Success",
           text:
             this.modalMode === "add"
-              ? "Property successfully added!"
-              : "Property successfully updated!",
+              ? "Tenancy successfully added!"
+              : "Tenancy successfully updated!",
           confirmButtonText: "OK",
         }).then(() => {
           window.location.href = "/real_estate_ms/show/tenancy";
@@ -783,24 +783,24 @@ export default {
       },
     };
   },
-  watch: {
-    "formData.lease_start_date": "computeLeaseDetails",
-    "formData.lease_end_date": "computeLeaseDetails",
-    "formData.monthlyRentAmount": "computeTotalAmount",
+watch: {
+  "formData.lease_start_date": function(newDate) {
+    if (!newDate) {
+      this.formData.nextPaymentDate = "";
+      return;
+    }
 
-    "formData.leaseStartDate"(newDate) {
-      if (!newDate) {
-        this.formData.nextPaymentDate = "";
-        return;
-      }
+    const date = new Date(newDate);
+    date.setMonth(date.getMonth() + 1);
 
-      const date = new Date(newDate);
-      date.setMonth(date.getMonth() + 1);
-
-      // Format as yyyy-mm-dd
-      this.formData.nextPaymentDate = date.toISOString().split("T")[0];
-    },
+    // Format as yyyy-mm-dd
+    this.formData.nextPaymentDate = date.toISOString().split("T")[0];
   },
+
+  "formData.lease_end_date": "computeLeaseDetails",
+  "formData.monthlyRentAmount": "computeTotalAmount",
+},
+
   computed: {
     totalPages() {
       return Math.ceil(this.tenancies.total / this.tenancies.per_page);

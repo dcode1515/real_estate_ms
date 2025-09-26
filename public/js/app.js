@@ -5750,7 +5750,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
               sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
                 icon: "success",
                 title: "Success",
-                text: _this.modalMode === "add" ? "Property successfully added!" : "Property successfully updated!",
+                text: _this.modalMode === "add" ? "Tenancy successfully added!" : "Tenancy successfully added!",
                 confirmButtonText: "OK"
               }).then(function () {
                 window.location.href = "/real_estate_ms/show/tenancy";
@@ -5814,55 +5814,52 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
       }))();
     },
     openModal: function openModal() {
-      this.formErrors = [];
+      // this.formErrors = [];
 
-      // Validate form fields
-      if (!this.formData.propertyAvailed) {
-        this.formErrors.push("Property is required.");
-      }
-      if (!this.formData.tenant) {
-        this.formErrors.push("Tenant is required.");
-      }
-      if (!this.formData.leaseStartDate) {
-        this.formErrors.push("Lease Start Date is required.");
-      }
-      if (!this.formData.leaseEndDate) {
-        this.formErrors.push("Lease End Date is required.");
-      }
-      if (!this.formData.monthlyRent || this.formData.monthlyRent <= 0) {
-        this.formErrors.push("Monthly Rent must be a positive number.");
-      }
-      if (!this.formData.tenancyTerms) {
-        this.formErrors.push("Tenancy Terms are required.");
-      }
+      // if (!this.formData.propertyAvailed) {
+      //   this.formErrors.push("Property is required.");
+      // }
+      // if (!this.formData.tenant) {
+      //   this.formErrors.push("Tenant is required.");
+      // }
+      // if (!this.formData.leaseStartDate) {
+      //   this.formErrors.push("Lease Start Date is required.");
+      // }
+      // if (!this.formData.leaseEndDate) {
+      //   this.formErrors.push("Lease End Date is required.");
+      // }
+      // if (!this.formData.monthlyRent || this.formData.monthlyRent <= 0) {
+      //   this.formErrors.push("Monthly Rent must be a positive number.");
+      // }
+      // if (!this.formData.tenancyTerms) {
+      //   this.formErrors.push("Tenancy Terms are required.");
+      // }
 
-      // File validation for upload_lease_document
-      if (!this.formData.upload_lease_document) {
-        this.formErrors.push("Lease document is required.");
-      } else {
-        var file = this.formData.upload_lease_document;
-        var fileExtension = file.name.split(".").pop().toLowerCase();
-        if (fileExtension !== "pdf") {
-          this.formErrors.push("Lease document must be a PDF.");
-        }
-      }
+      // if (!this.formData.upload_lease_document) {
+      //   this.formErrors.push("Lease document is required.");
+      // } else {
+      //   const file = this.formData.upload_lease_document;
+      //   const fileExtension = file.name.split(".").pop().toLowerCase();
+      //   if (fileExtension !== "pdf") {
+      //     this.formErrors.push("Lease document must be a PDF.");
+      //   }
+      // }
 
-      // If there are errors, show them and prevent opening modal
-      if (this.formErrors.length > 0) {
-        var errorMessages = '<ul style="text-align: left;">';
-        this.formErrors.forEach(function (error) {
-          errorMessages += "<li>".concat(error, "</li>");
-        });
-        errorMessages += "</ul>";
-        sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
-          icon: "error",
-          title: "Please correct the errors",
-          html: errorMessages
-        });
-        return;
-      }
+      // if (this.formErrors.length > 0) {
+      //   let errorMessages = '<ul style="text-align: left;">';
+      //   this.formErrors.forEach((error) => {
+      //     errorMessages += `<li>${error}</li>`;
+      //   });
+      //   errorMessages += "</ul>";
 
-      // If no errors, show the modal
+      //   Swal.fire({
+      //     icon: "error",
+      //     title: "Please correct the errors",
+      //     html: errorMessages,
+      //   });
+      //   return;
+      // }
+
       $("#confirmTenancyModal").modal("show");
     },
     fetchTenants: function fetchTenants() {
@@ -10405,7 +10402,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
                 icon: "success",
                 title: "Success",
-                text: _this2.modalMode === "add" ? "Property successfully added!" : "Property successfully updated!",
+                text: _this2.modalMode === "add" ? "Tenancy successfully added!" : "Tenancy successfully updated!",
                 confirmButtonText: "OK"
               }).then(function () {
                 window.location.href = "/real_estate_ms/show/tenancy";
@@ -10618,10 +10615,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
     };
   },
   watch: {
-    "formData.lease_start_date": "computeLeaseDetails",
-    "formData.lease_end_date": "computeLeaseDetails",
-    "formData.monthlyRentAmount": "computeTotalAmount",
-    "formData.leaseStartDate": function formDataLeaseStartDate(newDate) {
+    "formData.lease_start_date": function formDataLease_start_date(newDate) {
       if (!newDate) {
         this.formData.nextPaymentDate = "";
         return;
@@ -10631,7 +10625,9 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 
       // Format as yyyy-mm-dd
       this.formData.nextPaymentDate = date.toISOString().split("T")[0];
-    }
+    },
+    "formData.lease_end_date": "computeLeaseDetails",
+    "formData.monthlyRentAmount": "computeTotalAmount"
   },
   computed: {
     totalPages: function totalPages() {
@@ -80524,7 +80520,9 @@ var render = function () {
                           },
                         }),
                         _vm._v(" "),
-                        _vm._m(3),
+                        _c("label", { attrs: { for: "lease_start_date" } }, [
+                          _vm._v("Lease Start Date\n                    "),
+                        ]),
                       ]
                     ),
                   ]),
@@ -80564,7 +80562,9 @@ var render = function () {
                           },
                         }),
                         _vm._v(" "),
-                        _vm._m(4),
+                        _c("label", { attrs: { for: "lease_end_date" } }, [
+                          _vm._v("Lease End Date\n                     "),
+                        ]),
                       ]
                     ),
                   ]),
@@ -80647,7 +80647,9 @@ var render = function () {
                       },
                     }),
                     _vm._v(" "),
-                    _vm._m(5),
+                    _c("label", { attrs: { for: "rent_amount" } }, [
+                      _vm._v("Monthly Rent Amount\n                 "),
+                    ]),
                     _vm._v(" "),
                     _c("i", {
                       staticClass:
@@ -80678,7 +80680,7 @@ var render = function () {
                           on: { input: _vm.updateLeaseDuration },
                         }),
                         _vm._v(" "),
-                        _vm._m(6),
+                        _vm._m(3),
                       ]
                     ),
                   ]),
@@ -80705,7 +80707,7 @@ var render = function () {
                           on: { input: _vm.updateTotalAmount },
                         }),
                         _vm._v(" "),
-                        _vm._m(7),
+                        _vm._m(4),
                       ]
                     ),
                   ]),
@@ -80732,7 +80734,9 @@ var render = function () {
                       },
                     }),
                     _vm._v(" "),
-                    _vm._m(8),
+                    _c("label", { attrs: { for: "lease_documents" } }, [
+                      _vm._v("Upload Lease Documents\n                 "),
+                    ]),
                     _vm._v(" "),
                     _c("i", {
                       staticClass:
@@ -80775,7 +80779,7 @@ var render = function () {
                       },
                     }),
                     _vm._v(" "),
-                    _vm._m(9),
+                    _vm._m(5),
                   ]
                 ),
               ]),
@@ -80827,16 +80831,16 @@ var render = function () {
               "div",
               { staticClass: "modal-content border-0 shadow-lg rounded-4" },
               [
-                _vm._m(10),
+                _vm._m(6),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _vm._m(11),
+                  _vm._m(7),
                   _vm._v(" "),
                   _c(
                     "table",
                     { staticClass: "table table-bordered table-striped" },
                     [
-                      _vm._m(12),
+                      _vm._m(8),
                       _vm._v(" "),
                       _c("tbody", [
                         _c("tr", [
@@ -80916,11 +80920,11 @@ var render = function () {
                     ]
                   ),
                   _vm._v(" "),
-                  _vm._m(13),
+                  _vm._m(9),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-footer" }, [
-                  _vm._m(14),
+                  _vm._m(10),
                   _vm._v(" "),
                   _c(
                     "button",
@@ -80992,33 +80996,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "lease_start_date" } }, [
-      _vm._v("Lease Start Date\n                      "),
-      _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "lease_end_date" } }, [
-      _vm._v("Lease End Date\n                      "),
-      _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "rent_amount" } }, [
-      _vm._v("Monthly Rent Amount\n                  "),
-      _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "lease_duration" } }, [
       _c("i", { staticClass: "bi bi-calendar-week me-2" }),
       _vm._v(" Lease Duration\n                    "),
@@ -81033,15 +81010,6 @@ var staticRenderFns = [
       _vm._v(
         " Over All Total\n                      Amount\n                    "
       ),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "lease_documents" } }, [
-      _vm._v("Upload Lease Documents\n                  "),
-      _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
     ])
   },
   function () {
@@ -89062,7 +89030,7 @@ var render = function () {
                                             _vm._s(
                                               _vm.modalMode === "add"
                                                 ? "Add Property"
-                                                : "Save Changes"
+                                                : "Update"
                                             ) +
                                             "\n                    "
                                         ),
