@@ -80584,11 +80584,7 @@ var render = function () {
                             },
                           ],
                           staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            id: "next_payment_date",
-                            readonly: "",
-                          },
+                          attrs: { type: "date", id: "next_payment_date" },
                           domProps: { value: _vm.formData.nextPaymentDate },
                           on: {
                             input: function ($event) {
@@ -88787,9 +88783,8 @@ var render = function () {
                                             ],
                                             staticClass: "form-control",
                                             attrs: {
-                                              type: "text",
+                                              type: "date",
                                               id: "next_payment_date",
-                                              disabled: "",
                                             },
                                             domProps: {
                                               value:

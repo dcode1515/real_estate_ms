@@ -357,11 +357,11 @@
                           <div class="col-lg-12">
                             <div class="form-floating mb-3 position-relative">
                               <input
-                                type="text"
+                                type="date"
                                 class="form-control"
                                 id="next_payment_date"
                                 v-model="formData.nextPaymentDate"
-                                disabled
+                                
                               />
                               <label for="next_payment_date"
                                 >Next Payment Date</label
