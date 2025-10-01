@@ -26,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        config(['app.version' => trim(exec('git rev-parse --short HEAD'))]);
         //
         View::composer('*', function ($view) {
         $totalProperties = Property::count();
