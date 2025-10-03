@@ -9808,8 +9808,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_select_dist_vue_select_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-select/dist/vue-select.css */ "./node_modules/vue-select/dist/vue-select.css");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_2__);
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
@@ -10290,19 +10293,110 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    vSelect: (vue_select__WEBPACK_IMPORTED_MODULE_0___default())
+  },
   methods: {
-    deleteTenancy: function deleteTenancy(tenancy) {
+    fetchProperties: function fetchProperties() {
       var _this = this;
       return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-        var confirmation, response, _t;
+        var response, _t;
         return _regenerator().w(function (_context) {
           while (1) switch (_context.p = _context.n) {
             case 0:
+              _context.p = 0;
               _context.n = 1;
-              return sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+              return axios.get("/real_estate_ms/api/get/available/property");
+            case 1:
+              response = _context.v;
+              // Directly use the data as an array of objects
+              _this.properties = response.data;
+              _context.n = 3;
+              break;
+            case 2:
+              _context.p = 2;
+              _t = _context.v;
+              console.error("Error fetching properties:", _t);
+            case 3:
+              return _context.a(2);
+          }
+        }, _callee, null, [[0, 2]]);
+      }))();
+    },
+    getOptionLabel: function getOptionLabel(property) {
+      return "".concat(property.property_name, " (").concat(property.monthly_rate, ")"); // This will show the property name and monthly rate
+    },
+    fetchTenants: function fetchTenants() {
+      var _this2 = this;
+      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+        var response, _t2;
+        return _regenerator().w(function (_context2) {
+          while (1) switch (_context2.p = _context2.n) {
+            case 0:
+              _context2.p = 0;
+              _context2.n = 1;
+              return axios.get("/real_estate_ms/api/get/available/tenant");
+            case 1:
+              response = _context2.v;
+              // Directly use the data as an array of objects
+              _this2.tenants = response.data;
+              _context2.n = 3;
+              break;
+            case 2:
+              _context2.p = 2;
+              _t2 = _context2.v;
+              console.error("Error fetching properties:", _t2);
+            case 3:
+              return _context2.a(2);
+          }
+        }, _callee2, null, [[0, 2]]);
+      }))();
+    },
+    getOptionLabelTenant: function getOptionLabelTenant(tenant) {
+      return "".concat(tenant.tenant_name, " (").concat(tenant.contact_number, ")"); // This will show the property name and monthly rate
+    },
+    deleteTenancy: function deleteTenancy(tenancy) {
+      var _this3 = this;
+      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
+        var confirmation, response, _t3;
+        return _regenerator().w(function (_context3) {
+          while (1) switch (_context3.p = _context3.n) {
+            case 0:
+              _context3.n = 1;
+              return sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
                 title: "Are you sure?",
                 text: "You are about to delete tenancy for: ".concat(tenancy.tenant.tenant_name),
                 icon: "warning",
@@ -10311,20 +10405,20 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
                 cancelButtonText: "Cancel"
               });
             case 1:
-              confirmation = _context.v;
+              confirmation = _context3.v;
               if (confirmation.isConfirmed) {
-                _context.n = 2;
+                _context3.n = 2;
                 break;
               }
-              return _context.a(2);
+              return _context3.a(2);
             case 2:
-              _context.p = 2;
-              _context.n = 3;
+              _context3.p = 2;
+              _context3.n = 3;
               return axios["delete"]("/real_estate_ms/api/delete/tenancy/".concat(tenancy.id));
             case 3:
-              response = _context.v;
-              _context.n = 4;
-              return sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+              response = _context3.v;
+              _context3.n = 4;
+              return sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
                 title: "Deleted!",
                 text: response.data.success || "Tenancy deleted successfully.",
                 icon: "success",
@@ -10333,103 +10427,105 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
             case 4:
               // Optionally refresh data or redirect
               // window.location.href = "/real_estate_ms/show/tenancy";
-              _this.getDataTenancy();
-              _context.n = 9;
+              _this3.getDataTenancy();
+              _context3.n = 9;
               break;
             case 5:
-              _context.p = 5;
-              _t = _context.v;
-              if (!(_t.response && _t.response.status === 422)) {
-                _context.n = 7;
+              _context3.p = 5;
+              _t3 = _context3.v;
+              if (!(_t3.response && _t3.response.status === 422)) {
+                _context3.n = 7;
                 break;
               }
-              _context.n = 6;
-              return sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+              _context3.n = 6;
+              return sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
                 title: "Cannot Delete",
-                text: _t.response.data.error || "This tenancy has payments and cannot be deleted.",
+                text: _t3.response.data.error || "This tenancy has payments and cannot be deleted.",
                 icon: "error"
               });
             case 6:
-              _context.n = 9;
+              _context3.n = 9;
               break;
             case 7:
-              _context.n = 8;
-              return sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+              _context3.n = 8;
+              return sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
                 title: "Unexpected Error",
                 text: "Something went wrong while trying to delete the tenancy.",
                 icon: "error"
               });
             case 8:
-              console.error(_t);
+              console.error(_t3);
             case 9:
-              return _context.a(2);
+              return _context3.a(2);
           }
-        }, _callee, null, [[2, 5]]);
+        }, _callee3, null, [[2, 5]]);
       }))();
     },
     submitForm: function submitForm(id) {
-      var _this2 = this;
-      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
-        var formData, response, data, errorMessages, key, _t2;
-        return _regenerator().w(function (_context2) {
-          while (1) switch (_context2.p = _context2.n) {
+      var _this4 = this;
+      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4() {
+        var formData, response, data, errorMessages, key, _t4;
+        return _regenerator().w(function (_context4) {
+          while (1) switch (_context4.p = _context4.n) {
             case 0:
-              _context2.p = 0;
-              _this2.isSubmitting = true;
+              _context4.p = 0;
+              _this4.isSubmitting = true;
               formData = new FormData(); // formData.append("property", this.formData.property);
               // formData.append("tenant", this.formData.tenant);
-              formData.append("lease_start_date", _this2.formData.lease_start_date);
-              formData.append("lease_end_date", _this2.formData.lease_end_date);
-              formData.append("nextPaymentDate", _this2.formData.nextPaymentDate);
-              formData.append("monthlyRentAmount", _this2.formData.monthlyRentAmount);
-              formData.append("leaseDuration", _this2.formData.leaseDuration);
-              formData.append("overAllTotal", _this2.formData.overAllTotal);
-              formData.append("tenancyTerms", _this2.formData.tenancyTerms);
+              formData.append("lease_start_date", _this4.formData.lease_start_date);
+              formData.append("lease_end_date", _this4.formData.lease_end_date);
+              formData.append("nextPaymentDate", _this4.formData.nextPaymentDate);
+              formData.append("property", _this4.formData.property);
+              formData.append("tenant", _this4.formData.tenant);
+              formData.append("monthlyRentAmount", _this4.formData.monthlyRentAmount);
+              formData.append("leaseDuration", _this4.formData.leaseDuration);
+              formData.append("overAllTotal", _this4.formData.overAllTotal);
+              formData.append("tenancyTerms", _this4.formData.tenancyTerms);
 
               // If file is selected, append it to formData
-              if (_this2.formData.upload_lease_document instanceof File) {
-                formData.append("upload_lease_document", _this2.formData.upload_lease_document);
+              if (_this4.formData.upload_lease_document instanceof File) {
+                formData.append("upload_lease_document", _this4.formData.upload_lease_document);
               }
-              _context2.n = 1;
+              _context4.n = 1;
               return axios.post("/real_estate_ms/api/update/tenancy/" + id, formData, {
                 headers: {
                   "Content-Type": "multipart/form-data"
                 }
               });
             case 1:
-              response = _context2.v;
+              response = _context4.v;
               // If successful, show a success message
-              sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+              sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
                 icon: "success",
                 title: "Success",
-                text: _this2.modalMode === "add" ? "Tenancy successfully added!" : "Tenancy successfully updated!",
+                text: _this4.modalMode === "add" ? "Tenancy successfully added!" : "Tenancy successfully updated!",
                 confirmButtonText: "OK"
               }).then(function () {
                 window.location.href = "/real_estate_ms/show/tenancy";
               });
-              _context2.n = 5;
+              _context4.n = 5;
               break;
             case 2:
-              _context2.p = 2;
-              _t2 = _context2.v;
-              console.error(_t2);
+              _context4.p = 2;
+              _t4 = _context4.v;
+              console.error(_t4);
 
               // Check if the error response is from Laravel validation (422)
-              if (!(_t2.response && _t2.response.status === 422)) {
-                _context2.n = 4;
+              if (!(_t4.response && _t4.response.status === 422)) {
+                _context4.n = 4;
                 break;
               }
-              data = _t2.response.data; // 1. Custom 'exist' error from Laravel controller (duplicate tenancy)
+              data = _t4.response.data; // 1. Custom 'exist' error from Laravel controller (duplicate tenancy)
               if (!data.exist) {
-                _context2.n = 3;
+                _context4.n = 3;
                 break;
               }
-              sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+              sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
                 icon: "error",
                 title: "Duplicate Property",
                 text: data.exist // The error message sent by the controller
               });
-              return _context2.a(2);
+              return _context4.a(2);
             case 3:
               // 2. Standard validation errors
               if (data.errors) {
@@ -10440,29 +10536,29 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
                   }
                 }
                 errorMessages += "</ul>";
-                sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+                sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
                   icon: "error",
                   title: "Validation Error",
                   html: errorMessages
                 });
               }
-              _context2.n = 5;
+              _context4.n = 5;
               break;
             case 4:
               // Any other error
-              sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+              sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
                 icon: "error",
                 title: "Submission Failed",
                 text: "Something went wrong while submitting the form."
               });
             case 5:
-              _context2.p = 5;
-              _this2.isSubmitting = false;
-              return _context2.f(5);
+              _context4.p = 5;
+              _this4.isSubmitting = false;
+              return _context4.f(5);
             case 6:
-              return _context2.a(2);
+              return _context4.a(2);
           }
-        }, _callee2, null, [[0, 2, 5, 6]]);
+        }, _callee4, null, [[0, 2, 5, 6]]);
       }))();
     },
     computeLeaseDetails: function computeLeaseDetails() {
@@ -10523,9 +10619,10 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       this.modalMode = mode;
       this.modalTitle = mode === "add" ? "Add Tenancies" : mode === "edit" ? "Edit Tenancies" : "View Tenancies";
       if (mode === "edit" || mode === "view") {
+        var _tenancy$property, _tenancy$tenant;
         this.formData.id = tenancy.id;
-        this.formData.property = tenancy.property.property_name;
-        this.formData.tenant = tenancy.tenant.tenant_name;
+        this.formData.property = ((_tenancy$property = tenancy.property) === null || _tenancy$property === void 0 ? void 0 : _tenancy$property.property_name) || "";
+        this.formData.tenant = ((_tenancy$tenant = tenancy.tenant) === null || _tenancy$tenant === void 0 ? void 0 : _tenancy$tenant.tenant_name) || "";
         this.formData.lease_start_date = tenancy.lease_start_date;
         this.formData.lease_end_date = tenancy.lease_end_date;
         this.formData.nextPaymentDate = tenancy.due_date;
@@ -10549,34 +10646,34 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       return new Intl.NumberFormat("en-US").format(value);
     },
     getDataTenancy: function getDataTenancy() {
-      var _this3 = this;
-      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
-        var response, _t3;
-        return _regenerator().w(function (_context3) {
-          while (1) switch (_context3.p = _context3.n) {
+      var _this5 = this;
+      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5() {
+        var response, _t5;
+        return _regenerator().w(function (_context5) {
+          while (1) switch (_context5.p = _context5.n) {
             case 0:
-              _context3.p = 0;
-              _context3.n = 1;
+              _context5.p = 0;
+              _context5.n = 1;
               return axios.get("/real_estate_ms/api/get/data/tenancy", {
                 params: {
-                  page: _this3.tenancies.current_page,
-                  per_page: _this3.perPage,
-                  search: _this3.searchQuery
+                  page: _this5.tenancies.current_page,
+                  per_page: _this5.perPage,
+                  search: _this5.searchQuery
                 }
               });
             case 1:
-              response = _context3.v;
-              _this3.tenancies = response.data.data;
-              _context3.n = 3;
+              response = _context5.v;
+              _this5.tenancies = response.data.data;
+              _context5.n = 3;
               break;
             case 2:
-              _context3.p = 2;
-              _t3 = _context3.v;
-              console.error("Error fetching data:", _t3);
+              _context5.p = 2;
+              _t5 = _context5.v;
+              console.error("Error fetching data:", _t5);
             case 3:
-              return _context3.a(2);
+              return _context5.a(2);
           }
-        }, _callee3, null, [[0, 2]]);
+        }, _callee5, null, [[0, 2]]);
       }))();
     },
     changePage: function changePage(page) {
@@ -10588,6 +10685,8 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
   },
   data: function data() {
     return {
+      properties: [],
+      tenants: [],
       isSubmitting: false,
       modalTitle: "",
       modalMode: "add",
@@ -10635,6 +10734,8 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
     }
   },
   mounted: function mounted() {
+    this.fetchTenants();
+    this.fetchProperties();
     this.getDataTenancy();
     console.log("Component Mounted");
   }
@@ -88268,16 +88369,52 @@ var render = function () {
                         ),
                       ]),
                       _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(tenancy.tenant.tenant_name))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(tenancy.tenant.contact_number))]),
-                      _vm._v(" "),
                       _c("td", [
-                        _vm._v(_vm._s(tenancy.property.property_name)),
+                        _vm._v(
+                          "\n                  " +
+                            _vm._s(
+                              tenancy.tenant && tenancy.tenant.tenant_name
+                                ? tenancy.tenant.tenant_name
+                                : ""
+                            ) +
+                            "\n                "
+                        ),
                       ]),
                       _vm._v(" "),
                       _c("td", [
-                        _vm._v(_vm._s(tenancy.property.property_type)),
+                        _vm._v(
+                          "\n                  " +
+                            _vm._s(
+                              tenancy.tenant && tenancy.tenant.contact_number
+                                ? tenancy.tenant.contact_number
+                                : ""
+                            ) +
+                            "\n                "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                  " +
+                            _vm._s(
+                              tenancy.property && tenancy.property.property_name
+                                ? tenancy.property.property_name
+                                : ""
+                            ) +
+                            "\n                "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(
+                          "\n                  " +
+                            _vm._s(
+                              tenancy.property && tenancy.property.property_type
+                                ? tenancy.property.property_type
+                                : ""
+                            ) +
+                            "\n                "
+                        ),
                       ]),
                       _vm._v(" "),
                       _c("td", [
@@ -88541,84 +88678,102 @@ var render = function () {
                                 _c("div", { staticClass: "col-md-12" }, [
                                   _c(
                                     "div",
-                                    { staticClass: "form-floating mb-3" },
+                                    {
+                                      staticClass:
+                                        "form-floating mb-3 position-relative",
+                                    },
                                     [
-                                      _c("input", {
-                                        directives: [
-                                          {
-                                            name: "model",
-                                            rawName: "v-model",
-                                            value: _vm.formData.property,
-                                            expression: "formData.property",
-                                          },
-                                        ],
-                                        staticClass: "form-control",
+                                      _c("v-select", {
+                                        staticClass: "custom-select",
                                         attrs: {
-                                          type: "text",
-                                          placeholder: "Property Name",
+                                          reduce: function (property) {
+                                            return property.id
+                                          },
+                                          options: _vm.properties,
+                                          "get-option-label":
+                                            _vm.getOptionLabel,
+                                          placeholder: "Select Property *",
+                                          label: "property_name",
                                           required: "",
-                                          disabled: "",
                                         },
-                                        domProps: {
+                                        model: {
                                           value: _vm.formData.property,
-                                        },
-                                        on: {
-                                          input: function ($event) {
-                                            if ($event.target.composing) {
-                                              return
-                                            }
+                                          callback: function ($$v) {
                                             _vm.$set(
                                               _vm.formData,
                                               "property",
-                                              $event.target.value
+                                              $$v
                                             )
                                           },
+                                          expression: "formData.property",
                                         },
                                       }),
                                       _vm._v(" "),
-                                      _vm._m(3),
-                                    ]
+                                      _c("label", {
+                                        staticClass: "form-label",
+                                        attrs: { for: "property_availed" },
+                                      }),
+                                      _vm._v(" "),
+                                      _c("i", {
+                                        staticClass:
+                                          "bi bi-search position-absolute top-50 end-0 translate-middle-y me-3",
+                                        staticStyle: {
+                                          "font-size": "18px",
+                                          color: "#6c757d",
+                                        },
+                                      }),
+                                    ],
+                                    1
                                   ),
                                   _vm._v(" "),
                                   _c(
                                     "div",
-                                    { staticClass: "form-floating mb-3" },
+                                    {
+                                      staticClass:
+                                        "form-floating mb-3 position-relative",
+                                    },
                                     [
-                                      _c("input", {
-                                        directives: [
-                                          {
-                                            name: "model",
-                                            rawName: "v-model",
-                                            value: _vm.formData.tenant,
-                                            expression: "formData.tenant",
-                                          },
-                                        ],
-                                        staticClass: "form-control",
+                                      _c("v-select", {
+                                        staticClass: "custom-select",
                                         attrs: {
-                                          type: "text",
-                                          placeholder: "Tenant Name",
+                                          reduce: function (tenant) {
+                                            return tenant.id
+                                          },
+                                          options: _vm.tenants,
+                                          "get-option-label":
+                                            _vm.getOptionLabelTenant,
+                                          placeholder: "Select Tenant *",
+                                          label: "tenant_name",
                                           required: "",
-                                          disabled: "",
                                         },
-                                        domProps: {
+                                        model: {
                                           value: _vm.formData.tenant,
-                                        },
-                                        on: {
-                                          input: function ($event) {
-                                            if ($event.target.composing) {
-                                              return
-                                            }
+                                          callback: function ($$v) {
                                             _vm.$set(
                                               _vm.formData,
                                               "tenant",
-                                              $event.target.value
+                                              $$v
                                             )
                                           },
+                                          expression: "formData.tenant",
                                         },
                                       }),
                                       _vm._v(" "),
-                                      _vm._m(4),
-                                    ]
+                                      _c("label", {
+                                        staticClass: "form-label",
+                                        attrs: { for: "tenant" },
+                                      }),
+                                      _vm._v(" "),
+                                      _c("i", {
+                                        staticClass:
+                                          "bi bi-search position-absolute top-50 end-0 translate-middle-y me-3",
+                                        staticStyle: {
+                                          "font-size": "18px",
+                                          color: "#6c757d",
+                                        },
+                                      }),
+                                    ],
+                                    1
                                   ),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "row" }, [
@@ -88665,7 +88820,7 @@ var render = function () {
                                             },
                                           }),
                                           _vm._v(" "),
-                                          _vm._m(5),
+                                          _vm._m(3),
                                         ]
                                       ),
                                     ]),
@@ -88713,7 +88868,7 @@ var render = function () {
                                             },
                                           }),
                                           _vm._v(" "),
-                                          _vm._m(6),
+                                          _vm._m(4),
                                         ]
                                       ),
                                     ]),
@@ -88758,7 +88913,7 @@ var render = function () {
                                           },
                                         }),
                                         _vm._v(" "),
-                                        _vm._m(7),
+                                        _vm._m(5),
                                       ]
                                     ),
                                     _vm._v(" "),
@@ -88860,7 +89015,7 @@ var render = function () {
                                               },
                                             }),
                                             _vm._v(" "),
-                                            _vm._m(8),
+                                            _vm._m(6),
                                           ]
                                         ),
                                       ]),
@@ -88905,7 +89060,7 @@ var render = function () {
                                               },
                                             }),
                                             _vm._v(" "),
-                                            _vm._m(9),
+                                            _vm._m(7),
                                           ]
                                         ),
                                       ]),
@@ -88931,7 +89086,7 @@ var render = function () {
                                             },
                                           }),
                                           _vm._v(" "),
-                                          _vm._m(10),
+                                          _vm._m(8),
                                         ]
                                       ),
                                       _vm._v(" "),
@@ -88973,7 +89128,7 @@ var render = function () {
                                             },
                                           }),
                                           _vm._v(" "),
-                                          _vm._m(11),
+                                          _vm._m(9),
                                         ]
                                       ),
                                     ]),
@@ -89198,24 +89353,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th"),
       ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "property_name" } }, [
-      _vm._v("Property Name\n                          "),
-      _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "tenant_name" } }, [
-      _vm._v("Tenant Name\n                          "),
-      _c("span", { staticClass: "text-danger" }, [_vm._v("*")]),
     ])
   },
   function () {

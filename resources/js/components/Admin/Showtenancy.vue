@@ -151,12 +151,36 @@
                   <td>{{ formatAmount(tenancy.monthly_rent_amount) }}</td>
                   <!-- <td>{{ formatAmount(tenancy.total_amount) }}</td> -->
 
-                  <td>{{ tenancy.tenant.tenant_name }}</td>
+                  <td>
+                    {{
+                      tenancy.tenant && tenancy.tenant.tenant_name
+                        ? tenancy.tenant.tenant_name
+                        : ""
+                    }}
+                  </td>
 
-                  <td>{{ tenancy.tenant.contact_number }}</td>
+                  <td>
+                    {{
+                      tenancy.tenant && tenancy.tenant.contact_number
+                        ? tenancy.tenant.contact_number
+                        : ""
+                    }}
+                  </td>
 
-                  <td>{{ tenancy.property.property_name }}</td>
-                  <td>{{ tenancy.property.property_type }}</td>
+                  <td>
+                    {{
+                      tenancy.property && tenancy.property.property_name
+                        ? tenancy.property.property_name
+                        : ""
+                    }}
+                  </td>
+                  <td>
+                    {{
+                      tenancy.property && tenancy.property.property_type
+                        ? tenancy.property.property_type
+                        : ""
+                    }}
+                  </td>
                   <td>{{ formatDate(tenancy.due_date) }}</td>
                   <td>{{ tenancy.payment_tenants_count }}</td>
                   <td>
@@ -191,7 +215,6 @@
                     >
                       <i class="fas fa-trash"></i> Delete
                     </a>
-                  
                   </td>
                 </tr>
                 <!-- Repeat for more rows as needed -->
@@ -281,33 +304,41 @@
                   >
                     <div class="row">
                       <div class="col-md-12">
-                        <div class="form-floating mb-3">
-                          <input
-                            type="text"
-                            class="form-control"
+                        <div class="form-floating mb-3 position-relative">
+                          <v-select
                             v-model="formData.property"
-                            placeholder="Property Name"
+                            :reduce="(property) => property.id"
+                            :options="properties"
+                            :get-option-label="getOptionLabel"
+                            placeholder="Select Property *"
+                            label="property_name"
                             required
-                            disabled
+                            class="custom-select"
                           />
-                          <label for="property_name"
-                            >Property Name
-                            <span class="text-danger">*</span></label
-                          >
+
+                          <label for="property_availed" class="form-label">
+                          </label>
+                          <i
+                            class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-3"
+                            style="font-size: 18px; color: #6c757d"
+                          ></i>
                         </div>
-                        <div class="form-floating mb-3">
-                          <input
-                            type="text"
-                            class="form-control"
+                        <div class="form-floating mb-3 position-relative">
+                          <v-select
                             v-model="formData.tenant"
-                            placeholder="Tenant Name"
+                            :reduce="(tenant) => tenant.id"
+                            :options="tenants"
+                            :get-option-label="getOptionLabelTenant"
+                            placeholder="Select Tenant *"
+                            label="tenant_name"
                             required
-                            disabled
+                            class="custom-select"
                           />
-                          <label for="tenant_name"
-                            >Tenant Name
-                            <span class="text-danger">*</span></label
-                          >
+                          <label for="tenant" class="form-label"></label>
+                          <i
+                            class="bi bi-search position-absolute top-50 end-0 translate-middle-y me-3"
+                            style="font-size: 18px; color: #6c757d"
+                          ></i>
                         </div>
                         <div class="row">
                           <div class="col-lg-6">
@@ -361,7 +392,6 @@
                                 class="form-control"
                                 id="next_payment_date"
                                 v-model="formData.nextPaymentDate"
-                                
                               />
                               <label for="next_payment_date"
                                 >Next Payment Date</label
@@ -458,9 +488,7 @@
                       <!-- Add or Edit icon and label -->
                       <span v-else>
                         <i class="fas fa-save me-2"></i>
-                        {{
-                          modalMode === "add" ? "Add Property" : "Update"
-                        }}
+                        {{ modalMode === "add" ? "Add Property" : "Update" }}
                       </span>
                     </button>
                   </div>
@@ -475,9 +503,44 @@
 </template>
 
 <script>
+import vSelect from "vue-select";
+import "vue-select/dist/vue-select.css";
 import Swal from "sweetalert2";
+
 export default {
+  components: {
+    vSelect,
+  },
   methods: {
+    async fetchProperties() {
+      try {
+        const response = await axios.get(
+          "/real_estate_ms/api/get/available/property"
+        );
+        // Directly use the data as an array of objects
+        this.properties = response.data;
+      } catch (error) {
+        console.error("Error fetching properties:", error);
+      }
+    },
+    getOptionLabel(property) {
+      return `${property.property_name} (${property.monthly_rate})`; // This will show the property name and monthly rate
+    },
+    async fetchTenants() {
+      try {
+        const response = await axios.get(
+          "/real_estate_ms/api/get/available/tenant"
+        );
+        // Directly use the data as an array of objects
+        this.tenants = response.data;
+      } catch (error) {
+        console.error("Error fetching properties:", error);
+      }
+    },
+
+    getOptionLabelTenant(tenant) {
+      return `${tenant.tenant_name} (${tenant.contact_number})`; // This will show the property name and monthly rate
+    },
     async deleteTenancy(tenancy) {
       const confirmation = await Swal.fire({
         title: "Are you sure?",
@@ -538,6 +601,8 @@ export default {
         formData.append("lease_start_date", this.formData.lease_start_date);
         formData.append("lease_end_date", this.formData.lease_end_date);
         formData.append("nextPaymentDate", this.formData.nextPaymentDate);
+          formData.append("property", this.formData.property);
+           formData.append("tenant", this.formData.tenant);
 
         formData.append("monthlyRentAmount", this.formData.monthlyRentAmount);
         formData.append("leaseDuration", this.formData.leaseDuration);
@@ -705,8 +770,9 @@ export default {
 
       if (mode === "edit" || mode === "view") {
         this.formData.id = tenancy.id;
-        this.formData.property = tenancy.property.property_name;
-        this.formData.tenant = tenancy.tenant.tenant_name;
+        this.formData.property = tenancy.property?.property_name || "";
+        this.formData.tenant = tenancy.tenant?.tenant_name || "";
+
         this.formData.lease_start_date = tenancy.lease_start_date;
         this.formData.lease_end_date = tenancy.lease_end_date;
         this.formData.nextPaymentDate = tenancy.due_date;
@@ -757,6 +823,8 @@ export default {
   },
   data() {
     return {
+      properties: [],
+      tenants: [],
       isSubmitting: false,
       modalTitle: "",
       modalMode: "add",
@@ -783,23 +851,23 @@ export default {
       },
     };
   },
-watch: {
-  "formData.lease_start_date": function(newDate) {
-    if (!newDate) {
-      this.formData.nextPaymentDate = "";
-      return;
-    }
+  watch: {
+    "formData.lease_start_date": function (newDate) {
+      if (!newDate) {
+        this.formData.nextPaymentDate = "";
+        return;
+      }
 
-    const date = new Date(newDate);
-    date.setMonth(date.getMonth() + 1);
+      const date = new Date(newDate);
+      date.setMonth(date.getMonth() + 1);
 
-    // Format as yyyy-mm-dd
-    this.formData.nextPaymentDate = date.toISOString().split("T")[0];
+      // Format as yyyy-mm-dd
+      this.formData.nextPaymentDate = date.toISOString().split("T")[0];
+    },
+
+    "formData.lease_end_date": "computeLeaseDetails",
+    "formData.monthlyRentAmount": "computeTotalAmount",
   },
-
-  "formData.lease_end_date": "computeLeaseDetails",
-  "formData.monthlyRentAmount": "computeTotalAmount",
-},
 
   computed: {
     totalPages() {
@@ -807,6 +875,8 @@ watch: {
     },
   },
   mounted() {
+    this.fetchTenants();
+    this.fetchProperties();
     this.getDataTenancy();
     console.log("Component Mounted");
   },

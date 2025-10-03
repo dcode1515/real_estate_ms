@@ -604,8 +604,8 @@ class AdminController extends Controller
     {
         
          $request->validate([
-                'propertyAvailed' => 'required|exists:property,id',
-                'tenant' => 'required|exists:tenant,id',
+                'propertyAvailed' => 'nullable|exists:property,id',
+                'tenant' => 'nullable|exists:tenant,id',
                 'leaseStartDate' => 'nullable|date|before_or_equal:leaseEndDate',
                 'leaseEndDate' => 'nullable|date|after_or_equal:leaseStartDate',
                 'monthlyRent' => 'nullable',
@@ -702,6 +702,10 @@ class AdminController extends Controller
 
         $tenancy->tenancy_terms = ($request->tenancyTerms === 'null' || empty($request->tenancyTerms)) ? null : $request->tenancyTerms;
 
+        $tenancy->property_id = ($request->property === 'null' || empty($request->property)) ? null : $request->property;
+
+        $tenancy->tenant_id = ($request->tenant === 'null' || empty($request->tenant)) ? null : $request->tenant;
+
             
         $tenancy->due_date = $request->nextPaymentDate;
        
@@ -726,6 +730,12 @@ class AdminController extends Controller
         
 
         $tenancy->save();
+
+          $property = Property::find($request->property); // Find the property by ID
+        if ($property) {
+            $property->status = 'Occupied'; // Update the property status
+            $property->save(); // Save the updated property
+        }
         return response()->json(['message' => $tenancy]);
 
     }
