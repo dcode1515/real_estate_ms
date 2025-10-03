@@ -542,6 +542,18 @@ export default {
       return `${tenant.tenant_name} (${tenant.contact_number})`; // This will show the property name and monthly rate
     },
     async deleteTenancy(tenancy) {
+      // 🚫 Check if tenant or property data is missing
+      if (!tenancy || !tenancy.tenant || !tenancy.property) {
+        await Swal.fire({
+          title: "Invalid Tenancy",
+          text: "This tenancy record is missing tenant or property information and cannot be deleted. Please edit the data first.",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+        return;
+      }
+
+      // ⚠️ Confirm Deletion
       const confirmation = await Swal.fire({
         title: "Are you sure?",
         text: `You are about to delete tenancy for: ${tenancy.tenant.tenant_name}`,
@@ -558,7 +570,7 @@ export default {
           `/real_estate_ms/api/delete/tenancy/${tenancy.id}`
         );
 
-        // ✅ Success: tenancy deleted
+        // ✅ Success
         await Swal.fire({
           title: "Deleted!",
           text: response.data.success || "Tenancy deleted successfully.",
@@ -566,12 +578,11 @@ export default {
           confirmButtonText: "OK",
         });
 
-        // Optionally refresh data or redirect
-        // window.location.href = "/real_estate_ms/show/tenancy";
+        // Refresh tenancy data
         this.getDataTenancy();
       } catch (error) {
-        // ⚠️ Backend returns 422 if payment records exist
         if (error.response && error.response.status === 422) {
+          // ⚠️ Validation Error - Payments exist
           await Swal.fire({
             title: "Cannot Delete",
             text:
@@ -580,7 +591,7 @@ export default {
             icon: "error",
           });
         } else {
-          // ⚠️ Unknown error
+          // ⚠️ Unexpected error
           await Swal.fire({
             title: "Unexpected Error",
             text: "Something went wrong while trying to delete the tenancy.",
@@ -601,8 +612,8 @@ export default {
         formData.append("lease_start_date", this.formData.lease_start_date);
         formData.append("lease_end_date", this.formData.lease_end_date);
         formData.append("nextPaymentDate", this.formData.nextPaymentDate);
-          formData.append("property", this.formData.property);
-           formData.append("tenant", this.formData.tenant);
+        formData.append("property", this.formData.property);
+        formData.append("tenant", this.formData.tenant);
 
         formData.append("monthlyRentAmount", this.formData.monthlyRentAmount);
         formData.append("leaseDuration", this.formData.leaseDuration);

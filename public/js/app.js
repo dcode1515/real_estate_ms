@@ -10395,7 +10395,21 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         return _regenerator().w(function (_context3) {
           while (1) switch (_context3.p = _context3.n) {
             case 0:
+              if (!(!tenancy || !tenancy.tenant || !tenancy.property)) {
+                _context3.n = 2;
+                break;
+              }
               _context3.n = 1;
+              return sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
+                title: "Invalid Tenancy",
+                text: "This tenancy record is missing tenant or property information and cannot be deleted. Please edit the data first.",
+                icon: "error",
+                confirmButtonText: "OK"
+              });
+            case 1:
+              return _context3.a(2);
+            case 2:
+              _context3.n = 3;
               return sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
                 title: "Are you sure?",
                 text: "You are about to delete tenancy for: ".concat(tenancy.tenant.tenant_name),
@@ -10404,61 +10418,60 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
                 confirmButtonText: "Yes, delete it!",
                 cancelButtonText: "Cancel"
               });
-            case 1:
+            case 3:
               confirmation = _context3.v;
               if (confirmation.isConfirmed) {
-                _context3.n = 2;
+                _context3.n = 4;
                 break;
               }
               return _context3.a(2);
-            case 2:
-              _context3.p = 2;
-              _context3.n = 3;
+            case 4:
+              _context3.p = 4;
+              _context3.n = 5;
               return axios["delete"]("/real_estate_ms/api/delete/tenancy/".concat(tenancy.id));
-            case 3:
+            case 5:
               response = _context3.v;
-              _context3.n = 4;
+              _context3.n = 6;
               return sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
                 title: "Deleted!",
                 text: response.data.success || "Tenancy deleted successfully.",
                 icon: "success",
                 confirmButtonText: "OK"
               });
-            case 4:
-              // Optionally refresh data or redirect
-              // window.location.href = "/real_estate_ms/show/tenancy";
+            case 6:
+              // Refresh tenancy data
               _this3.getDataTenancy();
-              _context3.n = 9;
+              _context3.n = 11;
               break;
-            case 5:
-              _context3.p = 5;
+            case 7:
+              _context3.p = 7;
               _t3 = _context3.v;
               if (!(_t3.response && _t3.response.status === 422)) {
-                _context3.n = 7;
+                _context3.n = 9;
                 break;
               }
-              _context3.n = 6;
+              _context3.n = 8;
               return sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
                 title: "Cannot Delete",
                 text: _t3.response.data.error || "This tenancy has payments and cannot be deleted.",
                 icon: "error"
               });
-            case 6:
-              _context3.n = 9;
+            case 8:
+              _context3.n = 11;
               break;
-            case 7:
-              _context3.n = 8;
+            case 9:
+              _context3.n = 10;
               return sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().fire({
                 title: "Unexpected Error",
                 text: "Something went wrong while trying to delete the tenancy.",
                 icon: "error"
               });
-            case 8:
+            case 10:
               console.error(_t3);
-            case 9:
+            case 11:
               return _context3.a(2);
           }
-        }, _callee3, null, [[2, 5]]);
+        }, _callee3, null, [[4, 7]]);
       }))();
     },
     submitForm: function submitForm(id) {
